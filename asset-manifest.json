@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/project-CodeMasters/static/css/main.7acaea2f.css",
-    "main.js": "/project-CodeMasters/static/js/main.07d3183d.js",
-    "index.html": "/project-CodeMasters/index.html",
-    "main.7acaea2f.css.map": "/project-CodeMasters/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/project-CodeMasters/static/js/main.07d3183d.js.map"
+    "main.css": "/project-CodeMasters02/static/css/main.7acaea2f.css",
+    "main.js": "/project-CodeMasters02/static/js/main.07d3183d.js",
+    "index.html": "/project-CodeMasters02/index.html",
+    "main.7acaea2f.css.map": "/project-CodeMasters02/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/project-CodeMasters02/static/js/main.07d3183d.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
