@@ -8,21 +8,22 @@ THIS PROJECT WAS CREATED BY:
 
 - :man_student:[**Team Lead:** Lytvyn Svetlana](https://github.com/0trava)
 - :man_student:[**Scrum master** & **Full stack developer**: ](https://github.com/Tetiana1409)
+
+
+- :man_student:[**Full stack developer**: Lytvyn Svetlana](https://github.com/0trava)
 - :man_student:[**Full stack developer**: Olena Harkusha](https://github.com/OlenaHarkusha)
 - :man_student:[**Full stack developer**: Olha Lushina](https://github.com/OlhaLushina)
 - :man_student:[**Full stack developer**: Anastasiia Ablieieva](https://github.com/Anastasiia-Ablieieva)
 - :man_student:[**Full stack developer**: Oleg Artemenko](https://github.com/OlegArt1)
-- :man_student:[**Full stack developer**: Anatolii Koniev](https://github.com/_____)
+- :man_student:[**Full stack developer**: Anatolii Koniev](https://github.com/Demag0g1)
 - :man_student:[**Full stack developer**: Tuschenko Dmutro](https://github.com/T-Dmutro)
-
-- :man_student:[**Full stack developer**: _Oleksii Panaioti](https://github.com/OleksiiPanaioti)
-- :man_student:[**Full stack developer**: _Mykhailo Kuzmenko](https://github.com/Mushko2932)
-- :man_student:[**Full stack developer**: _Demag0g1](https://github.com/Demag0g1)
-- :man_student:[**Full stack developer**: _alionash](https://github.com/alionash)
-- :man_student:[**Full stack developer**: _Yelyzaveta Riabokon](https://github.com/lisa-riabokon)
-- :man_student:[**Full stack developer**: _Alexander Zabara](https://github.com/Zabaraaa)
+- :man_student:[**Full stack developer**:  Dmytro Melnyk](https://github.com/Melnyk675)
 
 
+- :man_student:[**Full stack developer**: Meshchaninova Yuliia](https://github.com/alionash)
+- :man_student:[**Full stack developer**: Volodymyr Holotnyk](https://github.com/Zabaraaa)
+- :man_student:[**Full stack developer**: Oleksandr Vysitskyi](https://github.com/Zabaraaa)
+- :man_student:[**Full stack developer**: Pavlo Skrypniuk](https://github.com/Zabaraaa)
 
 
 Made by design  <a href="">LINK</a>
