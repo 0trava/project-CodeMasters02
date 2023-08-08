@@ -1,11 +1,18 @@
-.container {
+.mainPage {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+}
 
+
+.container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: #3E85F3;
-
+    width: 375px;
+    height: 812px;
 
    }
 
@@ -15,10 +22,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    width: 375px;
-    height: 812px;
-
+    background-color: #3E85F3;
+    width: 100vw;
 }
 
 .mainPage__hero-title {
@@ -44,10 +49,12 @@
 
 
 @media (min-width:768px) {
-    .mainPage__hero {
-        background-color: red;
+    .container{
         width: 768px;
         height: 1024px;
+    }
+
+    .mainPage__hero {
 
     }
 
@@ -69,12 +76,12 @@
 }
 
 @media (min-width:1440px) {
-    .mainPage__hero {
-        background-color: blue;
+    .container{
         width: 1440px;
         height: 770px;
-
     }
+
+
 
     .mainPage__hero-title {
         font-size: 120px;
@@ -99,6 +106,39 @@
 
 }
 
+/* ----------------- Section Main----------------- */
+
+.mainPage__section-list {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    padding: 0;
+
+}
+
+
+
+.mainPage__section-item {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* width: 1107px; */
+    gap: 228px;
+
+
+}
+
+.mainPage__section-item:nth-child(2) {
+    flex-direction: row-reverse;
+}
+
+.mainPage__section-item img {
+    width: 604px;
+}
+
+.mainPage__section-item div {
+    width: 275px;
+}
 
 
 

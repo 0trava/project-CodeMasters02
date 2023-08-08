@@ -18,14 +18,13 @@ THIS PROJECT WAS CREATED BY:
 - :man_student:[**Full stack developer**: Anatolii Koniev](https://github.com/Demag0g1)
 - :man_student:[**Full stack developer**: Tuschenko Dmutro](https://github.com/T-Dmutro)
 - :man_student:[**Full stack developer**: Yaroslav Yakovenko](https://github.com/Yaroslav-Yaroslav)
-
-
+- :man_student:[**Full stack developer**: Oleksandr Vysitskyi](https://github.com/Oleksandr1301)
+- :man_student:[**Full stack developer**: Svitlana Shvydanenko ](https://github.com/Svitlana-Sh)
+- :man_student:[**Full stack developer**: Volodymyr Holotnyk](https://github.com/Golotniks94)
 
 - :man_student:[**Full stack developer**: Meshchaninova Yuliia](https://github.com/alionash)
-- :man_student:[**Full stack developer**: Volodymyr Holotnyk](https://github.com/Zabaraaa)
-- :man_student:[**Full stack developer**: Svitlana Shvydanenko ](https://github.com/Zabaraaa)
 - :man_student:[**Full stack developer**: Pavlo Skrypniuk](https://github.com/Zabaraaa)
-- :man_student:[**Full stack developer**: Oleksandr Vysitskyi](https://github.com/Zabaraaa)
+
 
 
 Made by design  <a href="https://www.figma.com/file/kXtsjq7Tts3YzolUVqgNsp/Goose-Track?node-id=0%3A1&t=1A4UeIYiOYEgfGkN-1">LINK</a>
