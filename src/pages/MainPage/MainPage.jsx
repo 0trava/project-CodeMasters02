@@ -9,7 +9,7 @@ export const MainPage = () => {
         <img className='mainPage__hero-logo' src={heroLogo} alt="logo"/>
         <h1 className='mainPage__hero-title'>GooseTrack</h1>
         <div className='mainPage__hero-box'>
-            <a  className='mainPage__hero-link' href="">Sign up</a>
+            <a  className='mainPage__hero-link' href="/">Sign up</a>
             <button type='button'>Log in </button>
         </div>
     </section>
