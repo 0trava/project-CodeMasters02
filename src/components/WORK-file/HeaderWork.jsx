@@ -11,8 +11,8 @@ export const HeaderWork = () => {
   return ( 
     <nav className='HeaderWork'>
         <Link to={ROUTES.START}>Start</Link>
-        <Link to={ROUTES.LOGIN}>login</Link>
-        <Link to={ROUTES.REGISTER}>register</Link>
+        <Link to={ROUTES.LOGIN}>Login</Link>
+        <Link to={ROUTES.REGISTER}>Register</Link>
         <Link to={ROUTES.HOME}>HOME</Link>
         <Link to={ROUTES.NotFound}>NotFound</Link>
    </nav>
