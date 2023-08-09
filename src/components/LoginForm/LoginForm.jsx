@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from 'yup';
-import css from './Login.module.css';
+import css from './LoginForm.module.css';
 
 
 export default function LoginForm() {
@@ -21,8 +21,9 @@ export default function LoginForm() {
     });
 
     return (
-        <div className={css.container}>
-            <h1 className={css.title}>Sign up</h1>
+        <div className={css.login_container}>
+            <div className={css.container}>
+            <h1 className={css.title}>Sign Up</h1>
             <Formik 
                 initialValues={{
                     name: '',
@@ -71,6 +72,7 @@ export default function LoginForm() {
                     </button>
                 </Form>
             </Formik>
+            </div>
         </div>
     )
 };
