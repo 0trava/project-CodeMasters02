@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/project-CodeMasters02/static/css/main.4b79448e.css",
-    "main.js": "/project-CodeMasters02/static/js/main.9ac3b0a1.js",
+    "main.css": "/project-CodeMasters02/static/css/main.86228826.css",
+    "main.js": "/project-CodeMasters02/static/js/main.450618c0.js",
     "static/media/MainPage_img_1_desktop.png": "/project-CodeMasters02/static/media/MainPage_img_1_desktop.800d2a0ed06392132a30.png",
     "static/media/MainPage_img_2_desktop.png": "/project-CodeMasters02/static/media/MainPage_img_2_desktop.b7ecd4a2f76a25338824.png",
     "static/media/MainPage_img_3_desktop.png": "/project-CodeMasters02/static/media/MainPage_img_3_desktop.d049122b01ae6baf2020.png",
     "static/media/MainPage_duck.png": "/project-CodeMasters02/static/media/MainPage_duck.3c0470b19aa18aaef0d8.png",
     "index.html": "/project-CodeMasters02/index.html",
-    "main.4b79448e.css.map": "/project-CodeMasters02/static/css/main.4b79448e.css.map",
-    "main.9ac3b0a1.js.map": "/project-CodeMasters02/static/js/main.9ac3b0a1.js.map"
+    "main.86228826.css.map": "/project-CodeMasters02/static/css/main.86228826.css.map",
+    "main.450618c0.js.map": "/project-CodeMasters02/static/js/main.450618c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b79448e.css",
-    "static/js/main.9ac3b0a1.js"
+    "static/css/main.86228826.css",
+    "static/js/main.450618c0.js"
   ]
 }
