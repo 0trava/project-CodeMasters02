@@ -13,24 +13,32 @@ code {
 }
 
 :root {
-  --color-black: #13151A;
-  --color-blue: #3E85F3;
-  --color-white: #FFFFFF;
-  --color-blue-light: #DCEBF7;
+  --color-black: #13151a;
+  --color-blue: #3e85f3;
+  --color-white: #ffffff;
+  --color-blue-light: #dcebf7;
 
-  --toogler-body-white: #EAEAEA;
-  --toogler-body-dark: #13151A;
-  --toogler-block-white: #FFFFFF;
-  --toogler-block-dark: #21222C;
+  --toogler-body-white: #eaeaea;
+  --toogler-body-dark: #13151a;
+  --toogler-block-white: #ffffff;
+  --toogler-block-dark: #21222c;
 
-  --color-gradient-pink: linear-gradient(0deg, #FFD2DD 0%, rgba(255, 210, 221, 0) 96.87%);
-  --color-gradient-blue: linear-gradient(0deg, #3E85F3 0%, rgba(62, 133, 243, 0) 100%);
+  --color-gradient-pink: linear-gradient(
+    0deg,
+    #ffd2dd 0%,
+    rgba(255, 210, 221, 0) 96.87%
+  );
+  --color-gradient-blue: linear-gradient(
+    0deg,
+    #3e85f3 0%,
+    rgba(62, 133, 243, 0) 100%
+  );
 
   --color-task-low: rgba(114, 194, 248, 1);
   --color-task-high: rgba(234, 61, 101, 1);
   --color-task-medium: rgba(243, 178, 73, 1);
 
-  --transition: cubic-bezier(.01,.59,1,.59);
+  --transition: cubic-bezier(0.01, 0.59, 1, 0.59);
 }
 
 p,
@@ -47,13 +55,10 @@ img {
   display: block;
 }
 
-li, a {
+li,
+a {
   text-decoration: none;
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
-
-
-
