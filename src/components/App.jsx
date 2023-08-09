@@ -11,7 +11,6 @@ export const App = () => {
       <HeaderWork/>
       <AppRoutes />
       {/* <MainPage/> */}
-      <NotFound/>
       </>
   );
 };
