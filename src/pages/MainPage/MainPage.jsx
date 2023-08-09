@@ -32,7 +32,7 @@ export const MainPage = () => {
             </li>
             <li className='mainPage__section-item'>
                <div>
-                    <p className='mainPage__section-number'>2.</p>
+                    <p  className='mainPage__section-item_number'>2.</p>
                     <h3>SIDEBAR</h3>
                     <p>GooseTrack offers easy access to your account settings, calendar, and filters. The "My Account" section allows you to manage your profile information and preferences, while the calendar provides a quick and convenient way to view your upcoming events and tasks.</p>
                </div>
@@ -40,7 +40,7 @@ export const MainPage = () => {
             </li>
             <li className='mainPage__section-item'>
                <div>
-                    <p className='mainPage__section-number'>3.</p>
+                    <p  className='mainPage__section-item_number'>3.</p>
                     <h2 className='mainPage__section-item_preTitle'>all in</h2>
                     <h3>one</h3>
                     <p>GooseTrack is an all-in-one productivity tool that helps you stay on top of your tasks, events, and deadlines. Say goodbye to scattered to-do lists and hello to streamlined productivity with GooseTrack.</p>

@@ -17,18 +17,17 @@
    }
 
 .mainPage__hero {
-    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #3E85F3;
+    background-color: var(--color-blue);
     width: 100vw;
 }
 
 .mainPage__hero-title {
-    color: #FFFFFF;
-
+    color: var(--color-white);
+    font-family: Inter;
     font-size: 44px;
     font-weight: 700;
     line-height: 48px;
@@ -54,11 +53,8 @@
         height: 1024px;
     }
 
-    .mainPage__hero {
-
-    }
-
     .mainPage__hero-title {
+
         font-size: 100px;
         line-height: 130px;
         margin-bottom: 40px;
@@ -81,8 +77,6 @@
         height: 770px;
     }
 
-
-
     .mainPage__hero-title {
         font-size: 120px;
         line-height: 150px;
@@ -95,9 +89,9 @@
 }
 
 .mainPage__hero-link {
-    color: #FFFFFF;
+    color: var(--color-white);
 
-    font-family: Inter;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 600;
     line-height: 18px;
@@ -138,6 +132,18 @@
 
 .mainPage__section-item div {
     width: 275px;
+}
+
+.mainPage__section-item_number {
+    font-family: 'Inter', sans-serif;
+    font-size: 104px;
+    font-weight: 700;
+    line-height: 104px;
+    letter-spacing: -4px;
+    text-align: left;
+    color: var(--color-blue);
+
+
 }
 
 

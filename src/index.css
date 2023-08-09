@@ -2,30 +2,35 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Inter', sans-serif;
 }
 
 :root {
-  --main-title-color: white;
-  --second-title-color: #303030;
-  --third-title-color: #555555;
-  --btn-acent-color: #FF6C00;
-  --contacts-text-color: #9DA4BD;
-  --footer-text-color: rgba(255, 255, 255, 0.6);
-  --accent-color: #FF6C00;
-  --form-second-color: #FF6C00;
-  --text-form-placeholder: rgba(117, 117, 117, 0.5);
-  --background-gradient: rgba(25, 28, 38, 0.2),
-  rgba(25, 28, 38, 0.2);
+  --color-black: #13151A;
+  --color-blue: #3E85F3;
+  --color-white: #FFFFFF;
+  --color-blue-light: #DCEBF7;
+
+  --toogler-body-white: #EAEAEA;
+  --toogler-body-dark: #13151A;
+  --toogler-block-white: #FFFFFF;
+  --toogler-block-dark: #21222C;
+
+  --color-gradient-pink: linear-gradient(0deg, #FFD2DD 0%, rgba(255, 210, 221, 0) 96.87%);
+  --color-gradient-blue: linear-gradient(0deg, #3E85F3 0%, rgba(62, 133, 243, 0) 100%);
+
+  --color-task-low: rgba(114, 194, 248, 1);
+  --color-task-high: rgba(234, 61, 101, 1);
+  --color-task-medium: rgba(243, 178, 73, 1);
+
+  --transition: cubic-bezier(.01,.59,1,.59);
 }
 
 p,
@@ -48,5 +53,7 @@ li, a {
   margin: 0;
   padding: 0;
 }
+
+
 
 

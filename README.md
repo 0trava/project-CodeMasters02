@@ -21,9 +21,10 @@ THIS PROJECT WAS CREATED BY:
 - :man_student:[**Full stack developer**: Oleksandr Vysitskyi](https://github.com/Oleksandr1301)
 - :man_student:[**Full stack developer**: Svitlana Shvydanenko ](https://github.com/Svitlana-Sh)
 - :man_student:[**Full stack developer**: Volodymyr Holotnyk](https://github.com/Golotniks94)
+- :man_student:[**Full stack developer**: Pavlo Skrypniuk](https://github.com/Skripnuyk)
 
 - :man_student:[**Full stack developer**: Meshchaninova Yuliia](https://github.com/alionash)
-- :man_student:[**Full stack developer**: Pavlo Skrypniuk](https://github.com/Zabaraaa)
+
 
 
 
