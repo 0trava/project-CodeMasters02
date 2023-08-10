@@ -1,0 +1,27 @@
+.btn {
+    margin-top: 439px;
+    margin-left: 24px;
+    margin-bottom: 24px;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    border-radius: 16px;
+    border: 2px solid #3E85F3;
+    background-color: #3E85F3;
+}
+.btn_text {
+    padding: 16px 0 16px 23px;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 0.75;
+    letter-spacing: -0.36px;
+    color: #FFF;
+}
+.icon {
+    width: 20px;
+    height: 20px;
+}
