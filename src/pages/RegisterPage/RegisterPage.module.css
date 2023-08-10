@@ -1,0 +1,17 @@
+.register_page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-blue-light);
+  }
+
+@media (min-width: 1440px) {
+    .register_page {
+      background-image: url(../../images/RegisterPage_duck_1x.png);
+      background-repeat: no-repeat;
+      background-position: 49px 100%;
+  }
+}

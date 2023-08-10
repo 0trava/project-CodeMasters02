@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import RegisterForm from 'components/RegisterForm/RegisterForm';
+import css from './RegisterPage.module.css'
 
 export const RegisterPage = () => {
   return (
-    <div>RegisterPage</div>
+    <div className={css.register_page}>
+      <RegisterForm />
+    </div>
   )
 }
 
