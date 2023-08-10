@@ -1,18 +1,18 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import error_rocket from '../../images/error_rocket.png';
 import '../NotFound/NotFound.css';
 
 export const NotFound = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const {isAuthenticated} = useState(false);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleBackToHome = () => {
     if (isAuthenticated) {
-      history.push('/MainLayout');
+      navigate('/MainLayout');
     } else {
-      history.push('/MainPage');
+      navigate('/MainPage');
     }
   };
 
