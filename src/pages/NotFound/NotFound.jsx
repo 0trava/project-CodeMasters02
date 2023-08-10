@@ -4,7 +4,7 @@ import error_rocket from '../../images/error_rocket.png';
 import '../NotFound/NotFound.css';
 
 export const NotFound = () => {
-  const {isAuthenticated} = useState(false);
+  const {isAuthenticated} = useState(false);  //state.auth.user
 
   const navigate = useNavigate();
 
