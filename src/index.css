@@ -23,6 +23,8 @@ code {
   --toogler-block-white: #ffffff;
   --toogler-block-dark: #21222c;
 
+  --input-placeholder-color: #DCE3E5;
+
   --color-gradient-pink: linear-gradient(
     0deg,
     #ffd2dd 0%,

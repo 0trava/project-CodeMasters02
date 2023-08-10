@@ -11,20 +11,20 @@ export default function LoginForm() {
 
     const SignupSchema = yup.object().shape({
         // eslint-disable-next-line
-        email: yup.
-            string()
-            .required('Email is a required')
-            .email('Invalid email address. The email address must contain the @ sign'),
+        email: yup
+            .string()
+            .required('Email is a required!')
+            .email('Invalid email address. The email address must contain the @ sign.'),
         password: yup
             .string()
-            .required('Password is a required')
-            .min(6, 'Password must be at least 6 characters'),
+            .required('Password is a required!')
+            .min(6, 'Password must be at least 6 characters.'),
     });
 
     return (
         <div className={css.login_container}>
             <div className={css.container}>
-            <h1 className={css.title}>Sign Up</h1>
+            <h1 className={css.title}>Log In</h1>
             <Formik 
                 initialValues={{
                     name: '',
@@ -48,6 +48,7 @@ export default function LoginForm() {
                     />
                     <ErrorMessage
                         name="email"
+                        component="div"
                         className={css.error_message}
                     />
                     </label>
@@ -64,12 +65,16 @@ export default function LoginForm() {
                     />
                     <ErrorMessage
                         name="password"
+                        component="div"
                         className={css.error_message}
                     />
                     </label>
                     <button 
                         className={css.button}
-                        type="submite">Sign Up
+                        type="submit">Log In
+                        <svg width="18" height="18">
+                            <use href=""></use>
+                        </svg>
                     </button>
                 </Form>
             </Formik>
