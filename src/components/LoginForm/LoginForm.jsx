@@ -10,6 +10,7 @@ export default function LoginForm() {
     };
 
     const SignupSchema = yup.object().shape({
+        // eslint-disable-next-line
         email: yup.
             string()
             .required('Email is a required')
