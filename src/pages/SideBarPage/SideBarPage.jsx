@@ -1,6 +1,5 @@
 import { UserNav } from "components/UserNav/UserNav";
 import { LogoutBtn } from "components/LogoutBtn/LogoutBtn";
-import { Avatar } from "antd";
 import logotype from "../../images/logo/logo_duck_desktop.png";
 import css from "./SideBarPage.module.css";
 
