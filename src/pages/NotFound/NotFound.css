@@ -8,7 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 35vw;
+  padding-top: 33vw;
   width: 100%;
   padding-left: 20vw;
   padding-right: 20vw;
@@ -28,7 +28,8 @@ body {
   line-height: 1.5;
 
   color: #3e85f3;
-  text-shadow: 0px 9.4px 57.6875px #0000000a, 0px 47px 355px #00000012;
+  text-shadow: 0px 9.4px 57.6875px rgba(0, 0, 0, 0.04),
+    0px 47px 355px rgba(0, 0, 0, 0.07);
   width: 90%;
   margin-top: 10vw;
   margin-bottom: 2vw;
@@ -59,13 +60,17 @@ body {
   padding: 1vw 3vw;
   border: none;
   cursor: pointer;
-  font-size: 1.8vw;
+  font-size: 1.2vw;
   font-weight: 600;
   border-radius: 2vw;
   box-shadow: 4px 2px 16px 0px #88a5bf7a;
 }
 
 @media (min-width: 376px) and (max-width: 767px) {
+  .not-found {
+    padding-top: 0;
+  }
+
   .not-found-heading {
     font-size: 100px;
     width: 252px;
@@ -73,8 +78,8 @@ body {
     margin-top: 264px;
     margin-bottom: 30px;
   }
+
   .error-rocket {
-    width: 81px;
     height: 188px;
   }
 
@@ -83,7 +88,6 @@ body {
     font-size: 14px;
     line-height: 1.29;
     margin-bottom: 24px;
-    max-width: 281px;
   }
 
   .back-to-home-button {
@@ -96,15 +100,20 @@ body {
 }
 
 @media (min-width: 768px) and (max-width: 1439px) {
+  .not-found {
+    padding-top: 0;
+    margin: 0;
+  }
+
   .not-found-heading {
     font-size: 200px;
     width: 503px;
     height: 250px;
     margin-top: 323px;
-    margin-bottom: 35px;
+    margin-bottom: 60px;
   }
+
   .error-rocket {
-    width: 178px;
     height: 414px;
   }
 
@@ -118,16 +127,29 @@ body {
     font-size: 18px;
     line-height: 1.33;
     letter-spacing: -0.36px;
+    border-radius: 16px;
   }
 }
+
 @media (min-width: 1440px) {
+  .not-found {
+    padding-top: 50px;
+  }
+
   .not-found-heading {
-    margin-top: 262px;
+    padding: 0;
+    margin: 0;
   }
 
   .not-found-message {
-    padding: 0;
-    display: block;
-    max-width: 387px;
+    max-width: 45vw;
+  }
+
+  .back-to-home-button {
+    padding: 18px 52px;
+    font-size: 20px;
+    line-height: 1.33;
+    letter-spacing: -0.42px;
+    border-radius: 18px;
   }
 }
