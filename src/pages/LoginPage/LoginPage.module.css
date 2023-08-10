@@ -1,0 +1,17 @@
+.login_page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #dcebf7;
+}
+
+@media (min-width: 1440px) {
+  .login_page {
+    background-image: url(../../images/LoginPage__rocket_1x.png);
+    background-repeat: no-repeat;
+    background-position: 1090px 320px;
+}
+}

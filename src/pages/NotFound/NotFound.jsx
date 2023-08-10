@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 import error_rocket from '../../images/error_rocket.png';
 import '../NotFound/NotFound.css';
 import { ROUTES } from 'utils/routes';
 
 export const NotFound = () => {
+
   const { isAuthenticated } = useState(false); //state.auth.user
 
   const navigate = useNavigate();
 
+  // eslint-disable-next-line
+  
   const handleBackToHome = () => {
     if (isAuthenticated) {
       navigate(ROUTES.HOME);
