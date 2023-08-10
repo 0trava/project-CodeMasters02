@@ -31,6 +31,29 @@
     /* gap: 24px; */
     
 }
+.slider {
+
+    width: 14rem ;
+}
+
+
+.slick-slide {
+    background-color: green;
+
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    min-width: 10rem;
+    height: 146px;
+
+    border-radius: 8px;
+    border: 1px solid rgba(17, 17, 17, 0.10);
+
+    margin-right: 0;
+    margin-bottom: 122px;
+}
 
 
 @media (min-width:375px) {
@@ -40,6 +63,7 @@
     }
 
     .slick-slide {
+        background-color: yellow;
         display: flex;
         padding: 24px 20px 24px 24px;
         flex-direction: column;
