@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project-CodeMasters02/static/css/main.73ef35b9.css",
-    "main.js": "/project-CodeMasters02/static/js/main.e7ab1c43.js",
+    "main.css": "/project-CodeMasters02/static/css/main.b7588862.css",
+    "main.js": "/project-CodeMasters02/static/js/main.7d7bc8a3.js",
     "static/media/MainPage_img_1_tablet_2x.png": "/project-CodeMasters02/static/media/MainPage_img_1_tablet_2x.af1d4f58bd47b9a5840f.png",
     "static/media/MainPage_img_1_desktop_2x.png": "/project-CodeMasters02/static/media/MainPage_img_1_desktop_2x.fa1578686c34d420578a.png",
     "static/media/MainPage_img_2_tablet_2x.png": "/project-CodeMasters02/static/media/MainPage_img_2_tablet_2x.e88c9624f075cf568e08.png",
@@ -11,14 +11,17 @@
     "static/media/MainPage_img_2_mob_2x.png": "/project-CodeMasters02/static/media/MainPage_img_2_mob_2x.d7953b02ca723a6fd435.png",
     "static/media/MainPage_img_3_tablet_2x.png": "/project-CodeMasters02/static/media/MainPage_img_3_tablet_2x.6825593fd9d4768d7bf7.png",
     "static/media/MainPage_img_3_desktop_2x.png": "/project-CodeMasters02/static/media/MainPage_img_3_desktop_2x.8590a0bd15e87b1df53c.png",
+    "static/media/RegisterPage_duck_1x.png": "/project-CodeMasters02/static/media/RegisterPage_duck_1x.02f1aeb546ef16bdd9f3.png",
+    "static/media/LoginPage__rocket_1x.png": "/project-CodeMasters02/static/media/LoginPage__rocket_1x.de5ea9656040ad9dbc2d.png",
     "static/media/MainPage_img_3_mob_2x.png": "/project-CodeMasters02/static/media/MainPage_img_3_mob_2x.2837cb55bb0b979d7651.png",
     "static/media/MainPage_duck_2x.png": "/project-CodeMasters02/static/media/MainPage_duck_2x.3c0470b19aa18aaef0d8.png",
     "index.html": "/project-CodeMasters02/index.html",
-    "main.73ef35b9.css.map": "/project-CodeMasters02/static/css/main.73ef35b9.css.map",
-    "main.e7ab1c43.js.map": "/project-CodeMasters02/static/js/main.e7ab1c43.js.map"
+    "static/media/log-in-01.svg": "/project-CodeMasters02/static/media/log-in-01.f5859fe35421bf27c20ed178401b8bd6.svg",
+    "main.b7588862.css.map": "/project-CodeMasters02/static/css/main.b7588862.css.map",
+    "main.7d7bc8a3.js.map": "/project-CodeMasters02/static/js/main.7d7bc8a3.js.map"
   },
   "entrypoints": [
-    "static/css/main.73ef35b9.css",
-    "static/js/main.e7ab1c43.js"
+    "static/css/main.b7588862.css",
+    "static/js/main.7d7bc8a3.js"
   ]
 }
