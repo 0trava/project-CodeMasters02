@@ -4,6 +4,9 @@ import heroLogo from '../../images/MainPage_duck_2x.png';
 import btnIcon from '../../images/log-in-01.svg';
 import { ROUTES } from 'utils/routes';
 import { useNavigate } from 'react-router-dom';
+import SimpleSlider from 'components/SimpleSlider/SimpleSlider';
+
+
 
 
 
@@ -61,6 +64,9 @@ export const MainPage = (e) => {
                   <div className='mainPage__section-item_img3'></div>
             </li>
         </ul>
+    </section>
+    <section>
+      <SimpleSlider/>
     </section>
     </div>
   )
