@@ -1,11 +1,15 @@
 import React from 'react'
 import './MainPage.css';
 import heroLogo from '../../images/MainPage_duck_2x.png';
+import btnIcon from '../../images/log-in-01.svg';
+import { ROUTES } from 'utils/routes';
+import { useNavigate } from 'react-router-dom';
 
 
 
-export const MainPage = () => {
 
+export const MainPage = (e) => {
+  const navigate = useNavigate();
 
   return (
     <div className='mainPage'>
@@ -14,8 +18,13 @@ export const MainPage = () => {
         <img className='mainPage__hero-logo' src={heroLogo} alt="logo"/>
         <h1 className='mainPage__hero-title'>G<i>oo</i>seTrack</h1>
         <div className='mainPage__hero-box'>
-            <a  className='mainPage__hero-link' href="/">Sign up</a>
-            <button type='button'>Log in </button>
+            <a className='mainPage__hero-link' href={ROUTES.REGISTER}>Sign up</a>
+            <button className="mainPage__hero-btn" type='button' onClick={() => {navigate(ROUTES.LOGIN)}}>
+              Log in
+              <span>
+                <img src={btnIcon} alt="icon-log-in" />
+              </span>
+              </button>
         </div>
         </div>
     </section>
