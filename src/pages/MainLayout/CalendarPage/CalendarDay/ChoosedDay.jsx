@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import DayCalendarHead from './DayCalendarHead';
-import TasksColumn from './TasksColumn';
+import TasksColumnList from './TasksColumnList';
 
 export const ChoosedDay = () => {
   const { currentDay } = useParams();
@@ -22,7 +22,7 @@ export const ChoosedDay = () => {
   return (
     <div className="choosed-day-container">
       <DayCalendarHead selectedDate={currentDay} />
-      <TasksColumn
+      <TasksColumnList
         todoTasks={todoTasks}
         inProgressTasks={inProgressTasks}
         doneTasks={doneTasks}

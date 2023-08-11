@@ -1,7 +1,7 @@
 import React from 'react';
 import ColumnHeadBar from './ColumnHeadBar';
 import ColumnTasksList from './ColumnTasksList';
-import AddTaskBtn from './AddTaskBtn';
+import AddTaskBtn from '../AddTaskBtn';
 
 export const TasksColumn = ({ title, tasks }) => {
   return (
