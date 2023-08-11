@@ -6,7 +6,7 @@ import {
   useLocation,
   Routes
 } from 'react-router-dom';
-
+import './CalendarPage.css'
 import { CalendarToolbar } from './CalendarToolbar';
 import { ChoosedMonth } from './CalendarMonth/ChoosedMonth';
 import { ChoosedDay } from './CalendarDay/ChoosedDay';
