@@ -1,5 +1,5 @@
 import React from 'react';
-import { format } from 'date-fns';
+import { format, addMonths, addDays } from 'date-fns';
 
 export const PeriodPaginator = ({ selectedDate, setSelectedDate }) => {
   const changeDate = amount => {

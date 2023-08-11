@@ -1,6 +1,6 @@
 import React from 'react';
-import TaskToolbar from './TaskToolbar';
-import TaskModal from './TaskModal';
+import {TaskToolbar} from './TaskToolbar';
+import {TaskModal} from './TaskModal ';
 
 export const TaskColumnCard = ({ task, avatar }) => {
   return (

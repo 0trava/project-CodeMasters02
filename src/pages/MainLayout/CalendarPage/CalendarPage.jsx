@@ -1,32 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
-  Redirect,
   Route,
-  Switch,
-  useHistory,
+  Navigate,
+  useNavigate,
   useLocation,
+  Routes
 } from 'react-router-dom';
-import CalendarToolbar from './CalendarToolbar';
-import ChoosedMonth from './CalendarMonth/ChoosedMonth';
-import ChoosedDay from './CalendarDay/ChoosedDay';
+
+import { CalendarToolbar } from './CalendarToolbar';
+import { ChoosedMonth } from './CalendarMonth/ChoosedMonth';
+import { ChoosedDay } from './CalendarDay/ChoosedDay';
 
 export const CalendarPage = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
+
+  const currentDate = useMemo(() => new Date(), []);
 
   useEffect(() => {
     if (location.pathname === '/calendar') {
-      history.push(`/calendar/month/${currentDate}`);
+      navigate(`/calendar/month/${currentDate}`);
     }
-  }, [location.pathname, history]);
-
-  const currentDate = new Date();
+  }, [location.pathname, navigate, currentDate]);
 
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch('API_URL_HERE');
+      const response = await fetch('DB_HOST');
       const data = await response.json();
       setTasks(data);
     } catch (error) {
@@ -44,7 +45,7 @@ export const CalendarPage = () => {
     <div>
       <CalendarToolbar />
 
-      <Switch>
+      <Routes>
         <Route path="/calendar/month/:currentDate">
           <ChoosedMonth tasks={tasks} />
         </Route>
@@ -52,8 +53,10 @@ export const CalendarPage = () => {
           <ChoosedDay />
         </Route>
 
-        <Redirect from="/calendar" to={`/calendar/month/${currentDate}`} />
-      </Switch>
+        <Route path="/calendar">
+          <Navigate to={`/calendar/month/${currentDate}`} />
+        </Route>
+      </Routes>
     </div>
   );
 };

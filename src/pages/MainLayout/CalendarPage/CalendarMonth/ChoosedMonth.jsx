@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import MonthCalendarHead from './MonthCalendarHead';
-import CalendarTable from './CalendarTable';
+import {MonthCalendarHead} from './MonthCalendarHead';
+import {CalendarTable} from './CalendarTable';
 
-export const ChoosedMonth = ({ tasks }) => {
+export const ChoosedMonth = ({tasks }) => {
   const { currentDate } = useParams();
 
   return (
