@@ -1,44 +1,42 @@
-body {
-  background-color: #f7f6f9;
-  margin: 0;
-  padding: 0;
-}
-
 .not-found {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 33vw;
-  width: 100%;
-  padding-left: 20vw;
-  padding-right: 20vw;
-  box-sizing: border-box;
+
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
   text-align: center;
+  justify-content: center
 }
 
 .not-found-heading {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 
   font-family: Inter;
-  font-size: 16vw;
+  font-size: 100px;
   font-style: normal;
   font-weight: 700;
   line-height: 1.5;
+  width: 252px;
 
-  color: #3e85f3;
-  text-shadow: 0px 9.4px 57.6875px rgba(0, 0, 0, 0.04),
-    0px 47px 355px rgba(0, 0, 0, 0.07);
-  width: 90%;
-  margin-top: 10vw;
-  margin-bottom: 2vw;
+
+  color: var(--color-blue);
+  text-shadow: 0px 9.4px 57.6875px #0000000a, 0px 47px 355px #00000012;
+  /* width: 90%; */
+  margin-bottom: 28px;
+
 }
 
 .error-rocket {
-  max-width: 100%;
-  width: 40vw;
+  width: 81px;
+  height: 188px;
+  transform: rotate(-31deg);
   height: auto;
+
 }
 
 .not-found-message {
@@ -46,27 +44,31 @@ body {
   color: #111111b3;
   text-align: center;
   font-family: Inter;
-  font-size: 1.5vw;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   margin: 0;
-  margin-bottom: 2vw;
-  max-width: 60%;
+  margin-bottom: 24px;
+  width: 281px;
 }
 
 .back-to-home-button {
-  background-color: #3e85f3;
-  color: #ffffff;
-  padding: 1vw 3vw;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding: 14px 32px;
   border: none;
   cursor: pointer;
-  font-size: 1.2vw;
+
+  font-size: 14px;
+
   font-weight: 600;
-  border-radius: 2vw;
+  border-radius: 16px;
   box-shadow: 4px 2px 16px 0px #88a5bf7a;
+  transition: all .3s var(--transition);
 }
 
-@media (min-width: 376px) and (max-width: 767px) {
+
+/* @media (min-width: 376px) and (max-width: 767px) {
   .not-found {
     padding-top: 0;
   }
@@ -110,16 +112,33 @@ body {
     width: 503px;
     height: 250px;
     margin-top: 323px;
-    margin-bottom: 60px;
+    margin-bottom: 60px; */
+
+.back-to-home-button:hover, .back-to-home-button:focus {
+  box-shadow: 0 10px 15px -3px #488aec4f, 0 4px 6px -2px #488aec17;
+  opacity: .85;
+}
+
+@media (min-width:768px) {
+  .not-found-heading {
+    font-size: 200px;
+    width: 503px;
+
   }
 
   .error-rocket {
-    height: 414px;
+
+
+    width: 178px;
+
   }
 
   .not-found-message {
+    width: 387px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
     margin-bottom: 32px;
-    max-width: 387px;
   }
 
   .back-to-home-button {
@@ -131,7 +150,8 @@ body {
   }
 }
 
-@media (min-width: 1440px) {
+
+/* @media (min-width: 1440px) {
   .not-found {
     padding-top: 50px;
   }
@@ -153,3 +173,4 @@ body {
     border-radius: 18px;
   }
 }
+ */
