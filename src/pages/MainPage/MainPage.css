@@ -43,11 +43,17 @@
 
 
 
-.mainPage__hero-title i {
+.mainPage__hero-title span {
+    font-style: italic;
     padding-right: 0.5rem;
     padding-left: -0.2rem;
+    transition: 0.5s ease;
 }
 
+
+.mainPage__hero-title span:hover, .mainPage__hero-title span:focus{
+    font-style: normal;
+}
 
 
 .mainPage__hero-box {
