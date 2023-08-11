@@ -15,6 +15,7 @@ code {
 :root {
   --color-black: #13151a;
   --color-blue: #3e85f3;
+  --color-blue-hover: #174c9c;
   --color-white: #ffffff;
   --color-blue-light: #dcebf7;
   --text-review: #343434;
