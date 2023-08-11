@@ -1,3 +1,5 @@
+
+
 .SimpleSlider {
     display: flex;
     flex-direction: column;
@@ -38,7 +40,7 @@
 
 
 .slick-slide {
-    background-color: green;
+
 
     padding: 1rem;
     flex-direction: column;
@@ -63,7 +65,7 @@
     }
 
     .slick-slide {
-        background-color: yellow;
+
         display: flex;
         padding: 24px 20px 24px 24px;
         flex-direction: column;
@@ -87,7 +89,7 @@
     }
 
     .slick-slide {
-        background-color: red;
+
         display: flex;
         padding: 32px 32px 50px 32px;
 
@@ -105,11 +107,11 @@
 @media (min-width:1440px) {
     .slider {
 
-        width: 1056px;
+        width: 1068px;
     }
 
     .slick-track  > .slick-slide {
-        background-color: blue;
+
         display: flex;
         min-width: 447px;
         height: 105px;
@@ -121,8 +123,10 @@
         border: 1px solid rgba(17, 17, 17, 0.10);
     
         margin-bottom: 211px;
-        margin-right: 24px;
+        margin-right: 10px;
+        margin-left: 10px;
     }
+
 }
 
 .slick-prev:before,

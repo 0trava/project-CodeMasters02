@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import './SimpleSlider.css';
+import { Review } from "components/Review/Review";
+
 
 export default class SimpleSlider extends Component {
   render() {
@@ -18,6 +20,8 @@ export default class SimpleSlider extends Component {
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
+              speed: 500,
+              initialSlide: 0,
               infinite: true,
             }
           },
@@ -25,7 +29,9 @@ export default class SimpleSlider extends Component {
           breakpoint: 768,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1,
+            slidesToScroll: 3,
+            initialSlide: 0,
+            speed: 800,
             infinite: true,
           }
         },
@@ -33,8 +39,9 @@ export default class SimpleSlider extends Component {
             breakpoint: 1440,
             settings: {
               slidesToShow: 2,
-              slidesToScroll: 2,
-              infinite: true,
+              slidesToScroll: 1,
+              initialSlide: 0,
+              infinite: false,
             }
           },
     
@@ -44,10 +51,7 @@ export default class SimpleSlider extends Component {
       <div className="SimpleSlider">
         <h2> Reviews</h2>
         <Slider {...settings} className="slider">
-          <div>
-            <h3>Olena Doe </h3>
-            {/* <p>GooseTrack is impressive, the calendar view and filter options make it easy to stay organized and focused. Highly recommended.</p> */}
-          </div>
+          <Review/>
           <div>
             <h3>2</h3>
           </div>
