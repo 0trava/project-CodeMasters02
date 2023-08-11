@@ -3,6 +3,9 @@ export const ROUTES = {
     LOGIN: "/login",
     REGISTER: "/register",
     HOME: "/HOME",
+    ACCOUNT: "account",
+    CALENDAR: "calendar",
+    STATISTICS: "statistics",
     NotFound: '*',
 
 };

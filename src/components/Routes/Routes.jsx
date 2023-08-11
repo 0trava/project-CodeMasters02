@@ -18,9 +18,9 @@ export const AppRoutes = () => {
             <Route path={ROUTES.LOGIN}  index element={<LoginPage />} />
             <Route path={ROUTES.REGISTER}  index element={<RegisterPage />} />
             <Route path={ROUTES.HOME}  element={<MainLayout />} >
-                <Route path="account" index element={<AccountPage />} />
-                <Route path="calendar" index element={<CalendarPage />} />
-                <Route path="statistics" index element={<StatisticsPage />} />
+                <Route path={ROUTES.ACCOUNT} index element={<AccountPage />} />
+                <Route path={ROUTES.CALENDAR} index element={<CalendarPage />} />
+                <Route path={ROUTES.STATISTICS} index element={<StatisticsPage />} />
             </Route>
             <Route path={ROUTES.NotFound}  element={<NotFound />} />
     
