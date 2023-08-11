@@ -2,18 +2,21 @@ import React, { useState } from 'react';
 import { useNavigate  } from 'react-router-dom';
 import error_rocket from '../../images/error_rocket.png';
 import '../NotFound/NotFound.css';
+import { ROUTES } from 'utils/routes';
 
 export const NotFound = () => {
+
+  const { isAuthenticated } = useState(false); //state.auth.user
+
+  const navigate = useNavigate();
+
   // eslint-disable-next-line
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const history = useNavigate();
-
+  
   const handleBackToHome = () => {
     if (isAuthenticated) {
-      history.push('/MainLayout');
+      navigate(ROUTES.HOME);
     } else {
-      history.push('/MainPage');
+      navigate(ROUTES.START);
     }
   };
 
