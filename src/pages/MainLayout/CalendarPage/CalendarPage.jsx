@@ -4,25 +4,16 @@ import {
   Navigate,
   useNavigate,
   useLocation,
-  Routes
+  Routes,
 } from 'react-router-dom';
-import './CalendarPage.css'
 import { CalendarToolbar } from './CalendarToolbar';
 import { ChoosedMonth } from './CalendarMonth/ChoosedMonth';
 import { ChoosedDay } from './CalendarDay/ChoosedDay';
-
+import './CalendarPage.css';
 export const CalendarPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const currentDate = useMemo(() => new Date(), []);
-
-  useEffect(() => {
-    if (location.pathname === '/calendar') {
-      navigate(`/calendar/month/${currentDate}`);
-    }
-  }, [location.pathname, navigate, currentDate]);
-
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
@@ -42,21 +33,27 @@ export const CalendarPage = () => {
   }, [tasks]);
 
   return (
-    <div>
+    <div className="calendar-page">
+      <h1 className="calendar-header">Calendar</h1>
       <CalendarToolbar />
-
-      <Routes>
-        <Route path="/calendar/month/:currentDate">
-          <ChoosedMonth tasks={tasks} />
-        </Route>
-        <Route path="/calendar/day/:selectedDate">
-          <ChoosedDay />
-        </Route>
-
-        <Route path="/calendar">
-          <Navigate to={`/calendar/month/${currentDate}`} />
-        </Route>
-      </Routes>
+      <div className="calendar-divider" />
+      <div className="calendar-content">
+        <Routes>
+          <Route path="/calendar/month/:currentDate">
+            <div className="calendar-route">
+              <ChoosedMonth tasks={tasks} />
+            </div>
+          </Route>
+          <Route path="/calendar/day/:selectedDate">
+            <div className="calendar-route">
+              <ChoosedDay />
+            </div>
+          </Route>
+          <Route path="/calendar">
+            <Navigate to={`/calendar/month/${currentDate}`} />
+          </Route>
+        </Routes>
+      </div>
     </div>
   );
 };
