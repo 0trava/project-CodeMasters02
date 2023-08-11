@@ -12,18 +12,14 @@
 }
 .text {
     font-family: Inter;
-    font-size: 24px;
     font-weight: 700;
-    line-height: 1;
     text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
     color: #3E85F3;
 }
 .cursive {
     font-family: Inter;
-    font-size: 24px;
     font-style: italic;
     font-weight: 700;
-    line-height: 1;
     color: #3E85F3;
 }
 .btn_block {
@@ -44,4 +40,37 @@
     border: 2px solid #3E85F3;
     background-color: #3E85F3;
     color: #FFF;
+}
+@media (min-width: 375px) {
+    .image {
+        width: 36px;
+        height: 35px;
+        background-image: url(../../images/logo/logo_duck_mob.png);
+    }
+    .text, .cursive {
+        font-size: 16px;
+        line-height: 0.7;
+    }
+}
+@media (min-width: 768px) {
+    .image {
+        width: 60px;
+        height: 58px;
+        background-image: url(../../images/logo/logo_duck_tablet.png);
+    }
+    .text, .cursive {
+        font-size: 16px;
+        line-height: 0.73;
+    }
+}
+@media (min-width: 1440px) {
+    .image {
+        width: 71px;
+        height: 68px;
+        background-image: url(../../images/logo/logo_duck_desktop.png);
+    }
+    .text, .cursive {
+        font-size: 24px;
+        line-height: 1;
+    }
 }

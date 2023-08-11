@@ -8,9 +8,9 @@ export const UserNav = () => {
     <ul className={css.list}>
       <li className={css.text_block}>
         <svg className={css.menu_icon} xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-          <path d="M4.25 17H29.75" stroke="#343434" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M4.25 8.5H29.75" stroke="#343434" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M4.25 25.5H29.75" stroke="#343434" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4.25 17H29.75" stroke="#343434" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M4.25 8.5H29.75" stroke="#343434" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M4.25 25.5H29.75" stroke="#343434" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
         <span className={css.text}>User Panel</span>
       </li>
