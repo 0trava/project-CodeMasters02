@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { format, addMonths, addDays } from 'date-fns';
 
 export const PeriodPaginator = ({ selectedDate, setSelectedDate }) => {
+  const [periodType] = useState('month');
+
   const changeDate = amount => {
     if (periodType === 'month') {
       setSelectedDate(addMonths(selectedDate, amount));
