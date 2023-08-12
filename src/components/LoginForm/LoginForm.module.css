@@ -115,6 +115,20 @@
     line-height: 1.28;
 } 
 
+.valid_message {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 70px;
+    z-index: 10;    
+    color: var(--green-color);
+    font-family: Inter;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 200;
+    line-height: 1.28;
+}
+
 @media (min-width: 768px) {
     .container {
         width: 400px;
@@ -164,6 +178,17 @@
         top: 84px;
         z-index: 10;    
         color: var(--color-task-high);
+        font-family: Inter;
+        font-size: 12.5px;
+        font-style: italic;
+        font-weight: 200;
+        line-height: 1.28;
+    } 
+
+    .valid_message {
+        top: 84px;
+        z-index: 10;    
+        color: var(--green-color);
         font-family: Inter;
         font-size: 12.5px;
         font-style: italic;
