@@ -11,7 +11,6 @@ export const Review = ({listReview}) => {
   const checked = (value) => {
 
     if (value === rating) {
-      console.log(value);
       return true;
     }
     return false;
