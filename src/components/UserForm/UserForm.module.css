@@ -74,12 +74,11 @@
 .labelField {
   display: flex;
   flex-direction: column;
-  margin-bottom: 8px;
 
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 14px;
   line-height: 129%;
 
   color: #111;
@@ -92,6 +91,7 @@
   border: 1px solid rgba(17, 17, 17, 0.15);
   color: #111;
   padding: 14px 18px;
+  margin-top: 8px;
   width: 100%;
 
   &::placeholder {
@@ -102,5 +102,33 @@
     line-height: 113%;
 
     color: rgba(17, 17, 17, 0.15);
+  }
+}
+.error {
+  color: red;
+  font-size: 12px;
+  font-weight: 500;
+}
+.submitButton {
+  width: 195px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #3e85f3;
+  border-radius: 16px;
+  border: none;
+  margin: 0 auto;
+
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 129%;
+
+  @media (min-width: 768px) {
+    width: 262px;
   }
 }

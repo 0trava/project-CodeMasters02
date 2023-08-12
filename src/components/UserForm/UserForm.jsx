@@ -52,7 +52,7 @@ export const UserForm = () => {
                 type="file"
                 accept="image/png, image/jpeg, image/gif"
               />
-              <ErrorMessage name="avatar" component="p" />
+              <ErrorMessage className={css.error} name="avatar" component="p" />
             </label>
             <div>
               <p className={css.userName}> "{'userName'}" </p>
@@ -67,7 +67,7 @@ export const UserForm = () => {
                 placeholder="Add your name"
                 className={css.inputField}
               />
-              <ErrorMessage name="name" component="p" />
+              <ErrorMessage className={css.error} name="name" component="p" />
             </label>
             <label className={css.labelField}>
               Phone
@@ -77,7 +77,7 @@ export const UserForm = () => {
                 placeholder="Add a phone number"
                 className={css.inputField}
               />
-              <ErrorMessage name="phone" component="p" />
+              <ErrorMessage className={css.error} name="phone" component="p" />
             </label>
             <label className={css.labelField}>
               Birthday
@@ -86,7 +86,12 @@ export const UserForm = () => {
                 placeholder="DD/MM/YYYY"
                 className={css.inputField}
               />
-              <ErrorMessage name="birthday" type="date" component="p" />
+              <ErrorMessage
+                className={css.error}
+                name="birthday"
+                type="date"
+                component="p"
+              />
             </label>
             <label className={css.labelField}>
               Skype
@@ -95,7 +100,7 @@ export const UserForm = () => {
                 placeholder="Add a skype number"
                 className={css.inputField}
               />
-              <ErrorMessage name="skype" component="p" />
+              <ErrorMessage className={css.error} name="skype" component="p" />
             </label>
             <label className={css.labelField}>
               Email
@@ -104,11 +109,18 @@ export const UserForm = () => {
                 placeholder="Add your email"
                 className={css.inputField}
               />
-              <ErrorMessage name="email" type="email" component="p" />
+              <ErrorMessage
+                className={css.error}
+                name="email"
+                type="email"
+                component="p"
+              />
             </label>
           </div>
 
-          <button type="submit">Save changes</button>
+          <button type="submit" className={css.submitButton}>
+            Save changes
+          </button>
         </Form>
       </Formik>
     </div>
