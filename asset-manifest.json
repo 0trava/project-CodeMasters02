@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/project-CodeMasters02/static/css/main.0b33c5cd.css",
+    "main.css": "/project-CodeMasters02/static/css/main.c85e1c20.css",
     "main.js": "/project-CodeMasters02/static/js/main.c48356aa.js",
     "static/media/MainPage_img_1_tablet_2x.png": "/project-CodeMasters02/static/media/MainPage_img_1_tablet_2x.af1d4f58bd47b9a5840f.png",
     "static/media/MainPage_img_1_desktop_2x.png": "/project-CodeMasters02/static/media/MainPage_img_1_desktop_2x.fa1578686c34d420578a.png",
@@ -18,11 +18,11 @@
     "static/media/Review_1.png": "/project-CodeMasters02/static/media/Review_1.20d726d6551cb8194847.png",
     "index.html": "/project-CodeMasters02/index.html",
     "static/media/log-in-01.svg": "/project-CodeMasters02/static/media/log-in-01.f5859fe35421bf27c20ed178401b8bd6.svg",
-    "main.0b33c5cd.css.map": "/project-CodeMasters02/static/css/main.0b33c5cd.css.map",
+    "main.c85e1c20.css.map": "/project-CodeMasters02/static/css/main.c85e1c20.css.map",
     "main.c48356aa.js.map": "/project-CodeMasters02/static/js/main.c48356aa.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b33c5cd.css",
+    "static/css/main.c85e1c20.css",
     "static/js/main.c48356aa.js"
   ]
 }
