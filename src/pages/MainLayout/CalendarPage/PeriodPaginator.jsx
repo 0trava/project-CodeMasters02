@@ -27,12 +27,12 @@ export const PeriodPaginator = ({ selectedDate, setSelectedDate }) => {
 
       <button onClick={() => changeDate(-1)}>
         <svg className="icon">
-          <use xlinkHref="../../../images/sprite.svg#icon-chevron-left"></use>
+          <use xlinkHref="../images/sprite.svg#icon-chevron-left"></use>
         </svg>
       </button>
       <button onClick={() => changeDate(1)}>
         <svg className="icon">
-          <use xlinkHref="../../../images/sprite.svg#icon-chevron-right" />
+          <use xlinkHref="../images/sprite.svg#icon-chevron-right" />
         </svg>
       </button>
     </div>
