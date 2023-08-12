@@ -30,9 +30,13 @@
 
 .slick-track {
     display: flex;
+    
     /* gap: 24px; */
     
 }
+
+
+
 .slider {
 
     width: 14rem ;
@@ -117,7 +121,7 @@
         height: 105px;
         padding: 32px 32px 50px 32px;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
     
         border-radius: 8px;
         border: 1px solid rgba(17, 17, 17, 0.10);

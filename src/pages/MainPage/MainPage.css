@@ -47,13 +47,15 @@
     font-style: italic;
     padding-right: 0.5rem;
     padding-left: -0.2rem;
-    transition: 0.5s ease;
+    transition: all 0.5s var(--transition);
 }
 
-
+/* Animate */
 .mainPage__hero-title span:hover, .mainPage__hero-title span:focus{
     font-style: normal;
+    color: var(--color-black);
 }
+
 
 
 .mainPage__hero-box {
@@ -71,7 +73,15 @@
     font-weight: 600;
     line-height: 18px; /* 128.571% */
     text-decoration-line: underline;
+
+    transition: all 0.5s var(--transition);
 }
+
+.mainPage__hero-link:hover {
+    color: var(--color-black);
+}
+
+
 
 .mainPage__hero-btn {
     display: flex;
