@@ -2,6 +2,7 @@ import React from 'react';
 import {ColumnHeadBar} from './ColumnHeadBar';
 import {ColumnTasksList} from './ColumnTasksList';
 import {AddTaskBtn} from '../AddTaskBtn';
+import "./TasksColumn.css"
 
 export const TasksColumn = ({ title, tasks }) => {
   return (

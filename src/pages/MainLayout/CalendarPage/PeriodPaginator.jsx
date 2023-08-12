@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { format, addMonths, addDays } from 'date-fns';
+import './PeriodPaginator.css';
+import sprite from '../../../images/sprite.svg';
 
 export const PeriodPaginator = ({ selectedDate, setSelectedDate }) => {
   const [periodType] = useState('month');
@@ -22,19 +24,20 @@ export const PeriodPaginator = ({ selectedDate, setSelectedDate }) => {
   };
 
   return (
-    <div>
+    <div className="period-format">
       <div>{periodFormat('month')}</div>
-
-      <button onClick={() => changeDate(-1)}>
-        <svg className="icon">
-          <use xlinkHref="../images/sprite.svg#icon-chevron-left"></use>
-        </svg>
-      </button>
-      <button onClick={() => changeDate(1)}>
-        <svg className="icon">
-          <use xlinkHref="../images/sprite.svg#icon-chevron-right" />
-        </svg>
-      </button>
+      <div className="period-change-btn">
+        <button className="chevron" onClick={() => changeDate(-1)}>
+          <svg className="icon-chevron" width="16" height="16">
+            <use href={sprite + '#icon-chevron-left'}></use>
+          </svg>
+        </button>
+        <button className="chevron" onClick={() => changeDate(1)}>
+          <svg className="icon-chevron" width="16" height="16">
+            <use href={sprite + '#icon-chevron-right'}></use>
+          </svg>
+        </button>
+      </div>
     </div>
   );
 };

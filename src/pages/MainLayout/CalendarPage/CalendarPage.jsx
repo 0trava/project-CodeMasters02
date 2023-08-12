@@ -15,7 +15,7 @@ export const CalendarPage = () => {
       const data = await response.json();
       setTasks(data);
     } catch (error) {
-      console.log("Error fetching tasks:", error);
+      console.log('Error fetching tasks:', error);
     }
   };
 
@@ -27,9 +27,8 @@ export const CalendarPage = () => {
 
   return (
     <div className="calendar-page">
-      <h1 className="calendar-header">Calendar</h1>
       <CalendarToolbar />
-      <div className="calendar-divider" />
+
       <div className="calendar-content">
         <Routes>
           <Route
@@ -42,6 +41,7 @@ export const CalendarPage = () => {
             element={<Navigate to={`/calendar/month/${currentDate}`} />}
           />
         </Routes>
+       
       </div>
     </div>
   );

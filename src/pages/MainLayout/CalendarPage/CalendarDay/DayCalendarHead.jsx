@@ -1,5 +1,6 @@
 import React from 'react';
 import { format } from 'date-fns';
+import "./DayCalendarHead.css"
 
 export const DayCalendarHead = ({ currentDate }) => {
   const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];

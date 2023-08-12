@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { PeriodPaginator } from './PeriodPaginator';
 import { PeriodTypeSelect } from './PeriodTypeSelect';
 
+
 export const CalendarToolbar = ({ tasks, setTasks }) => {
   const [periodType, setPeriodType] = useState('month');
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -25,13 +26,17 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
   }, [tasks, fetchTasksByPeriod]);
 
   return (
-    <div>
+    <div className="toolbar-container">
+    <div className="period-paginator">
       <PeriodPaginator
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
       />
-
+    </div>
+  
+    <div className="period-type-select">
       <PeriodTypeSelect periodType={periodType} setPeriodType={setPeriodType} />
     </div>
+  </div>
   );
 };
