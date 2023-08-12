@@ -30,6 +30,7 @@
     background-color: #E3F3FF;
 }
 .link {
+    width: 100px;
     font-family: Inter;
     font-weight: 600;
     line-height: 0.8;
