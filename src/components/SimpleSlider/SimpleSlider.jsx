@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import './SimpleSlider.css';
 import { Review } from "components/Review/Review";
+import listReview from '../WORK-file/reviews.json';
 
 
 export default class SimpleSlider extends Component {
+
   render() {
     const settings = {
       dots: false,
@@ -29,10 +31,10 @@ export default class SimpleSlider extends Component {
           breakpoint: 768,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 3,
+            slidesToScroll: 1,
             initialSlide: 0,
             speed: 800,
-            infinite: true,
+            infinite: false,
           }
         },
         {
@@ -47,26 +49,20 @@ export default class SimpleSlider extends Component {
     
     ]
     };
+
+
     return (
       <div className="SimpleSlider">
         <h2> Reviews</h2>
         <Slider {...settings} className="slider">
-          <Review/>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
+        {listReview.map((review, index ) => {
+             return (
+              <div>
+                <Review key={index} listReview={review}/>
+              </div>
+             )
+            
+          })}
         </Slider>
       </div>
     );
