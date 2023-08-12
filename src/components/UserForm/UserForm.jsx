@@ -6,7 +6,9 @@ import css from './UserForm.module.css';
 // const SUPPORTED_FORMATS = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
 // Дозволяє завантажувати формати зображень .jpeg, .png, .gif
 
+// eslint-disable-next-line
 const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+// eslint-disable-next-line
 const phoneRegexp = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
 
 const userFormSchema = Yup.object().shape({
