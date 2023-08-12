@@ -1,5 +1,6 @@
 .container {
-  width: 100%;
+  box-sizing: border-box;
+  max-width: 335px;
   padding: 60px 18px 40px;
   margin: 64px 20px 40px;
   border-radius: 16px;
@@ -15,8 +16,91 @@
     max-width: 1087px;
     padding: 60px 164px;
     margin: 32px;
-    /* grid-template-columns: 1fr 1fr;
+  }
+}
+
+.avatarWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.userName {
+  color: #343434;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 4px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 129%;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 8px;
+    line-height: 100%;
+  }
+}
+.user {
+  color: #343434;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 117%;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 129%;
+  }
+}
+
+.fieldWrapper {
+  display: grid;
+  max-width: 299px;
+  margin: 40px 0;
+  gap: 18px;
+
+  @media (min-width: 768px) {
+    max-width: 354px;
+  }
+  @media (min-width: 1440px) {
+    max-width: 758px;
+    grid-template-columns: 1fr 1fr;
     column-gap: 50px;
-    row-gap: 24px; */
+    row-gap: 24px;
+  }
+}
+
+.labelField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 129%;
+
+  color: #111;
+}
+
+.inputField {
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 8px;
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  color: #111;
+  padding: 14px 18px;
+  width: 100%;
+
+  &::placeholder {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 113%;
+
+    color: rgba(17, 17, 17, 0.15);
   }
 }

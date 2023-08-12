@@ -45,43 +45,68 @@ export const UserForm = () => {
         }}
       >
         <Form>
-          <label>
-            <Field
-              name="avatar"
-              type="file"
-              accept="image/png, image/jpeg, image/gif"
-            />
-            <ErrorMessage name="avatar" component="p" />
-          </label>
-          <div>
-            <p> "{'userName'}" </p>
-            <p>User</p>
+          <div className={css.avatarWrapper}>
+            <label>
+              <Field
+                name="avatar"
+                type="file"
+                accept="image/png, image/jpeg, image/gif"
+              />
+              <ErrorMessage name="avatar" component="p" />
+            </label>
+            <div>
+              <p className={css.userName}> "{'userName'}" </p>
+              <p className={css.user}>User</p>
+            </div>
           </div>
-          <label>
-            User Name
-            <Field name="name" placeholder="Add your name" />
-            <ErrorMessage name="name" component="p" />
-          </label>
-          <label>
-            Phone
-            <Field name="phone" type="tel" placeholder="Add a phone number" />
-            <ErrorMessage name="phone" component="p" />
-          </label>
-          <label>
-            Birthday
-            <Field name="birthday" placeholder="DD/MM/YYYY" />
-            <ErrorMessage name="birthday" type="date" component="p" />
-          </label>
-          <label>
-            Skype
-            <Field name="skype" placeholder="Add a skype number" />
-            <ErrorMessage name="skype" component="p" />
-          </label>
-          <label>
-            Email
-            <Field name="email" placeholder="Add your email" />
-            <ErrorMessage name="email" type="email" component="p" />
-          </label>
+          <div className={css.fieldWrapper}>
+            <label className={css.labelField}>
+              User Name
+              <Field
+                name="name"
+                placeholder="Add your name"
+                className={css.inputField}
+              />
+              <ErrorMessage name="name" component="p" />
+            </label>
+            <label className={css.labelField}>
+              Phone
+              <Field
+                name="phone"
+                type="tel"
+                placeholder="Add a phone number"
+                className={css.inputField}
+              />
+              <ErrorMessage name="phone" component="p" />
+            </label>
+            <label className={css.labelField}>
+              Birthday
+              <Field
+                name="birthday"
+                placeholder="DD/MM/YYYY"
+                className={css.inputField}
+              />
+              <ErrorMessage name="birthday" type="date" component="p" />
+            </label>
+            <label className={css.labelField}>
+              Skype
+              <Field
+                name="skype"
+                placeholder="Add a skype number"
+                className={css.inputField}
+              />
+              <ErrorMessage name="skype" component="p" />
+            </label>
+            <label className={css.labelField}>
+              Email
+              <Field
+                name="email"
+                placeholder="Add your email"
+                className={css.inputField}
+              />
+              <ErrorMessage name="email" type="email" component="p" />
+            </label>
+          </div>
 
           <button type="submit">Save changes</button>
         </Form>
