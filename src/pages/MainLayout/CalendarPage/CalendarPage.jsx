@@ -15,7 +15,7 @@ export const CalendarPage = () => {
       const data = await response.json();
       setTasks(data);
     } catch (error) {
-      console.error('Error fetching tasks:', error);
+      console.log("Error fetching tasks:", error);
     }
   };
 
