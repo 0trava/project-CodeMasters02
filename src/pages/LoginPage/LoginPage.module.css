@@ -1,11 +1,18 @@
 .login_page {
   display: flex;
+  gap: 18px;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #dcebf7;
+}
+
+@media (min-width: 768px) {
+  .login_page  {
+    gap: 24px;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -13,5 +20,5 @@
     background-image: url(../../images/LoginPage__rocket_1x.png);
     background-repeat: no-repeat;
     background-position: 1090px 320px;
-}
+  }
 }
