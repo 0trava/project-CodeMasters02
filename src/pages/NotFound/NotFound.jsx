@@ -34,7 +34,7 @@ export const NotFound = () => {
       <button
         type="button"
         id="back-to-home-button"
-        class="back-to-home-button"
+        className="back-to-home-button"
         onClick={handleBackToHome}
       >
         Back to home
