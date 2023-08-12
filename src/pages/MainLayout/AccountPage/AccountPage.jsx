@@ -1,7 +1,11 @@
-import React from 'react'
+import { UserForm } from 'components/UserForm/UserForm';
+import React from 'react';
 
 export const AccountPage = () => {
   return (
-    <div>AccountPage</div>
-  )
-}
+    <>
+      AccountPage
+      <UserForm />
+    </>
+  );
+};
