@@ -4,17 +4,13 @@ import './SimpleSlider.css';
 import { Review } from "components/Review/Review";
 import listReview from '../WORK-file/reviews.json';
 
-// import { fetchReviews } from 'redux/reviews/operations';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { selectReviews } from 'redux/reviews/selectors';
-
 
 export default class SimpleSlider extends Component {
 
 
   render() {
-
     
+  
     const settings = {
       dots: false,
       infinite: false,
@@ -58,15 +54,17 @@ export default class SimpleSlider extends Component {
     };
 
 
+
     return (
       <div className="SimpleSlider">
         <h2> Reviews</h2>
         <Slider {...settings} className="slider">
         {listReview.map((review, index ) => {
+              
              return (
-              <div>
+
                 <Review key={index} listReview={review}/>
-              </div>
+
              )
             
           })}

@@ -1,4 +1,5 @@
-import React from 'react'
+// eslint-disable-next-line 
+import React, { useEffect } from 'react'
 import './MainPage.css';
 import heroLogo from '../../images/MainPage_duck_2x.png';
 import btnIcon from '../../images/log-in-01.svg';
@@ -6,14 +7,16 @@ import { ROUTES } from 'utils/routes';
 import { useNavigate } from 'react-router-dom';
 import SimpleSlider from 'components/SimpleSlider/SimpleSlider';
 
-
-
-
-
+import { getReviews } from '../../redux/reviews/selectors';
+import { useSelector } from 'react-redux';
 
 
 export const MainPage = (e) => {
   const navigate = useNavigate();
+
+  const reviews = useSelector(getReviews);
+  console.log(reviews);
+
 
   return (
     <div className='mainPage'>
