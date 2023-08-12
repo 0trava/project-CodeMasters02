@@ -11,6 +11,7 @@ import SimpleSlider from 'components/SimpleSlider/SimpleSlider';
 
 
 
+
 export const MainPage = (e) => {
   const navigate = useNavigate();
 
