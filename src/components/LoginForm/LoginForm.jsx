@@ -9,69 +9,93 @@ export default function LoginForm() {
         console.log(actions);
     };
 
-    const SignupSchema = yup.object().shape({
-        // eslint-disable-next-line
-        email: yup.
-            string()
-            .required('Email is a required')
-            .email('Invalid email address. The email address must contain the @ sign'),
+    // eslint-disable-next-line
+    const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+
+    const initialValues = {
+        email: '', 
+        password: '' 
+    };
+
+    const LogInSchema = yup.object().shape({
+        email: yup
+            .string()
+            .max(254)
+            .matches(emailRegExpression, 'Invalid email address. The email address must contain the @ sign.')
+            .required('Email is a required!')
+            .email('Invalid email address. The email address must contain the @ sign.'),
         password: yup
             .string()
-            .required('Password is a required')
-            .min(6, 'Password must be at least 6 characters'),
+            .min(6, 'Password must be at least 6 characters.')
+            .max(254, 'Password is too long')
+            .required('Password is a required!'),
     });
 
     return (
         <div className={css.login_container}>
             <div className={css.container}>
-            <h1 className={css.title}>Sign Up</h1>
+            <h1 className={css.title}>Log In</h1>
             <Formik 
-                initialValues={{
-                    name: '',
-                    email: '', 
-                    password: '' 
-                }}
-                validationSchema={SignupSchema}   
+                initialValues={initialValues}
+                validationSchema={LogInSchema}   
                 onSubmit={handleSubmit} 
             >
-                <Form className={css.form}>
-                    <label 
-                        className={css.label}
-                        htmlFor="email"
-                    >
-                    Email
-                    <Field 
-                        className={css.input} 
-                        // type="email"
-                        name="email"
-                        placeholder="Enter email"
-                    />
-                    <ErrorMessage
-                        name="email"
-                        className={css.error_message}
-                    />
-                    </label>
-                    <label 
-                        className={css.label}
-                        htmlFor="password"
-                    >
-                    Password
-                    <Field 
-                        className={css.input} 
-                        type="password"
-                        name="password"
-                        placeholder="Enter password"
-                    />
-                    <ErrorMessage
-                        name="password"
-                        className={css.error_message}
-                    />
-                    </label>
-                    <button 
-                        className={css.button}
-                        type="submite">Sign Up
-                    </button>
-                </Form>
+                {({ errors, touched }) => {
+                    const isValid = field =>
+                        touched[field] && errors[field]
+                            ? 'is-invalid'
+                            : touched[field]
+                            ? 'is-valid'
+                            : '';
+                            return (
+                            <Form className={css.form}>
+                                <label 
+                                    className={css.label}
+                                    htmlFor="email"
+                                >
+                                Email
+                                <Field 
+                                    className={css.input} 
+                                    // type="email"
+                                    name="email"
+                                    placeholder="Enter email"
+                                />
+                                {isValid('email') === 'is-valid' && <p className={css.valid_message}>Correct email!</p>}
+                                <ErrorMessage
+                                    name="email"
+                                    component="div"
+                                    className={css.error_message}
+                                />
+                                </label>
+                                <label 
+                                    className={css.label}
+                                    htmlFor="password"
+                                >
+                                Password
+                                <Field 
+                                    className={css.input} 
+                                    type="password"
+                                    name="password"
+                                    placeholder="Enter password"
+                                />
+                                {isValid('password') === 'is-valid' && <p className={css.valid_message}>Correct password!</p>}
+                                <ErrorMessage
+                                    name="password"
+                                    component="div"
+                                    className={css.error_message}
+                                />
+                                </label>
+                                <button 
+                                    className={css.button}
+                                    type="submit">Log In
+                                    <svg width="18" height="18">
+                                        <use href=""></use>
+                                    </svg>
+                                </button>
+                            </Form>
+                        )
+                    }
+                }
             </Formik>
             </div>
         </div>

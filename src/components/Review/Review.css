@@ -1,0 +1,108 @@
+.review__header {
+    display: flex;
+}
+
+.review__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    margin-right: 18px;
+
+    border-radius: 50px;
+    background-color: var(--color-blue);
+
+}
+
+.review__avatar p {
+    color: var(--color-white);
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 114.286% */
+    text-transform: uppercase;
+}
+
+.review__avatar img {
+    width: 50px;
+    height: 50px;
+}
+
+.review__name {
+    margin-bottom: 13px;
+
+    color: var(--text-review);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px; 
+}
+
+.review__comment {
+    margin-top: 24px;
+
+
+    color: rgba(17, 17, 17, 0.70);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; 
+    
+}
+
+
+  /* ---------------- */
+  .rating {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+  }
+
+  .rating:not(:checked) > input {
+    position: absolute;
+    appearance: none;
+
+    
+
+  }
+  
+  .rating:not(:checked) > label {
+    float: right;
+    cursor: pointer;
+    font-size: 22px;
+    color: #666;
+    margin-right: 6px;
+ 
+  }
+  
+  .rating:not(:checked) > label:before {
+    content: '★';
+
+   
+  }
+  
+  .rating > input:checked + label:hover,
+  .rating > input:checked + label:hover ~ label,
+  .rating > input:checked ~ label:hover,
+  .rating > input:checked ~ label:hover ~ label,
+  .rating > label:hover ~ input:checked ~ label {
+    color: #FFAC33;
+  }
+  
+  .rating:not(:checked) > label:hover,
+  .rating:not(:checked) > label:hover ~ label {
+    color: #FFAC33;
+  }
+  
+  .rating > input:checked ~ label {
+    color: #FFAC33;
+  }
+  
+  
+  
+  

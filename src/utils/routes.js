@@ -1,8 +1,11 @@
 export const ROUTES = {
-    START: "/",
+    START: "/test",
     LOGIN: "/login",
     REGISTER: "/register",
-    HOME: "/HOME",
+    HOME: "/",
+    ACCOUNT: "account",
+    CALENDAR: "calendar",
+    STATISTICS: "statistics",
     NotFound: '*',
 
 };
