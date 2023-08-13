@@ -49,7 +49,7 @@ export default function RegisterForm() {
     if (name || password || email) {
         dispatch(register({ name, email, password }));
         e.currentTarget.reset();
-        navigate(ROUTES.LOGIN);
+        navigate(ROUTES.HOME);
     } else {
         return;
     }

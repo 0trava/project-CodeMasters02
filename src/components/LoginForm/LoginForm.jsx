@@ -45,17 +45,29 @@ const changeVisible = () => {
         input.setAttribute('type','text');
     }
 }
-//----------------------------
-    const handleSubmit = (e) => {
+
+// ВІДПРАВКА ФОРМИ -------------
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const {
-            email: { value: email },
-            password: { value: password },
-        } = e.currentTarget;
-    
-        dispatch(login({ email, password }));
-        e.currentTarget.reset();
-        navigate(ROUTES.HOME);
+        const password = e.currentTarget.password.value;
+        const email = e.currentTarget.email.value;
+
+        if ( password || email) {
+            const { payload } = await dispatch(login({ email, password }));
+            console.log(payload);
+            if (
+                payload === 'Request failed with status code 400' ||
+                payload === 'Request failed with status code 401' ||
+                payload === 'Request failed with status code 403'
+              ) {
+                return;
+              } else  {
+                navigate(ROUTES.HOME);
+              }
+        } else {
+            return;
+        }
+
     };
 
     return (
@@ -86,6 +98,7 @@ const changeVisible = () => {
                                 <Field 
                                     // type="email"
                                     name="email"
+                                    required
                                     placeholder="Enter email"
                                     className={`${css.input} ${
                                         touched.email && errors.email
@@ -110,6 +123,7 @@ const changeVisible = () => {
                                 <Field 
                                     type="password"
                                     id="password"
+                                    required
                                     name="password"
                                     placeholder="Enter password"
                                     className={`${css.input} ${
