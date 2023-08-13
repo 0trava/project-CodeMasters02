@@ -36,18 +36,29 @@ export default function RegisterForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+
+// ВІДПРАВКА ФОРМИ -------------
   const handleSubmit = e => {
     e.preventDefault();
-    const {
-      name: { value: name },
-      email: { value: email },
-      password: { value: password },
-    } = e.currentTarget;
+    const name = e.currentTarget.name.value;
+    const password = e.currentTarget.password.value;
+    const email = e.currentTarget.email.value;
+    console.log(name, password, email)
+    // Перевірка що всі поля заповненні
 
-    dispatch(register({ name, email, password }));
-    e.currentTarget.reset();
-    navigate(ROUTES.LOGIN);
+    if (name || password || email) {
+        dispatch(register({ name, email, password }));
+        e.currentTarget.reset();
+        navigate(ROUTES.LOGIN);
+    } else {
+        return;
+    }
+
+
+
+
   };
+// ------------------------------
 
   return (
     <div className={css.register_container}>
@@ -71,6 +82,7 @@ export default function RegisterForm() {
                             <Field
                                 type="text"
                                 name="name"
+                                required
                                 placeholder="Enter your name"
                                 className={`${css.input} ${
                                     touched.name && errors.name
@@ -94,6 +106,7 @@ export default function RegisterForm() {
                             <Field
                                 // type="email"
                                 name="email"
+                                required
                                 placeholder="Enter email"
                                 className={`${css.input} ${
                                     touched.email && errors.email
@@ -117,6 +130,7 @@ export default function RegisterForm() {
                             <Field
                                 type="password"
                                 name="password"
+                                required
                                 placeholder="Enter password"
                                 className={`${css.input} ${
                                     touched.password && errors.password
