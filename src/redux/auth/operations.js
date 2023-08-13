@@ -42,24 +42,14 @@ export const login = createAsyncThunk(
   }
 );
 
-export const loginGoogle = createAsyncThunk(
-  'auth/loginGoogle',
-  async (credentials, { rejectWithValue }) => {
-    try {
-      const data = credentials;
-      setToken(data.token);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
 
 export const logout = createAsyncThunk(
   'auth/logout',
-  async (_, { rejectWithValue }) => {
+  async (_, { getState, rejectWithValue }) => {
+    const { token } = getState().auth;
+    
     try {
-      await axios.post('api/auth/logout');
+      await axios.post('api/auth/logout', token);
       clearToken();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -92,35 +82,6 @@ export const updateUser = createAsyncThunk(
       Notify.success(`Your profile has been updated`);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
-
-export const toggleTheme = createAsyncThunk(
-  'auth/toggle-theme',
-  async (credentials, { rejectWithValue }) => {
-    try {
-      const { data } = await axios.patch('api/auth/toggle-theme', credentials);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
-
-export const changePassword = createAsyncThunk(
-  'auth/password',
-  async (credentials, { rejectWithValue }) => {
-    try {
-      const { data } = await axios.patch('api/auth/password', credentials);
-      Notify.success(`Your password has been changed`);
-      return data;
-    } catch (error) {
-      if (error.response.status !== 401) {
-        Notify.failure(`Password missmach. Try again`);
-        return;
-      }
       return rejectWithValue(error.message);
     }
   }

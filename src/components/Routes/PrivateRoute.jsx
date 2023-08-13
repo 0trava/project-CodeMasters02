@@ -8,6 +8,6 @@ export const PrivateRoute = ({children}) => {
     const userIsLogin = useSelector(selectToken);
     console.log(userIsLogin);
 
-    return (userIsLogin === 'true') ?  children : <Navigate to={ROUTES.NotFound} />;
+    return (userIsLogin !== "") ?  children : <Navigate to={ROUTES.NotFound} />;
 }
 

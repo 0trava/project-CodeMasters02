@@ -5,7 +5,7 @@ import {
   editReview,
   deleteReview,
   fetchReviewById,
-} from './operations';
+} from './operetions';
 
 const reviewSlice = createSlice({
   name: 'reviews',
