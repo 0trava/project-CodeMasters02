@@ -61,10 +61,16 @@ export default function LoginForm() {
                                 >
                                 Email
                                 <Field 
-                                    className={css.input} 
                                     // type="email"
                                     name="email"
                                     placeholder="Enter email"
+                                    className={`${css.input} ${
+                                        touched.email && errors.email
+                                            ? css.error_input
+                                            : touched.email && !errors.email
+                                            ? css.success_input
+                                            : ''
+                                    }`}
                                 />
                                 {isValid('email') === 'is-valid' && <p className={css.valid_message}>Correct email!</p>}
                                 <ErrorMessage
@@ -79,10 +85,16 @@ export default function LoginForm() {
                                 >
                                 Password
                                 <Field 
-                                    className={css.input} 
                                     type="password"
                                     name="password"
                                     placeholder="Enter password"
+                                    className={`${css.input} ${
+                                        touched.password && errors.password
+                                            ? css.error_input
+                                            : touched.password && !errors.password
+                                            ? css.success_input
+                                            : ''
+                                    }`}
                                 />
                                 {isValid('password') === 'is-valid' && <p className={css.valid_message}>Correct password!</p>}
                                 <ErrorMessage
