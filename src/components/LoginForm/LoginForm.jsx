@@ -5,6 +5,10 @@ import { useDispatch } from "react-redux";
 import { login } from 'redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from "utils/routes";
+import { IoEyeOffOutline } from "react-icons/io5";
+import { IoEyeOutline } from "react-icons/io5";
+import { useState } from "react";
+
 
 // eslint-disable-next-line
 const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
@@ -27,7 +31,21 @@ const LogInSchema = yup.object().shape({
 export default function LoginForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [passVisible, setPasswordVisible] = useState(false)
 
+
+// Change vibility for Password
+const changeVisible = () => {
+    const input = document.getElementById('password');
+    if (passVisible) {
+        setPasswordVisible(false);
+        input.setAttribute('type','password');
+    } else {
+        setPasswordVisible(true);
+        input.setAttribute('type','text');
+    }
+}
+//----------------------------
     const handleSubmit = (e) => {
         e.preventDefault();
         const {
@@ -92,6 +110,7 @@ export default function LoginForm() {
                                 Password
                                 <Field 
                                     type="password"
+                                    id="password"
                                     name="password"
                                     placeholder="Enter password"
                                     className={`${css.input} ${
@@ -102,6 +121,15 @@ export default function LoginForm() {
                                             : ''
                                     }`}
                                 />
+                                {/* Icon for password (visible or not) */}
+                                <span></span>
+                                <span type="button" onClick={changeVisible}>
+                                    {passVisible ? 
+                                    <IoEyeOutline className="IoEyeOutline"/> 
+                                    : <IoEyeOffOutline className="IoEyeOffOutline"/>}
+                                </span>
+                                
+
                                 {isValid('password') === 'is-valid' && <p className={css.valid_message}>Correct password!</p>}
                                 <ErrorMessage
                                     name="password"
