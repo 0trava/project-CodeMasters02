@@ -1,0 +1,36 @@
+.btn {
+    cursor: pointer;
+    border-radius: 16px;
+    border: 2px solid #3E85F3;
+    background-color: #3E85F3;
+}
+.btn_text {
+    font-family: Inter;
+    font-weight: 600;
+    line-height: 0.8;
+    color: #FFF;
+}
+@media (min-width: 375px) {
+    .btn {
+        padding: 8px 20px;
+        font-size: 14px;
+        letter-spacing: -0.28px;
+    }
+    .icon {
+        width: 18px;
+        height: 18px;
+        padding-right: 28.5px;
+    }
+}
+@media (min-width: 768px) {
+    .btn {
+        padding: 12px 32px;
+        font-size: 14px;
+        letter-spacing: -0.28px;
+    }
+    .icon {
+        width: 18px;
+        height: 18px;
+        padding-right: 28.5px;
+    }
+}
