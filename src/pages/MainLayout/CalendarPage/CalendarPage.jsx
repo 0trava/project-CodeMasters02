@@ -11,7 +11,7 @@ export const CalendarPage = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch('process.env.DB_HOST');
+      const response = await fetch(process.env.DB_HOST);
       const data = await response.json();
       setTasks(data);
     } catch (error) {
