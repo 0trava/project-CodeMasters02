@@ -11,8 +11,13 @@ import { AccountPage } from 'pages/MainLayout/AccountPage/AccountPage';
 import { CalendarPage } from 'pages/MainLayout/CalendarPage/CalendarPage';
 import { StatisticsPage } from 'pages/MainLayout/StatisticsPage/StatisticsPage';
 import { NotFound } from 'pages/NotFound/NotFound';
+import { useSelector } from 'react-redux';
+import { selectToken } from 'redux/auth/selectors';
 
 export const AppRoutes = () => {
+  // eslint-disable-next-line
+  const userIsLogin = useSelector(selectToken);
+  // console.log(userIsLogin);
 
   const chackMainLogin = (value) => {
     if (value === true) {

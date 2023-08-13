@@ -3,11 +3,14 @@ import * as yup from 'yup';
 import css from './LoginForm.module.css';
 import { useDispatch } from "react-redux";
 import { login } from 'redux/auth/operations';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from "utils/routes";
 
 // eslint-disable-next-line
 const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
 
 const LogInSchema = yup.object().shape({
+    
     email: yup
         .string()
         .max(254)
@@ -23,8 +26,9 @@ const LogInSchema = yup.object().shape({
 
 export default function LoginForm() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const {
             email: { value: email },
@@ -33,6 +37,8 @@ export default function LoginForm() {
     
         dispatch(login({ email, password }));
         e.currentTarget.reset();
+        navigate(ROUTES.HOME);
+
     };
 
     return (
