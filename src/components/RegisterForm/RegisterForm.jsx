@@ -36,18 +36,39 @@ export default function RegisterForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const {
-      name: { value: name },
-      email: { value: email },
-      password: { value: password },
-    } = e.currentTarget;
 
-    dispatch(register({ name, email, password }));
-    e.currentTarget.reset();
-    navigate(ROUTES.LOGIN);
+// ВІДПРАВКА ФОРМИ -------------
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const name = e.currentTarget.name.value;
+    const password = e.currentTarget.password.value;
+    const email = e.currentTarget.email.value;
+    console.log(name, password, email)
+    // Перевірка що всі поля заповненні
+
+    if ( password || email) {
+        const { payload } = await dispatch(register({ name, email, password }));
+        console.log(payload);
+        if (
+            payload === 'Request failed with status code 400' ||
+            payload === 'Request failed with status code 401' ||
+            payload === 'Request failed with status code 403' ||
+            payload === 'Request failed with status code 500' ||
+            payload === 'Request failed with status code 409'
+          ) {
+            return;
+          } else  {
+            navigate(ROUTES.HOME);
+          }
+    } else {
+        return;
+    }
+
+
+
+
   };
+// ------------------------------
 
   return (
     <div className={css.register_container}>
@@ -71,6 +92,7 @@ export default function RegisterForm() {
                             <Field
                                 type="text"
                                 name="name"
+                                required
                                 placeholder="Enter your name"
                                 className={`${css.input} ${
                                     touched.name && errors.name
@@ -94,6 +116,7 @@ export default function RegisterForm() {
                             <Field
                                 // type="email"
                                 name="email"
+                                required
                                 placeholder="Enter email"
                                 className={`${css.input} ${
                                     touched.email && errors.email
@@ -117,6 +140,7 @@ export default function RegisterForm() {
                             <Field
                                 type="password"
                                 name="password"
+                                required
                                 placeholder="Enter password"
                                 className={`${css.input} ${
                                     touched.password && errors.password
