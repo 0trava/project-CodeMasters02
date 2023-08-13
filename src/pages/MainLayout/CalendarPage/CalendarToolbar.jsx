@@ -3,6 +3,8 @@ import { PeriodPaginator } from './PeriodPaginator';
 import { PeriodTypeSelect } from './PeriodTypeSelect';
 import { format } from 'date-fns';
 
+import task from './task.json';
+
 export const CalendarToolbar = ({ tasks, setTasks }) => {
   const [periodType, setPeriodType] = useState('month');
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -15,14 +17,15 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
       );
       console.log(formattedDate);
       const response = await fetch(
-        `${process.env.DB_HOST}?periodType=${periodType}&selectedDate=${formattedDate}`
+        // `?periodType=${periodType}&selectedDate=${formattedDate}` //process.env.DB_HOST
+        `${task}?periodType=${periodType}&selectedDate=${formattedDate}`
       );
       const data = await response.json();
       setTasks(data);
     } catch (error) {
       console.error('Error fetching tasks by period:', error);
     }
-  }, [periodType, selectedDate, setTasks]);
+  }, [selectedDate, setTasks, periodType]);
 
   useEffect(() => {
     if (!tasks || tasks.length === 0) {
