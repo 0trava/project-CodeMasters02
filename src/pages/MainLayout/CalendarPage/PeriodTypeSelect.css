@@ -1,0 +1,30 @@
+.period-type-select {
+  color: #3E85F3;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.29;
+
+     }
+  .set-period-btn{
+    border-radius: 0px 8px 8px 8px;
+   
+  }
+  
+  .period-type-select button {
+    border-radius: 8px 8px 8px 8px;
+    background-color: #E3F3FF;
+    border: none;
+    color: #3E85F3;
+    cursor: pointer;
+    padding: 8px 15px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .period-type-select button.active {
+    background-color: #CAE8FF;
+   
+  }
+  

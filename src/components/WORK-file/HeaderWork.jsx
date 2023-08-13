@@ -10,10 +10,10 @@ export const HeaderWork = () => {
     const navigate = useNavigate();
   return ( 
     <nav className='HeaderWork'>
-        <Link to={ROUTES.START}>Start</Link>
+        <Link to={ROUTES.START}>WORK_HOME</Link>
         <Link to={ROUTES.LOGIN}>Login</Link>
         <Link to={ROUTES.REGISTER}>Register</Link>
-        <Link to={ROUTES.HOME}>HOME</Link>
+        <Link to={ROUTES.HOME}>Home</Link>
         <Link to={ROUTES.NotFound}>NotFound</Link>
    </nav>
   )

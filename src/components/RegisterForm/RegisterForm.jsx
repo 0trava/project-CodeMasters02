@@ -3,8 +3,13 @@ import { register } from 'redux/auth/operations';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+
 import css from './RegisterForm.module.css';
 import sprite from 'images/sprite.svg'
+
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from 'utils/routes';
+
 
 // eslint-disable-next-line
 const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -29,6 +34,7 @@ const SignUpSchema = yup.object().shape({
 
 export default function RegisterForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -40,6 +46,7 @@ export default function RegisterForm() {
 
     dispatch(register({ name, email, password }));
     e.currentTarget.reset();
+    navigate(ROUTES.LOGIN);
   };
 
   return (

@@ -1,0 +1,51 @@
+.period-paginator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.period-format {
+  flex-grow: 1;
+  text-align: left;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.period-format h2 {
+  margin: 0;
+  justify-content: start;
+}
+
+.chevron {
+  width: 36px;
+  height: 30px;
+ 
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  margin: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(220, 227, 229, 0.50);
+  background: #FFF;
+}
+
+.icon-chevron {
+  fill: #DCE3E5;
+  transition: fill 0.3s ease;
+}
+
+.chevron:hover,
+.chevron:focus 
+.icon-chevron {
+  fill: #343434;
+  border-radius: 8px;
+  border: 1px solid rgba(220, 227, 229, 0.50);
+  background: #FFF;
+  transition: fill 0.3s ease;
+}

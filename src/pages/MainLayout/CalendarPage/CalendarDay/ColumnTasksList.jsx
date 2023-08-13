@@ -1,5 +1,7 @@
 import React from 'react';
 import {TaskColumnCard} from './TaskColumnCard';
+import "./ColumnTasksList.css"
+
 
 export const ColumnTasksList = ({ tasks }) => {
   return (
