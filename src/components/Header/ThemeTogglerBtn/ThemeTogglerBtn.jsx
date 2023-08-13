@@ -1,4 +1,4 @@
-import sprite from '../../images/sprite.svg';
+import sprite from '../../../images/sprite.svg';
 import css from './ThemeTogglerBtn.module.css';
 
 export const ThemeTogglerBtn = () => {
