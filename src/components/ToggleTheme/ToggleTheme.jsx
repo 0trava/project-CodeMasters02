@@ -5,7 +5,7 @@ import css from "./ToggleTheme.module.css";
 
 export const ToggleTheme = () => {
   const dispatch = useDispatch();
-  const themeToggle = useSelector();
+  const themeToggle = 'light';
   function handleClick() {
     dispatch();
   }
