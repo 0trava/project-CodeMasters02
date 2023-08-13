@@ -91,5 +91,7 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M8 8l16 16"></path>
 </symbol>
 
+<symbol id="icon-enter" viewBox="0 0 15 15"><path fill="none"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M9.75 0.75H10.65C11.9101 0.75 12.5402 0.75 13.0215 0.995235C13.4448 1.21095 13.789 1.55516 14.0048 1.97852C14.25 2.45982 14.25 3.08988 14.25 4.35V10.65C14.25 11.9101 14.25 12.5402 14.0048 13.0215C13.789 13.4448 13.4448 13.789 13.0215 14.0048C12.5402 14.25 11.9101 14.25 10.65 14.25H9.75M6 3.75L9.75 7.5M9.75 7.5L6 11.25M9.75 7.5L0.75 7.5"/></symbol>
+
 </defs>
 </svg>
