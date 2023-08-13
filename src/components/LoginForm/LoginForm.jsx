@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from 'yup';
 import css from './LoginForm.module.css';
+import sprite from 'images/sprite.svg';
 import { useDispatch } from "react-redux";
 import { login } from 'redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
@@ -33,7 +34,6 @@ export default function LoginForm() {
     const navigate = useNavigate();
     const [passVisible, setPasswordVisible] = useState(false)
 
-
 // Change vibility for Password
 const changeVisible = () => {
     const input = document.getElementById('password');
@@ -56,7 +56,6 @@ const changeVisible = () => {
         dispatch(login({ email, password }));
         e.currentTarget.reset();
         navigate(ROUTES.HOME);
-
     };
 
     return (
@@ -123,13 +122,11 @@ const changeVisible = () => {
                                 />
                                 {/* Icon for password (visible or not) */}
                                 <span></span>
-                                <span type="button" onClick={changeVisible}>
+                                <span type="button" onClick={changeVisible} className={css.togle}>
                                     {passVisible ? 
                                     <IoEyeOutline className="IoEyeOutline"/> 
                                     : <IoEyeOffOutline className="IoEyeOffOutline"/>}
                                 </span>
-                                
-
                                 {isValid('password') === 'is-valid' && <p className={css.valid_message}>Correct password!</p>}
                                 <ErrorMessage
                                     name="password"
@@ -140,9 +137,9 @@ const changeVisible = () => {
                                 <button 
                                     className={css.button}
                                     type="submit">Log In
-                                    <svg width="18" height="18">
-                                        <use href=""></use>
-                                    </svg>
+                                <svg className={css.icon} width="18" height="18">
+                                    <use href={sprite + '#icon-log-out-01'}></use>
+                                </svg>
                                 </button>
                             </Form>
                         )
