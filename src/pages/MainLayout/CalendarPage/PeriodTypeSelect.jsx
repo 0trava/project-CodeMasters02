@@ -1,8 +1,9 @@
 import React from 'react';
+import "./PeriodTypeSelect.css"
 
 export const PeriodTypeSelect = ({ periodType, setPeriodType }) => {
   return (
-    <div>
+    <div className='set-period-btn'>
       <button
         className={periodType === 'month' ? 'active' : ''}
         onClick={() => setPeriodType('month')}

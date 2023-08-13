@@ -1,23 +1,12 @@
 .calendar-page {
-  display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  padding: 24px 20px 52px 20px;
+
   font-family: Inter;
 
   background-color: #f7f6f9;
 }
 
-.calendar-header {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.calendar-divider {
-  width: 100%;
-  border-bottom: 1px solid #ccc;
-  margin: 10px 0;
-}
 
 .calendar-content {
   display: flex;
@@ -61,3 +50,4 @@
 .calendar-nav-button:hover {
   background-color: #0056b3;
 }
+
