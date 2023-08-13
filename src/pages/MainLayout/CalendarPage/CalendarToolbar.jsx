@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { PeriodPaginator } from './PeriodPaginator';
 import { PeriodTypeSelect } from './PeriodTypeSelect';
-
+import { format } from 'date-fns';
 
 export const CalendarToolbar = ({ tasks, setTasks }) => {
   const [periodType, setPeriodType] = useState('month');
@@ -9,8 +9,13 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
 
   const fetchTasksByPeriod = useCallback(async () => {
     try {
+      const formattedDate = format(
+        selectedDate,
+        "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"
+      );
+      console.log(formattedDate);
       const response = await fetch(
-        `${process.env.DB_HOST}?periodType=${periodType}&selectedDate=${selectedDate}`
+        `${process.env.DB_HOST}?periodType=${periodType}&selectedDate=${formattedDate}`
       );
       const data = await response.json();
       setTasks(data);
@@ -20,23 +25,19 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
   }, [periodType, selectedDate, setTasks]);
 
   useEffect(() => {
-    if (!tasks || tasks.length === 0) { 
+    if (!tasks || tasks.length === 0) {
       fetchTasksByPeriod();
     }
   }, [tasks, fetchTasksByPeriod]);
 
   return (
-    <div className="toolbar-container">
-    <div className="period-paginator">
+    <div>
       <PeriodPaginator
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}
       />
-    </div>
-  
-    <div className="period-type-select">
+
       <PeriodTypeSelect periodType={periodType} setPeriodType={setPeriodType} />
     </div>
-  </div>
   );
 };
