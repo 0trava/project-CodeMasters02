@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { login } from 'redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from "utils/routes";
-import { ThemeTogglerBtn } from "components/ThemeTogglerBtn/ThemeTogglerBtn";
 
 // eslint-disable-next-line
 const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
@@ -117,7 +116,6 @@ export default function LoginForm() {
                                         <use href=""></use>
                                     </svg>
                                     </button>
-                                    <ThemeTogglerBtn/>
                             </Form>
                         )
                     }
