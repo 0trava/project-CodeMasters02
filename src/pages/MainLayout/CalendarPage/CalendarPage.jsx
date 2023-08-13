@@ -27,11 +27,11 @@ export const CalendarPage = () => {
   //   }
   // }, [tasks]);
 
-  console.log('currentDate:', currentDate);
-  const periodType = 'month';
-  console.log('periodType:', periodType);
-  const selectedDate = new Date();
-  console.log('selectedDate:', selectedDate);
+  // console.log('currentDate:', currentDate);
+  // const periodType = 'month';
+  // console.log('periodType:', periodType);
+  // const selectedDate = new Date();
+  // console.log('selectedDate:', selectedDate);
 
   return (
     <div className="calendar-page">

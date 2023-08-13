@@ -1,8 +1,8 @@
 .period-paginator {
+  color: #3e85f3;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .period-format {
@@ -12,40 +12,63 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 64px;
+  margin-bottom: 18px;
 }
 
-.period-format h2 {
-  margin: 0;
-  justify-content: start;
+.current-month {
+  display: block;
+  border-radius: 8px;
+  background-color: #3e85f3;
+  color: #fff;
+  padding: 6px 12px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.29;
+  text-transform: uppercase;
 }
 
-.chevron {
+.period-change-btn {
+  display: flex;
+  padding: 7px 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.chevron-btn {
+  justify-content: center;
+  align-items: center;
   width: 36px;
   height: 30px;
- 
-  align-items: center;
-  justify-content: center;
-  background-color: #FFFFFF;
-  border: none;
+  padding: 6px 12px;
+  text-align: center;
   cursor: pointer;
-  padding: 8px 12px;
-  margin: 0;
-  border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.50);
-  background: #FFF;
+
+  background-color: #fff;
+  border: 1px solid rgba(220, 227, 229, 0.5);
+
+  :hover,
+  :focus {
+    transition: fill 0.3s ease;
+    scale: 1.7;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 34px;
+    padding: 8px 10px;
+  }
 }
 
-.icon-chevron {
-  fill: #DCE3E5;
-  transition: fill 0.3s ease;
+.left {
+  border-radius: 8px 0 0 8px;
 }
 
-.chevron:hover,
-.chevron:focus 
-.icon-chevron {
-  fill: #343434;
-  border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.50);
-  background: #FFF;
-  transition: fill 0.3s ease;
+.right {
+  border-radius: 0 8px 8px 0;
 }

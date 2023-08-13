@@ -25,16 +25,50 @@ export const PeriodPaginator = ({ selectedDate, setSelectedDate }) => {
 
   return (
     <div className="period-format">
-      <div>{periodFormat('month')}</div>
+      <div className="current-month">{periodFormat('month')}</div>
       <div className="period-change-btn">
-        <button className="chevron" onClick={() => changeDate(-1)}>
-          <svg className="icon-chevron" width="16" height="16">
-            <use href={sprite + '#icon-chevron-left'}></use>
+        <button className="chevron-btn left" onClick={() => changeDate(-1)}>
+          {/* <svg className="icon-chevron" width="16" height="16"> */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <path
+              d="M10 12L6 8L10 4"
+              stroke="#DCE3E5"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+
+            <use
+              href={sprite + '#icon-chevron-left'}
+              style={{ verticalAlign: 'middle' }}
+            ></use>
           </svg>
         </button>
-        <button className="chevron" onClick={() => changeDate(1)}>
-          <svg className="icon-chevron" width="16" height="16">
-            <use href={sprite + '#icon-chevron-right'}></use>
+        <button className="chevron-btn right" onClick={() => changeDate(1)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <path
+              d="M6 12L10 8L6 4"
+              stroke="#343434"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <use
+              href={sprite + '#icon-chevron-right'}
+              style={{ verticalAlign: 'middle' }}
+            ></use>
           </svg>
         </button>
       </div>

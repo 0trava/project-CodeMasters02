@@ -1,18 +1,18 @@
 import React from 'react';
-import "./PeriodTypeSelect.css"
+import './PeriodTypeSelect.css';
 
 export const PeriodTypeSelect = ({ periodType, setPeriodType }) => {
   return (
-    <div className='set-period-btn'>
+    <div className="set-period-btn">
       <button
-        className={periodType === 'month' ? 'active' : ''}
+        className={`left ${periodType === 'month' ? 'active' : ''}`}
         onClick={() => setPeriodType('month')}
       >
         Month
       </button>
 
       <button
-        className={periodType === 'day' ? 'active' : ''}
+        className={`right ${periodType === 'day' ? 'active' : ''}`}
         onClick={() => setPeriodType('day')}
       >
         Day

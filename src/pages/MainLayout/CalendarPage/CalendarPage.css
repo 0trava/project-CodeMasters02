@@ -13,12 +13,16 @@
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
-  color: #343434;
+
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
   line-height: 1.17;
   text-transform: uppercase;
+  color: #3E85F3;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
 }
 
 .calendar-route {
@@ -50,4 +54,3 @@
 .calendar-nav-button:hover {
   background-color: #0056b3;
 }
-
