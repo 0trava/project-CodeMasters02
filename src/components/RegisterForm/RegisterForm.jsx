@@ -3,9 +3,13 @@ import { register } from 'redux/auth/operations';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import style from './RegisterForm.module.css';
+
+import css from './RegisterForm.module.css';
+import sprite from 'images/sprite.svg'
+
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'utils/routes';
+
 
 // eslint-disable-next-line
 const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -46,9 +50,9 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className={style.register_container}>
-      <div className={style.container}>
-        <h1 className={style.title}>Sign Up</h1>
+    <div className={css.register_container}>
+      <div className={css.container}>
+        <h1 className={css.title}>Sign Up</h1>
         <Formik 
             validationSchema={SignUpSchema} 
             initialValues={{ name: '', email: '', password: '' }} 
@@ -61,62 +65,80 @@ export default function RegisterForm() {
                     ? 'is-valid'
                     : '';
                     return (
-                    <Form className={style.form} onSubmit={handleSubmit}>
-                        <label className={style.label} htmlFor="name">
+                    <Form className={css.form} onSubmit={handleSubmit}>
+                        <label className={css.label} htmlFor="name">
                             Name
                             <Field
-                                className={style.input}
                                 type="text"
                                 name="name"
                                 placeholder="Enter your name"
+                                className={`${css.input} ${
+                                    touched.name && errors.name
+                                        ? css.error_input
+                                        : touched.name && !errors.name
+                                        ? css.success_input
+                                        : ''
+                                }`}
                             />
                             {isValid('name') === 'is-valid' && (
-                            <p className={style.valid_message}>Correct name!</p>
+                            <p className={css.valid_message}>Correct name!</p>
                             )}
                             <ErrorMessage
                                 name="name"
                                 component="div"
-                                className={style.error_message}
+                                className={css.error_message}
                             />
                         </label>
-                        <label className={style.label} htmlFor="email">
+                        <label className={css.label} htmlFor="email">
                             Email
                             <Field
-                                className={style.input}
                                 // type="email"
                                 name="email"
                                 placeholder="Enter email"
+                                className={`${css.input} ${
+                                    touched.email && errors.email
+                                        ? css.error_input
+                                        : touched.email && !errors.email
+                                        ? css.success_input
+                                        : ''
+                                }`}
                             />
                             {isValid('email') === 'is-valid' && (
-                            <p className={style.valid_message}>Correct email!</p>
+                            <p className={css.valid_message}>Correct email!</p>
                             )}
                             <ErrorMessage
                                 name="email"
                                 component="div"
-                                className={style.error_message}
+                                className={css.error_message}
                             />
                         </label>
-                        <label className={style.label} htmlFor="password">
+                        <label className={css.label} htmlFor="password">
                             Password
                             <Field
-                                className={style.input}
                                 type="password"
                                 name="password"
                                 placeholder="Enter password"
+                                className={`${css.input} ${
+                                    touched.password && errors.password
+                                        ? css.error_input
+                                        : touched.password && !errors.password
+                                        ? css.success_input
+                                        : ''
+                                }`}
                             />
                             {isValid('password') === 'is-valid' && (
-                            <p className={style.valid_message}>Correct password!</p>
+                            <p className={css.valid_message}>Correct password!</p>
                             )}
                             <ErrorMessage
                                 name="password"
                                 component="div"
-                                className={style.error_message}
+                                className={css.error_message}
                             />
                         </label>
-                        <button className={style.button} type="submit">
+                        <button className={css.button} type="submit">
                             Sign Up
-                            <svg width="18" height="18">
-                                <use href="../../images/sprite.svg#icon-log-in"></use>
+                            <svg className={css.icon} width="18" height="18">
+                                <use href={sprite + '#icon-log-out-01'}></use>
                             </svg>
                         </button>
                     </Form>
@@ -126,150 +148,3 @@ export default function RegisterForm() {
     </div>
     </div>
 )};
-
-// import { useDispatch } from 'react-redux';
-// import { register } from 'redux/auth/operations';
-
-// import { Formik, Form, Field, useFormik } from 'formik';
-// import * as yup from 'yup';
-// import style from './RegisterForm.module.css';
-
-// // eslint-disable-next-line
-// const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-// const SignUpSchema = yup.object().shape({
-//   name: yup
-//     .string()
-//     .max(16, 'Name must be 16 characters or less.')
-//     .required('Name is a required!'),
-//   email: yup
-//     .string()
-//     .max(254)
-//     .matches(emailRegExpression, 'Invalid email address. The email address must contain the @ sign.')
-//     .required('Email is a required!')
-//     .email('Invalid email address. The email address must contain the @ sign.'),
-//   password: yup
-//     .string()
-//     .min(6, 'Password must be at least 6 characters.')
-//     .max(254, 'Password is too long')
-//     .required('Password is a required!'),
-// });
-
-// export default function RegisterForm() {
-//     const dispatch = useDispatch();
-
-//     const formik = useFormik({
-//         initialValues: {
-//             name: '',
-//             email: '',
-//             password: '',
-//         },
-//         validationSchema: SignUpSchema,
-
-//         onSubmit: (values, { resetForm }) => {
-//             dispatch(
-//                 register({
-//                     name: values.name,
-//                     email: values.email,
-//                     password: values.password,
-//                 })
-//             );
-//             resetForm();
-//         },
-//     });
-
-//     return (
-//     <div className={style.register_container}>
-//         <div className={style.container}>
-//             <h1 className={style.title}>Sign Up</h1>
-//             <Formik 
-//             validationSchema={SignUpSchema} 
-//             initialValues={{
-//                 name: '',
-//                 email: '',
-//                 password: '',
-//             }}>
-//                 <Form className={style.form} >
-//                     <label className={style.label} htmlFor="name">
-//                         Name                   
-//                     </label>                   
-//                      <Field
-//                         className={`${style.input} ${
-//                             formik.touched.name && formik.errors.name
-//                                 ? style.errorInput
-//                                 : formik.touched.name && !formik.errors.name
-//                                 ? style.success
-//                                 : ''
-//                         }`}
-//                         id="name"
-//                         type="text"
-//                         name="name"
-//                         placeholder="Enter your name"
-//                         onChange={formik.handleChange}
-//                         onBlur={formik.handleBlur}
-//                         value={formik.values.name}
-//                     />
-//                     {formik.touched.name && formik.errors.name ? (
-//                         <div className={style.errorLabel}>{formik.errors.name}</div>
-//                     ) : null}
-
-//                     <label className={style.label} htmlFor="email">
-//                         Email                    
-//                     </label>                    
-//                     <Field
-//                         className={`${style.input} ${
-//                             formik.touched.email && formik.errors.email
-//                                 ? style.errorInput
-//                                 : formik.touched.email && !formik.errors.email
-//                                 ? style.success
-//                                 : ''
-//                         }`}
-//                         id="email"
-//                          // type="email"
-//                         name="email"
-//                         placeholder="Enter email"
-//                         onChange={formik.handleChange}
-//                         onBlur={formik.handleBlur}
-//                         value={formik.values.email}
-//                     />
-//                     {formik.touched.email && formik.errors.email ? (
-//                         <div className={style.errorLabel}>{formik.errors.email}</div>
-//                     ) : null}
-
-//                     <label className={style.label} htmlFor="password">
-//                         Password                     
-//                     </label>                    
-//                     <Field
-//                         className={`${style.input} ${
-//                             formik.touched.password && formik.errors.password
-//                                 ? style.errorInput
-//                                 : formik.touched.password && !formik.errors.password
-//                                 ? style.success
-//                                 : ''
-//                         }`}
-//                         id="password"
-//                         type="password"
-//                         name="password"
-//                         placeholder="Enter password"
-//                         onBlur={formik.handleBlur}
-//                         onChange={formik.handleChange}
-//                         value={formik.values.password}
-//                     />
-//                     {formik.touched.password && formik.errors.password ? (
-//                         <div className={style.errorLabel}>{formik.errors.password}</div>
-//                     ) : null}
-//                         <button 
-//                             className={style.button} 
-//                             type="submit"
-//                             disabled={!formik.isValid || !formik.dirty}
-//                         >
-//                             Sign Up
-//                             <svg width="18" height="18">
-//                                 <use href="../../images/sprite.svg#icon-log-in"></use>
-//                             </svg>
-//                         </button>
-//                     </Form>
-//         </Formik>
-//     </div>
-//     </div>
-// )};
