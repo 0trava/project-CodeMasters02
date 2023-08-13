@@ -4,7 +4,6 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.baseURL = 'https://project-codemasters02-backend.onrender.com';
 
-
 const setToken = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };

@@ -6,8 +6,8 @@ import {
   refresh,
   updateUser,
   toggleTheme,
-  loginGoogle
-} from './operetions';
+  loginGoogle,
+} from './operations';
 
 const initialState = {
   user: {},
@@ -67,7 +67,6 @@ export const authSlice = createSlice({
         state.isLoggedIn = false;
         state.error = payload.error;
       })
-
 
       .addCase(logout.fulfilled, state => {
         state.user = {};

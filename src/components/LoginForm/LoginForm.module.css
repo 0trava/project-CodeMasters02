@@ -109,7 +109,6 @@
     color: var(--color-task-high);
     font-family: Inter;
     font-size: 12px;
-    font-style: italic;
     font-weight: 200;
     line-height: 1.28;
 } 
@@ -123,7 +122,6 @@
     color: var(--green-color);
     font-family: Inter;
     font-size: 12px;
-    font-style: italic;
     font-weight: 200;
     line-height: 1.28;
 }
@@ -179,7 +177,6 @@
         color: var(--color-task-high);
         font-family: Inter;
         font-size: 12.5px;
-        font-style: italic;
         font-weight: 200;
         line-height: 1.28;
     } 
@@ -190,7 +187,6 @@
         color: var(--green-color);
         font-family: Inter;
         font-size: 12.5px;
-        font-style: italic;
         font-weight: 200;
         line-height: 1.28;
     } 
