@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ButtonToggle } from "./ToggleButton";
 import sprite from "../../images/sprite.svg";
 import css from "./ToggleTheme.module.css";
