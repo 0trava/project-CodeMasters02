@@ -38,7 +38,7 @@ export default function RegisterForm() {
 
 
 // ВІДПРАВКА ФОРМИ -------------
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.currentTarget.name.value;
     const password = e.currentTarget.password.value;
@@ -46,10 +46,20 @@ export default function RegisterForm() {
     console.log(name, password, email)
     // Перевірка що всі поля заповненні
 
-    if (name || password || email) {
-        dispatch(register({ name, email, password }));
-        e.currentTarget.reset();
-        navigate(ROUTES.HOME);
+    if ( password || email) {
+        const { payload } = await dispatch(register({ name, email, password }));
+        console.log(payload);
+        if (
+            payload === 'Request failed with status code 400' ||
+            payload === 'Request failed with status code 401' ||
+            payload === 'Request failed with status code 403' ||
+            payload === 'Request failed with status code 500' ||
+            payload === 'Request failed with status code 409'
+          ) {
+            return;
+          } else  {
+            navigate(ROUTES.HOME);
+          }
     } else {
         return;
     }
