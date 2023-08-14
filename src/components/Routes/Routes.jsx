@@ -21,7 +21,7 @@ export const AppRoutes = () => {
 
   const chackMainLogin = (value) => {
     console.log(value);
-    if (value) {
+    if (!value) {
       return (<MainPage/>)
     } else {
       return (<MainLayout/>)

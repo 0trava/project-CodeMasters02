@@ -8,6 +8,6 @@ import { selectToken } from 'redux/auth/selectors';
 export const PrivateRoute = async ({children}) => {
     const userIsLogin = await useSelector(selectToken);
 
-    return (userIsLogin !== "") ?  children : <Navigate to={ROUTES.NotFound} />;
+    return (userIsLogin) ?  children : <Navigate to={ROUTES.NotFound} />;
 }
 
