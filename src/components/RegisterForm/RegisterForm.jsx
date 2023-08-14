@@ -46,7 +46,7 @@ export default function RegisterForm() {
     console.log(name, password, email)
     // Перевірка що всі поля заповненні
 
-    if ( password || email) {
+    if ( name || password || email) {
         const { payload } = await dispatch(register({ name, email, password }));
         console.log(payload);
         if (

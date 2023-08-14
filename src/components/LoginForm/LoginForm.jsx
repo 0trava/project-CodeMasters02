@@ -46,16 +46,28 @@ const changeVisible = () => {
     }
 }
 //----------------------------
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const {
-            email: { value: email },
-            password: { value: password },
-        } = e.currentTarget;
-    
-        dispatch(login({ email, password }));
-        e.currentTarget.reset();
-        navigate(ROUTES.HOME);
+        const password = e.currentTarget.password.value;
+        const email = e.currentTarget.email.value;
+
+    if ( password || email) {
+        const { payload } = await dispatch(login({ email, password }));
+        console.log(payload);
+        if (
+            payload === 'Request failed with status code 400' ||
+            payload === 'Request failed with status code 401' ||
+            payload === 'Request failed with status code 403' ||
+            payload === 'Request failed with status code 500' ||
+            payload === 'Request failed with status code 409'
+          ) {
+            return;
+          } else  {
+            navigate(ROUTES.HOME);
+          }
+    } else {
+        return;
+    }
 
     };
 
