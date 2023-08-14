@@ -1,0 +1,29 @@
+.taskBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 299px;
+  height: 48px;
+
+  font-size: 14px;
+  line-height: 129%;
+  font-weight: 600;
+  color: #111111;
+  background-color: #e3f3ff;
+  border: 1px dashed #3e85f3;
+  border-radius: 8px;
+  cursor: pointer;
+
+  @media (min-width: 765px) {
+    width: 304px;
+    height: 52px;
+  }
+}
+
+.iconPlus {
+  fill: transparent;
+  stroke: #111111;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
