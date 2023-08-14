@@ -1,0 +1,9 @@
+.loader{
+    text-align: centre;
+    background-color: #cae0f251;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
