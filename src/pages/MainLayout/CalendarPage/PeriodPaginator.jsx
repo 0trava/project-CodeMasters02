@@ -28,7 +28,6 @@ export const PeriodPaginator = ({ selectedDate, setSelectedDate }) => {
       <div className="current-month">{periodFormat('month')}</div>
       <div className="period-change-btn">
         <button className="chevron-btn left" onClick={() => changeDate(-1)}>
-          {/* <svg className="icon-chevron" width="16" height="16"> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

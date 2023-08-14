@@ -49,14 +49,13 @@ export const CalendarGrid = ({ selectedDate }) => {
   return (
     <div className="calendar-grid">
       <table>
+        <tr className="week-day"></tr>
         <thead>
-          <tr className="week-day">
-            {daysOfWeek.map((day, index) => (
-              <th key={`weekday-${index}`} className="weekday-cell">
-                {day}
-              </th>
-            ))}
-          </tr>
+          {daysOfWeek.map((day, index) => (
+            <th key={`weekday-${index}`} className="weekday-cell">
+              {day}
+            </th>
+          ))}
         </thead>
         <tbody className="calendar-body">
           {weeks.map((week, weekIndex) => (

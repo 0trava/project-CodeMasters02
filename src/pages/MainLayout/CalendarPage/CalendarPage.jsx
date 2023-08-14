@@ -1,13 +1,13 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Route, Navigate, Routes } from 'react-router-dom';
+
 import { CalendarToolbar } from './CalendarToolbar';
-import { ChoosedMonth } from './CalendarMonth/ChoosedMonth';
-import { ChoosedDay } from './CalendarDay/ChoosedDay';
 import './CalendarPage.css';
+import { CalendarGrid } from './CalendarGrid';
 
 export const CalendarPage = () => {
   const currentDate = useMemo(() => new Date(), []);
   const [tasks, setTasks] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(currentDate);
   const [userToken, setUserToken] = useState(null);
 
   const fetchTasks = async () => {
@@ -64,22 +64,15 @@ export const CalendarPage = () => {
         tasks={tasks}
         setTasks={setTasks}
         currentDate={currentDate}
-        loginUser={loginUser} // Pass the login function to the toolbar
+        loginUser={loginUser}
+        setSelectedDate={setSelectedDate}
       />
 
-      <div className="calendar-content">
-        <Routes>
-          <Route
-            path="/calendar/month/:currentDate"
-            element={<ChoosedMonth tasks={tasks} />}
-          />
-          <Route path="/calendar/day/:selectedDate" element={<ChoosedDay />} />
-          <Route
-            path="/calendar"
-            element={<Navigate to={`/calendar/month/${currentDate}`} />}
-          />
-        </Routes>
-      </div>
+      <div className="calendar-content"></div>
+      <CalendarGrid
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+      />
     </div>
   );
 };
