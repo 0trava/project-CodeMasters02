@@ -45,17 +45,21 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk(
   'auth/logout',
-  async (_, { getState, rejectWithValue }) => {
-    const { token } = getState().auth;
-    
+  async (_, { rejectWithValue }) => {
+    // const { token } = getState().auth;
+    // console.log(token);
+    console.log("+++");
+    console.log(axios.defaults.headers.common.Authorization);
+
     try {
-      await axios.post('api/auth/logout', token);
+      await axios.post('api/auth/logout');
       clearToken();
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
+
 
 export const refresh = createAsyncThunk(
   'auth/refresh/fetchCurrentUser',
@@ -65,7 +69,7 @@ export const refresh = createAsyncThunk(
       return rejectWithValue('Oooops... Cannot refresh user');
     }
     try {
-      setToken(token);
+      // setToken(token);
       const { data } = await axios.get('api/auth/current');
       return data;
     } catch (error) {
