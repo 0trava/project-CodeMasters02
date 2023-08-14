@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import {ROUTES} from '../../utils/routes';
 import {PrivateRoute} from "./PrivateRoute";
@@ -16,7 +16,7 @@ import { selectToken } from 'redux/auth/selectors';
 
 export const AppRoutes = () => {
   // eslint-disable-next-line
-  const userIsLogin = useState(useSelector(selectToken));
+  const userIsLogin = useSelector(selectToken);
 
 
   const chackMainLogin = (value) => {

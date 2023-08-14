@@ -37,6 +37,7 @@ const userFormSchema = Yup.object().shape({
 export const UserForm = () => {
 
   // Отримуємо данні з Redux
+  // eslint-disable-next-line
   const {name, email, birthday, phone, skype, avatar} = useSelector(selectUser);
 
 
