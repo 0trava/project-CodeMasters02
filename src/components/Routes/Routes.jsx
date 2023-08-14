@@ -39,7 +39,7 @@ export const AppRoutes = () => {
                 <Route path={ROUTES.STATISTICS} element={<PrivateRoute><StatisticsPage /></PrivateRoute>} />
             </Route>
             <Route path={ROUTES.NotFound}  element={<NotFound />} />
-    
+
       </Routes>
   )
 }
