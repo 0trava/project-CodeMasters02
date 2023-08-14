@@ -42,22 +42,22 @@
     cursor: pointer;
 }
 .icon {
-    stroke: #343434;
+    stroke: var(--text-review);
     stroke-opacity: 0.5;
 }
 .icon_2 {
-    fill: #343434;
+    fill: var(--text-review);
     fill-opacity: 0.5;
 }
 .item:hover .icon_2 {
-    fill: #3E85F3;
+    fill: var(--color-blue);
     fill-opacity: 1;
 }
 .item:hover .link {
-    color: #3E85F3;
+    color: var(--color-blue);
 }
 .item:hover .icon {
-    stroke: #3E85F3;
+    stroke: var(--color-blue);
     stroke-opacity: 1;
 }
 @media (min-width: 375px) {
