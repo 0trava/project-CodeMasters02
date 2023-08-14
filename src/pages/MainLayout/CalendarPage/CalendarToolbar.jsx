@@ -15,7 +15,7 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
         selectedDate,
         "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"
       );
-      console.log(formattedDate);
+      // console.log(formattedDate);
       const response = await fetch(
         // `?periodType=${periodType}&selectedDate=${formattedDate}` //process.env.DB_HOST
         `${task}?periodType=${periodType}&selectedDate=${formattedDate}`

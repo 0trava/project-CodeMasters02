@@ -32,6 +32,9 @@ export const CalendarPage = () => {
   // console.log('periodType:', periodType);
   // const selectedDate = new Date();
   // console.log('selectedDate:', selectedDate);
+  // const task = tasksData;
+  // console.log('tasks:', tasks);
+  // console.log('task:', task);
 
   return (
     <div className="calendar-page">

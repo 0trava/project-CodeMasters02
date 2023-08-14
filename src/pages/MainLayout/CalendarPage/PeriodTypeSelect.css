@@ -1,13 +1,10 @@
 .period-type-select {
   display: flex;
-
-  /* background-color: #F7F6F9; */
-
 }
 
 .left {
   border-radius: 8px 0px 0px 8px;
-  border-right: 1px solid rgba(62, 133, 243, 0.20);
+  border-right: 1px solid #3e85f333;
 }
 
 .right {
@@ -16,7 +13,7 @@
 
 button {
   padding: 8px 16px;
-  color: #3E85F3;
+  color: var(--color-blue);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -25,15 +22,13 @@ button {
 
   border: none;
   cursor: pointer;
-  background-color: #E3F3FF;
+  background-color: #e3f3ff;
 }
 
 .period-type-select button {
-
   transition: background-color 0.3s ease;
 }
 
 button.active {
-  background-color: #CAE8FF;
-
+  background-color: #cae8ff;
 }

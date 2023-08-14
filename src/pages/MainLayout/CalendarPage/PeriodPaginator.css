@@ -1,5 +1,5 @@
 .period-paginator {
-  color: #3e85f3;
+  color: var(--color-blue);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,8 +19,8 @@
 .current-month {
   display: block;
   border-radius: 8px;
-  background-color: #3e85f3;
-  color: #fff;
+  background-color: var(--color-blue);
+  color: var(--color-white);
   padding: 6px 12px;
   justify-content: center;
   align-items: center;
@@ -50,11 +50,11 @@
   text-align: center;
   cursor: pointer;
 
-  background-color: #fff;
-  border: 1px solid rgba(220, 227, 229, 0.5);
+  background-color: var(--color-white);
+  border: 1px solid #dce3e580;
 
-  :hover,
-  :focus {
+  :focus,
+  :hover {
     transition: fill 0.3s ease;
     scale: 1.7;
   }
