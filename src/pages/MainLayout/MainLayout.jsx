@@ -24,17 +24,13 @@ export const MainLayout = () => {
         </aside>
       </header>
       <div>
-       <div className="MainLayout__header">
-        {/* Header */}
-      </div> 
-      <div className="MainLayout__block" >
-      <Suspense fallback={<div>Loading page...</div>}>
-        <Outlet/>
-      </Suspense>        
+        <div className="MainLayout__header">{/* Header */}</div>
+        <div className="MainLayout__block">
+          <Suspense fallback={<div>Loading page...</div>}>
+            <Outlet />
+          </Suspense>
+        </div>
       </div>
-
-      </div>
-
     </div>
-  )
-}
+  );
+};
