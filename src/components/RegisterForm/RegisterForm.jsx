@@ -38,7 +38,7 @@ export default function RegisterForm() {
   const [passVisible, setPasswordVisible] = useState(false);
 
   // Change vibility for Password
-const changeVisible = () => {
+  const changeVisible = () => {
     const input = document.getElementById('password');
     if (passVisible) {
         setPasswordVisible(false);
@@ -147,6 +147,7 @@ const changeVisible = () => {
                             Password
                             <Field
                                 type="password"
+                                id="password"
                                 name="password"
                                 required
                                 placeholder="Enter password"
@@ -161,9 +162,9 @@ const changeVisible = () => {
                             {/* Icon for password (visible or not) */}
                             <span></span>
                             <span type="button" onClick={changeVisible} className={css.togle}>
-                                {passVisible ? 
-                                <IoEyeOutline /> 
-                                : <IoEyeOffOutline />}
+                                    {passVisible ? 
+                                    <IoEyeOutline className="IoEyeOutline"/> 
+                                    : <IoEyeOffOutline className="IoEyeOffOutline"/>}
                             </span>
                             {isValid('password') === 'is-valid' && (
                             <p className={css.valid_message}>Correct password!</p>

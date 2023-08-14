@@ -135,13 +135,11 @@ const changeVisible = () => {
                                 />
                                 {/* Icon for password (visible or not) */}
                                 <span></span>
-                                <span type="button" onClick={changeVisible}>
+                                <span type="button" onClick={changeVisible} className={css.togle}>
                                     {passVisible ? 
                                     <IoEyeOutline className="IoEyeOutline"/> 
                                     : <IoEyeOffOutline className="IoEyeOffOutline"/>}
                                 </span>
-                                
-
                                 {isValid('password') === 'is-valid' && <p className={css.valid_message}>Correct password!</p>}
                                 <ErrorMessage
                                     name="password"
