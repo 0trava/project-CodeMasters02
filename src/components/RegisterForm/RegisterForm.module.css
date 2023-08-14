@@ -136,6 +136,12 @@
     line-height: 1.28;
 }
 
+.togle {
+    position: absolute;
+    top: 41px;
+    right: 15px;
+    cursor: pointer;
+}
 
 @media (min-width: 768px) {
     .container {
@@ -192,6 +198,12 @@
         font-family: Inter;
         font-size: 12.5px;
     } 
+
+    .togle {
+        position: absolute;
+        top: 47px;
+        right: 15px;
+    }
 }
 
 @media (min-width:1440px) {

@@ -1,14 +1,14 @@
-import { useDispatch } from 'react-redux';
-import { register } from 'redux/auth/operations';
-
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-
 import css from './RegisterForm.module.css';
 import sprite from 'images/sprite.svg'
-
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'utils/routes';
+import { IoEyeOffOutline } from "react-icons/io5";
+import { IoEyeOutline } from "react-icons/io5";
+import { useState } from "react";
 
 
 // eslint-disable-next-line
@@ -35,7 +35,19 @@ const SignUpSchema = yup.object().shape({
 export default function RegisterForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [passVisible, setPasswordVisible] = useState(false);
 
+  // Change vibility for Password
+const changeVisible = () => {
+    const input = document.getElementById('password');
+    if (passVisible) {
+        setPasswordVisible(false);
+        input.setAttribute('type','password');
+    } else {
+        setPasswordVisible(true);
+        input.setAttribute('type','text');
+    }
+}
 
 // ВІДПРАВКА ФОРМИ -------------
   const handleSubmit = async (e) => {
@@ -63,10 +75,6 @@ export default function RegisterForm() {
     } else {
         return;
     }
-
-
-
-
   };
 // ------------------------------
 
@@ -150,6 +158,13 @@ export default function RegisterForm() {
                                         : ''
                                 }`}
                             />
+                            {/* Icon for password (visible or not) */}
+                            <span></span>
+                            <span type="button" onClick={changeVisible} className={css.togle}>
+                                {passVisible ? 
+                                <IoEyeOutline /> 
+                                : <IoEyeOffOutline />}
+                            </span>
                             {isValid('password') === 'is-valid' && (
                             <p className={css.valid_message}>Correct password!</p>
                             )}
