@@ -38,7 +38,6 @@ export const UserForm = () => {
 
   // Отримуємо данні з Redux
   const {name, email, birthday, phone, skype, avatar} = useSelector(selectUser);
-  console.log(name, email, birthday, phone, skype, avatar);
 
 
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes } from "react-router-dom";
 import {ROUTES} from '../../utils/routes';
 import {PrivateRoute} from "./PrivateRoute";
@@ -16,11 +16,12 @@ import { selectToken } from 'redux/auth/selectors';
 
 export const AppRoutes = () => {
   // eslint-disable-next-line
-  const userIsLogin = useSelector(selectToken);
-  console.log(userIsLogin);
+  const userIsLogin = useState(useSelector(selectToken));
+
 
   const chackMainLogin = (value) => {
-    if (value === "") {
+    console.log(value);
+    if (value) {
       return (<MainPage/>)
     } else {
       return (<MainLayout/>)
@@ -38,9 +39,6 @@ export const AppRoutes = () => {
                 <Route path={ROUTES.STATISTICS} element={<PrivateRoute><StatisticsPage /></PrivateRoute>} />
             </Route>
             <Route path={ROUTES.NotFound}  element={<NotFound />} />
-
-            <Route path={ROUTES.START} element={chackMainLogin("ududt")}/>
-
     
       </Routes>
   )
