@@ -1,5 +1,6 @@
 // import { MainPage } from 'pages/MainPage/MainPage';
 import './app.css';
+import { Loader } from './Loader/Loader';
 import { AppRoutes } from './Routes/Routes';
 import { HeaderWork } from './WORK-file/HeaderWork';
 
