@@ -1,11 +1,18 @@
+import { selectUser } from 'redux/auth/selectors';
 import css from './UserInfo.module.css';
+import { useSelector } from 'react-redux';
 
-// TEST!!!  Замінити на РЕДАКС
-const name = 'Yaroslav Yak';
-const avatar = null;
-// TEST!!!
 
 export const UserInfo = () => {
+  
+  // Отримуємо данні з Redux
+  const {name, avatar} = useSelector(selectUser);
+
+
+
+
+
+
   const getFirstName = name => {
     if (name) {
       return name.split(' ')[0];
