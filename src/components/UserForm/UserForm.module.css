@@ -132,3 +132,57 @@
     width: 262px;
   }
 }
+
+/* AVATAR */
+
+.UserForm__avatar {
+  position: relative;
+  width: 124px;
+  height: 124px;
+  background-color: var(--color-white-avatar);
+  border-radius: 100px;
+  border: 2px solid var(--color-blue);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.UserForm__avatar_icon {
+  width: 48px;
+  height: 48px;
+  fill: #3E85F32E;
+}
+
+.UserForm__avatar_input{
+  position: absolute;
+  bottom: -6px;
+  right: 24px;
+  border-radius: 100px;
+  color: transparent;
+  width: 24px;
+  height: 24px;
+}
+
+.UserForm__avatar::after {
+ content: "";
+ position: absolute;
+ bottom: -6px;
+ right: 24px;
+
+ width: 24px;
+ height: 24px;
+ border-radius: 100px;
+ background-color: #3E85F3;;
+ z-index: 1;
+ pointer-events: none;
+
+ background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3e%3cpath d='M9 3.75V14.25' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3cpath d='M3.75 9H14.25' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
+ background-position: center;
+ background-repeat: no-repeat;
+ fill: #fff;
+
+
+}
+

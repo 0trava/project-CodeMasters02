@@ -1,7 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './UserForm.module.css';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/selectors';
+import { PiUserBold } from "react-icons/pi";
+
 
 // const SUPPORTED_FORMATS = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
 // Дозволяє завантажувати формати зображень .jpeg, .png, .gif
@@ -32,6 +35,13 @@ const userFormSchema = Yup.object().shape({
 });
 
 export const UserForm = () => {
+
+  // Отримуємо данні з Redux
+  const {name, email, birthday, phone, skype, avatar} = useSelector(selectUser);
+  console.log(name, email, birthday, phone, skype, avatar);
+
+
+
   const onSubmitFormik = (valuesFormik, actionsFormik) => {
     console.log('actionsFormik:', actionsFormik);
     console.log('valuesFormik:', valuesFormik);
@@ -48,14 +58,25 @@ export const UserForm = () => {
       >
         <Form>
           <div className={css.avatarWrapper}>
-            <label>
-              <Field
-                name="avatar"
-                type="file"
-                accept="image/png, image/jpeg, image/gif"
-              />
-              <ErrorMessage className={css.error} name="avatar" component="p" />
-            </label>
+            {/* AVATAR */}
+            <div className={css.UserForm__avatar}>
+                <PiUserBold className={css.UserForm__avatar_icon}/>
+                <label >
+                  <Field
+                    name="avatar"
+                    className={css.UserForm__avatar_input}
+                    type="file"
+                    accept="image/png, image/jpeg, image/gif"
+                    id="file"
+                    value="" 
+                    title=" "
+                    
+                  />
+                  <ErrorMessage className={css.error} name="avatar" component="p" />
+                </label>
+
+            </div>
+
             <div>
               <p className={css.userName}> "{'userName'}" </p>
               <p className={css.user}>User</p>
@@ -68,6 +89,7 @@ export const UserForm = () => {
                 name="name"
                 placeholder="Add your name"
                 className={css.inputField}
+                defaultValue={name ? name : ""}
               />
               <ErrorMessage className={css.error} name="name" component="p" />
             </label>
@@ -78,6 +100,7 @@ export const UserForm = () => {
                 type="tel"
                 placeholder="Add a phone number"
                 className={css.inputField}
+                defaultValue={phone ? phone : ""}
               />
               <ErrorMessage className={css.error} name="phone" component="p" />
             </label>
@@ -87,6 +110,7 @@ export const UserForm = () => {
                 name="birthday"
                 placeholder="DD/MM/YYYY"
                 className={css.inputField}
+                defaultValue={birthday ? birthday : ""}
               />
               <ErrorMessage
                 className={css.error}
@@ -101,6 +125,7 @@ export const UserForm = () => {
                 name="skype"
                 placeholder="Add a skype number"
                 className={css.inputField}
+                defaultValue={skype ? skype : ""}
               />
               <ErrorMessage className={css.error} name="skype" component="p" />
             </label>
@@ -110,6 +135,7 @@ export const UserForm = () => {
                 name="email"
                 placeholder="Add your email"
                 className={css.inputField}
+                defaultValue={email ? email : ""}
               />
               <ErrorMessage
                 className={css.error}
