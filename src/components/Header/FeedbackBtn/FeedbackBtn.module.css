@@ -6,20 +6,20 @@
   line-height: 133%;
   text-align: center;
   text-transform: none;
-  color: #ffffff;
-  background-color: #3e85f3;
+  color: var(--color-white);
+  background-color: var(--color-blue);
   border: none;
   border-radius: 10px;
-  cursor: pointer;
-
-  @media (min-width: 768px) {
-    padding: 12px 32px;
-    font-size: 14px;
-    border-radius: 14px;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: #2b78ef;
+  cursor: pointer;  
+}
+.feedbackBtn:hover,
+  .feedbackBtn:focus {
+    background-color: var(--color-feedback-hover);
+}
+@media (min-width: 768px) {
+  .feedbackBtn {
+      padding: 12px 32px;
+      font-size: 14px;
+      border-radius: 14px;
   }
 }

@@ -17,9 +17,12 @@ code {
   --color-blue: #3e85f3;
   --color-blue-hover: #174c9c;
   --color-white: #ffffff;
+  --color-white-hover: #E3F3FF;
+  --color-feedback-hover: #2b78ef;
   --color-blue-light: #dcebf7;
-  --color-white-avatar: F8F8F8;
+  --color-white-avatar: #F8F8F8;
   --text-review: #343434;
+  --color-title: #111111;
 
   --toogler-body-white: #eaeaea;
   --toogler-body-dark: #13151a;
@@ -45,6 +48,7 @@ code {
   --color-task-high: rgba(234, 61, 101, 1);
   --color-task-medium: rgba(243, 178, 73, 1);
 
+  --color-text: rgba(52, 52, 52, 0.50);
   --transition: cubic-bezier(0.01, 0.59, 1, 0.59);
 }
 

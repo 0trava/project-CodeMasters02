@@ -4,14 +4,6 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 24px;
-  @media (min-width: 768px) {
-    max-width: 704px;
-  }
-
-  @media (min-width: 1440px) {
-    max-width: 1087px;
-    margin-top: 40px;
-  }
 }
 
 .infoWrapper {
@@ -21,29 +13,14 @@
 
 .title {
   display: none;
-  color: #111111;
-  @media (min-width: 1440px) {
-    display: block;
-
-    font-weight: 700;
-    font-size: 32px;
-  }
+  color: var(--color-title);
 }
 
 .menuBurger {
   fill: transparent;
-  stroke: #343434;
-
+  stroke: var(--text-review);
   height: 24px;
   width: 24px;
-
-  @media (min-width: 768px) {
-    height: 34px;
-    width: 34px;
-  }
-  @media (min-width: 1440px) {
-    display: none;
-  }
 }
 
 .btn {
@@ -52,15 +29,29 @@
   border: none;
   padding: 0px;
   cursor: pointer;
-
   height: 24px;
-  width: 24px;
-
-  @media (min-width: 768px) {
+  width: 24px;  
+}
+@media (min-width: 768px) {
+  .btn, .menuBurger {
     height: 34px;
     width: 34px;
   }
-  @media (min-width: 1440px) {
+  .wrapper {
+    max-width: 704px;
+  }
+}
+@media (min-width: 1440px) {
+  .btn, .menuBurger {
     display: none;
+  }
+  .title {
+    display: block;
+    font-weight: 700;
+    font-size: 32px;
+  }
+  .wrapper {
+    max-width: 1087px;
+    margin-top: 40px;
   }
 }

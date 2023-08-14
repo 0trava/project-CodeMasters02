@@ -2,7 +2,7 @@
     font-family: Inter;
     font-weight: 600;
     line-height: 0.8;
-    color: rgba(52, 52, 52, 0.50);
+    color: var(--color-text);
 }
 .list {
     display: flex;
@@ -27,14 +27,14 @@
     gap: 10px;
 }
 .item:hover {
-    background-color: #E3F3FF;
+    background-color: var(--color-white-hover);
 }
 .link {
     width: 100px;
     font-family: Inter;
     font-weight: 600;
     line-height: 0.8;
-    color: rgba(52, 52, 52, 0.50);
+    color: var(--color-text);
 }
 .menu_icon {
     width: 0;
@@ -42,22 +42,22 @@
     cursor: pointer;
 }
 .icon {
-    stroke: #343434;
+    stroke: var(--text-review);
     stroke-opacity: 0.5;
 }
 .icon_2 {
-    fill: #343434;
+    fill: var(--text-review);
     fill-opacity: 0.5;
 }
 .item:hover .icon_2 {
-    fill: #3E85F3;
+    fill: var(--color-blue);
     fill-opacity: 1;
 }
 .item:hover .link {
-    color: #3E85F3;
+    color: var(--color-blue);
 }
 .item:hover .icon {
-    stroke: #3E85F3;
+    stroke: var(--color-blue);
     stroke-opacity: 1;
 }
 @media (min-width: 375px) {

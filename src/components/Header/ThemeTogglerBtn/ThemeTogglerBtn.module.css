@@ -8,19 +8,14 @@
   margin: 0 14px 0 24px;
   height: 24px;
   width: 24px;
-
-  @media (min-width: 768px) {
-    height: 32px;
-    width: 32px;
-  }
 }
-
 .icon {
-  fill: #3e85f3;
+  fill: var(--color-blue);
   height: 24px;
   width: 24px;
-
-  @media (min-width: 768px) {
+}
+@media (min-width: 768px) {
+  .btn, .icon {
     height: 32px;
     width: 32px;
   }
