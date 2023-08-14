@@ -143,7 +143,6 @@
     cursor: pointer;
 }
 
-
 @media (min-width: 768px) {
     .container {
         width: 400px;
