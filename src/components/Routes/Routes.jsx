@@ -33,8 +33,8 @@ export const AppRoutes = () => {
             <Route path={ROUTES.LOGIN}  element={<LoginPage />} />
             <Route path={ROUTES.REGISTER}  element={<RegisterPage />} />
             <Route path={ROUTES.HOME} element={chackMainLogin(userIsLogin)} >
-                <Route path={ROUTES.ACCOUNT} index element={<PrivateRoute><AccountPage /></PrivateRoute>} />
-                <Route path={ROUTES.CALENDAR} element={<PrivateRoute><CalendarPage /></PrivateRoute>} />
+                <Route path={ROUTES.ACCOUNT} element={<PrivateRoute><AccountPage /></PrivateRoute>} />
+                <Route path={ROUTES.CALENDAR} index element={<PrivateRoute><CalendarPage /></PrivateRoute>} />
                 <Route path={ROUTES.STATISTICS} element={<PrivateRoute><StatisticsPage /></PrivateRoute>} />
             </Route>
             <Route path={ROUTES.NotFound}  element={<NotFound />} />
