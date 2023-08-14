@@ -5,8 +5,12 @@ import { useDispatch } from "react-redux";
 import { login } from 'redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from "utils/routes";
-import { IoEyeOffOutline } from "react-icons/io5";
-import { IoEyeOutline } from "react-icons/io5";
+import { FiEyeOff } from "react-icons/fi";
+import { FiEye } from "react-icons/fi";
+
+import { FiAlertCircle } from "react-icons/fi";
+import { FiCheckCircle } from "react-icons/fi";
+
 import { useState } from "react";
 
 
@@ -75,6 +79,8 @@ const changeVisible = () => {
         <div className={css.login_container}>
             <div className={css.container}>
             <h1 className={css.title}>Log In</h1>
+            <FiAlertCircle/>
+            <FiCheckCircle/>
             <Formik 
                 initialValues={{ email: '', password: '' }}
                 validationSchema={LogInSchema}   
@@ -137,8 +143,8 @@ const changeVisible = () => {
                                 <span></span>
                                 <span type="button" onClick={changeVisible} className={css.togle}>
                                     {passVisible ? 
-                                    <IoEyeOutline className="IoEyeOutline"/> 
-                                    : <IoEyeOffOutline className="IoEyeOffOutline"/>}
+                                    <FiEye className="IoEyeOutline"/> 
+                                    : <FiEyeOff className="IoEyeOffOutline"/>}
                                 </span>
                                 {isValid('password') === 'is-valid' && <p className={css.valid_message}>Correct password!</p>}
                                 <ErrorMessage

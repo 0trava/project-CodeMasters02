@@ -69,8 +69,11 @@ export const refresh = createAsyncThunk(
       return rejectWithValue('Oooops... Cannot refresh user');
     }
     try {
+      console.log("+++++");
+      console.log(token);
       setToken(token);
-      const { data } = await axios.get('api/auth/current');
+      
+      const { data } = await axios.get('api/users/current');
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -82,7 +85,7 @@ export const updateUser = createAsyncThunk(
   'auth/update',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.patch('api/auth/update', credentials);
+      const { data } = await axios.patch('api/users', credentials);
       Notify.success(`Your profile has been updated`);
       return data;
     } catch (error) {
