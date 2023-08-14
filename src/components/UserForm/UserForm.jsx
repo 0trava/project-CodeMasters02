@@ -78,7 +78,7 @@ export const UserForm = () => {
             </div>
 
             <div>
-              <p className={css.userName}> "{'userName'}" </p>
+              <p className={css.userName}> {name ? name : 'userName'}</p>
               <p className={css.user}>User</p>
             </div>
           </div>

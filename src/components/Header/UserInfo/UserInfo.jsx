@@ -1,10 +1,11 @@
 import { selectUser } from 'redux/auth/selectors';
 import css from './UserInfo.module.css';
 import { useSelector } from 'react-redux';
+import { ROUTES } from 'utils/routes';
 
 
 export const UserInfo = () => {
-  
+
   // Отримуємо данні з Redux
   const {name, avatar} = useSelector(selectUser);
 
@@ -25,15 +26,15 @@ export const UserInfo = () => {
   const avatarImg = avatar ? (
     <img src={avatar} alt="user" />
   ) : (
-    <div className={css.backgroundIcon}>
+    <a className={css.backgroundIcon}  href={ROUTES.ACCOUNT}>
       <p className={css.letterIcon}>{getFirstLetter(firstName)}</p>
-    </div>
+    </a>
   );
 
   return (
-    <div className={css.infoWrapper}>
+    <a className={css.infoWrapper} href={ROUTES.ACCOUNT}>
       <p className={css.userName}>{firstName}</p>
       <div className={css.userImgWrapper}>{avatarImg}</div>
-    </div>
+    </a>
   );
 };
