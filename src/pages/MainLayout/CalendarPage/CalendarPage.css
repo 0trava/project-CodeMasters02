@@ -1,12 +1,19 @@
 .calendar-page {
+  /* display: flex; */
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-
   font-family: Inter;
-
   background-color: #f7f6f9;
+  max-width: 335px;
+  margin: 0 20px;
+  border: #007bff 2px solid;
 }
 
+.calendar-toolbar {
+  display: flex;
+  border: mediumseagreen 2px solid;
+}
 
 .calendar-content {
   display: flex;
@@ -23,6 +30,7 @@
   text-align: center;
   font-family: Inter;
   font-size: 14px;
+  border: red 2px solid;
 }
 
 .calendar-route {
