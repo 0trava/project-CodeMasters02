@@ -4,8 +4,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 16px;
-    border: 2px solid #3E85F3;
-    background-color: #3E85F3;
+    border: 2px solid var(--color-blue);
+    background-color: var(--color-blue);
     transition: all 0.5s var(--transition);
 
 }
@@ -19,7 +19,7 @@
     font-family: Inter;
     font-weight: 600;
     line-height: 0.8;
-    color: #FFF;
+    color: var(--color-white);
 }
 @media (max-width: 375px) {
     .btn {
