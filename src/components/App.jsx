@@ -3,13 +3,17 @@ import './app.css';
 import { AppRoutes  } from './Routes/Routes';
 import { HeaderWork } from './WORK-file/HeaderWork';
 
+import { Suspense } from 'react';
+import { Loader } from './Loader/Loader-all';
 
 export const App = () => {
   return (
     <>
-      <HeaderWork/>
-      <AppRoutes />
-      {/* <MainPage/> */}
-      </>
+      <Suspense fallback={<Loader />}>
+        <HeaderWork />
+        <AppRoutes />
+        {/* <MainPage/> */}
+      </Suspense>
+    </>
   );
 };
