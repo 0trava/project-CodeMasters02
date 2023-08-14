@@ -5,10 +5,9 @@ axios.defaults.baseURL = 'https://project-codemasters02-backend.onrender.com';
 
 export const fetchReviews = createAsyncThunk(
   'reviews/getReviews',
-  async ( e , thunkAPI) => {
+  async ( _ , thunkAPI) => {
     try {
       const { data } = await axios.get(`/reviews`);
-      console.log(data);
       return data;
     } catch (e) {
       return  thunkAPI.rejectWithValue(e.message);

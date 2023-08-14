@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import {DayCalendarHead} from './DayCalendarHead';
 import {TasksColumnsList} from './TasksColumnsList ';
+import "./ChoosedDay.css"
 
 export const ChoosedDay = () => {
   const { currentDay } = useParams();

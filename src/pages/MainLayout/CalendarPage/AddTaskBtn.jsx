@@ -1,4 +1,5 @@
 import React from 'react';
+import "./AddTaskBtn.css"
 
 export const AddTaskBtn = ({ groupId, openCreateModal }) => {
   const handleOpenCreateModal = () => {

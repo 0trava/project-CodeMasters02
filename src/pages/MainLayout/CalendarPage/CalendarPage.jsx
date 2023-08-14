@@ -11,11 +11,11 @@ export const CalendarPage = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await fetch('DB_HOST');
+      const response = await fetch(process.env.DB_HOST);
       const data = await response.json();
       setTasks(data);
     } catch (error) {
-      console.error('Error fetching tasks:', error);
+      console.log('Error fetching tasks:', error);
     }
   };
 
@@ -25,11 +25,16 @@ export const CalendarPage = () => {
     }
   }, [tasks]);
 
+  console.log('currentDate:', currentDate);
+  const periodType = 'month';
+  console.log('periodType:', periodType);
+  const selectedDate = new Date();
+  console.log('selectedDate:', selectedDate);
+
   return (
     <div className="calendar-page">
-      <h1 className="calendar-header">Calendar</h1>
       <CalendarToolbar />
-      <div className="calendar-divider" />
+
       <div className="calendar-content">
         <Routes>
           <Route

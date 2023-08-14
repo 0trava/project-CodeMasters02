@@ -1,44 +1,83 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from 'yup';
 import css from './LoginForm.module.css';
+import { useDispatch } from "react-redux";
+import { login } from 'redux/auth/operations';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from "utils/routes";
+import { IoEyeOffOutline } from "react-icons/io5";
+import { IoEyeOutline } from "react-icons/io5";
+import { useState } from "react";
 
+
+// eslint-disable-next-line
+const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+
+const LogInSchema = yup.object().shape({
+    
+    email: yup
+        .string()
+        .max(254)
+        .matches(emailRegExpression, 'Invalid email address. The email address must contain the @ sign.')
+        .required('Email is a required!')
+        .email('Invalid email address. The email address must contain the @ sign.'),
+    password: yup
+        .string()
+        .min(6, 'Password must be at least 6 characters.')
+        .max(254, 'Password is too long')
+        .required('Password is a required!'),
+});
 
 export default function LoginForm() {
-    const handleSubmit = (values, actions) => {
-        console.log(values);
-        console.log(actions);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [passVisible, setPasswordVisible] = useState(false)
+
+
+// Change vibility for Password
+const changeVisible = () => {
+    const input = document.getElementById('password');
+    if (passVisible) {
+        setPasswordVisible(false);
+        input.setAttribute('type','password');
+    } else {
+        setPasswordVisible(true);
+        input.setAttribute('type','text');
+    }
+}
+//----------------------------
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const password = e.currentTarget.password.value;
+        const email = e.currentTarget.email.value;
+
+    if ( password || email) {
+        const { payload } = await dispatch(login({ email, password }));
+        console.log(payload);
+        if (
+            payload === 'Request failed with status code 400' ||
+            payload === 'Request failed with status code 401' ||
+            payload === 'Request failed with status code 403' ||
+            payload === 'Request failed with status code 500' ||
+            payload === 'Request failed with status code 409'
+          ) {
+            return;
+          } else  {
+            navigate(ROUTES.HOME);
+          }
+    } else {
+        return;
+    }
+
     };
-
-    // eslint-disable-next-line
-    const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
-
-    const initialValues = {
-        email: '', 
-        password: '' 
-    };
-
-    const LogInSchema = yup.object().shape({
-        email: yup
-            .string()
-            .max(254)
-            .matches(emailRegExpression, 'Invalid email address. The email address must contain the @ sign.')
-            .required('Email is a required!')
-            .email('Invalid email address. The email address must contain the @ sign.'),
-        password: yup
-            .string()
-            .min(6, 'Password must be at least 6 characters.')
-            .max(254, 'Password is too long')
-            .required('Password is a required!'),
-    });
 
     return (
         <div className={css.login_container}>
             <div className={css.container}>
             <h1 className={css.title}>Log In</h1>
             <Formik 
-                initialValues={initialValues}
+                initialValues={{ email: '', password: '' }}
                 validationSchema={LogInSchema}   
-                onSubmit={handleSubmit} 
             >
                 {({ errors, touched }) => {
                     const isValid = field =>
@@ -48,17 +87,26 @@ export default function LoginForm() {
                             ? 'is-valid'
                             : '';
                             return (
-                            <Form className={css.form}>
+                            <Form 
+                                className={css.form}
+                                onSubmit={handleSubmit} 
+                            >
                                 <label 
                                     className={css.label}
                                     htmlFor="email"
                                 >
                                 Email
                                 <Field 
-                                    className={css.input} 
                                     // type="email"
                                     name="email"
                                     placeholder="Enter email"
+                                    className={`${css.input} ${
+                                        touched.email && errors.email
+                                            ? css.error_input
+                                            : touched.email && !errors.email
+                                            ? css.success_input
+                                            : ''
+                                    }`}
                                 />
                                 {isValid('email') === 'is-valid' && <p className={css.valid_message}>Correct email!</p>}
                                 <ErrorMessage
@@ -73,11 +121,27 @@ export default function LoginForm() {
                                 >
                                 Password
                                 <Field 
-                                    className={css.input} 
                                     type="password"
+                                    id="password"
                                     name="password"
                                     placeholder="Enter password"
+                                    className={`${css.input} ${
+                                        touched.password && errors.password
+                                            ? css.error_input
+                                            : touched.password && !errors.password
+                                            ? css.success_input
+                                            : ''
+                                    }`}
                                 />
+                                {/* Icon for password (visible or not) */}
+                                <span></span>
+                                <span type="button" onClick={changeVisible}>
+                                    {passVisible ? 
+                                    <IoEyeOutline className="IoEyeOutline"/> 
+                                    : <IoEyeOffOutline className="IoEyeOffOutline"/>}
+                                </span>
+                                
+
                                 {isValid('password') === 'is-valid' && <p className={css.valid_message}>Correct password!</p>}
                                 <ErrorMessage
                                     name="password"
@@ -91,7 +155,7 @@ export default function LoginForm() {
                                     <svg width="18" height="18">
                                         <use href=""></use>
                                     </svg>
-                                </button>
+                                    </button>
                             </Form>
                         )
                     }

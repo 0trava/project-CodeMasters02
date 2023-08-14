@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import "./TaskModal.css"
 
 export const TaskModal = ({ isOpen, onClose, onSave, taskData = { priority: 'low' } }) => {
   const [title, setTitle] = useState(taskData.title || '');

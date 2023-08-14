@@ -11,30 +11,35 @@ import { AccountPage } from 'pages/MainLayout/AccountPage/AccountPage';
 import { CalendarPage } from 'pages/MainLayout/CalendarPage/CalendarPage';
 import { StatisticsPage } from 'pages/MainLayout/StatisticsPage/StatisticsPage';
 import { NotFound } from 'pages/NotFound/NotFound';
+import { useSelector } from 'react-redux';
+import { selectToken } from 'redux/auth/selectors';
 
 export const AppRoutes = () => {
+  // eslint-disable-next-line
+  const userIsLogin = useSelector(selectToken);
+  console.log(userIsLogin);
 
   const chackMainLogin = (value) => {
-    if (value === true) {
-      return (<MainLayout/>)
-    } else {
+    if (value === "") {
       return (<MainPage/>)
+    } else {
+      return (<MainLayout/>)
     }
   };
 
   return (
       <Routes>
-            <Route index element={chackMainLogin(true)}/>
+            <Route index element={chackMainLogin(userIsLogin)}/>
             <Route path={ROUTES.LOGIN}  element={<LoginPage />} />
             <Route path={ROUTES.REGISTER}  element={<RegisterPage />} />
-            <Route path={ROUTES.HOME} element={<PrivateRoute><MainLayout/></PrivateRoute>} >
+            <Route path={ROUTES.HOME} element={chackMainLogin(userIsLogin)} >
                 <Route path={ROUTES.ACCOUNT} element={<PrivateRoute><AccountPage /></PrivateRoute>} />
-                <Route path={ROUTES.CALENDAR} element={<PrivateRoute><CalendarPage /></PrivateRoute>} />
+                <Route path={ROUTES.CALENDAR} index element={<PrivateRoute><CalendarPage /></PrivateRoute>} />
                 <Route path={ROUTES.STATISTICS} element={<PrivateRoute><StatisticsPage /></PrivateRoute>} />
             </Route>
             <Route path={ROUTES.NotFound}  element={<NotFound />} />
 
-            <Route path={ROUTES.START} element={chackMainLogin(false)}/>
+            <Route path={ROUTES.START} element={chackMainLogin("ududt")}/>
 
     
       </Routes>

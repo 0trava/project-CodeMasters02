@@ -1,6 +1,7 @@
 import React from 'react';
 import {TaskToolbar} from './TaskToolbar';
 import {TaskModal} from './TaskModal ';
+import  "./TaskColumnCard.css"
 
 export const TaskColumnCard = ({ task, avatar }) => {
   return (

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { TaskModal } from './TaskModal ';
+import "./ColumnHeadBar.css"
 
 export const ColumnHeadBar = ({ title, status }) => {
   const [showModal, setShowModal] = useState(false);

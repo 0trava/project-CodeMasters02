@@ -30,6 +30,13 @@
   .dot:nth-child(3) {
     animation-delay: 0.1s;
   }
+
+  .loader-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b3d4fc;
+  }
   
   @keyframes pulse {
     0% {

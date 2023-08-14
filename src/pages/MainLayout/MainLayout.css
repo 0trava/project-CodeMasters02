@@ -8,18 +8,29 @@
     display: flex;
     background-color: #F7F6F9;
 }
-
 .MainLayout__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     height: 100px;
-    width: 100px;
 }
 
 .MainLayout__block {
+    display: flex;
     min-width: 1087px;
     height: 752px;
     border-radius: 16px;
     background-color: #FFF;
-    margin-left: 32px
-
-
+}
+@media (min-width: 375px) {
+    .MainLayout__header {
+        width: 25%;
+        gap: 18px;
+    }
+}
+@media (min-width: 768px) {
+    .MainLayout__header {
+        width: 90%;
+        gap: 24px;
+    }
 }
