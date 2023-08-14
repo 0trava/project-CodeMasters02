@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { ToggleTheme } from 'components/ToggleTheme/ToggleTheme';
-import { FeedbackBtn } from 'components/Header/FeedbackBtn';
+
 import { SideBarPage } from 'pages/SideBarPage/SideBarPage';
 import './MainLayout.css';
+import { Header } from 'components/Header/Header';
 
 export const MainLayout = () => {
   return (
@@ -16,19 +16,15 @@ export const MainLayout = () => {
         </aside>
       </header>
       <div>
-       <div className="MainLayout__header">
         {/* Header */}
-        <FeedbackBtn></FeedbackBtn>
-        <ToggleTheme></ToggleTheme>
-      </div>
-      <div className="MainLayout__block" >
-      <Suspense fallback={<div>Loading page...</div>}>
-        <Outlet/>
-      </Suspense>        
-      </div>
+        <Header />
 
+        <div className="MainLayout__block">
+          <Suspense fallback={<div>Loading page...</div>}>
+            <Outlet />
+          </Suspense>
+        </div>
       </div>
-
     </div>
-  )
-}
+  );
+};

@@ -1,52 +1,32 @@
-/*
-import { useSelector } from 'react-redux';
+import css from './UserInfo.module.css';
 
-import { selectUser } from 'redux/auth/selectors';
-
-import {
-  Wrapper,
-  UserName,
-  UserPicture,
-  UserNameIcon,
-  BackgroundName,
-} from './UserInfo.styled';
+// TEST!!!  Замінити на РЕДАКС
+const name = 'Yaroslav Yak';
+const avatar = null;
+// TEST!!!
 
 export const UserInfo = () => {
-  function getInitials(name) {
-    if (name) {
-      const initials = name
-        .split(' ')
-        .map(word => word.charAt(0))
-        .join('')
-        .toUpperCase();
-      return initials;
-    } else {
-      return name;
-    }
-  }
-
-  function getFirstName(name) {
+  const getFirstName = name => {
     if (name) {
       return name.split(' ')[0];
     } else {
       return name;
     }
-  }
-
-  const { name, avatarURL } = useSelector(selectUser);
-
-  const displayName = avatarURL ? (
-    <img src={avatarURL} alt="UserPicture" />
+  };
+  const firstName = getFirstName(name);
+  const getFirstLetter = firstName => firstName.charAt(0).toUpperCase();
+  const avatarImg = avatar ? (
+    <img src={avatar} alt="user" />
   ) : (
-    <BackgroundName className="initials">
-      <UserNameIcon>{getInitials(name)}</UserNameIcon>
-    </BackgroundName>
+    <div className={css.backgroundIcon}>
+      <p className={css.letterIcon}>{getFirstLetter(firstName)}</p>
+    </div>
   );
+
   return (
-    <Wrapper>
-      <UserName>{getFirstName(name)}</UserName>
-      <UserPicture>{displayName}</UserPicture>
-    </Wrapper>
+    <div className={css.infoWrapper}>
+      <p className={css.userName}>{firstName}</p>
+      <div className={css.userImgWrapper}>{avatarImg}</div>
+    </div>
   );
 };
-*/

@@ -1,7 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from 'yup';
 import css from './LoginForm.module.css';
-import sprite from 'images/sprite.svg';
 import { useDispatch } from "react-redux";
 import { login } from 'redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
@@ -34,6 +33,7 @@ export default function LoginForm() {
     const navigate = useNavigate();
     const [passVisible, setPasswordVisible] = useState(false)
 
+
 // Change vibility for Password
 const changeVisible = () => {
     const input = document.getElementById('password');
@@ -45,28 +45,17 @@ const changeVisible = () => {
         input.setAttribute('type','text');
     }
 }
-
-// ВІДПРАВКА ФОРМИ -------------
-    const handleSubmit = async (e) => {
+//----------------------------
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const password = e.currentTarget.password.value;
-        const email = e.currentTarget.email.value;
-
-        if ( password || email) {
-            const { payload } = await dispatch(login({ email, password }));
-            console.log(payload);
-            if (
-                payload === 'Request failed with status code 400' ||
-                payload === 'Request failed with status code 401' ||
-                payload === 'Request failed with status code 403'
-              ) {
-                return;
-              } else  {
-                navigate(ROUTES.HOME);
-              }
-        } else {
-            return;
-        }
+        const {
+            email: { value: email },
+            password: { value: password },
+        } = e.currentTarget;
+    
+        dispatch(login({ email, password }));
+        e.currentTarget.reset();
+        navigate(ROUTES.HOME);
 
     };
 
@@ -98,7 +87,6 @@ const changeVisible = () => {
                                 <Field 
                                     // type="email"
                                     name="email"
-                                    required
                                     placeholder="Enter email"
                                     className={`${css.input} ${
                                         touched.email && errors.email
@@ -123,7 +111,6 @@ const changeVisible = () => {
                                 <Field 
                                     type="password"
                                     id="password"
-                                    required
                                     name="password"
                                     placeholder="Enter password"
                                     className={`${css.input} ${
@@ -136,11 +123,13 @@ const changeVisible = () => {
                                 />
                                 {/* Icon for password (visible or not) */}
                                 <span></span>
-                                <span type="button" onClick={changeVisible} className={css.togle}>
+                                <span type="button" onClick={changeVisible}>
                                     {passVisible ? 
                                     <IoEyeOutline className="IoEyeOutline"/> 
                                     : <IoEyeOffOutline className="IoEyeOffOutline"/>}
                                 </span>
+                                
+
                                 {isValid('password') === 'is-valid' && <p className={css.valid_message}>Correct password!</p>}
                                 <ErrorMessage
                                     name="password"
@@ -151,10 +140,10 @@ const changeVisible = () => {
                                 <button 
                                     className={css.button}
                                     type="submit">Log In
-                                <svg className={css.icon} width="18" height="18">
-                                    <use href={sprite + '#icon-log-out-01'}></use>
-                                </svg>
-                                </button>
+                                    <svg width="18" height="18">
+                                        <use href=""></use>
+                                    </svg>
+                                    </button>
                             </Form>
                         )
                     }
