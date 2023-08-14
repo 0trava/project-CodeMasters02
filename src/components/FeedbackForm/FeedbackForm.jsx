@@ -3,7 +3,10 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-import { editReview, fetchReviewById } from 'redux/reviews/operetions';
+import { editReview, fetchReviewById } from '../../redux/reviews/operations';
+
+
+
 export const FeedbackForm = ({ isEditReview, editedRating, editedMessage, editedId, handleEditReview }) => {
     const dispatch = useDispatch();
 
