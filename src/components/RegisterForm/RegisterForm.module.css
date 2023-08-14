@@ -143,6 +143,12 @@
     cursor: pointer;
 }
 
+.invalid_valid_icon {
+    position: absolute;
+    top: 46px;
+    right: 15px;
+}
+
 @media (min-width: 768px) {
     .container {
         width: 400px;

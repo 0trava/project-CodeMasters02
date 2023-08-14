@@ -10,7 +10,8 @@ import { IoEyeOffOutline } from "react-icons/io5";
 import { IoEyeOutline } from "react-icons/io5";
 import { useState } from "react";
 
-
+import { FiAlertCircle } from "react-icons/fi";
+import { FiCheckCircle } from "react-icons/fi";
 // eslint-disable-next-line
 const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -96,6 +97,8 @@ export default function RegisterForm() {
                     return (
                     <Form className={css.form} onSubmit={handleSubmit}>
                         <label className={css.label} htmlFor="name">
+                        <FiAlertCircle className={css.invalid_valid_icon}/>
+                        <FiCheckCircle className={css.invalid_valid_icon}/>
                             Name
                             <Field
                                 type="text"
@@ -120,6 +123,8 @@ export default function RegisterForm() {
                             />
                         </label>
                         <label className={css.label} htmlFor="email">
+                        <FiAlertCircle className={css.invalid_valid_icon}/>
+                        <FiCheckCircle className={css.invalid_valid_icon}/>
                             Email
                             <Field
                                 // type="email"
