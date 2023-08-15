@@ -2,7 +2,7 @@ import React from 'react';
 import RegisterForm from 'components/RegisterForm/RegisterForm';
 import css from './RegisterPage.module.css'
 import AuthNavigate from 'components/AuthNavigate/AuthNavigate';
-import FeedbackForm from 'components/FeedbackForm/FeedbackForm';
+
 
 export const RegisterPage = () => {
   return (
