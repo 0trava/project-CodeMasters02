@@ -10,9 +10,9 @@ export const MainLayout = () => {
   const navigate = useNavigate();
 
   // Перевірка що токен валідний
-  useEffect(() => {
-    navigate(ROUTES.CALENDAR)
-  },);
+  // useEffect(() => {
+  //   navigate(ROUTES.CALENDAR)
+  // },);
 
     
   return (

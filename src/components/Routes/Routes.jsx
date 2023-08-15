@@ -20,7 +20,6 @@ export const AppRoutes = () => {
 
 
   const chackMainLogin = (value) => {
-    console.log(value);
     if (!value) {
       return (<MainPage/>)
     } else {

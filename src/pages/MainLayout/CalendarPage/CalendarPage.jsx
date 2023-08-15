@@ -9,13 +9,15 @@ export const CalendarPage = () => {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
-    try {
-      const response = await fetch(process.env.DB_HOST);
-      const data = await response.json();
-      setTasks(data);
-    } catch (error) {
-      console.log('Error fetching tasks:', error);
-    }
+    // try {
+    //   const response = await fetch(process.env.DB_HOST);
+    //   const data = await response.json();
+    //   setTasks(data);
+    // } catch (error) {
+    //   console.log('Error fetching tasks:',
+    //    error
+    //    );
+    // }
   };
 
   useEffect(() => {
@@ -24,11 +26,8 @@ export const CalendarPage = () => {
     }
   }, [tasks]);
 
-  console.log('currentDate:', currentDate);
   const periodType = 'month';
-  console.log('periodType:', periodType);
   const selectedDate = new Date();
-  console.log('selectedDate:', selectedDate);
 
   return (
     <div className="calendar-page">

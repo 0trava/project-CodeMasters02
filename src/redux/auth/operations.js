@@ -69,8 +69,6 @@ export const refresh = createAsyncThunk(
       return rejectWithValue('Oooops... Cannot refresh user');
     }
     try {
-      console.log("+++++");
-      console.log(token);
       setToken(token);
       
       const { data } = await axios.get('api/users/current');

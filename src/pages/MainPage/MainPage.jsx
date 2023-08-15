@@ -13,9 +13,8 @@ import { useSelector } from 'react-redux';
 
 export const MainPage = (e) => {
   const navigate = useNavigate();
-
+  // eslint-disable-next-line
   const reviews = useSelector(getReviews);
-  console.log(reviews);
 
 
   return (
