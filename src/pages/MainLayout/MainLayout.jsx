@@ -1,18 +1,18 @@
 import React, { Suspense, useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet} from 'react-router-dom';
 
 import { SideBarPage } from 'pages/SideBarPage/SideBarPage';
 import './MainLayout.css';
 import { Header } from 'components/Header/Header';
-import { ROUTES } from 'utils/routes';
+// import { ROUTES } from 'utils/routes';
 
 export const MainLayout = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // Перевірка що токен валідний
-  useEffect((e) => {
+  useEffect(() => {
 
-    navigate(ROUTES.CALENDAR)
+    // navigate(ROUTES.CALENDAR)
     // eslint-disable-next-line
   }, []);
 
