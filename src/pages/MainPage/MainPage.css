@@ -93,6 +93,7 @@
     border-radius: 16px;
     border-color:transparent;
     background: var(--color-white);
+    cursor: pointer;
     /* box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48); */
 
     color: var(--color-blue);
