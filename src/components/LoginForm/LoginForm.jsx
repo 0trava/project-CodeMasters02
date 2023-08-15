@@ -99,12 +99,11 @@ const changeVisible = () => {
                                     className={css.label}
                                     htmlFor="email"
                                 >
-                                <FiAlertCircle className={css.invalid_valid_icon}/>
-                                <FiCheckCircle className={css.invalid_valid_icon}/>
                                 Email
                                 <Field 
                                     // type="email"
                                     name="email"
+                                    id="email"
                                     placeholder="Enter email"
                                     className={`${css.input} ${
                                         touched.email && errors.email
@@ -114,7 +113,8 @@ const changeVisible = () => {
                                             : ''
                                     }`}
                                 />
-                                {isValid('email') === 'is-valid' && <p className={css.valid_message}>Correct email!</p>}
+                                {isValid('email') === 'is-valid' && <FiCheckCircle className={css.valid_icon}/>}
+                                {isValid('email') === 'is-invalid' && <FiAlertCircle className={css.invalid_icon}/>}
                                 <ErrorMessage
                                     name="email"
                                     component="div"
@@ -140,13 +140,13 @@ const changeVisible = () => {
                                     }`}
                                 />
                                 {/* Icon for password (visible or not) */}
-                                <span></span>
-                                <span type="button" onClick={changeVisible} className={css.togle}>
+                                <span type="button" onClick={changeVisible} lassName={css.togle}>
                                     {passVisible ? 
-                                    <FiEye className="IoEyeOutline"/> 
-                                    : <FiEyeOff className="IoEyeOffOutline"/>}
+                                    <FiEye className={css.togle}/> 
+                                    : <FiEyeOff className={css.togle}/>}
                                 </span>
-                                {isValid('password') === 'is-valid' && <p className={css.valid_message}>Correct password!</p>}
+                                {isValid('password') === 'is-valid' && <FiCheckCircle className={css.valid_icon} />}
+                                {isValid('password') === 'is-invalid' && <FiAlertCircle className={css.invalid_icon}/>}
                                 <ErrorMessage
                                     name="password"
                                     component="div"

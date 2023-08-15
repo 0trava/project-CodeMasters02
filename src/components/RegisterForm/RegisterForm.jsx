@@ -97,8 +97,6 @@ export default function RegisterForm() {
                     return (
                     <Form className={css.form} onSubmit={handleSubmit}>
                         <label className={css.label} htmlFor="name">
-                        <FiAlertCircle className={css.invalid_valid_icon}/>
-                        <FiCheckCircle className={css.invalid_valid_icon}/>
                             Name
                             <Field
                                 type="text"
@@ -113,9 +111,8 @@ export default function RegisterForm() {
                                         : ''
                                 }`}
                             />
-                            {isValid('name') === 'is-valid' && (
-                            <p className={css.valid_message}>Correct name!</p>
-                            )}
+                            {isValid('name') === 'is-valid' && <FiCheckCircle className={css.valid_icon}/>}
+                            {isValid('name') === 'is-invalid' && <FiAlertCircle className={css.invalid_icon}/>}
                             <ErrorMessage
                                 name="name"
                                 component="div"
@@ -123,8 +120,6 @@ export default function RegisterForm() {
                             />
                         </label>
                         <label className={css.label} htmlFor="email">
-                        <FiAlertCircle className={css.invalid_valid_icon}/>
-                        <FiCheckCircle className={css.invalid_valid_icon}/>
                             Email
                             <Field
                                 // type="email"
@@ -139,9 +134,8 @@ export default function RegisterForm() {
                                         : ''
                                 }`}
                             />
-                            {isValid('email') === 'is-valid' && (
-                            <p className={css.valid_message}>Correct email!</p>
-                            )}
+                            {isValid('email') === 'is-valid' && <FiCheckCircle className={css.valid_icon}/>}
+                            {isValid('email') === 'is-invalid' && <FiAlertCircle className={css.invalid_icon}/>}
                             <ErrorMessage
                                 name="email"
                                 component="div"
@@ -165,15 +159,13 @@ export default function RegisterForm() {
                                 }`}
                             />
                             {/* Icon for password (visible or not) */}
-                            <span></span>
                             <span type="button" onClick={changeVisible} className={css.togle}>
                                     {passVisible ? 
                                     <IoEyeOutline className="IoEyeOutline"/> 
                                     : <IoEyeOffOutline className="IoEyeOffOutline"/>}
                             </span>
-                            {isValid('password') === 'is-valid' && (
-                            <p className={css.valid_message}>Correct password!</p>
-                            )}
+                            {isValid('password') === 'is-valid' && <FiCheckCircle className={css.valid_icon} />}
+                            {isValid('password') === 'is-invalid' && <FiAlertCircle className={css.invalid_icon}/>}
                             <ErrorMessage
                                 name="password"
                                 component="div"
