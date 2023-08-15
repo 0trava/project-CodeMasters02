@@ -24,15 +24,15 @@ export const PeriodPaginator = ({ selectedDate, setSelectedDate }) => {
   };
 
   return (
-    <div className="period-format">
-      <div>{periodFormat('month')}</div>
-      <div className="period-change-btn">
-        <button className="chevron" onClick={() => changeDate(-1)}>
+    <div className="dateWrapper">
+      <div className="currentDate">{periodFormat('month')}</div>
+      <div>
+        <button className="chevronLeftBtn" onClick={() => changeDate(-1)}>
           <svg className="icon-chevron" width="16" height="16">
             <use href={sprite + '#icon-chevron-left'}></use>
           </svg>
         </button>
-        <button className="chevron" onClick={() => changeDate(1)}>
+        <button className="chevronRightBtn" onClick={() => changeDate(1)}>
           <svg className="icon-chevron" width="16" height="16">
             <use href={sprite + '#icon-chevron-right'}></use>
           </svg>
