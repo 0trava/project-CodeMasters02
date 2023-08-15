@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
+// eslint-disable-next-line
 import { Route, Navigate, Routes } from 'react-router-dom';
 import { CalendarToolbar } from './CalendarToolbar';
-import { ChoosedMonth } from './CalendarMonth/ChoosedMonth';
-import { ChoosedDay } from './CalendarDay/ChoosedDay';
 import './CalendarPage.css';
 
 export const CalendarPage = () => {
@@ -37,7 +36,7 @@ export const CalendarPage = () => {
 
       <div className="calendar-content">
         <Routes>
-          <Route
+          {/* <Route
             path="/calendar/month/:currentDate"
             element={<ChoosedMonth tasks={tasks} />}
           />
@@ -45,7 +44,7 @@ export const CalendarPage = () => {
           <Route
             path="/calendar"
             element={<Navigate to={`/calendar/month/${currentDate}`} />}
-          />
+          /> */}
         </Routes>
       </div>
     </div>
