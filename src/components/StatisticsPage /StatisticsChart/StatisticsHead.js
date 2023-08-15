@@ -55,5 +55,3 @@ export const StatisticsHead = ({
     </ChartHead>
   );
 };
-
-// fix
