@@ -57,7 +57,6 @@ const changeVisible = () => {
 
     if ( password || email) {
         const { payload } = await dispatch(login({ email, password }));
-        console.log(payload);
         if (
             payload === 'Request failed with status code 400' ||
             payload === 'Request failed with status code 401' ||

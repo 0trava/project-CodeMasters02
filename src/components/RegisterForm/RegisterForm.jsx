@@ -56,12 +56,10 @@ export default function RegisterForm() {
     const name = e.currentTarget.name.value;
     const password = e.currentTarget.password.value;
     const email = e.currentTarget.email.value;
-    console.log(name, password, email)
     // Перевірка що всі поля заповненні
 
     if ( name || password || email) {
         const { payload } = await dispatch(register({ name, email, password }));
-        console.log(payload);
         if (
             payload === 'Request failed with status code 400' ||
             payload === 'Request failed with status code 401' ||

@@ -47,10 +47,6 @@ export const logout = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
     // const { token } = getState().auth;
-    // console.log(token);
-    console.log("+++");
-    console.log(axios.defaults.headers.common.Authorization);
-
     try {
       await axios.post('api/auth/logout');
       clearToken();
