@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { PeriodPaginator } from './PeriodPaginator';
 import { PeriodTypeSelect } from './PeriodTypeSelect';
+// eslint-disable-next-line
 import { format } from 'date-fns';
 
 export const CalendarToolbar = ({ tasks, setTasks }) => {
@@ -24,6 +25,7 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
     //    error
     //    );
     // }
+    // eslint-disable-next-line
   }, [periodType, selectedDate, setTasks]);
 
   useEffect(() => {

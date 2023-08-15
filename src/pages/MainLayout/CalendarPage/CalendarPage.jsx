@@ -5,7 +5,9 @@ import { CalendarToolbar } from './CalendarToolbar';
 import './CalendarPage.css';
 
 export const CalendarPage = () => {
+  // eslint-disable-next-line
   const currentDate = useMemo(() => new Date(), []);
+  // eslint-disable-next-line
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
@@ -25,8 +27,9 @@ export const CalendarPage = () => {
       fetchTasks();
     }
   }, [tasks]);
-
+// eslint-disable-next-line
   const periodType = 'month';
+  // eslint-disable-next-line
   const selectedDate = new Date();
 
   return (

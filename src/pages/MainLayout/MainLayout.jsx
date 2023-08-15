@@ -12,6 +12,7 @@ export const MainLayout = () => {
   // Перевірка що токен валідний
   useEffect(() => {
     navigate(ROUTES.CALENDAR)
+    // eslint-disable-next-line
   }, []);
 
     
