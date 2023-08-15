@@ -6,15 +6,16 @@ export const Review = ({listReview}) => {
 
 
   // console.log(review.listReview.owner);
+  // eslint-disable-next-line
   const {rating, owner, comment, avatar, id } = listReview;
 
-  const checked = (value) => {
+  // const checkID = (value) => {
 
-    if (value === rating) {
-      return true;
-    }
-    return false;
-  };
+  //   if (value === rating) {
+  //     return true;
+  //   }
+  //   return false;
+  // };
 
 
   return (
@@ -35,7 +36,7 @@ export const Review = ({listReview}) => {
               id="star5"
               name={id}
               value="5"
-              checked={checked(5)}
+              
             />
             <label htmlFor="star5" title="text"></label>
             <input
@@ -43,7 +44,7 @@ export const Review = ({listReview}) => {
               id="star4"
               name={id}
               value="4"
-              checked={checked(4)}
+              
             />
             <label htmlFor="star4" title="text"></label>
             <input
@@ -51,7 +52,7 @@ export const Review = ({listReview}) => {
               id="star3"
               name={id}
               value="3"
-              checked={checked(3)}
+              
             />
             <label htmlFor="star3" title="text"></label>
             <input
@@ -59,7 +60,7 @@ export const Review = ({listReview}) => {
               id="star2"
               name={id}
               value="2"
-              checked={checked(2)}
+              
             />
             <label htmlFor="star2" title="text"></label>
             <input
@@ -67,7 +68,7 @@ export const Review = ({listReview}) => {
               id="star1"
               name={id}
               value="1"
-              checked={checked(1)}
+              
             />
             <label htmlFor="star1" title="text"></label>
           </div>

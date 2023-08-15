@@ -27,10 +27,13 @@ export const AppRoutes = () => {
     }
   };
 
+  // <PrivateRoute><MainLayout/></PrivateRoute>
+
   return (
       <Routes>
             <Route index element={chackMainLogin(userIsLogin)}/>
             <Route path={ROUTES.LOGIN}  element={<LoginPage />} />
+            <Route path={ROUTES.START}  element={<MainPage/>} />
             <Route path={ROUTES.REGISTER}  element={<RegisterPage />} />
             <Route path={ROUTES.HOME} element={<PrivateRoute><MainLayout/></PrivateRoute>} >
                 <Route path={ROUTES.ACCOUNT} element={<PrivateRoute><AccountPage /></PrivateRoute>} />
