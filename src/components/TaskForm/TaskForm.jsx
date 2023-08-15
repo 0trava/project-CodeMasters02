@@ -13,7 +13,8 @@ export const TaskForm =({date,onClose,column})=> {
   const [priority,setIsPriority]=useState('');
   const dispatch = useDispatch();
 
-  const urlDate = useDate();
+  
+  // const urlDate = useDate();
   const from = format(urlDate, 'yyyy-MM-dd');
   const to = format(addMonths(urlDate, 1), 'yyyy-MM-dd');
   const data = {
@@ -124,14 +125,14 @@ export const TaskForm =({date,onClose,column})=> {
         <div className={styles.flex}>
             <button type="submit" className={styles.button}>
               <>
-                <Plus className={styles.logo} />
+                
                 Add
               </>
             </button>
             <button className={styles.btn_cansel} onClick={onClose}>Cancel</button>
           </div>
       </form>
-      <Close onClick={onClose} className={styles.btn_close}/>
+      
     </div>
   );
 };
