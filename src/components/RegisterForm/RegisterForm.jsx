@@ -13,7 +13,7 @@ import { useState } from "react";
 import { FiAlertCircle } from "react-icons/fi";
 import { FiCheckCircle } from "react-icons/fi";
 // eslint-disable-next-line
-const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 const SignUpSchema = yup.object().shape({
   name: yup
@@ -23,7 +23,7 @@ const SignUpSchema = yup.object().shape({
   email: yup
     .string()
     .max(254)
-    .matches(emailRegExpression, 'Invalid email address. The email address must contain the @ sign.')
+    .matches(emailRegExp, 'Invalid email address. The email address must contain the @ sign.')
     .required('Email is a required!')
     .email('Invalid email address. The email address must contain the @ sign.'),
   password: yup
