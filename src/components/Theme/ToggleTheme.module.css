@@ -1,0 +1,25 @@
+.btn {
+    cursor: pointer;
+    transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-radius: 50px;
+    outline: none;
+    border: none;
+}
+.btn:hover {
+    transform: scale(0.95);
+}
+.icon {
+    fill: var(--color-blue);
+}
+@media (min-width: 375px) {
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+@media (min-width: 768px) {
+    .icon {
+        width: 32px;
+        height: 32px;
+    }
+}
