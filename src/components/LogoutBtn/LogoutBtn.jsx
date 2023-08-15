@@ -12,9 +12,8 @@ export const LogoutBtn = () => {
 
   const handleSubmit = (e) => {
       e.preventDefault();
-      navigate(ROUTES.START);
+      navigate(ROUTES.HOME);
       dispatch(logout());
-      
 
   }
 
