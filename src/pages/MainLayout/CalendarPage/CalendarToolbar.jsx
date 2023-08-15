@@ -5,6 +5,7 @@ import { PeriodTypeSelect } from './PeriodTypeSelect';
 import { format } from 'date-fns';
 
 import './CalendarToolbar.css';
+import { MonthCalendarHead } from './MonthCalendarHead';
 export const CalendarToolbar = ({ tasks, setTasks }) => {
   const [periodType, setPeriodType] = useState('month');
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -36,13 +37,18 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
   }, [tasks, fetchTasksByPeriod]);
 
   return (
-    <div className="CalendarToolbarWrapper">
-      <PeriodPaginator
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
-      />
-
-      <PeriodTypeSelect periodType={periodType} setPeriodType={setPeriodType} />
-    </div>
+    <>
+      <div className="CalendarToolbarWrapper">
+        <PeriodPaginator
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+        />
+        <PeriodTypeSelect
+          periodType={periodType}
+          setPeriodType={setPeriodType}
+        />
+      </div>
+      <MonthCalendarHead />
+    </>
   );
 };

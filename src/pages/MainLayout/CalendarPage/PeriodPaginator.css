@@ -27,7 +27,7 @@
   background: #3e85f3;
   border-radius: 8px;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 16px;
     line-height: 113%;
     padding: 8px 12px;
