@@ -79,8 +79,6 @@ const changeVisible = () => {
         <div className={css.login_container}>
             <div className={css.container}>
             <h1 className={css.title}>Log In</h1>
-            <FiAlertCircle/>
-            <FiCheckCircle/>
             <Formik 
                 initialValues={{ email: '', password: '' }}
                 validationSchema={LogInSchema}   
@@ -101,6 +99,8 @@ const changeVisible = () => {
                                     className={css.label}
                                     htmlFor="email"
                                 >
+                                <FiAlertCircle className={css.invalid_valid_icon}/>
+                                <FiCheckCircle className={css.invalid_valid_icon}/>
                                 Email
                                 <Field 
                                     // type="email"
