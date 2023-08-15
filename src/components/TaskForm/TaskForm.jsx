@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 import { useState } from 'react';
 import {fetchTasks, addTask} from '../../redux/tasks/operation';
 // import { useDate } from 'hooks/useDate';
-const { format, addMonths } = require('date-fns');
+// const { format, addMonths } = require('date-fns');
 
 export const TaskForm =({date,onClose,column})=> {
   const [title,setIsTitle]=useState('');
@@ -17,10 +17,10 @@ export const TaskForm =({date,onClose,column})=> {
   // const urlDate = useDate();
   // const from = format(urlDate, 'yyyy-MM-dd');
   // const to = format(addMonths(urlDate, 1), 'yyyy-MM-dd');
-  const data = {
-    from,
-    to,
-  };
+  // const data = {
+  //   from,
+  //   to,
+  // };
 
   const handleChange = event => {
     const { name, id, value } = event.target;
