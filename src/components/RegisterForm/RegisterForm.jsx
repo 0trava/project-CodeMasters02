@@ -6,8 +6,8 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'utils/routes';
-import { IoEyeOffOutline } from "react-icons/io5";
-import { IoEyeOutline } from "react-icons/io5";
+import { FiEyeOff } from "react-icons/fi";
+import { FiEye } from "react-icons/fi";
 import { useState } from "react";
 
 import { FiAlertCircle } from "react-icons/fi";
@@ -157,10 +157,10 @@ export default function RegisterForm() {
                                 }`}
                             />
                             {/* Icon for password (visible or not) */}
-                            <span type="button" onClick={changeVisible} className={css.togle}>
-                                    {passVisible ? 
-                                    <IoEyeOutline className="IoEyeOutline"/> 
-                                    : <IoEyeOffOutline className="IoEyeOffOutline"/>}
+                            <span type="button" onClick={changeVisible} >
+                                {passVisible ? 
+                                <FiEye className={css.togle}/> 
+                                : <FiEyeOff className={css.togle}/>}
                             </span>
                             {isValid('password') === 'is-valid' && <FiCheckCircle className={css.valid_icon} />}
                             {isValid('password') === 'is-invalid' && <FiAlertCircle className={css.invalid_icon}/>}

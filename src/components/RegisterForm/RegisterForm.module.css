@@ -123,19 +123,6 @@
     line-height: 1.28;
 } 
 
-/* .valid_message {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    top: 70px;
-    z-index: 10;    
-    color: var(--green-color);
-    font-family: Inter;
-    font-size: 11px;
-    font-weight: 200;
-    line-height: 1.28;
-} */
-
 .togle {
     position: absolute;
     top: 41px;
@@ -206,12 +193,6 @@
         top: 84px; 
         font-size: 12.5px;
     } 
-
-    /* .valid_message {
-        top: 84px;
-        font-family: Inter;
-        font-size: 12.5px;
-    }  */
 
     .togle {
         top: 47px;
