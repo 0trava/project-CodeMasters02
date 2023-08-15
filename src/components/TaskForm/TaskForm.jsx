@@ -15,8 +15,8 @@ export const TaskForm =({date,onClose,column})=> {
 
   
   // const urlDate = useDate();
-  const from = format(urlDate, 'yyyy-MM-dd');
-  const to = format(addMonths(urlDate, 1), 'yyyy-MM-dd');
+  // const from = format(urlDate, 'yyyy-MM-dd');
+  // const to = format(addMonths(urlDate, 1), 'yyyy-MM-dd');
   const data = {
     from,
     to,
