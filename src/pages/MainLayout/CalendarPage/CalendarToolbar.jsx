@@ -4,6 +4,7 @@ import { PeriodTypeSelect } from './PeriodTypeSelect';
 // eslint-disable-next-line
 import { format } from 'date-fns';
 
+import './CalendarToolbar.css';
 export const CalendarToolbar = ({ tasks, setTasks }) => {
   const [periodType, setPeriodType] = useState('month');
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -35,7 +36,7 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
   }, [tasks, fetchTasksByPeriod]);
 
   return (
-    <div>
+    <div className="CalendarToolbarWrapper">
       <PeriodPaginator
         selectedDate={selectedDate}
         setSelectedDate={setSelectedDate}

@@ -1,30 +1,86 @@
 .period-type-select {
-  color: #3E85F3;
+  color: #3e85f3;
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 1.29;
+}
+.set-period-btn {
+  border-radius: 0px 8px 8px 8px;
+}
 
-     }
-  .set-period-btn{
-    border-radius: 0px 8px 8px 8px;
-   
+.period-type-select button {
+  border-radius: 8px 8px 8px 8px;
+  background-color: #e3f3ff;
+  border: none;
+  color: #3e85f3;
+  cursor: pointer;
+  padding: 8px 15px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.period-type-select button.active {
+  background-color: #cae8ff;
+}
+.typeDateWrapper {
+  display: flex;
+}
+
+.monthBtn {
+  width: 76px;
+  height: 34px;
+  padding: 8px 16px 8px 16px;
+  border-radius: 8px 0px 0px 8px;
+  border: 0px 1px 0px 0px;
+
+  cursor: pointer;
+
+  border: none;
+  border-right: 1px solid rgba(62, 133, 243, 0.2);
+  background: #e3f3ff;
+
+  color: #3e85f3;
+  text-align: center;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 18px;
+
+  @media (min-width: 768px) {
+    width: 82px;
   }
-  
-  .period-type-select button {
-    border-radius: 8px 8px 8px 8px;
-    background-color: #E3F3FF;
-    border: none;
-    color: #3E85F3;
-    cursor: pointer;
-    padding: 8px 15px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
+
+  &.active {
+    background: #cae8ff;
   }
-  
-  .period-type-select button.active {
-    background-color: #CAE8FF;
-   
+}
+
+.dayBtn {
+  width: 76px;
+  height: 34px;
+  padding: 8px 25px 8px 25px;
+  border-radius: 0 8px 8px 0;
+
+  cursor: pointer;
+
+  border: none;
+  /* border-left: 0.5px solid rgba(62, 133, 243, 0.2); */
+  background: #e3f3ff;
+
+  color: #3e85f3;
+  text-align: center;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 18px;
+
+  @media (min-width: 768px) {
+    width: 82px;
   }
-  
+
+  &.active {
+    background: #cae8ff;
+  }
+}

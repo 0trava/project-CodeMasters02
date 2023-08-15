@@ -1,51 +1,69 @@
-.period-paginator {
+.dateWrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+
+  width: 100%;
+
+  @media (min-width: 768px) {
+    justify-content: start;
+    gap: 8px;
+  }
 }
 
-.period-format {
-  flex-grow: 1;
-  text-align: left;
-  font-weight: bold;
+.currentDate {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.period-format h2 {
-  margin: 0;
-  justify-content: start;
-}
-
-.chevron {
-  width: 36px;
-  height: 30px;
- 
-  align-items: center;
+  padding: 6px 12px;
   justify-content: center;
-  background-color: #FFFFFF;
-  border: none;
-  cursor: pointer;
+  align-items: center;
+
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 129%;
+  text-transform: uppercase;
+
+  background: #3e85f3;
+  border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 113%;
+    padding: 8px 12px;
+  }
+}
+
+.chevronLeftBtn {
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 34px;
   padding: 8px 12px;
-  margin: 0;
-  border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.50);
-  background: #FFF;
+  text-align: center;
+  border-radius: 8px 0 0 8px;
+  border-right: 0.5px solid rgba(220, 227, 229, 0.8);
+  background-color: transparent;
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  background: #fff;
+  cursor: pointer;
+}
+.chevronRightBtn {
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 34px;
+  padding: 8px 12px;
+  text-align: center;
+  border-radius: 0 8px 8px 0;
+  background-color: transparent;
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  border-left: 0.5px solid rgba(220, 227, 229, 0.8);
+  background: #fff;
+  cursor: pointer;
 }
 
 .icon-chevron {
-  fill: #DCE3E5;
-  transition: fill 0.3s ease;
-}
-
-.chevron:hover,
-.chevron:focus 
-.icon-chevron {
-  fill: #343434;
-  border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.50);
-  background: #FFF;
-  transition: fill 0.3s ease;
+  fill: transparent;
+  stroke: #343434;
 }

@@ -1,25 +1,35 @@
+.CalendarToolbarWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-.toolbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 375px;
-    margin-bottom: 20px;
+  gap: 18px;
+
+  width: 335px;
+  height: 82px;
+
+  margin: 0 auto 24px auto;
+
+  @media screen and (max-width: 370px) {
+    height: 100px;
+    gap: 30px;
+    margin-bottom: 10px;
   }
-  
-  .period-paginator {
-    flex: 1;
+
+  @media screen and (min-width: 768px) {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    flex-direction: row;
+    height: 34px;
+    width: 704px;
+
+    margin-bottom: 32px;
+    margin-left: 0;
+    padding: 0;
   }
-  
-  .period-type-select {
-    flex: 1;
+
+  @media screen and (min-width: 1440px) {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    width: 1087px;
+    height: 34px;
   }
-  
- 
-  
+}
