@@ -34,7 +34,7 @@ useEffect(() => {
   return (
     <>
       {loading ? (
-        <div class="loader">
+        <div className="loader">
           <BeatLoader color={'#3E85F3'} loading={loading} size={30} />
         </div>
       ) : (
