@@ -3,16 +3,9 @@ import css from './UserInfo.module.css';
 import { useSelector } from 'react-redux';
 import { ROUTES } from 'utils/routes';
 
-
 export const UserInfo = () => {
-
   // Отримуємо данні з Redux
-  const {name, avatar} = useSelector(selectUser);
-
-
-
-
-
+  const { name, avatar } = useSelector(selectUser);
 
   const getFirstName = name => {
     if (name) {
@@ -26,9 +19,9 @@ export const UserInfo = () => {
   const avatarImg = avatar ? (
     <img src={avatar} alt="user" />
   ) : (
-    <a className={css.backgroundIcon}  href={ROUTES.ACCOUNT}>
+    <div className={css.backgroundIcon} href={ROUTES.ACCOUNT}>
       <p className={css.letterIcon}>{getFirstLetter(firstName)}</p>
-    </a>
+    </div>
   );
 
   return (
