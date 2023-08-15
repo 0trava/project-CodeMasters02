@@ -7,8 +7,7 @@ import { selectToken } from 'redux/auth/selectors';
 // eslint-disable-next-line
 export const PrivateRoute = ({children}) => {
     const userIsLogin = useSelector(selectToken);
-
-    
+    console.log(children);
 
 
     return (userIsLogin) ?  children : <Navigate to={ROUTES.NotFound} />;

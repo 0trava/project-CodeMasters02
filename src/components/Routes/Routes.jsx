@@ -34,7 +34,7 @@ export const AppRoutes = () => {
             <Route path={ROUTES.REGISTER}  element={<RegisterPage />} />
             <Route path={ROUTES.HOME} element={<PrivateRoute><MainLayout/></PrivateRoute>} >
                 <Route path={ROUTES.ACCOUNT} element={<PrivateRoute><AccountPage /></PrivateRoute>} />
-                <Route path={ROUTES.CALENDAR} index element={<PrivateRoute><CalendarPage /></PrivateRoute>} />
+                <Route path={ROUTES.CALENDAR} element={<PrivateRoute><CalendarPage /></PrivateRoute>} />
                 <Route path={ROUTES.STATISTICS} element={<PrivateRoute><StatisticsPage /></PrivateRoute>} />
             </Route>
             <Route path={ROUTES.NotFound}  element={<NotFound />} />

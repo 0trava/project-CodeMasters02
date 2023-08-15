@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'https://project-codemasters02-backend.onrender.com';
 
 export const fetchReviews = createAsyncThunk(
   'reviews/getReviews',
-  async ( _ , thunkAPI) => {
+  async ( _, thunkAPI) => {
     try {
       const { data } = await axios.get(`/reviews`);
       return data;
@@ -19,7 +19,7 @@ export const addReview = createAsyncThunk(
   'reviews/addReviews',
   async (review, thunkAPI) => {
     try {
-      const { data } = await axios.post('/reviews', review);
+      const { data } = await axios.post('/reviews/own', review);
       return data;
     } catch (e) {
       return  thunkAPI.rejectWithValue(e.message);
@@ -29,9 +29,9 @@ export const addReview = createAsyncThunk(
 
 export const deleteReview = createAsyncThunk(
   'reviews/deleteReviews',
-  async (id, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`/reviews/${id}`);
+      const { data } = await axios.delete(`/reviews/own`);
 
       return data;
     } catch (e) {
@@ -42,9 +42,9 @@ export const deleteReview = createAsyncThunk(
 
 export const editReview = createAsyncThunk(
     'reviews/editReviews',
-    async ({id, review}, thunkAPI) => {
+    async (review, thunkAPI) => {
       try {
-        const { data } = await axios.patch(`/reviews/${id}`, review);
+        const { data } = await axios.patch(`/reviews/own`, review);
   
         return data;
       } catch (e) {
@@ -55,9 +55,9 @@ export const editReview = createAsyncThunk(
 
 export const fetchReviewById = createAsyncThunk(
   'reviews/fetchReviewById',
-  async (id, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/reviews/${id}`);
+      const { data } = await axios.get(`/reviews/own`);
       return data;
     } catch (e) {
         thunkAPI.rejectWithValue(e.message);
