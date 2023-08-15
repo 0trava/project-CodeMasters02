@@ -12,30 +12,30 @@ export const UserNav = () => {
         </svg>
         <span className={css.text}>User Panel</span>
       </li>
-      <li className={css.item}>
+      <Link className={css.item} to={ROUTES.ACCOUNT}>
         <svg className={css.icon} width="24" height="24">
           <use href={sprite + '#icon-user-check'}></use>
         </svg>
-        <Link className={css.link} to={ROUTES.ACCOUNT}>
+        <span className={css.link} >
           My Account
-        </Link>
-      </li>
-      <li className={css.item}>
+        </span>
+      </Link>
+      <Link className={css.item} to={ROUTES.CALENDAR}>
         <svg className={css.icon} width="24" height="24">
           <use href={sprite + '#icon-calendar-check'}></use>
         </svg>
-        <Link className={css.link} to={ROUTES.CALENDAR}>
+        <span className={css.link} >
           Calendar
-        </Link>
-      </li>
-      <li className={css.item}>
+        </span>
+      </Link>
+      <Link className={css.item} to={ROUTES.STATISTICS}>
         <svg className={css.icon_2} width="24" height="24">
           <use href={sprite + '#icon-statistics'}></use>
         </svg>
-        <Link className={css.link} to={ROUTES.STATISTICS}>
+        <span className={css.link} >
           Statistics
-        </Link>
-      </li>
+        </span>
+      </Link>
     </ul>
   );
 };
