@@ -1,22 +1,23 @@
 .container {
   box-sizing: border-box;
-  max-width: 299px;
-  padding: 60px 18px 40px;
-  margin: 64px 20px 40px 32px;
+  width: 335px;
+  padding: 0px 18px 40px 18px;
+  margin: 0px 20px 40px 20px;
   border-radius: 16px;
   background: #fff;
 
   @media (min-width: 768px) {
-    max-width: 704px;
+    width: 704px;
     padding: 40px 175px;
-    margin: 64px 32px 40px;
+    margin: 0px 32px 40px;
   }
 
   @media (min-width: 1440px) {
-    max-width: 1087px;
+    width: 1087px;
     padding: 60px 164px;
     margin-left: 32px;
     margin-right: 32px;
+    margin-top: 0;
   }
 }
 
@@ -31,7 +32,7 @@
 .userName {
   color: #343434;
   font-size: 14px;
-  margin-top: 20px;
+  margin-top: -18px;
   margin-bottom: 4px;
   font-weight: 700;
   font-size: 18px;
@@ -41,6 +42,7 @@
     font-size: 18px;
     margin-bottom: 8px;
     line-height: 100%;
+    margin-top: 20px;
   }
 }
 .user {
@@ -148,34 +150,73 @@
 
 .UserForm__avatar {
   position: relative;
-  width: 124px;
-  height: 124px;
-  background-color: var(--color-white-avatar);
-  border-radius: 100px;
+  width: 72px;
+  height: 72px;
+  background-color: #fff;
+  border-radius: 72px;
   border: 2px solid var(--color-blue);
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center;
   justify-content: center;
+  top: -45px;
+
+  @media (min-width: 768px) {
+    position: relative;
+    width: 124px;
+    height: 124px;
+    background-color: var(--color-white-avatar);
+    border-radius: 100px;
+    border: 2px solid var(--color-blue);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+  }
 }
 
 .UserForm__avatar_icon {
-  width: 48px;
-  height: 48px;
+  width: 24px;
+  height: 24px;
   fill: #3E85F32E;
+
+
 }
+
+@media (min-width: 768px) {
+  .UserForm__avatar_icon {
+    width: 48px;
+    height: 48px;
+  }
+
+}
+
 
 .UserForm__avatar_input{
   position: absolute;
   bottom: -6px;
   right: 24px;
-  border-radius: 100px;
+  border-radius: 14px;
   color: transparent;
-  width: 40px;
-  height: 40px;
+  width: 14px;
+  height: 14px;
   cursor: pointer;
   opacity: 0;
+
+  @media (min-width: 768px) {
+    position: absolute;
+    bottom: -6px;
+    right: 24px;
+    border-radius: 100px;
+    color: transparent;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0;
+  }
   
 }
 
@@ -183,10 +224,10 @@
  content: "";
  position: absolute;
  bottom: -6px;
- right: 24px;
+ right: 14px;
 
- width: 24px;
- height: 24px;
+ width: 14px;
+ height: 14px;
  border-radius: 100px;
  background-color: var(--color-blue);
  z-index: 1;
@@ -197,8 +238,22 @@
  background-position: center;
  background-repeat: no-repeat;
  fill: #fff;
+ background-size: cover;
+
+
  
 
+}
+
+@media (min-width: 768px) {
+  .UserForm__avatar::after  {
+    bottom: -6px;
+    right: 24px;
+   
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+  }
 }
 
 .UserForm__avatar::after:hover, .UserForm__avatar::after:focus {

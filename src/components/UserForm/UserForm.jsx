@@ -97,6 +97,9 @@ export const UserForm = () => {
             </div>
           </div>
           <div className={css.fieldWrapper}>
+
+            <div>
+            {/* User */}
             <label className={css.labelField}>
               User Name
               <Field
@@ -107,24 +110,9 @@ export const UserForm = () => {
               />
               <ErrorMessage className={css.error} name="name" component="p" />
             </label>
-            <label className={css.labelField}>
-              Phone
-              <Field name="phone">
-                {({ field }) => (
-                  <InputMask
-                    mask="+38 (999) 999-9999"
-                    {...field}
-                    maskChar="_" // Use an underscore as the placeholder character
-                    placeholder="Add a phone number"
-                    type="tel"
-                    className={css.inputField}
-                    defaultValue={phone ? phone : ''}
-                  />
-                )}
-              </Field>
-              <ErrorMessage className={css.error} name="phone" component="p" />
-            </label>
-            <label className={css.labelField}>
+
+             {/*  Birthday  */}
+             <label className={css.labelField}>
               Birthday
               <Field name="birthday">
                 {({ field }) => (
@@ -145,16 +133,8 @@ export const UserForm = () => {
                 component="p"
               />
             </label>
-            <label className={css.labelField}>
-              Skype
-              <Field
-                name="skype"
-                placeholder="Add a skype number"
-                className={css.inputField}
-                defaultValue={skype ? skype : ''}
-              />
-              <ErrorMessage className={css.error} name="skype" component="p" />
-            </label>
+
+            {/* Email */}
             <label className={css.labelField}>
               Email
               <Field
@@ -170,6 +150,41 @@ export const UserForm = () => {
                 component="p"
               />
             </label>
+            </div>
+
+            <div>
+            {/* Phone */}
+            <label className={css.labelField}>
+              Phone
+              <Field name="phone">
+                {({ field }) => (
+                  <InputMask
+                    mask="+38 (999) 999-9999"
+                    {...field}
+                    maskChar="_" // Use an underscore as the placeholder character
+                    placeholder="Add a phone number"
+                    type="tel"
+                    className={css.inputField}
+                    defaultValue={phone ? phone : ''}
+                  />
+                )}
+              </Field>
+              <ErrorMessage className={css.error} name="phone" component="p" />
+            </label>
+
+            {/* Skype */}
+            <label className={css.labelField}>
+              Skype
+              <Field
+                name="skype"
+                placeholder="Add a skype number"
+                className={css.inputField}
+                defaultValue={skype ? skype : ''}
+              />
+              <ErrorMessage className={css.error} name="skype" component="p" />
+            </label>
+            </div>
+
           </div>
 
           <button type="submit" className={css.submitButton}>
