@@ -1,0 +1,42 @@
+.calendar-grid {
+    width: 335px;
+    display: grid;
+    background-color: var(--color-white);
+}
+
+
+.calendar-table {
+
+    border: 1px solid var(--input-placeholder-color);
+    border-radius: 8px;
+
+}
+
+.calendar-cell {
+    width: auto;
+    max-width: 30px;
+    position: relative;
+
+    height: 93px;
+    text-align: right;
+
+    cursor: pointer;
+    border-right: 1px solid var(--input-placeholder-color);
+    border-bottom: 1px solid var(--input-placeholder-color);
+    color: var(--text-review);
+
+
+}
+
+.calendar-cell:hover {
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    color: var(--color-white);
+
+    &> :first-child {
+        color: var(--color-blue);
+
+    }
+}
