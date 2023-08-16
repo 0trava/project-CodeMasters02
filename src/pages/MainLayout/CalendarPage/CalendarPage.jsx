@@ -5,6 +5,7 @@ import { CalendarToolbar } from './CalendarToolbar';
 import './CalendarPage.css';
 import { CalendarGrid } from './CalendarGrid';
 
+
 export const CalendarPage = () => {
   // eslint-disable-next-line
   const currentDate = useMemo(() => new Date(), []);
@@ -24,6 +25,7 @@ export const CalendarPage = () => {
     // }
   };
 
+
   useEffect(() => {
     if (tasks.length === 0) {
       fetchTasks();
@@ -32,19 +34,21 @@ export const CalendarPage = () => {
   // eslint-disable-next-line
   const periodType = 'month';
   // eslint-disable-next-line
-
-  return (
-    <div className="calendar-page">
-      <CalendarToolbar
-        className="calendar-toolbar"
-        tasks={tasks}
-        setTasks={setTasks}
-        currentDate={currentDate}
-        setSelectedDate={setSelectedDate}
-      />
+  const handleDateChange = (newDate) => {
+    setSelectedDate(newDate);
+  };
+  console.log(selectedDate);
+    return (
+      <div className="calendar-page">
+        <CalendarToolbar
+          tasks={tasks}
+          setTasks={setTasks}
+          selectedDate={selectedDate}
+          setSelectedDate={handleDateChange}
+        />
 
       <CalendarGrid
-        setSelectedDate={setSelectedDate}
+        // setSelectedDate={setSelectedDate}
         selectedDate={selectedDate}
       />
       <div className="calendar-content">{/* <Routes> */}</div>

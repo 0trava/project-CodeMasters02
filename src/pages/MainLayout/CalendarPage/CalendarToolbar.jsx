@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { PeriodPaginator } from './PeriodPaginator';
 import { PeriodTypeSelect } from './PeriodTypeSelect';
-// eslint-disable-next-line
-import { format } from 'date-fns';
+import { addMonths, addDays } from 'date-fns';
 
 import './CalendarToolbar.css';
 import { MonthCalendarHead } from './MonthCalendarHead';
@@ -30,6 +29,16 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
     // eslint-disable-next-line
   }, [periodType, selectedDate, setTasks]);
 
+    
+  const changeDate = (amount) => {
+    setSelectedDate((prevDate) => {
+      const newDate = periodType === 'month'
+        ? addMonths(prevDate, amount)
+        : addDays(prevDate, amount);
+      return newDate;
+    });
+  };
+
   useEffect(() => {
     if (!tasks || tasks.length === 0) {
       fetchTasksByPeriod();
@@ -42,6 +51,7 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
         <PeriodPaginator
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
+          changeDate={changeDate}
         />
         <PeriodTypeSelect
           periodType={periodType}

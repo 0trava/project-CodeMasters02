@@ -43,7 +43,7 @@ export const CalendarGrid = ({ selectedDate }) => {
   }
 
   weeks.push(currentWeek);
-
+  console.log(selectedDate);
   return (
     <div className="calendar-grid">
       <table className="calendar-table">
