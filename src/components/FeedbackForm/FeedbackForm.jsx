@@ -1,126 +1,133 @@
-
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
-import { editReview, fetchReviewById } from '../../redux/reviews/operations';
+import React from 'react';
+import './FeedbackForm.css';
+import sprite from '../../images/sprite.svg';
+import { useState } from 'react';
 
 
 
-export const FeedbackForm = ({ isEditReview, editedRating, editedMessage, editedId, handleEditReview }) => {
-    const dispatch = useDispatch();
 
-    const [rating, setRating] = useState(editedRating || 0);
-    const [message, setMessage] = useState(editedMessage || '');
-    const [hover, setHover] = useState(null);
-    const [id, setId] = useState('');
+export const FeedbackForm = ({onClose}) => {
+    const [editReview, setEditReview] = useState(false)
+    const Review = "";
 
-    useEffect(() => {
-        if (isEditReview) {
-            setRating(editedRating);
-            setMessage(editedMessage);
-            setId(editedId);
-        }
-    }, [isEditReview, editedRating, editedMessage, editedId]);
+    // BUTTON - change review
+    const handleChage = () => {
+        setEditReview(true);
+    }
 
-    const reset = () => {
-        setMessage('');
-        setRating(0);
-        // setHover(null);
-    };
+    // BUTTON - delete review
+    const toDelete = () => {
 
-    const handleSubmit = async e => {
-        e.preventDefault();
-        const currentMessage = e.currentTarget.message.value;
-        if (!rating) {
-            Notify.failure('Rating is empty');
-            return;
-        }
-        if (message.length <= 5) {
-            Notify.failure('Message is too short');
-            return;
-        }
-        if (message.length > 300) {
-            Notify.failure('Message is too long');
-            return;
-        }
-        if (isEditReview) {
-            if (editedMessage === currentMessage && editedRating === rating) {
-                Notify.failure('Make changes');
-                return;
+        // !!!! КОМАНДА НА БЕКЕНД
+        onClose();
+
+    }
+
+
+
+
+   
+    return (
+        <div className='FeedbackForm__container'>
+            <button 
+            className='FeedbackForm__button-close' 
+            type="button"
+            onClick={onClose} >
+            <svg className="FeedbackForm__menu_icon" width="24" height="24">
+            <use href={sprite + '#icon-x-close'}></use>
+            </svg>
+            </button>
+
+         
+            <form  className="FeedbackForm__form">
+
+            <label class="FeedbackForm__title">Rating</label>
+            <div className='FeedbackForm__stars'>
+            <div className="rating">
+            <input
+              type="radio"
+              id="star5"
+              name="star5"
+              value="5"
+              
+            />
+            <label htmlFor="star5" title="text"></label>
+            <input
+              type="radio"
+              id="star4"
+              name="star4"
+              value="4"
+              
+            />
+            <label htmlFor="star4" title="text"></label>
+            <input
+              type="radio"
+              id="star3"
+              name="star3"
+              value="3"
+              
+            />
+            <label htmlFor="star3" title="text"></label>
+            <input
+              type="radio"
+              id="star2"
+              name="star2"
+              value="2"
+              
+            />
+            <label htmlFor="star2" title="text"></label>
+            <input
+              type="radio"
+              id="star1"
+              name="star1"
+              value="1"
+              
+            />
+            <label htmlFor="star1" title="text"></label>
+          </div>
+            </div>
+            <div className='FeedbackForm__title-block'>
+                <label  class="FeedbackForm__title">Review</label>
+                
+                    {Review ?
+                    <div  className='FeedbackForm__btn-changeblock'>
+                    <div onClick={handleChage} className='FeedbackForm__btn-pencil'></div>
+                    <div onClick={toDelete} className='FeedbackForm__btn-trash'></div>
+                    </div> 
+                    : ""}
+                
+            </div>
+
+            <textarea 
+            className='FeedbackForm_input' 
+            type="text" 
+            rows="5"
+            placeholder='Enter your text' />
+            {editReview || !Review ?
+                        <div className='FeedbackForm_btn-block'>
+                        {Review ?
+                            <button 
+                            type='submite'
+                            className='FeedbackForm__btn'
+                            >Edit</button>
+                        :   <button 
+                            type='submite'
+                            className='FeedbackForm__btn'
+                            >Save</button>}
+        
+                        <button 
+                        type="button"
+                        className='FeedbackForm__btn-cansel'
+                        onClick={onClose}
+                        >Cansel</button>
+                    </div>
+                    : ""
             }
 
-            await dispatch(
-                editReview({
-                    id: id,
-                    review: { stars: rating, comment: currentMessage },
-                }));
-            Notify.success('Your feedback is saved successfully');
-            await dispatch(fetchReviewById());
-            reset();
-        }
-        handleEditReview();
-    };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <label>Rating</label>
-            <div>
-                {[...Array(5)].map((star, i) => {
-                    const ratingValue = 5 - i;
-                    return (
-                        <label key={i}>
-                            <input
-                                type="radio"
-                                name="rating"
-                                value={ratingValue}
-                                onClick={() => setRating(ratingValue)}
-                            />
-                            <svg>
-                                <use
-                                    href='../../images/sprite.svg#icon-Star'
-                                    fill={
-                                        ratingValue <= (hover || rating) ? '#ffd129' : '#8f8b85'
-                                    }
-                                    width={24}
-                                    height={24}
-                                    style={{ marginRight: 1 }}
-                                    onMouseEnter={() => setHover(ratingValue)}
-                                    onMouseLeave={() => setHover(null)}
-                                />
-                            </svg>
-                        </label>
-                    );
-                })}
-            </div>
-            <label>
-                Review
-            </label>
-            <input
-                type="text"
-                required
-                value={message}
-                onChange={event => setMessage(event.currentTarget.value)}
-                name="message"
-                placeholder={'Enter text'}
-            />
-            {isEditReview ? (
-                <div>
-                    <button style={{ width: '50%' }}>{'Edit'}</button>
-                    <button
-                        btn="cancel"
-                        style={{ width: '50%' }}
-                        onClick={() => {
-                            handleEditReview();
-                            reset();
-                        }}
-                    >
-                        {'Cancel'}
-                    </button>
-                </div>
-            ) : (
-                <button type="submit">{'Save'}</button>
-            )}
-        </form>
+            </form>
+            
+        </div>
+
     );
 };
