@@ -1,21 +1,22 @@
 .container {
   box-sizing: border-box;
-  max-width: 100%;
+  max-width: 299px;
   padding: 60px 18px 40px;
-  margin: 64px 20px 40px;
+  margin: 64px 20px 40px 32px;
   border-radius: 16px;
   background: #fff;
 
   @media (min-width: 768px) {
-    max-width: 100%;
+    max-width: 704px;
     padding: 40px 175px;
     margin: 64px 32px 40px;
   }
 
   @media (min-width: 1440px) {
-    max-width: 100%;
+    max-width: 1087px;
     padding: 60px 164px;
-    margin: 32px;
+    margin-left: 32px;
+    margin-right: 32px;
   }
 }
 
