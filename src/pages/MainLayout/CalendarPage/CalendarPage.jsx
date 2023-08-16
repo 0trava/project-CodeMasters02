@@ -42,7 +42,7 @@ export const CalendarPage = () => {
         currentDate={currentDate}
         setSelectedDate={setSelectedDate}
       />
-
+      
       <CalendarGrid
         setSelectedDate={setSelectedDate}
         selectedDate={selectedDate}

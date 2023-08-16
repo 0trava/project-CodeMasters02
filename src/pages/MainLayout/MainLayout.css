@@ -5,37 +5,33 @@
 .MainLayout__container {
     display: flex;
     background-color: #F7F6F9;
+    background-color: red;
+    width: 100%;
 }
 .MainLayout__block {
     display: flex;
-    height: 752px;
-    border-radius: 16px;
-    background-color: var(--color-white);
 }
 @media (min-width: 375px) {
     .MainLayout__navigation {
         margin-right: 32px;
         width: 93%;
+        display: none;
     }
-    .MainLayout__block {
-        min-width: 375px;
-    }
+
 }
 @media (min-width: 768px) {
     .MainLayout__navigation {
         margin-right: 32px;
         width: 93%;
+        display: none;
     }
-    .MainLayout__block {
-        min-width: 768px;
-    }
+
 }
 @media (min-width: 1440px) {
     .MainLayout__navigation {
         margin-right: 32px;
         width: 93%;
+        display: flex;
     }
-    .MainLayout__block {
-        min-width: 1087px;
-    }
+
 }
