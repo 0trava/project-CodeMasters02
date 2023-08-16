@@ -1,14 +1,14 @@
 import React from 'react';
-import './Loader.css'
+import './Loader.css';
 
 export const Loader = () => {
   return (
-    <section class="dots-container">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
+    <section className="dots-container">
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
     </section>
-  )
-}
+  );
+};
