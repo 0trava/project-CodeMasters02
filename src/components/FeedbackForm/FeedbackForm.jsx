@@ -52,7 +52,7 @@ export const FeedbackForm = ({ onClose }) => {
           {Review ? (
             <div className="FeedbackForm__btn-changeblock">
               <div onClick={handleChage} className="FeedbackForm__btn-pencil">
-                <RiCloseLine className="FeedbackForm__icon-pencil" />
+                <RiPencilLine className="FeedbackForm__icon-pencil" />
               </div>
               <div onClick={toDelete} className="FeedbackForm__btn-trash">
                 <RiDeleteBinLine className="FeedbackForm__icon" />
