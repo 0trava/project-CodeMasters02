@@ -22,19 +22,28 @@
 
 .FeedbackForm__button-close {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 24px;
     height: 24px;
     right: 18px;
     top: 18px;
-    background-color: red;
+    padding: 0;
+    background-color: #ffffff;
     border: none;
 
 }
 
-.FeedbackForm__menu_icon {
+.FeedbackForm__icon {
     fill: black;
-    width: 24px;
-    height: 24px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5sec var(--transition);
+}
+
+.FeedbackForm__icon:hover, .FeedbackForm__icon:focus {
+ scale: 1.1;
 }
 
 .FeedbackForm__form {
@@ -132,6 +141,8 @@
   .FeedbackForm__btn-pencil {
     
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 10px;
     height: 10px;
     padding: 10px;
@@ -155,5 +166,17 @@
     border-radius: 50px;
     background: rgba(234, 61, 101, 0.20);
 
-    fill: #EA3D65;
+    
   }
+
+  .FeedbackForm__icon-pencil {
+    fill: #EA3D65;
+    width: 10px;
+    height: 10px;
+    transition: all 0.5sec var(--transition);
+    z-index: 2;
+}
+
+.FeedbackForm__icon:hover, .FeedbackForm__icon:focus {
+ scale: 1.1;
+}

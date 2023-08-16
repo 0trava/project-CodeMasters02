@@ -1,14 +1,15 @@
 import React from 'react';
 import './FeedbackForm.css';
-import sprite from '../../images/sprite.svg';
 import { useState } from 'react';
-
+import {RiPencilLine} from "react-icons/ri";
+import {RiDeleteBinLine} from "react-icons/ri";
+import {RiCloseLine} from "react-icons/ri";
 
 
 
 export const FeedbackForm = ({onClose}) => {
     const [editReview, setEditReview] = useState(false)
-    const Review = "";
+    const Review = "test";
 
     // BUTTON - change review
     const handleChage = () => {
@@ -33,9 +34,7 @@ export const FeedbackForm = ({onClose}) => {
             className='FeedbackForm__button-close' 
             type="button"
             onClick={onClose} >
-            <svg className="FeedbackForm__menu_icon" width="24" height="24">
-            <use href={sprite + '#icon-x-close'}></use>
-            </svg>
+                <RiCloseLine className='FeedbackForm__icon'/>
             </button>
 
          
@@ -91,8 +90,12 @@ export const FeedbackForm = ({onClose}) => {
                 
                     {Review ?
                     <div  className='FeedbackForm__btn-changeblock'>
-                    <div onClick={handleChage} className='FeedbackForm__btn-pencil'></div>
-                    <div onClick={toDelete} className='FeedbackForm__btn-trash'></div>
+                    <div onClick={handleChage} className='FeedbackForm__btn-pencil'>
+                        <RiCloseLine className='FeedbackForm__icon-pencil'/>
+                    </div>
+                    <div onClick={toDelete} className='FeedbackForm__btn-trash'>
+                        <RiDeleteBinLine className='FeedbackForm__icon'/>
+                    </div>
                     </div> 
                     : ""}
                 
