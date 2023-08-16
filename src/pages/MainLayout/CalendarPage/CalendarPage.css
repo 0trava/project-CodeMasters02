@@ -1,12 +1,16 @@
 .calendar-page {
   flex-direction: row;
   align-items: center;
-
+padding-top: 64px;
   font-family: Inter;
 
   background-color: #f7f6f9;
 }
-
+@media (min-width: 1440px) {
+  .calendar-page {
+    padding-top: 32px;
+  }
+}
 
 .calendar-content {
   display: flex;
