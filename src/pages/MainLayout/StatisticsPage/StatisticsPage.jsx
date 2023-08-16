@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+
+import { StatisticsSection } from 'components/StatisticksComponents/StatisticsSection/StatisticsSection';
 
 export const StatisticsPage = () => {
   return (
     <div>
-
-       StatisticsPage</div>
-  )
-}
+      StatisticsPage
+      <StatisticsSection/>
+      
+    </div>
+  );
+};
