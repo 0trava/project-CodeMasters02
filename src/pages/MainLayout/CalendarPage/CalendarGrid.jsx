@@ -55,7 +55,9 @@ export const CalendarGrid = ({ selectedDate }) => {
                   key={`day-${weekIndex}-${dayIndex}`}
                   className={day.props.className}
                 >
-                  {day.props.children}
+                  <div className="calendar-day">
+                    {day.props.children}
+                  </div>
                 </td>
               ))}
             </tr>

@@ -1,42 +1,55 @@
 .calendar-grid {
-    width: 335px;
-    display: grid;
-    background-color: var(--color-white);
+  width: 335px;
+  display: grid;
+  background-color: var(--color-white);
+  border: 1px solid var(--input-placeholder-color);
+  border-radius: 8px;
 }
 
-
 .calendar-table {
-
-    border: 1px solid var(--input-placeholder-color);
-    border-radius: 8px;
-
+ 
+   border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
 }
 
 .calendar-cell {
-    width: auto;
-    max-width: 30px;
-    position: relative;
+  width: auto;
+  max-width: 30px;
+  position: relative;
+  height: 94px;
+  text-align: right;
+  cursor: pointer;
+  border: 1px solid var(--input-placeholder-color);
+  box-sizing: border-box;
+  color: var(--text-review);
 
-    height: 93px;
-    text-align: right;
+ 
+}
+.calendar-cell:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
 
-    cursor: pointer;
-    border-right: 1px solid var(--input-placeholder-color);
-    border-bottom: 1px solid var(--input-placeholder-color);
-    color: var(--text-review);
-
-
+&:hover .calendar-day{
+    color: var(--color-white);
+    background-color: var(--color-blue);
 }
 
-.calendar-cell:hover {
-    opacity: 1;
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
-    color: var(--color-white);
+}
+.calendar-day {
+  position: absolute;
+  top: 8px;
+  right: 4px;
+  padding: 4px 6px;
+  background-color: transparent;
+  color: var(--text-review);
+  border-radius: 6px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.17;
+  text-transform: uppercase;
 
-    &> :first-child {
-        color: var(--color-blue);
-
-    }
 }
