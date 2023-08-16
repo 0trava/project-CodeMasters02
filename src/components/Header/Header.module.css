@@ -74,3 +74,12 @@
     display: none;
   }
 }
+
+/* Modal SideBar */
+.is_hidden {
+  display: none;
+}
+
+.side_barmodal {
+  
+}
