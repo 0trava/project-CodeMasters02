@@ -18,7 +18,6 @@
 }
 .item {
   padding: 16px 165px 16px 20px;
-  width: auto;
   cursor: pointer;
   display: flex;
   align-items: center;

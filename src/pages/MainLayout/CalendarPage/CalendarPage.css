@@ -1,7 +1,8 @@
 .calendar-page {
   flex-direction: row;
   align-items: center;
-
+  display: flex;
+  flex-direction: column;
   font-family: Inter;
 
   background-color: #f7f6f9;

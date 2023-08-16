@@ -139,7 +139,7 @@ const changeVisible = () => {
                                     }`}
                                 />
                                 {/* Icon for password (visible or not) */}
-                                <span type="button" onClick={changeVisible} className={css.togle}>
+                                <span type="button" onClick={changeVisible} >
                                     {passVisible ? 
                                     <FiEye className={css.togle}/> 
                                     : <FiEyeOff className={css.togle}/>}

@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useMemo } from 'react';
 // eslint-disable-next-line
-import { Route, Navigate, Routes } from 'react-router-dom';
+// import { Route, Navigate, Routes } from 'react-router-dom';
 import { CalendarToolbar } from './CalendarToolbar';
 import './CalendarPage.css';
+import { CalendarGrid } from './CalendarGrid';
 
 export const CalendarPage = () => {
   // eslint-disable-next-line
   const currentDate = useMemo(() => new Date(), []);
   // eslint-disable-next-line
   const [tasks, setTasks] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const fetchTasks = async () => {
     // try {
@@ -27,28 +29,25 @@ export const CalendarPage = () => {
       fetchTasks();
     }
   }, [tasks]);
-// eslint-disable-next-line
+  // eslint-disable-next-line
   const periodType = 'month';
   // eslint-disable-next-line
-  const selectedDate = new Date();
 
   return (
     <div className="calendar-page">
-      <CalendarToolbar />
-
-      <div className="calendar-content">
-        <Routes>
-          {/* <Route
-            path="/calendar/month/:currentDate"
-            element={<ChoosedMonth tasks={tasks} />}
-          />
-          <Route path="/calendar/day/:selectedDate" element={<ChoosedDay />} />
-          <Route
-            path="/calendar"
-            element={<Navigate to={`/calendar/month/${currentDate}`} />}
-          /> */}
-        </Routes>
-      </div>
+      <CalendarToolbar
+        className="calendar-toolbar"
+        tasks={tasks}
+        setTasks={setTasks}
+        currentDate={currentDate}
+        setSelectedDate={setSelectedDate}
+      />
+      
+      <CalendarGrid
+        setSelectedDate={setSelectedDate}
+        selectedDate={selectedDate}
+      />
+      <div className="calendar-content">{/* <Routes> */}</div>
     </div>
   );
 };

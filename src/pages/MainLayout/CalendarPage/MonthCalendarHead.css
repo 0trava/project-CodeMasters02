@@ -21,7 +21,9 @@
 
 .desktopDayList {
   display: none;
-  @media (min-width: 678px) {
+  width: 340px;
+
+  @media (min-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,4 +63,5 @@
 
 .weekendDay {
   color: #3e85f3;
+  font-weight: 600;
 }
