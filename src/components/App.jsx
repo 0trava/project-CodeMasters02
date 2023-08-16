@@ -10,14 +10,14 @@ import BeatLoader from 'react-spinners/BeatLoader';
 
 import { selectToken } from 'redux/auth/selectors';
 
-
 export const App = () => {
+
 let [loading, setLoading] = useState(false);
 useEffect(() => {
   setLoading(true);
   setTimeout(() => {
   setLoading(false);
-  }, 1500);
+  }, 1000);
 }, []);
 
  const dispatch = useDispatch() 
@@ -29,7 +29,7 @@ useEffect(() => {
     dispatch(refresh());
   }, [dispatch, token]);
 
-
+  
 
   return (
     <>

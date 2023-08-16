@@ -42,7 +42,7 @@
 
 .menuBurger {
   fill: transparent;
-  stroke: #343434;
+  stroke: var(--text-review);
 
   height: 24px;
   width: 24px;

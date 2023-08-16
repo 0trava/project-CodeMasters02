@@ -13,41 +13,6 @@ code {
 }
 
 :root {
-  /* dark theme */
-  --color-blue: #3e85f3;
-  --color-blue-hover: #174c9c;
-  --color-white: #171820;
-  --color-blue-light: #dcebf7;
-  --color-white-avatar: F8F8F8;
-  --text-review: #343434;
-
-  --toogler-body-white: #eaeaea;
-  --toogler-body-dark: #13151a;
-  --toogler-block-white: #ffffff;
-  --toogler-block-dark: #21222c;
-
-  --input-placeholder-color: #dce3e5;
-
-  --green-color: green;
-
-  --color-gradient-pink: linear-gradient(
-    0deg,
-    #ffd2dd 0%,
-    rgba(255, 210, 221, 0) 96.87%
-  );
-  --color-gradient-blue: linear-gradient(
-    0deg,
-    #3e85f3 0%,
-    rgba(62, 133, 243, 0) 100%
-  );
-
-  --color-task-low: rgba(114, 194, 248, 1);
-  --color-task-high: rgba(234, 61, 101, 1);
-  --color-task-medium: rgba(243, 178, 73, 1);
-
-  --transition: cubic-bezier(0.01, 0.59, 1, 0.59);
-
-  /* light theme */
   --color-black: #13151a;
   --color-blue: #3e85f3;
   --color-blue-hover: #174c9c;
@@ -82,6 +47,7 @@ code {
 
   --transition: cubic-bezier(0.01, 0.59, 1, 0.59);
 }
+
 html {
   scroll-behavior: smooth;
   box-sizing: border-box;

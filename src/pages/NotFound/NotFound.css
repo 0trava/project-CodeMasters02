@@ -41,7 +41,7 @@
 
 .not-found-message {
   display: block;
-  color: #111111b3;
+  color: var(--color-message);
   text-align: center;
   font-family: Inter;
   font-size: 14px;
