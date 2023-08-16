@@ -26,13 +26,11 @@ export const MainLayout = () => {
           </nav>
         </aside>
       </div>
-      <div>
+      <div className='MainLayout__block'>
         <Header />
-        <div className="MainLayout__block">
           <Suspense fallback={<div>Loading page...</div>}>
             <Outlet />
           </Suspense>
-        </div>
       </div>
     </div>
   );

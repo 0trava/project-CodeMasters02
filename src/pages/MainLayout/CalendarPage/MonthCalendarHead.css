@@ -21,8 +21,9 @@
 
 .desktopDayList {
   display: none;
+  width: 340px;
 
-  @media (min-width: 678px) {
+  @media (min-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;

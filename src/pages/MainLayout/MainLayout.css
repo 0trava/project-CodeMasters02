@@ -5,12 +5,18 @@
 .MainLayout__container {
     display: flex;
     background-color: #F7F6F9;
-    background-color: red;
     width: 100%;
 }
+
 .MainLayout__block {
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start
+
 }
+
 @media (min-width: 375px) {
     .MainLayout__navigation {
         margin-right: 32px;
