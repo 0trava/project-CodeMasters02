@@ -7,9 +7,6 @@ export const UserNav = () => {
   return (
     <ul className={css.list}>
       <li className={css.text_block}>
-        <svg className={css.menu_icon} width="24" height="24">
-          <use href={sprite + '#icon-burger'}></use>
-        </svg>
         <span className={css.text}>User Panel</span>
       </li>
       <li>

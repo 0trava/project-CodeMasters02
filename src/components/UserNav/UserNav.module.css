@@ -59,6 +59,15 @@
   stroke: var(--color-blue);
   stroke-opacity: 1;
 }
+@media (max-width: 768px) {
+  .text, .link {
+    font-size: 0;
+  }
+  .icon, .icon_2 {
+    width: 0;
+    height: 0;
+  }
+}
 @media (min-width: 375px) {
   .text {
     font-size: 12px;
@@ -66,6 +75,7 @@
   .link {
     font-size: 14px;
   }
+  
 }
 @media (min-width: 768px) {
   .text {
