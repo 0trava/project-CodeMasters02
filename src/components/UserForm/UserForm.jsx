@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import * as yup from 'yup';
 import css from './UserForm.module.css';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
@@ -10,14 +10,13 @@ import InputMask from 'react-input-mask';
 // Дозволяє завантажувати формати зображень .jpeg, .png, .gif
 
 // eslint-disable-next-line
-const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 // eslint-disable-next-line
-const phoneRegexp = /^\+38 \(\d{3}\) \d{3}-\d{4}$/;
+const phoneRegExp = /^\+38 \(\d{3}\) \d{3}-\d{4}$/;
 // eslint-disable-next-line
-const birthdayRegexp =
-  /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)\d\d)$/;
+const birthdayRegExp = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)\d\d)$/;
 
-const userFormSchema = Yup.object().shape({
+const userFormSchema = yup.object().shape({
   //   avatar: Yup.mixed()
   //     .nullable()
   //     .notRequired()
@@ -26,16 +25,27 @@ const userFormSchema = Yup.object().shape({
   //       'The downloaded file format is not supported',
   //       value => !value || (value && SUPPORTED_FORMATS.includes(value.type))
   //     ),
-  name: Yup.string()
-    .max(16, 'Maximum length is 16 characters')
+  name: yup
+    .string()
+    .max(16, 'Name must be 16 characters or less.')
     .required('Name is a required!'),
-  email: Yup.string()
-    .matches(emailRegexp, 'Email is not valid')
-    .required('Enter an email address'),
-  date: Yup.date(),
-  phone: Yup.string().matches(phoneRegexp, 'Phone is not valid'),
-  birthday: Yup.string().matches(birthdayRegexp, 'Bithday date is not valid'),
-  skype: Yup.string(),
+  email: yup
+    .string()
+    .max(254)
+    .matches(emailRegExp, 'Invalid email address. The email address must contain the @ sign.')
+    .required('Email is a required!')
+    .email('Invalid email address. The email address must contain the @ sign.'),
+  date: yup
+    .date(),
+  phone: yup
+    .string()
+    .matches(phoneRegExp, 'Phone is not valid'),
+  birthday: yup
+    .string()
+    .matches(birthdayRegExp, 'Bithday date is not valid'),
+  skype: yup
+    .string()
+    .max(16, 'Name must be 16 characters or less.')
 });
 
 export const UserForm = () => {
