@@ -41,7 +41,20 @@
     background-color: var(--color-blue);
     color: var(--color-white);
 }
+@media (max-width: 768px) {
+    .image {
+        width: 0;
+        height: 0;
+    }
+    .text, .cursive {
+        font-size: 0;
+    }
+}
 @media (min-width: 375px) {
+    .block {
+        width: 0;
+    }
+    /*
     .image {
         width: 36px;
         height: 35px;
@@ -51,6 +64,7 @@
         font-size: 16px;
         line-height: 0.7;
     }
+    */
 }
 @media (min-width: 768px) {
     .image {
