@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import css from './UserForm.module.css';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 import { PiUserBold } from 'react-icons/pi';
@@ -53,8 +54,8 @@ const userFormSchema = yup.object().shape({
 
 export const UserForm = () => {
   // Отримуємо данні з Redux
-  // eslint-disable-next-line
   const dispatch = useDispatch();
+  const [loadAvatar, setLoadAvatar] = useState("");
   // eslint-disable-next-line
   const { name, email, birthday, phone, skype, avatar } =
     useSelector(selectUser);
@@ -76,6 +77,16 @@ export const UserForm = () => {
     dispatch(updateUser({ name, email, birthday, phone, skype, avatar }));
   };
 
+  // AVATAR - pre load
+  const hadleChangeAvatar = (e) => {
+    e.preventDefault();
+    // const TEST = document.getElementById("file").files[0];
+    const TEST = document.getElementById("file").files[0];
+    
+    setLoadAvatar(URL.createObjectURL(e.target.files[0]));
+    console.log(loadAvatar);
+  }
+
   return (
     <div className={css.container}>
       <Formik
@@ -87,9 +98,16 @@ export const UserForm = () => {
       >
         <Form>
           <div className={css.avatarWrapper}>
-            {/* AVATAR */}
+
+{/* AVATAR---------------------------------------------- */}
             <div className={css.UserForm__avatar}>
-              <PiUserBold className={css.UserForm__avatar_icon} />
+              {loadAvatar ? <img src={loadAvatar} alt="newAvatar" id="avatar"/> : ""} 
+              {avatar ?
+                <img src={loadAvatar} alt="newAvatar" /> 
+                
+              : <PiUserBold className={css.UserForm__avatar_icon} />
+              }
+              
               <label>
                 <Field
                   name="avatar"
@@ -99,6 +117,7 @@ export const UserForm = () => {
                   id="file"
                   value=""
                   title=" "
+                  onChange={hadleChangeAvatar}
                 />
                 <ErrorMessage
                   className={css.error}
