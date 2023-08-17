@@ -1,6 +1,6 @@
 import React from 'react';
 import './FeedbackForm.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { RiPencilLine } from 'react-icons/ri';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { RiCloseLine } from 'react-icons/ri';
@@ -17,11 +17,6 @@ export const FeedbackForm =  ({ onClose }) => {
   const [valueText, setValueText] = useState("");
   let Review = text;
 
-  // Оновлення форми
-  useEffect(() => {
-
-  }, [text]);
-
 
 
   // BUTTON - change review
@@ -34,7 +29,8 @@ export const FeedbackForm =  ({ onClose }) => {
   const toDelete = async (e) => {
     e.preventDefault();
     dispatch(deleteReview);
-    const { payload } = await dispatch(deleteReview());
+    // eslint-disable-next-line
+    await dispatch(deleteReview());
     setValueText("");
     setChangeReview(false);
     document.getElementById('textarea').removeAttribute('readOnly');
@@ -72,7 +68,7 @@ export const FeedbackForm =  ({ onClose }) => {
 
       if ( text || rating) {
         console.log("start");
-        const { payload } = await dispatch(editReview({ rating, text }));
+        await dispatch(editReview({ rating, text }));
         setValueText(text);
         setChangeReview(false);
         document.getElementById('textarea').setAttribute('readOnly', true);

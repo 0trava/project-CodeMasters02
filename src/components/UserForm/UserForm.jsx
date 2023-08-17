@@ -18,6 +18,7 @@ const phoneRegExp = /^\+38 \(\d{3}\) \d{3}-\d{4}$/;
 // eslint-disable-next-line
 const birthdayRegExp = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)\d\d)$/;
 
+
 const userFormSchema = yup.object().shape({
   //   avatar: Yup.mixed()
   //     .nullable()
@@ -54,6 +55,7 @@ export const UserForm = () => {
   // Отримуємо данні з Redux
   // eslint-disable-next-line
   const dispatch = useDispatch();
+  // eslint-disable-next-line
   const { name, email, birthday, phone, skype, avatar } =
     useSelector(selectUser);
 
@@ -61,19 +63,17 @@ export const UserForm = () => {
     // console.log('actionsFormik:', actionsFormik);
     // console.log('valuesFormik:', valuesFormik);
     e.preventDefault();
-
-    const password = e.currentTarget.password.value;
     const email = e.currentTarget.email.value;
     const name = e.currentTarget.name.value;
     const birthday = e.currentTarget.birthday.value;
     const phone = e.currentTarget.phone.value;
     const skype = e.currentTarget.skype.value;
     // TEST avatar
-    const avatar = ""
+    const avatar = "";
 
 
 
-    dispatch(updateUser({ email, password }));
+    dispatch(updateUser({ name, email, birthday, phone, skype, avatar }));
   };
 
   return (

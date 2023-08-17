@@ -4,7 +4,7 @@ import css from './RegisterForm.module.css';
 import sprite from 'images/sprite.svg'
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'utils/routes';
 import { FiEyeOff } from "react-icons/fi";
 import { FiEye } from "react-icons/fi";
