@@ -116,12 +116,12 @@ export const FeedbackForm =  ({ onClose }) => {
 
           {Review ? (
             <div className="FeedbackForm__btn-changeblock">
-              <div onClick={handleChage} className="FeedbackForm__btn-pencil">
-                <RiPencilLine className="FeedbackForm__icon-pencil" />
-              </div>
-              <div onClick={toDelete} className="FeedbackForm__btn-trash">
-                <RiDeleteBinLine className="FeedbackForm__icon" />
-              </div>
+              <button onClick={handleChage}className="btn_icon_pencil">
+                <RiPencilLine className="icon_pencil" />
+              </button>
+              <button onClick={toDelete} className="btn_icon_trash" >
+                <RiDeleteBinLine className="icon_trash"/>
+              </button>
             </div>
           ) : (
             ''
@@ -137,9 +137,11 @@ export const FeedbackForm =  ({ onClose }) => {
           rows="5"
           readOnly={Review ? true : false}
           onChange={changeText}
-          placeholder="Enter your text"
+          placeholder="Enter text"
           defaultValue={Review ? Review : ""}
           value={valueText}
+          maxLength="300"
+          required
         ></textarea>
 {/* TEXT -----------------------------------------------*/}
 
