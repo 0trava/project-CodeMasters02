@@ -10,9 +10,9 @@ import { FiEye } from "react-icons/fi";
 
 import { FiAlertCircle } from "react-icons/fi";
 import { FiCheckCircle } from "react-icons/fi";
+import { ReactComponent as Google } from 'images/google.svg';
 
 import { useState } from "react";
-
 
 // eslint-disable-next-line
 const emailRegExpression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
@@ -152,13 +152,20 @@ const changeVisible = () => {
                                     className={css.error_message}
                                 />
                                 </label>
-                                <button 
-                                    className={css.button}
-                                    type="submit">Log In
+                                <div className={css.button_container}>
+                                <button className={css.button} type="submit">
+                                    Log In
                                     <svg width="18" height="18">
                                         <use href=""></use>
                                     </svg>
+                                </button>
+                                <a href={'https://project-codemasters02-backend.onrender.com/api/auth/google'}>
+                                    <button className={css.button_google} type="submit">
+                                        <Google width='34' height='34'/>
+                                        Sign Up with Google
                                     </button>
+                                </a>
+                                </div>
                             </Form>
                         )
                     }

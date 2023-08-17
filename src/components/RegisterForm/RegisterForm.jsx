@@ -4,7 +4,7 @@ import css from './RegisterForm.module.css';
 import sprite from 'images/sprite.svg'
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ROUTES } from 'utils/routes';
 import { FiEyeOff } from "react-icons/fi";
 import { FiEye } from "react-icons/fi";
@@ -12,6 +12,7 @@ import { useState } from "react";
 
 import { FiAlertCircle } from "react-icons/fi";
 import { FiCheckCircle } from "react-icons/fi";
+import { ReactComponent as Google } from 'images/google.svg';
 // eslint-disable-next-line
 const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -37,6 +38,9 @@ export default function RegisterForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [passVisible, setPasswordVisible] = useState(false);
+//   const [searchParams, setSearchParams] = useSearchParams();
+
+//   const token = searchParams.get('token');
 
   // Change vibility for Password
   const changeVisible = () => {
@@ -51,6 +55,7 @@ export default function RegisterForm() {
 }
 
 // ВІДПРАВКА ФОРМИ -------------
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.currentTarget.name.value;
@@ -58,7 +63,7 @@ export default function RegisterForm() {
     const email = e.currentTarget.email.value;
     // Перевірка що всі поля заповненні
 
-    if ( name || password || email) {
+    if ( name || password || email ) {
         const { payload } = await dispatch(register({ name, email, password }));
         if (
             payload === 'Request failed with status code 400' ||
@@ -170,12 +175,21 @@ export default function RegisterForm() {
                                 className={css.error_message}
                             />
                         </label>
+                        <div className={css.button_container}>
                         <button className={css.button} type="submit">
                             Sign Up
                             <svg className={css.icon} width="18" height="18">
                                 <use href={sprite + '#icon-log-out-01'}></use>
                             </svg>
                         </button>
+                        <a href={'https://project-codemasters02-backend.onrender.com/api/auth/google'}>
+                            <button className={css.button_google} type="submit">
+                                <Google width='34' height='34'/>
+                                Sign Up with Google
+                            </button>
+                        </a>
+                        </div>
+
                     </Form>
                 );
             }}
