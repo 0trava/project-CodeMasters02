@@ -1,6 +1,6 @@
 import React from 'react';
 import './FeedbackForm.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { RiPencilLine } from 'react-icons/ri';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { RiCloseLine } from 'react-icons/ri';
@@ -17,11 +17,6 @@ export const FeedbackForm =  ({ onClose }) => {
   const [valueText, setValueText] = useState("");
   let Review = text;
 
-  // Оновлення форми
-  useEffect(() => {
-
-  }, [text]);
-
 
 
   // BUTTON - change review
@@ -34,7 +29,8 @@ export const FeedbackForm =  ({ onClose }) => {
   const toDelete = async (e) => {
     e.preventDefault();
     dispatch(deleteReview);
-    const { payload } = await dispatch(deleteReview());
+    // eslint-disable-next-line
+    await dispatch(deleteReview());
     setValueText("");
     setChangeReview(false);
     document.getElementById('textarea').removeAttribute('readOnly');
@@ -72,7 +68,7 @@ export const FeedbackForm =  ({ onClose }) => {
 
       if ( text || rating) {
         console.log("start");
-        const { payload } = await dispatch(editReview({ rating, text }));
+        await dispatch(editReview({ rating, text }));
         setValueText(text);
         setChangeReview(false);
         document.getElementById('textarea').setAttribute('readOnly', true);
@@ -120,12 +116,12 @@ export const FeedbackForm =  ({ onClose }) => {
 
           {Review ? (
             <div className="FeedbackForm__btn-changeblock">
-              <div onClick={handleChage} className="FeedbackForm__btn-pencil">
-                <RiPencilLine className="FeedbackForm__icon-pencil" />
-              </div>
-              <div onClick={toDelete} className="FeedbackForm__btn-trash">
-                <RiDeleteBinLine className="FeedbackForm__icon" />
-              </div>
+              <button onClick={handleChage}className="btn_icon_pencil">
+                <RiPencilLine className="icon_pencil" />
+              </button>
+              <button onClick={toDelete} className="btn_icon_trash" >
+                <RiDeleteBinLine className="icon_trash"/>
+              </button>
             </div>
           ) : (
             ''
@@ -141,9 +137,11 @@ export const FeedbackForm =  ({ onClose }) => {
           rows="5"
           readOnly={Review ? true : false}
           onChange={changeText}
-          placeholder="Enter your text"
+          placeholder="Enter text"
           defaultValue={Review ? Review : ""}
           value={valueText}
+          maxLength="300"
+          required
         ></textarea>
 {/* TEXT -----------------------------------------------*/}
 
