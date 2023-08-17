@@ -7,55 +7,69 @@ import { RiCloseLine } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
 import { selectUserReview } from 'redux/reviews/selectors';
 import { useDispatch } from "react-redux";
-import { addReview, deleteReview } from 'redux/reviews/operations';
+import { addReview, deleteReview, editReview } from 'redux/reviews/operations';
 
-export const FeedbackForm = ({ onClose }) => {
+export const FeedbackForm =  ({ onClose }) => {
   const dispatch = useDispatch();
   // eslint-disable-next-line
-  const { rating, text } = useSelector(selectUserReview);
-    
-  const [editReview, setEditReview] = useState(false);
-  const Review = text;
+  const {rating, text} = useSelector(selectUserReview);
+  const [changeReview, setChangeReview] = useState(false);
+  const [valueText, setValueText] = useState("");
+  let Review = text;
 
   // BUTTON - change review
   const handleChage = () => {
-    setEditReview(true);
+    setChangeReview(true);
   };
 
   // COMMAND - delete review
-  const toDelete = () => {
+  const toDelete = async (e) => {
+    e.preventDefault();
     // !!!! КОМАНДА НА БЕКЕНД
     dispatch(deleteReview);
-    onClose();
+    const { payload } = await dispatch(deleteReview());
+    setValueText("");
+    
+    
   };
 
   // COMMAND - add Review
-  const changeAddReview = (e) => {
+  const changeAddReview = async (e) => {
+    e.preventDefault();
     // !!!!!! RATING TEST
     const rating = 1;
-    const text = e.currentTarget.text.value;
+    const text = valueText;
 
     if ( text || rating) {
-      dispatch(addReview({ rating, text }));
-      onClose();
+      const { payload } = await dispatch(addReview({ rating, text }));
+      console.log(payload);
+      // onClose();
     } else {
       return;
     }
   }
 
    // COMMAND - change (edit) Review
-  const cahngeEditReview = (e) => {
+  const cahngeEditReview = async (e) => {
+      e.preventDefault();
       // !!!!!! RATING TEST
-      const rating = 1;
-      const text = e.currentTarget.text.value;
+      const rating = 5;
+      const text = valueText;
 
       if ( text || rating) {
-        dispatch(editReview({ rating, text }));
-        onClose();
+        console.log("start");
+        const { payload } = await dispatch(editReview({ rating, text }));
+
       } else {
         return;
       }
    }
+
+// Save - text from Textarea
+ const changeText = (e) => {
+  e.preventDefault();
+  setValueText(e.target.value);
+ }
 
   return (
     <div className="FeedbackForm__container">
@@ -67,7 +81,8 @@ export const FeedbackForm = ({ onClose }) => {
         <RiCloseLine className="FeedbackForm__icon" />
       </button>
 
-      <form className="FeedbackForm__form">
+      <form className="FeedbackForm__form" >
+
         <label className="FeedbackForm__title">Rating</label>
         <div className="FeedbackForm__stars">
           <div className="rating">
@@ -99,15 +114,23 @@ export const FeedbackForm = ({ onClose }) => {
             ''
           )}
         </div>
-
+        
+{/* TEXT -----------------------------------------------*/}
         <textarea
           className="FeedbackForm_input"
           name="text"
           type="text"
+          id="textarea"
           rows="5"
+          onChange={changeText}
           placeholder="Enter your text"
-        />
-        {editReview || !Review ? (
+          defaultValue={Review ? Review : valueText}
+        ></textarea>
+{/* TEXT -----------------------------------------------*/}
+
+
+
+        {changeReview || !Review ? (
           <div className="FeedbackForm_btn-block">
             {Review ? (
               <button type="submite" className="FeedbackForm__btn" onClick={cahngeEditReview}>
