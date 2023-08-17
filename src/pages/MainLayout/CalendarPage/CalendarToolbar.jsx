@@ -1,33 +1,34 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import  { useState } from 'react';
 import { PeriodPaginator } from './PeriodPaginator';
 import { PeriodTypeSelect } from './PeriodTypeSelect';
 import { addMonths, addDays } from 'date-fns';
-
+import { useSelector  } from 'react-redux';
 import './CalendarToolbar.css';
 import { MonthCalendarHead } from './MonthCalendarHead';
-export const CalendarToolbar = ({ tasks, setTasks }) => {
-  const [periodType, setPeriodType] = useState('month');
-  const [selectedDate, setSelectedDate] = useState(new Date());
 
-  const fetchTasksByPeriod = useCallback(async () => {
-    // try {
-    //   const formattedDate = format(
-    //     selectedDate,
-    //     "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"
-    //   );
-    //   console.log(formattedDate);
-    //   const response = await fetch(
-    //     `${process.env.DB_HOST}?periodType=${periodType}&selectedDate=${formattedDate}`
-    //   );
-    //   const data = await response.json();
-    //   setTasks(data);
-    // } catch (error) {
-    //   console.error('Error fetching tasks by period:',
-    //    error
-    //    );
-    // }
+export const CalendarToolbar = ({task, setTasks, setSelectedDate }) => {
+  const periodType  = useState('month');
+  const selectedDate = useSelector(state => state.date); 
+
+  // const fetchTasksByPeriod = useCallback(async () => {
+  //   // try {
+  //   //   const formattedDate = format(
+  //   //     selectedDate,
+  //   //     "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"
+  //   //   );
+  //   //   console.log(formattedDate);
+  //   //   const response = await fetch(
+  //   //     `${process.env.DB_HOST}?periodType=${periodType}&selectedDate=${formattedDate}`
+  //   //   );
+  //   //   const data = await response.json();
+  //   //   setTasks(data);
+  //   // } catch (error) {
+  //   //   console.error('Error fetching tasks by period:',
+  //   //    error
+  //   //    );
+  //   // }
     // eslint-disable-next-line
-  }, [periodType, selectedDate, setTasks]);
+  // }, [periodType, selectedDate, setTasks]);
 
     
   const changeDate = (amount) => {
@@ -39,11 +40,15 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
     });
   };
 
-  useEffect(() => {
-    if (!tasks || tasks.length === 0) {
-      fetchTasksByPeriod();
-    }
-  }, [tasks, fetchTasksByPeriod]);
+  // useEffect(() => {
+  //   // eslint-disable-next-line
+  //   if (!tasks || tasks.length === 0) {
+  //     fetchTasksByPeriod();
+  //   }
+  //    // eslint-disable-next-line
+  // }, [tasks, fetchTasksByPeriod]);
+
+ 
 
   return (
     <>
@@ -51,14 +56,14 @@ export const CalendarToolbar = ({ tasks, setTasks }) => {
         <PeriodPaginator
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
-          changeDate={changeDate}
-        />
+          changeDate ={changeDate}
+                  />
         <PeriodTypeSelect
-          periodType={periodType}
-          setPeriodType={setPeriodType}
+        
         />
       </div>
       <MonthCalendarHead />
     </>
   );
 };
+

@@ -15,6 +15,7 @@ import { authSlice } from './auth/authSlice';
 import { reviewReducer } from './reviews/reviewSlice';
 // import { statisticsReducer } from './statistics/statisticsSlice';
 import { tasksReducer } from './tasks/slice';
+import {calendarReducer } from './date/reducer'
 
 const authPersistConfig = {
   key: 'auth',
@@ -28,6 +29,7 @@ export const store = configureStore({
     reviews: reviewReducer,
     // statistics: statisticsReducer,
     tasks: tasksReducer,
+    date: calendarReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

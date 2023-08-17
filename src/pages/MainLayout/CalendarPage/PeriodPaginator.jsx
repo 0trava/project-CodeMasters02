@@ -1,10 +1,13 @@
 
 import React from 'react';
-import { format, addMonths,  } from 'date-fns';
+import { format, addMonths  } from 'date-fns';
+// import { useSelector } from 'react-redux'
 import './PeriodPaginator.css';
 import sprite from '../../../images/sprite.svg';
+import { setSelectedDate } from  '../../../redux/date/actions'
 
-export const PeriodPaginator = ({ selectedDate, setSelectedDate }) => {
+export const PeriodPaginator = () => {
+  // const selectedDate = useSelector(state => state.date);
   const changeDate = amount => {
     setSelectedDate(prevDate => {
       return addMonths(prevDate, amount);
@@ -15,9 +18,10 @@ export const PeriodPaginator = ({ selectedDate, setSelectedDate }) => {
     changeDate(amount); 
   };
 
-  const periodFormat = () => {
+  const periodFormat = (selectedDate) => {
     return format(selectedDate, 'MMMM yyyy').toUpperCase();
   };
+  // console.log((selectedDate))
 
   return (
     <div className="dateWrapper">

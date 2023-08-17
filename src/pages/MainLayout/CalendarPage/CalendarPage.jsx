@@ -1,57 +1,18 @@
-import React, { useState, useEffect, useMemo } from 'react';
-// eslint-disable-next-line
-// import { Route, Navigate, Routes } from 'react-router-dom';
+import React from 'react';
+import { useSelector } from "react-redux";
 import { CalendarToolbar } from './CalendarToolbar';
 import './CalendarPage.css';
 import { CalendarGrid } from './CalendarGrid';
 
+export const CalendarPage = ({ selectedDate }) => {
+  const dateValue = useSelector(state => state.date); 
 
-export const CalendarPage = () => {
-  // eslint-disable-next-line
-  const currentDate = useMemo(() => new Date(), []);
-  // eslint-disable-next-line
-  const [tasks, setTasks] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(new Date());
-
-  const fetchTasks = async () => {
-    // try {
-    //   const response = await fetch(process.env.DB_HOST);
-    //   const data = await response.json();
-    //   setTasks(data);
-    // } catch (error) {
-    //   console.log('Error fetching tasks:',
-    //    error
-    //    );
-    // }
-  };
-
-
-  useEffect(() => {
-    if (tasks.length === 0) {
-      fetchTasks();
-    }
-  }, [tasks]);
-  // eslint-disable-next-line
-  const periodType = 'month';
-  // eslint-disable-next-line
-  const handleDateChange = (newDate) => {
-    setSelectedDate(newDate);
-  };
-  console.log(selectedDate);
-    return (
-      <div className="calendar-page">
-        <CalendarToolbar
-          tasks={tasks}
-          setTasks={setTasks}
-          selectedDate={selectedDate}
-          setSelectedDate={handleDateChange}
-        />
-
-      <CalendarGrid
-        // setSelectedDate={setSelectedDate}
-        selectedDate={selectedDate}
-      />
-      <div className="calendar-content">{/* <Routes> */}</div>
+  console.log((dateValue))
+  return (
+    <div className="calendar-page">
+      <CalendarToolbar selectedDate={dateValue} />
+      <CalendarGrid selectedDate={dateValue} />
+      <div className="calendar-content">{/* your Routes or other content */}</div>
     </div>
   );
 };
