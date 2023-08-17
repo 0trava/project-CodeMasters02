@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-axios.defaults.baseURL = 'https://project-codemasters02-backend.onrender.com';
+axios.defaults.baseURL = 'https://project-codemasters02-backend.onrender.com/api/';
 
 const setToken = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -16,7 +16,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, { rejectWithValue }) => {
     try {
-      const response = await axios.post('api/auth/register', credentials);
+      const response = await axios.post('auth/register', credentials);
       setToken(response.data.token);
       Notify.success(`Welcome!!!`);
       return response.data;
@@ -31,7 +31,7 @@ export const login = createAsyncThunk(
   'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
-      const response = await axios.post('api/auth/login', credentials);
+      const response = await axios.post('auth/login', credentials);
       setToken(response.data.token);
       Notify.success(`Welcome back!!!`);
       return response.data;
@@ -48,7 +48,7 @@ export const logout = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     // const { token } = getState().auth;
     try {
-      await axios.post('api/auth/logout');
+      await axios.post('auth/logout');
       clearToken();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -67,7 +67,7 @@ export const refresh = createAsyncThunk(
     try {
       setToken(token);
       
-      const { data } = await axios.get('api/users/current');
+      const { data } = await axios.get('users/current');
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -79,7 +79,7 @@ export const updateUser = createAsyncThunk(
   'auth/update',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.patch('api/users', credentials);
+      const { data } = await axios.patch('users', credentials);
       Notify.success(`Your profile has been updated`);
       return data;
     } catch (error) {

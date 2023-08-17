@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 import { PiUserBold } from 'react-icons/pi';
 import InputMask from 'react-input-mask';
+import { updateUser } from 'redux/auth/operations';
+import { useDispatch } from "react-redux";
 
 // const SUPPORTED_FORMATS = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
 // Дозволяє завантажувати формати зображень .jpeg, .png, .gif
@@ -51,12 +53,27 @@ const userFormSchema = yup.object().shape({
 export const UserForm = () => {
   // Отримуємо данні з Redux
   // eslint-disable-next-line
+  const dispatch = useDispatch();
   const { name, email, birthday, phone, skype, avatar } =
     useSelector(selectUser);
 
-  const onSubmitFormik = (valuesFormik, actionsFormik) => {
-    console.log('actionsFormik:', actionsFormik);
-    console.log('valuesFormik:', valuesFormik);
+  const onSubmitFormik = (e, valuesFormik, actionsFormik) => {
+    // console.log('actionsFormik:', actionsFormik);
+    // console.log('valuesFormik:', valuesFormik);
+    e.preventDefault();
+
+    const password = e.currentTarget.password.value;
+    const email = e.currentTarget.email.value;
+    const name = e.currentTarget.name.value;
+    const birthday = e.currentTarget.birthday.value;
+    const phone = e.currentTarget.phone.value;
+    const skype = e.currentTarget.skype.value;
+    // TEST avatar
+    const avatar = ""
+
+
+
+    dispatch(updateUser({ email, password }));
   };
 
   return (

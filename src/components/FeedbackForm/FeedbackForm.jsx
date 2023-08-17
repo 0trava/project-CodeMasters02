@@ -4,21 +4,58 @@ import { useState } from 'react';
 import { RiPencilLine } from 'react-icons/ri';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { RiCloseLine } from 'react-icons/ri';
+import { useSelector } from 'react-redux';
+import { selectUserReview } from 'redux/reviews/selectors';
+import { useDispatch } from "react-redux";
+import { addReview, deleteReview } from 'redux/reviews/operations';
 
 export const FeedbackForm = ({ onClose }) => {
+  const dispatch = useDispatch();
+  // eslint-disable-next-line
+  const { rating, text } = useSelector(selectUserReview);
+    
   const [editReview, setEditReview] = useState(false);
-  const Review = 'test';
+  const Review = text;
 
   // BUTTON - change review
   const handleChage = () => {
     setEditReview(true);
   };
 
-  // BUTTON - delete review
+  // COMMAND - delete review
   const toDelete = () => {
     // !!!! КОМАНДА НА БЕКЕНД
+    dispatch(deleteReview);
     onClose();
   };
+
+  // COMMAND - add Review
+  const changeAddReview = (e) => {
+    // !!!!!! RATING TEST
+    const rating = 1;
+    const text = e.currentTarget.text.value;
+
+    if ( text || rating) {
+      dispatch(addReview({ rating, text }));
+      onClose();
+    } else {
+      return;
+    }
+  }
+
+   // COMMAND - change (edit) Review
+  const cahngeEditReview = (e) => {
+      // !!!!!! RATING TEST
+      const rating = 1;
+      const text = e.currentTarget.text.value;
+
+      if ( text || rating) {
+        dispatch(editReview({ rating, text }));
+        onClose();
+      } else {
+        return;
+      }
+   }
 
   return (
     <div className="FeedbackForm__container">
@@ -65,6 +102,7 @@ export const FeedbackForm = ({ onClose }) => {
 
         <textarea
           className="FeedbackForm_input"
+          name="text"
           type="text"
           rows="5"
           placeholder="Enter your text"
@@ -72,11 +110,11 @@ export const FeedbackForm = ({ onClose }) => {
         {editReview || !Review ? (
           <div className="FeedbackForm_btn-block">
             {Review ? (
-              <button type="submite" className="FeedbackForm__btn">
+              <button type="submite" className="FeedbackForm__btn" onClick={cahngeEditReview}>
                 Edit
               </button>
             ) : (
-              <button type="submite" className="FeedbackForm__btn">
+              <button type="submite" className="FeedbackForm__btn" onClick={changeAddReview}>
                 Save
               </button>
             )}
