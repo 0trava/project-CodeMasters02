@@ -1,7 +1,8 @@
 import css from './Header.module.css';
 import sprite from '../../images/sprite.svg';
 import { useLocation } from 'react-router-dom';
-import { ThemeTogglerBtn } from 'components/Header/ThemeTogglerBtn/ThemeTogglerBtn';
+import { ToggleTheme } from '../Theme/ToggleTheme';
+//import { ThemeTogglerBtn } from 'components/Header/ThemeTogglerBtn/ThemeTogglerBtn';
 import { FeedbackBtn } from 'components/Header/FeedbackBtn/FeedbackBtn';
 import { UserInfo } from './UserInfo/UserInfo';
 import { FeedbackModal } from './FeedbackModal/FeedbackModal';
@@ -54,7 +55,7 @@ export const Header = () => {
         </button>
         <div className={css.infoWrapper}>
           <FeedbackBtn onClick={openModal} />
-          <ThemeTogglerBtn />
+          <ToggleTheme />
           <UserInfo />
         </div>
       </div>
