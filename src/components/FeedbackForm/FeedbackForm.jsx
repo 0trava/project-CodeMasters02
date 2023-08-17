@@ -27,6 +27,7 @@ export const FeedbackForm =  ({ onClose }) => {
   // BUTTON - change review
   const handleChage = () => {
     setChangeReview(true);
+    document.getElementById('textarea').removeAttribute('readOnly')
   };
 
   // COMMAND - delete review
@@ -36,11 +37,11 @@ export const FeedbackForm =  ({ onClose }) => {
     const { payload } = await dispatch(deleteReview());
     setValueText("");
     setChangeReview(false);
-    document.getElementById('textarea').textContent="";
-    // const GET  = document.getElementById('textarea');
-    // console.log(valueText);
-    // GET.textContent="";
-    //  console.log(GET.textContent)
+    document.getElementById('textarea').removeAttribute('readOnly');
+    const TEST = document.getElementById('textarea');
+    console.log(TEST.attributes);
+    console.log(TEST.getAttribute("textcontent"));
+    document.getElementById('textarea').setAttribute("value", "");
 
     
     
@@ -74,8 +75,8 @@ export const FeedbackForm =  ({ onClose }) => {
         const { payload } = await dispatch(editReview({ rating, text }));
         setValueText(text);
         setChangeReview(false);
-        document.getElementById('textarea').textContent="";
-        
+        document.getElementById('textarea').setAttribute('readOnly', true);
+
       } else {
         return;
       }
@@ -138,9 +139,11 @@ export const FeedbackForm =  ({ onClose }) => {
           type="text"
           id="textarea"
           rows="5"
+          readOnly={Review ? true : false}
           onChange={changeText}
           placeholder="Enter your text"
           defaultValue={Review ? Review : ""}
+          value={valueText}
         ></textarea>
 {/* TEXT -----------------------------------------------*/}
 
