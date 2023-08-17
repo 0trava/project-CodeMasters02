@@ -9,35 +9,35 @@
   color: white;
   overflow: hidden;
   border: none;
-  padding-left: 4px;
-  padding-right: 4px;
-  height: 336px;
+  padding: 9px 18px;
+
+  width: 327px;
+  height: 354px;
   font-size: 14px;
   font-family: Inter;
-  font-weight: 300;
-  line-height: calc((18 / 14) * 100%);
+  font-weight: 400;
+  line-height: 129%;
 
   @media (min-width: 768px) {
-    top: calc(100% + 5px);
     /* left: -285px; */
-    width: 337px;
-    height: 376px;
+    width: 373px;
+
+    font-size: 18px;
+    line-height: 133%;
   }
 
   @media (min-width: 1440px) {
-    top: calc(100% + 1px);
     /* left: -400px; */
   }
 }
 
 .react-datepicker__day {
   color: #ffffff;
-  margin: 6px 6px;
+  margin: 12px 6px;
+
   font-weight: 300;
   @media (min-width: 768px) {
-    font-size: 18px;
-    margin: 9px 9px;
-    line-height: calc((24 / 18) * 100%);
+    margin: 10px 6px;
   }
   &:hover {
     border-radius: 50%;
@@ -78,30 +78,37 @@
   font-size: 14px;
   font-family: Inter;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 129%;
+  margin-left: 6px;
+  margin-right: 6px;
   padding-bottom: 12px;
   padding-top: 12px;
-  @media (min-width: 768px) {
-    padding-right: 30px;
-    padding-left: 10px;
 
-    font-size: 24px;
-    font-weight: 400;
-    line-height: calc((28 / 24) * 100%);
+  @media (min-width: 768px) {
+    /* padding-right: 30px; */
+    /* padding-left: 10px; */
+
+    font-size: 18px;
+    line-height: 133%;
   }
 }
 
 .react-datepicker__current-month {
-  color: white;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 120%;
   @media (min-width: 768px) {
     font-size: 24px;
     font-weight: 600;
-    line-height: calc((28 / 24) * 100%);
+    line-height: 117%;
   }
 }
 
 .react-datepicker__navigation {
   top: 25px;
+}
+.react-datepicker__month-container {
+  float: none;
 }
 
 .react-datepicker__day--highlighted,

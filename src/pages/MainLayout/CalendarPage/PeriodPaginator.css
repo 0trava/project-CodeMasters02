@@ -2,8 +2,6 @@
   display: flex;
   justify-content: space-between;
 
-  width: 100%;
-
   @media (min-width: 768px) {
     justify-content: start;
     gap: 8px;
@@ -32,6 +30,9 @@
     line-height: 113%;
     padding: 8px 12px;
   }
+}
+.currentDatePointer {
+  cursor: pointer;
 }
 
 .chevronLeftBtn {
