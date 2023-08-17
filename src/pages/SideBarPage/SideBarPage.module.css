@@ -1,90 +1,85 @@
 .block {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 999;
 }
 .logo {
-    margin-top: 32px;
-    margin-left: 24px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+  margin-top: 24px;
+  margin-left: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 .text {
-    font-family: Inter;
-    font-weight: 700;
-    text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04), 0px 47px 355px rgba(0, 0, 0, 0.07);
-    color: var(--color-blue);
+  font-family: Inter;
+  font-weight: 700;
+  text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
+    0px 47px 355px rgba(0, 0, 0, 0.07);
+  color: var(--color-blue);
 }
 .cursive {
-    font-family: Inter;
-    font-style: italic;
-    font-weight: 700;
-    color: var(--color-blue);
+  font-family: Inter;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--color-blue);
 }
 .btn_block {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
 }
 .btn {
-    padding: 12px 32px;
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 0.8;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 14px;
-    border: 2px solid var(--color-blue);
-    background-color: var(--color-blue);
-    color: var(--color-white);
+  padding: 12px 32px;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 0.8;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 14px;
+  border: 2px solid var(--color-blue);
+  background-color: var(--color-blue);
+  color: var(--color-white);
 }
-@media (max-width: 768px) {
-    .image {
-        width: 0;
-        height: 0;
-    }
-    .text, .cursive {
-        font-size: 0;
-    }
-}
-@media (min-width: 375px) {
-    .block {
-        width: 0;
-    }
-    /*
-    .image {
-        width: 36px;
+@media (max-width: 767px) {
+  .image {
+    width: 36px;
         height: 35px;
         background-image: url(../../images/logo/logo_duck_mob.png);
-    }
-    .text, .cursive {
-        font-size: 16px;
+  }
+  .text,
+  .cursive {
+       font-size: 16px;
         line-height: 0.7;
     }
-    */
 }
+
 @media (min-width: 768px) {
-    .image {
-        width: 60px;
-        height: 58px;
-        background-image: url(../../images/logo/logo_duck_tablet.png);
-    }
-    .text, .cursive {
-        font-size: 16px;
-        line-height: 0.73;
-    }
+  .image {
+    width: 60px;
+    height: 58px;
+    background-image: url(../../images/logo/logo_duck_tablet.png);
+  }
+  .text,
+  .cursive {
+    font-size: 16px;
+    line-height: 0.73;
+  }
 }
 @media (min-width: 1440px) {
-    .image {
-        width: 71px;
-        height: 68px;
-        background-image: url(../../images/logo/logo_duck_desktop.png);
-    }
-    .text, .cursive {
-        font-size: 24px;
-        line-height: 1;
-    }
+  .image {
+    width: 71px;
+    height: 68px;
+    background-image: url(../../images/logo/logo_duck_desktop.png);
+  }
+  .text,
+  .cursive {
+    font-size: 24px;
+    line-height: 1;
+  }
+  .logo {
+    margin-top: 32px;
+  }
 }
