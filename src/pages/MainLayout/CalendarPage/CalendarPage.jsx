@@ -9,9 +9,9 @@ export const CalendarPage = () => {
 
   return (
     <div className="calendar-page">
-      <CalendarToolbar selectedDate={selectedDate} />
+      <CalendarToolbar className="calendar-toolbar" selectedDate={selectedDate} />
       <CalendarGrid selectedDate={selectedDate} />
-      <div className="calendar-content">{/* your Routes or other content */}</div>
+      <div className="calendar-content">{/* Routes */}</div>
     </div>
   );
 };
