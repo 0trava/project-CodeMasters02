@@ -162,7 +162,7 @@ const changeVisible = () => {
                                 <a href={'https://project-codemasters02-backend.onrender.com/api/auth/google'}>
                                     <button className={css.button_google} type="submit">
                                         <Google width='34' height='34'/>
-                                        Sign Up with Google
+                                        Continue with Google
                                     </button>
                                 </a>
                                 </div>
