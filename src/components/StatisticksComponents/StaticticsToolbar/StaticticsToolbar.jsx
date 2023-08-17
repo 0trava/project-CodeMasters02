@@ -1,10 +1,14 @@
 import '../../../pages/MainLayout/CalendarPage/PeriodPaginator.css';
 import sprite from '../../../images/sprite.svg';
 
-export const StaticticsToolbar = ({ changeDate, selectedDate, toggleCalendar }) => {
+export const StaticticsToolbar = ({
+  changeDate,
+  selectedDate,
+  toggleCalendar,
+}) => {
   return (
     <div className="dateWrapper">
-      <div className="currentDate" onClick={toggleCalendar}>
+      <div className="currentDate currentDatePointer" onClick={toggleCalendar}>
         {selectedDate}
       </div>
       <div>
