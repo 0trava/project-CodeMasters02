@@ -1,6 +1,6 @@
 import React from 'react';
 import './FeedbackForm.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { RiPencilLine } from 'react-icons/ri';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { RiCloseLine } from 'react-icons/ri';
@@ -17,6 +17,13 @@ export const FeedbackForm =  ({ onClose }) => {
   const [valueText, setValueText] = useState("");
   let Review = text;
 
+  // Оновлення форми
+  useEffect(() => {
+
+  }, [text]);
+
+
+
   // BUTTON - change review
   const handleChage = () => {
     setChangeReview(true);
@@ -25,10 +32,16 @@ export const FeedbackForm =  ({ onClose }) => {
   // COMMAND - delete review
   const toDelete = async (e) => {
     e.preventDefault();
-    // !!!! КОМАНДА НА БЕКЕНД
     dispatch(deleteReview);
     const { payload } = await dispatch(deleteReview());
     setValueText("");
+    setChangeReview(false);
+    document.getElementById('textarea').textContent="";
+    // const GET  = document.getElementById('textarea');
+    // console.log(valueText);
+    // GET.textContent="";
+    //  console.log(GET.textContent)
+
     
     
   };
@@ -59,7 +72,10 @@ export const FeedbackForm =  ({ onClose }) => {
       if ( text || rating) {
         console.log("start");
         const { payload } = await dispatch(editReview({ rating, text }));
-
+        setValueText(text);
+        setChangeReview(false);
+        document.getElementById('textarea').textContent="";
+        
       } else {
         return;
       }
@@ -124,7 +140,7 @@ export const FeedbackForm =  ({ onClose }) => {
           rows="5"
           onChange={changeText}
           placeholder="Enter your text"
-          defaultValue={Review ? Review : valueText}
+          defaultValue={Review ? Review : ""}
         ></textarea>
 {/* TEXT -----------------------------------------------*/}
 
