@@ -1,13 +1,17 @@
 import React from 'react';
 import './CalendarGrid.css';
-import { useSelector } from 'react-redux';
-import {  getYear, getMonth, getDate, getDay } from 'date-fns';
+import { useSelector, useDispatch } from 'react-redux';
+import { getYear, getMonth, getDate, getDay, parseISO } from 'date-fns';
+import { changeSelectedDate } from '../../../redux/date/actions';
 
 export const CalendarGrid = () => {
   const selectedDate = useSelector(state => state.date);
+  const dateObject = parseISO(selectedDate);
+  const dispatch = useDispatch();
+  console.log(selectedDate);
 
-  const currentYear = getYear(selectedDate);
-  const currentMonth = getMonth(selectedDate);
+  const currentYear = getYear(dateObject);
+  const currentMonth = getMonth(dateObject);
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
   const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
   const daysInMonth = getDate(lastDayOfMonth);
@@ -23,7 +27,7 @@ export const CalendarGrid = () => {
     const date = new Date(currentYear, currentMonth, day);
     const dayOfWeek = getDay(date);
     const isWeekend = dayOfWeek === 6 || dayOfWeek === 0;
-
+  
     calendarGrid.push(
       <div
         key={`day-${day}`}
@@ -48,6 +52,11 @@ export const CalendarGrid = () => {
 
   weeks.push(currentWeek);
 
+  const handleDayClick = (day) => {
+    const newDate = new Date(currentYear, currentMonth, day);
+    dispatch(changeSelectedDate(newDate));
+  };
+
   return (
     <div className="calendar-grid">
       <table className="calendar-table">
@@ -58,6 +67,7 @@ export const CalendarGrid = () => {
                 <td
                   key={`day-${weekIndex}-${dayIndex}`}
                   className={day.props.className}
+                  onClick={() => handleDayClick(parseInt(day.props.children))}
                 >
                   <div className="calendar-day">{day.props.children}</div>
                 </td>

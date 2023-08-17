@@ -1,7 +1,7 @@
-import { SET_SELECTED_DATE } from './actions';
+import {SET_SELECTED_DATE , CHANGE_SELECTED_DATE} from './actions'
+
 const initialState = {
   selectedDate: new Date().toISOString(),
- 
 };
 
 export const calendarReducer = (state = initialState, action) => {
@@ -11,6 +11,15 @@ export const calendarReducer = (state = initialState, action) => {
         ...state,
         selectedDate: action.payload.toISOString(),
       };
+    default:
+      return state;
+  }
+};
+
+export const dateReducer = (state = initialState.selectedDate, action) => {
+  switch (action.type) {
+    case CHANGE_SELECTED_DATE:
+      return action.payload.toISOString();
     default:
       return state;
   }

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './PeriodTypeSelect.css';
 
-export const PeriodTypeSelect = ({ periodType, setPeriodType }) => {
+export const PeriodTypeSelect = () => {
+  const [periodType, setPeriodType] = useState('month');
   return (
     <div className="typeDateWrapper">
       <button

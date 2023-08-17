@@ -4,14 +4,13 @@ import { CalendarToolbar } from './CalendarToolbar';
 import './CalendarPage.css';
 import { CalendarGrid } from './CalendarGrid';
 
-export const CalendarPage = ({ selectedDate }) => {
-  const dateValue = useSelector(state => state.date); 
+export const CalendarPage = () => {
+  const selectedDate = useSelector(state => state.date);
 
-  console.log((dateValue))
   return (
     <div className="calendar-page">
-      <CalendarToolbar selectedDate={dateValue} />
-      <CalendarGrid selectedDate={dateValue} />
+      <CalendarToolbar selectedDate={selectedDate} />
+      <CalendarGrid selectedDate={selectedDate} />
       <div className="calendar-content">{/* your Routes or other content */}</div>
     </div>
   );

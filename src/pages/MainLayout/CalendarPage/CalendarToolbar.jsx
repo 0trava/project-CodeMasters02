@@ -2,13 +2,13 @@ import  { useState } from 'react';
 import { PeriodPaginator } from './PeriodPaginator';
 import { PeriodTypeSelect } from './PeriodTypeSelect';
 import { addMonths, addDays } from 'date-fns';
-import { useSelector  } from 'react-redux';
+// import { useSelector  } from 'react-redux';
 import './CalendarToolbar.css';
 import { MonthCalendarHead } from './MonthCalendarHead';
 
-export const CalendarToolbar = ({task, setTasks, setSelectedDate }) => {
+export const CalendarToolbar = ({ selectedDate, setSelectedDate, setPeriodType  }) => {
   const periodType  = useState('month');
-  const selectedDate = useSelector(state => state.date); 
+  // const selectedDate = useSelector(state => state.date); 
 
   // const fetchTasksByPeriod = useCallback(async () => {
   //   // try {
@@ -54,16 +54,19 @@ export const CalendarToolbar = ({task, setTasks, setSelectedDate }) => {
     <>
       <div className="CalendarToolbarWrapper">
         <PeriodPaginator
+          periodType={periodType}
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
           changeDate ={changeDate}
                   />
         <PeriodTypeSelect
-        
+        periodType={periodType}
+        setPeriodType={setPeriodType}
         />
       </div>
       <MonthCalendarHead />
     </>
   );
 };
+
 
