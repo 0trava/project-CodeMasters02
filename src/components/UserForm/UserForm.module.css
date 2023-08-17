@@ -15,9 +15,9 @@
   @media (min-width: 1440px) {
     width: 1087px;
     padding: 60px 164px;
-    margin-left: 32px;
-    margin-right: 32px;
-    margin-top: 0;
+ 
+    margin: 0;
+    margin-bottom: 32px;
   }
 }
 

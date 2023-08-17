@@ -4,23 +4,19 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 24px;
-  margin-bottom: 64px;
-  @media (min-width: 375px) {
-    padding: 0 20px;
-    min-width: 335px;
-    gap: 80px;
-  }
+  margin-bottom: 95px;
+  min-width: 335px;
+
   @media (min-width: 768px) {
     min-width: 704px;
-    padding: 0 32px;
-    gap: 356px;
+
+    margin-bottom: 64px;
   }
-  
+
   @media (min-width: 1440px) {
     min-width: 1087px;
     margin-top: 40px;
     margin-bottom: 40px;
-    gap: 590px;
   }
 }
 
@@ -81,5 +77,4 @@
 }
 
 .side_barmodal {
-  
 }
