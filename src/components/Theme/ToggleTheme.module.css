@@ -1,25 +1,28 @@
 .btn {
-    cursor: pointer;
-    transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-    border-radius: 50px;
-    outline: none;
-    border: none;
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+
+  margin: 0 8px 0 18px;
+  height: 24px;
+  width: 24px;
+
+  @media (min-width: 768px) {
+    margin: 0 14px 0 24px;
+    height: 32px;
+    width: 32px;
+  }
 }
-.btn:hover {
-    transform: scale(0.95);
-}
+
 .icon {
-    fill: var(--color-blue);
-}
-@media (min-width: 375px) {
-    .icon {
-        width: 24px;
-        height: 24px;
-    }
-}
-@media (min-width: 768px) {
-    .icon {
-        width: 32px;
-        height: 32px;
-    }
+  fill: #3e85f3;
+  height: 24px;
+  width: 24px;
+
+  @media (min-width: 768px) {
+    height: 32px;
+    width: 32px;
+  }
 }

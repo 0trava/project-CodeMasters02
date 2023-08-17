@@ -5,9 +5,7 @@ import { StatisticsSection } from 'components/StatisticksComponents/StatisticsSe
 export const StatisticsPage = () => {
   return (
     <div>
-      StatisticsPage
-      <StatisticsSection/>
-      
+      <StatisticsSection />
     </div>
   );
 };
