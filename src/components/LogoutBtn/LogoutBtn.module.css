@@ -1,5 +1,5 @@
 .btn {
-    margin-bottom: 24px;
+    
     cursor: pointer;
     align-items: center;
     justify-content: center;
@@ -23,7 +23,7 @@
 }
 @media (max-width: 375px) {
     .btn {
-        margin-top: 424px;
+        margin-top: 45px;
         margin-left: 20px;
         display: flex;
         gap: 6px;
@@ -41,7 +41,7 @@
 }
 @media (min-width: 375px) {
     .btn {
-        margin-top: 424px;
+        margin-top: 45px;
         margin-left: 20px;
         display: flex;
         gap: 6px;
@@ -59,9 +59,8 @@
 }
 @media (min-width: 768px) {
     .btn {
-        margin-top: 563px;
+        margin-top: 45px;
         margin-left: 32px;
-        display: inline-flex;
         gap: 11px;
     }
     .btn_text {

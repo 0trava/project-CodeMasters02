@@ -17,15 +17,8 @@
 
 }
 
-@media (min-width: 375px) {
-    .MainLayout__navigation {
-        margin-right: 32px;
-        width: 93%;
-        display: none;
-    }
 
-}
-@media (min-width: 768px) {
+@media (max-width: 1439px) {
     .MainLayout__navigation {
         margin-right: 32px;
         width: 93%;
