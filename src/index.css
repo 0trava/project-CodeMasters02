@@ -13,6 +13,7 @@ code {
 }
 
 :root {
+  /* html[data-theme='light'] { */
   --color-black: #13151a;
   --color-blue: #3e85f3;
   --color-blue-hover: #174c9c;
@@ -46,7 +47,7 @@ code {
   --color-task-medium: rgba(243, 178, 73, 1);
 
   --transition: cubic-bezier(0.01, 0.59, 1, 0.59);
-}
+  }
 
 html {
   scroll-behavior: smooth;
