@@ -15,7 +15,6 @@
   @media (min-width: 1440px) {
     width: 1087px;
     padding: 60px 164px;
- 
     margin: 0;
     margin-bottom: 32px;
   }
@@ -61,11 +60,12 @@
   display: grid;
   max-width: 299px;
   margin: 40px 0;
-  gap: 18px;
+  /* gap: 18px; */
 
   @media (min-width: 768px) {
     max-width: 354px;
   }
+
   @media (min-width: 1440px) {
     max-width: 758px;
     grid-template-columns: 1fr 1fr;
@@ -77,14 +77,18 @@
 .labelField {
   display: flex;
   flex-direction: column;
-
+  gap: 8px;
+  margin-bottom: 18px;
   font-family: 'Inter';
-  font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 129%;
-
   color: #111;
+
+  @media (min-width: 768px) {
+  margin-bottom: 24px;
+  font-size: 14px;
+  }
 }
 
 .inputField {
@@ -94,19 +98,26 @@
   border: 1px solid rgba(17, 17, 17, 0.15);
   color: #111;
   padding: 14px 18px;
-  margin-top: 8px;
   width: 100%;
+
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.28;
 
   &::placeholder {
     font-family: 'Inter';
-    font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 113%;
-
     color: rgba(17, 17, 17, 0.15);
   }
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 }
+
 .error {
   color: red;
   font-size: 12px;
@@ -129,7 +140,6 @@
   text-align: center;
   font-family: Inter;
   font-size: 14px;
-  font-style: normal;
   font-weight: 600;
   line-height: 129%;
 
