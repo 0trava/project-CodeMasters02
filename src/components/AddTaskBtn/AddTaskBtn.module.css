@@ -9,7 +9,7 @@
   line-height: 129%;
   font-weight: 600;
   color: #111111;
-  background-color: #e3f3ff;
+  background-color: var(--toogler-body-white);
   border: 1px dashed #3e85f3;
   border-radius: 8px;
   cursor: pointer;
