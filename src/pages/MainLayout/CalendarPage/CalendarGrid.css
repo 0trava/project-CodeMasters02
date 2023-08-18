@@ -6,6 +6,21 @@
   border-radius: 8px;
 }
 
+@media (min-width:768px) {
+  .calendar-grid {
+      width: 704px;
+  }
+}
+
+@media (min-width:1440px) {
+  .calendar-grid {
+      width: 1075px;
+  }
+}
+
+
+
+
 .calendar-table {
  
    border-collapse: collapse;

@@ -1,0 +1,78 @@
+.statisticsContainer {
+  position: relative;
+  border-radius: 16px;
+  background-color: #fff;
+  width: 335px;
+  
+  padding: 28px 14px 135px;
+
+  @media (min-width: 768px) {
+    width: 704px;
+    padding: 132px 32px 224px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1087px;
+    padding-top: 134px;
+    padding-bottom: 104px;
+    padding-left: 113px;
+    padding-right: 104px;
+  }
+}
+
+.chartContainer {
+  margin-bottom: 40px;
+  border-radius: 20px;
+  border: 0.8px solid #e3f3ff;
+  width: 307px;
+  height: 413px;
+  padding: 40px 14px;
+  margin-top: 40px;
+
+  @media (min-width: 768px) {
+    width: 640px;
+    height: 424px;
+    padding: 32px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 860px;
+    height: 440px;
+    padding: 40px;
+  }
+}
+
+.headWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.periodWrapper {
+  display: flex;
+
+  gap: 20px;
+  width: 179px;
+}
+
+.period {
+  color: #343434;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 113%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.iconEllipse {
+  width: 8px;
+  height: 8px;
+}

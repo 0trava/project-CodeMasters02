@@ -1,0 +1,127 @@
+.react-datepicker {
+  /* position: absolute; */
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  background-color: #3e85f3;
+  padding-top: 16px;
+  border-radius: 16px;
+  color: white;
+  overflow: hidden;
+  border: none;
+  padding: 9px 18px;
+
+  width: 327px;
+  height: 354px;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 129%;
+
+  @media (min-width: 768px) {
+    /* left: -285px; */
+    width: 373px;
+
+    font-size: 18px;
+    line-height: 133%;
+  }
+
+  @media (min-width: 1440px) {
+    /* left: -400px; */
+  }
+}
+
+.react-datepicker__day {
+  color: #ffffff;
+  margin: 12px 6px;
+
+  font-weight: 300;
+  @media (min-width: 768px) {
+    margin: 10px 6px;
+  }
+  &:hover {
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #3e85f3;
+    opacity: 35%;
+  }
+  &--selected {
+    border-radius: 50%;
+    opacity: 1;
+    background-color: #3e85f3;
+    color: #ffffff;
+    outline: none;
+  }
+  &--keyboard-selected {
+    border-radius: 50%;
+    opacity: 1;
+    background-color: #3e85f3;
+    color: #ffffff;
+    outline: none;
+  }
+}
+
+.react-datepicker__day--outside-month {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.react-datepicker__header {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: calc((18 / 14) * 100%);
+  background-color: #3e85f3;
+  color: white;
+}
+.react-datepicker__day-name {
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 129%;
+  margin-left: 6px;
+  margin-right: 6px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+
+  @media (min-width: 768px) {
+    /* padding-right: 30px; */
+    /* padding-left: 10px; */
+
+    font-size: 18px;
+    line-height: 133%;
+  }
+}
+
+.react-datepicker__current-month {
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 120%;
+  @media (min-width: 768px) {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 117%;
+  }
+}
+
+.react-datepicker__navigation {
+  top: 25px;
+}
+.react-datepicker__month-container {
+  float: none;
+}
+
+.react-datepicker__day--highlighted,
+.react-datepicker__month-text--highlighted,
+.react-datepicker__quarter-text--highlighted,
+.react-datepicker__year-text--highlighted {
+  border-radius: 50%;
+  opacity: 1;
+  background-color: #ffffff;
+  color: #3e85f3;
+  outline: none;
+}
+
+.datePicker {
+  display: none;
+}

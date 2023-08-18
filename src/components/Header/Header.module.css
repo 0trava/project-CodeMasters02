@@ -1,16 +1,22 @@
 .wrapper {
-  max-width: 335px;
+  /*max-width: 335px;*/
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 24px;
+  margin-bottom: 95px;
+  min-width: 335px;
+
   @media (min-width: 768px) {
-    max-width: 704px;
+    min-width: 704px;
+
+    margin-bottom: 64px;
   }
 
   @media (min-width: 1440px) {
-    max-width: 1087px;
+    min-width: 1087px;
     margin-top: 40px;
+    margin-bottom: 40px;
   }
 }
 
@@ -32,7 +38,7 @@
 
 .menuBurger {
   fill: transparent;
-  stroke: #343434;
+  stroke: var(--text-review);
 
   height: 24px;
   width: 24px;
@@ -63,4 +69,12 @@
   @media (min-width: 1440px) {
     display: none;
   }
+}
+
+/* Modal SideBar */
+.is_hidden {
+  display: none;
+}
+
+.side_barmodal {
 }

@@ -1,0 +1,25 @@
+
+.closeButton {
+  position: absolute;
+  right: 20px;
+  top: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+  padding: 0;
+
+  @media (min-width: 1440px) {
+    display: none;
+  }
+}
+
+.closeIcon {
+  width: 24px;
+  height: 24px;
+  fill: transparent;
+  stroke: #343434;
+}

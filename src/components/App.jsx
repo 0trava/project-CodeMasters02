@@ -9,15 +9,16 @@ import {  useDispatch, useSelector } from 'react-redux';
 import BeatLoader from 'react-spinners/BeatLoader';
 
 import { selectToken } from 'redux/auth/selectors';
-
+import {fetchReviewById} from 'redux/reviews/operations';
 
 export const App = () => {
+
 let [loading, setLoading] = useState(false);
 useEffect(() => {
   setLoading(true);
   setTimeout(() => {
   setLoading(false);
-  }, 1500);
+  }, 1000);
 }, []);
 
  const dispatch = useDispatch() 
@@ -27,9 +28,10 @@ useEffect(() => {
 // Перевірка що токен валідний
   useEffect(() => {
     dispatch(refresh());
+    dispatch(fetchReviewById());
   }, [dispatch, token]);
 
-
+  
 
   return (
     <>

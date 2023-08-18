@@ -1,15 +1,16 @@
-.btn {
+/* .btn {
   color: transparent;
   background-color: transparent;
   border: none;
   padding: 0px;
   cursor: pointer;
 
-  margin: 0 14px 0 24px;
+  margin: 0 8px 0 18px;
   height: 24px;
   width: 24px;
 
   @media (min-width: 768px) {
+    margin: 0 14px 0 24px;
     height: 32px;
     width: 32px;
   }
@@ -24,4 +25,4 @@
     height: 32px;
     width: 32px;
   }
-}
+} */
