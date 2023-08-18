@@ -1,22 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import DayCalendarHead from './DayCalendarHead';
-import TasksColumnsList from './TasksColumnsList';
+import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
 
-const DayCalendarPage = () => {
-  const { currentDay } = useParams(); 
-  const tasks = useSelector(state => state.tasks); 
 
-  
-  const tasksForCurrentDay = tasks.filter(task => task.date === currentDay);
-
+export const CalendarDay = () => {
   return (
     <div className="day-calendar-page">
-      <DayCalendarHead currentDay={currentDay} />
-      <TasksColumnsList tasks={tasksForCurrentDay} />
+      <DayCalendarHead />
     </div>
   );
 };
 
-export default DayCalendarPage;

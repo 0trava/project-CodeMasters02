@@ -1,4 +1,4 @@
-import '../../../pages/MainLayout/CalendarPage/PeriodPaginator.css';
+import '../../../pages/MainLayout/CalendarPage/CalendarToolbar/PeriodPaginator/PeriodPaginator.css';
 import sprite from '../../../images/sprite.svg';
 
 export const StaticticsToolbar = ({
