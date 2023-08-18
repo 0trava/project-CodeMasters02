@@ -2,8 +2,8 @@ import React from 'react';
 import './CalendarGrid.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getYear, getMonth, getDate, getDay, parseISO } from 'date-fns';
-import { changeSelectedDate } from '../../../redux/date/actions';
-import { fetchTasks } from 'redux/tasks/operation';
+import { changeSelectedDate } from '../../../../../redux/date/actions';
+// import { fetchTasks } from 'redux/tasks/operation';
 
 export const CalendarGrid = () => {
   const selectedDate = useSelector(state => state.date);
@@ -22,11 +22,8 @@ export const CalendarGrid = () => {
   const emptyCells = (getDay(firstDayOfMonth) + 6) % 7;
 
   // GET USER TASK LIST ------------------------------------------
-  const TASK = useSelector(fetchTasks);
-  console.log(TASK);
-
-
-
+  // const TASK = useSelector(fetchTasks);
+  // console.log(TASK);
 
   // --------------------------------------------------------------
 
@@ -38,7 +35,7 @@ export const CalendarGrid = () => {
     const date = new Date(currentYear, currentMonth, day);
     const dayOfWeek = getDay(date);
     const isWeekend = dayOfWeek === 6 || dayOfWeek === 0;
-  
+
     calendarGrid.push(
       <div
         key={`day-${day}`}
@@ -63,9 +60,8 @@ export const CalendarGrid = () => {
 
   weeks.push(currentWeek);
 
-  const handleDayClick = (day) => {
-
-// !!!!!!! - DATE - зберігалась на один день назад. Поправила для тесту ------
+  const handleDayClick = day => {
+    // !!!!!!! - DATE - зберігалась на один день назад. Поправила для тесту ------
     const newDate = new Date(currentYear, currentMonth, day + 1);
     dispatch(changeSelectedDate(newDate));
   };
