@@ -1,5 +1,5 @@
 import css from './AddTaskBtn.module.css';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../../images/sprite.svg';
 export const AddTaskBtn = () => {
   return (
     <button type="button" className={css.taskBtn}>
