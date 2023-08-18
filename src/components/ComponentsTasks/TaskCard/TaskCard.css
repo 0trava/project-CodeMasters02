@@ -65,7 +65,8 @@
 
 /* Task Status */
 
-.TaskCard__status {
+.TaskCard__status-low, .TaskCard__status-medium, 
+.TaskCard__status-high {
     display: flex;
     padding: 4px 12px;
     justify-content: center;
@@ -74,10 +75,22 @@
     /* width: 47px;
     height: 20px; */
 
+    
+}
+
+.TaskCard__status-low {
+    background: #72C2F8;
+}
+
+.TaskCard__status-medium {
+    background: #F3B249;
+}
+
+.TaskCard__status-high {
     background: #EA3D65;
 }
 
-.TaskCard__status p {
+.TaskCard__status-title {
     color: #F7F6F9;
     text-align: center;
     font-family: Inter;

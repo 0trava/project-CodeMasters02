@@ -19,11 +19,14 @@
 
 }
 
-.EditBtnMenu_icon, .EditBtnMenu_item svg {
+.EditBtnMenu_icon, .EditBtnMenu_icon use, .EditBtnMenu_item svg  {
     width: 16px;
     height: 16px;
 }
 
-.EditBtnMenu_item:hover, .EditBtnMenu_item:focus {
+.EditBtnMenu_item:hover, .EditBtnMenu_item:focus,
+.EditBtnMenu_item svg:hover, .EditBtnMenu_item svg:focus,
+.EditBtnMenu_icon:hover, .EditBtnMenu_icon:focus{
     scale: 1.1;
+    fill: rgba(62, 133, 243, 1);
 }
