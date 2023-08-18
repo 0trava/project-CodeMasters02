@@ -5,6 +5,7 @@ import {
   logout,
   refresh,
   updateUser,
+  loginGoogle,
 } from './operations';
 
 const initialState = {
@@ -50,6 +51,20 @@ export const authSlice = createSlice({
         state.isLoggedIn = false;
         state.error = payload.error;
       })
+      .addCase(loginGoogle.fulfilled, (state, { payload }) => {
+        state.token = payload.token;
+        state.isLoggedIn = true;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(loginGoogle.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(loginGoogle.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.isLoggedIn = false;
+        state.error = payload.error;
+      })
 
       .addCase(logout.fulfilled, state => {
         state.user = {};
@@ -89,8 +104,7 @@ export const authSlice = createSlice({
       .addCase(updateUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
-      })
-      
+      });
   },
   reducers: {
     logout: state => {
