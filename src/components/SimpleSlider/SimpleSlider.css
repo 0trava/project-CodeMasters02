@@ -61,8 +61,8 @@
 
         border-radius: 8px;
         border: 1px solid rgba(17, 17, 17, 0.10);
-        margin-right: 10px;
-        margin-left: 10px;
+        margin-right: 5px;
+        margin-left: 5px;
         margin-bottom: 122px;
     }
 
@@ -70,14 +70,14 @@
 
 @media (min-width:768px) {
     .slider {
-        width: 690px;
+        width: 590px;
     }
 
     .slick-slide  {
         display: flex;
         padding: 24px 20px 24px 24px;
-        min-width: 335px;
-        height: 194px;
+        min-width: 580px;
+        height: 187px;
         border-radius: 8px;
         border: 1px solid rgba(17, 17, 17, 0.10);
         margin-right: 5px;
@@ -88,12 +88,13 @@
 
 @media (min-width:1440px) {
     .slider {
-        width: 1194px;
+        width: 1200px;
     }
 
     .slick-slide {
         display: flex;
-        width: 580px;
+        min-width: 580px;
+        /* width: 580px; */
         height: 187px;
         padding: 32px 32px 50px 32px;
         justify-content: center;
@@ -125,7 +126,7 @@
 .slick-prev:focus {
     position: absolute;
     top: 220px;  
-    left: 50%;
+    left: 50.5%;
     transform: translate(-62.5px, -50%);
     background: url('data:image/svg+xml,<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.0368 26.6676L10.1573 25.3896L45.9019 25.3886V24.3886L10.3813 24.3896L12.1518 23.3721L11.6538 22.5051L7.57934 24.8461L11.4743 27.4946L12.0368 26.6676Z" fill="%23111111"/></svg>');
 }
@@ -134,7 +135,7 @@
 .slick-next:hover,
 .slick-next:focus {
     top: 220px; 
-    right: 50%;
+    right: 49.5%;
     transform: translate(62.5px, -50%);
     background: url('data:image/svg+xml,<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_182_6723)"><path d="M33.865 23.1097L35.7445 24.3877L0 24.3887L0 25.3887L35.5205 25.3877L33.75 26.4052L34.248 27.2722L38.3225 24.9312L34.4275 22.2827L33.865 23.1097Z" fill="%23111111"/></g><defs><clipPath id="clip0_182_6723"><rect width="50" height="50" fill="white" transform="matrix(0 -1 1 0 0 50)"/></clipPath></defs></svg>');
 }

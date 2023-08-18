@@ -21,7 +21,7 @@ export default class SimpleSlider extends Component {
       speed: 500,
       responsive: [
         {
-          breakpoint: 375,
+          breakpoint: 767,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -33,8 +33,19 @@ export default class SimpleSlider extends Component {
         {
           breakpoint: 768,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 1,
             slidesToScroll: 1,
+            speed: 600,
+            initialSlide: 0,
+            infinite: false,
+          }
+        },
+        {
+          breakpoint: 1439,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            speed: 600,
             initialSlide: 0,
             infinite: false,
           }
@@ -44,6 +55,7 @@ export default class SimpleSlider extends Component {
             settings: {
               slidesToShow: 2,
               slidesToScroll: 1,
+              speed: 600,
               initialSlide: 0,
               infinite: false,
             }

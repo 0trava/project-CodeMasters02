@@ -47,7 +47,11 @@
     line-height: 18px; 
     
 }
-
+@media (min-width:768px) {
+  .review__comment {
+    margin-left: 70px;    
+  }
+}
   /* ---------------- */
   .rating {
     pointer-events: none;
