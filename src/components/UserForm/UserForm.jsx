@@ -57,9 +57,10 @@ export const UserForm = () => {
   const dispatch = useDispatch();
   const [loadAvatar, setLoadAvatar] = useState("");
   // eslint-disable-next-line
-  const { name, email, birthday, phone, skype, avatar } =
-    useSelector(selectUser);
+  const { name, email, birthday, phone, skype, avatar } = useSelector(selectUser);
 
+
+  // ВІДПРАВКА ФОРМИ
   const onSubmitFormik = (e, valuesFormik, actionsFormik) => {
     // console.log('actionsFormik:', actionsFormik);
     // console.log('valuesFormik:', valuesFormik);
@@ -69,10 +70,7 @@ export const UserForm = () => {
     const birthday = e.currentTarget.birthday.value;
     const phone = e.currentTarget.phone.value;
     const skype = e.currentTarget.skype.value;
-    // TEST avatar
-    const avatar = "";
-
-
+    const avatar = loadAvatar;
 
     dispatch(updateUser({ name, email, birthday, phone, skype, avatar }));
   };
@@ -80,11 +78,10 @@ export const UserForm = () => {
   // AVATAR - pre load
   const hadleChangeAvatar = (e) => {
     e.preventDefault();
-
-    // const TEST = document.getElementById("file").files[0];
-    
+   
     setLoadAvatar(URL.createObjectURL(e.target.files[0]));
-    console.log(loadAvatar);
+    console.log(URL.createObjectURL(e.target.files[0]));
+    console.log(e.target.files[0]);
   }
 
   return (
@@ -96,14 +93,16 @@ export const UserForm = () => {
           onSubmitFormik(values, actions);
         }}
       >
-        <Form>
+        <Form onSubmit={onSubmitFormik}>
           <div className={css.avatarWrapper}>
 
 {/* AVATAR---------------------------------------------- */}
             <div className={css.UserForm__avatar}>
-              {loadAvatar ? <img src={loadAvatar} alt="newAvatar" id="avatar"/> : ""} 
+              {loadAvatar ? 
+                   <img src={loadAvatar} alt="newAvatar" id="avatar"/> 
+                   : ""} 
               {avatar ?
-                <img src={loadAvatar} alt="newAvatar" /> 
+                <img src={avatar} alt="newAvatar" /> 
                 
               : <PiUserBold className={css.UserForm__avatar_icon} />
               }
