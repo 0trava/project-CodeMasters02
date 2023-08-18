@@ -2,7 +2,7 @@
   position: relative;
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.80);
-  background: #FFF;
+  background: var(--toogler-body-white);
   box-shadow: 0px 4px 57px 0px rgba(17, 17, 17, 0.05);
   z-index: 2;
 }
@@ -29,7 +29,7 @@
   right: 18px;
   top: 18px;
   padding: 0;
-  background-color: #ffffff;
+  background-color: var(--toogler-body-white);
   border: none;
 
 }
@@ -106,7 +106,7 @@ scale: 1.1;
 
 .FeedbackForm__btn {
   background-color: #3E85F3;
-  color: #ffffff;
+  color: var(--toogler-body-white);
   transition: all 0.5sec var(--transition);
 }
 

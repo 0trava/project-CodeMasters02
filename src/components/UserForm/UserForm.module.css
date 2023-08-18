@@ -4,7 +4,7 @@
   padding: 0px 18px 40px 18px;
   margin: 0px 20px 40px 20px;
   border-radius: 16px;
-  background: #fff;
+  background: var(--toogler-body-white);
 
   @media (min-width: 768px) {
     width: 704px;
@@ -152,7 +152,7 @@
   position: relative;
   width: 72px;
   height: 72px;
-  background-color: #fff;
+  background-color: var(--toogler-body-white);
   border-radius: 72px;
   border: 2px solid var(--color-blue);
   display: flex;

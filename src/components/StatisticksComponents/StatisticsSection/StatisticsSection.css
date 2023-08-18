@@ -1,7 +1,7 @@
 .statisticsContainer {
   position: relative;
   border-radius: 16px;
-  background-color: #fff;
+  background-color: var(--toogler-body-white);
   width: 335px;
   
   padding: 28px 14px 135px;
