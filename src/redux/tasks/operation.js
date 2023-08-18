@@ -11,12 +11,14 @@ export const fetchTasks = createAsyncThunk(
   'tasks/fetchAll',
   async (params, thunkAPI) => {
     try {
-      const { data } = await privateApi.get('tasks'
+      console.log(params)
+      const { data } = await privateApi.get(`tasks?${params}`
       // , {
       //   params: params.period,
       //   signal: params.signal,
       // }
       );
+      console.log(data);
       Notify.success(`Welcome, all your tasks.`);
       return data.data;
     } catch (error) {

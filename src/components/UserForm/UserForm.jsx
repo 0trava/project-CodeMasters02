@@ -93,7 +93,6 @@ export const UserForm = () => {
     
     setLoadAvatar(URL.createObjectURL(e.target.files[0]));
     setAvatarImg(e.target.files[0]);
-    console.log(avatarImg);
   };
 
 
