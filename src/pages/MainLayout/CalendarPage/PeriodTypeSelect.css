@@ -14,7 +14,7 @@
   border-radius: 8px 8px 8px 8px;
   background-color: #e3f3ff;
   border: none;
-  color: #3e85f3;
+  color: #3E85F3;
   cursor: pointer;
   padding: 8px 15px;
   font-size: 14px;
@@ -22,7 +22,7 @@
 }
 
 .period-type-select button.active {
-  background-color: #cae8ff;
+  background-color: #3e85f333;
 }
 .typeDateWrapper {
   display: flex;
@@ -39,7 +39,7 @@
 
   border: none;
   border-right: 1px solid rgba(62, 133, 243, 0.2);
-  background: #e3f3ff;
+  background: #CAE8FF;
 
   color: #3e85f3;
   text-align: center;
@@ -53,7 +53,7 @@
   }
 
   &.active {
-    background: #cae8ff;
+    background: #E3F3FF;
   }
 }
 
@@ -67,7 +67,7 @@
 
   border: none;
   /* border-left: 0.5px solid rgba(62, 133, 243, 0.2); */
-  background: #e3f3ff;
+  background: #CAE8FF;
 
   color: #3e85f3;
   text-align: center;
@@ -81,6 +81,6 @@
   }
 
   &.active {
-    background: #cae8ff;
+    background: #E3F3FF;
   }
 }

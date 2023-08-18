@@ -1,38 +1,51 @@
-import React, { useState } from 'react';
-import { format, addMonths, addDays } from 'date-fns';
-import './PeriodPaginator.css';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { changeSelectedDate } from '../../../redux/date/actions';
 import sprite from '../../../images/sprite.svg';
+import { format, addMonths, parseISO } from 'date-fns';
+import './PeriodPaginator.css'
 
-export const PeriodPaginator = ({ selectedDate, setSelectedDate }) => {
-  const [periodType] = useState('month');
+export const PeriodPaginator = ({ periodType, selectedDate }) => {
+   const dispatch = useDispatch();
 
-  const changeDate = amount => {
-    if (periodType === 'month') {
-      setSelectedDate(addMonths(selectedDate, amount));
-    } else if (periodType === 'day') {
-      setSelectedDate(addDays(selectedDate, amount));
-    }
+  
+  const handleDateChange = amount => {
+    const newDate = addMonths(parseISO(selectedDate), amount);
+    dispatch(changeSelectedDate(newDate)); 
   };
 
-  const periodFormat = type => {
-    if (type === 'month') {
-      return format(selectedDate, 'MMMM yyyy').toUpperCase();
-    } else if (type === 'day') {
-      return format(selectedDate, 'd MMMM yyyy').toUpperCase();
-    }
-    return '';
+  // const formatDate = (selectedDate) => {
+  //   if (periodType === 'month') {
+  //     return format(parseISO(selectedDate), 'MMMM yyyy').toUpperCase();
+  //   } else if (periodType === 'day') {
+  //     return format(parseISO(selectedDate), ' d MMMM yyyy').toUpperCase();
+  //   }
+  //   return '';
+  // };
+
+  const periodFormat = () => {
+    return format(parseISO(selectedDate), 'MMMM yyyy').toUpperCase();
   };
+
 
   return (
     <div className="dateWrapper">
-      <div className="currentDate">{periodFormat('month')}</div>
+     <div className="currentDate">{periodFormat()}</div>
       <div>
-        <button className="chevronLeftBtn" onClick={() => changeDate(-1)}>
+        <button
+          type="button"
+          className="chevronLeftBtn"
+          onClick={() => handleDateChange(-1)}
+        >
           <svg className="icon-chevron" width="16" height="16">
             <use href={sprite + '#icon-chevron-left'}></use>
           </svg>
         </button>
-        <button className="chevronRightBtn" onClick={() => changeDate(1)}>
+        <button
+          type="button"
+          className="chevronRightBtn"
+          onClick={() => handleDateChange(1)}
+        >
           <svg className="icon-chevron" width="16" height="16">
             <use href={sprite + '#icon-chevron-right'}></use>
           </svg>

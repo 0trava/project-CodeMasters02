@@ -1,15 +1,23 @@
 import React from 'react';
 import './CalendarGrid.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { getYear, getMonth, getDate, getDay, parseISO } from 'date-fns';
+import { changeSelectedDate } from '../../../redux/date/actions';
 
-export const CalendarGrid = ({ selectedDate }) => {
-  const currentYear = selectedDate.getFullYear();
-  const currentMonth = selectedDate.getMonth();
+export const CalendarGrid = () => {
+  const selectedDate = useSelector(state => state.date);
+  const dateObject = parseISO(selectedDate);
+  const dispatch = useDispatch();
+  console.log(selectedDate);
+
+  const currentYear = getYear(dateObject);
+  const currentMonth = getMonth(dateObject);
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
   const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
-  const daysInMonth = lastDayOfMonth.getDate();
+  const daysInMonth = getDate(lastDayOfMonth);
 
   const calendarGrid = [];
-  const emptyCells = (firstDayOfMonth.getDay() + 6) % 7;
+  const emptyCells = (getDay(firstDayOfMonth) + 6) % 7;
 
   for (let i = 0; i < emptyCells; i++) {
     calendarGrid.push(<div key={`empty-${i}`} className="empty-cell"></div>);
@@ -17,9 +25,9 @@ export const CalendarGrid = ({ selectedDate }) => {
 
   for (let day = 1; day <= daysInMonth; day++) {
     const date = new Date(currentYear, currentMonth, day);
-    const dayOfWeek = date.getDay();
+    const dayOfWeek = getDay(date);
     const isWeekend = dayOfWeek === 6 || dayOfWeek === 0;
-
+  
     calendarGrid.push(
       <div
         key={`day-${day}`}
@@ -44,6 +52,11 @@ export const CalendarGrid = ({ selectedDate }) => {
 
   weeks.push(currentWeek);
 
+  const handleDayClick = (day) => {
+    const newDate = new Date(currentYear, currentMonth, day);
+    dispatch(changeSelectedDate(newDate));
+  };
+
   return (
     <div className="calendar-grid">
       <table className="calendar-table">
@@ -54,10 +67,9 @@ export const CalendarGrid = ({ selectedDate }) => {
                 <td
                   key={`day-${weekIndex}-${dayIndex}`}
                   className={day.props.className}
+                  onClick={() => handleDayClick(parseInt(day.props.children))}
                 >
-                  <div className="calendar-day">
-                    {day.props.children}
-                  </div>
+                  <div className="calendar-day">{day.props.children}</div>
                 </td>
               ))}
             </tr>
