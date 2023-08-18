@@ -30,6 +30,7 @@ export const addTask = createAsyncThunk(
   'tasks/addTask',
   async (task, thunkAPI) => {
     try {
+
       const { data } = await privateApi.post('tasks', task);
       Notify.success(`Task added.`);
       return data;

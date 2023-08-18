@@ -58,31 +58,53 @@ export const UserForm = () => {
   const [loadAvatar, setLoadAvatar] = useState("");
   // eslint-disable-next-line
   const { name, email, birthday, phone, skype, avatar } = useSelector(selectUser);
-
+  const [avatarImg, setAvatarImg] = useState("");
+  const [formData, setFormData] = useState({
+    birthday: birthday,
+    email: email,
+    name: name,
+    phone: phone,
+    skype: skype,
+  });
 
   // ВІДПРАВКА ФОРМИ
   const onSubmitFormik = (e, valuesFormik, actionsFormik) => {
     // console.log('actionsFormik:', actionsFormik);
     // console.log('valuesFormik:', valuesFormik);
     e.preventDefault();
-    const email = e.currentTarget.email.value;
-    const name = e.currentTarget.name.value;
-    const birthday = e.currentTarget.birthday.value;
-    const phone = e.currentTarget.phone.value;
-    const skype = e.currentTarget.skype.value;
-    const avatar = loadAvatar;
 
-    dispatch(updateUser({ name, email, birthday, phone, skype, avatar }));
+    if (avatarImg) {
+      const formDataToSend = new FormData();
+      formDataToSend.append('avatar', avatarImg);
+      
+      // Append other form data fields
+      for (const key in formData) {
+        formDataToSend.append(key, formData[key]);
+      }
+
+      dispatch(updateUser(formDataToSend));
+    }
+    
   };
 
   // AVATAR - pre load
   const hadleChangeAvatar = (e) => {
     e.preventDefault();
-   
+    
     setLoadAvatar(URL.createObjectURL(e.target.files[0]));
-    console.log(URL.createObjectURL(e.target.files[0]));
-    console.log(e.target.files[0]);
-  }
+    setAvatarImg(e.target.files[0]);
+    console.log(avatarImg);
+  };
+
+
+  // ПЕРЕЗАПИС данних з input
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value
+    }));
+  };
 
   return (
     <div className={css.container}>
@@ -142,6 +164,7 @@ export const UserForm = () => {
                 placeholder="Add your name"
                 className={css.inputField}
                 defaultValue={name ? name : ''}
+                onChange={handleInputChange} 
               />
               <ErrorMessage className={css.error} name="name" component="p" />
             </label>
@@ -158,6 +181,7 @@ export const UserForm = () => {
                     placeholder="DD/MM/YYYY"
                     className={css.inputField}
                     defaultValue={birthday ? birthday : ''}
+                    onChange={handleInputChange} 
                   />
                 )}
               </Field>
@@ -177,6 +201,7 @@ export const UserForm = () => {
                 placeholder="Add your email"
                 className={css.inputField}
                 defaultValue={email ? email : ''}
+                onChange={handleInputChange} 
               />
               <ErrorMessage
                 className={css.error}
@@ -201,6 +226,7 @@ export const UserForm = () => {
                     type="tel"
                     className={css.inputField}
                     defaultValue={phone ? phone : ''}
+                    onChange={handleInputChange} 
                   />
                 )}
               </Field>
@@ -215,6 +241,7 @@ export const UserForm = () => {
                 placeholder="Add a skype number"
                 className={css.inputField}
                 defaultValue={skype ? skype : ''}
+                onChange={handleInputChange} 
               />
               <ErrorMessage className={css.error} name="skype" component="p" />
             </label>
