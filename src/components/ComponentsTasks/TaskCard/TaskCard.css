@@ -21,6 +21,8 @@
     font-style: normal;
     font-weight: 500;
     line-height: 18px; /* 128.571% */
+    pointer-events: none;
+
 }
 
 /* Avatar */
@@ -44,6 +46,7 @@
     font-weight: 700;
     line-height: 32px; /* 114.286% */
     text-transform: uppercase;
+    /* pointer-events: none; */
 }
 
 .TaskCard__block {
@@ -56,6 +59,7 @@
     display: inline-flex;
     align-items: flex-end;
     justify-content: space-between;
+    /* pointer-events: none; */
 }
 
 .TaskCard__avatar img {
@@ -98,4 +102,5 @@
     font-style: normal;
     font-weight: 600;
     line-height: 12px; /* 120% */
+    pointer-events: none;
 }
