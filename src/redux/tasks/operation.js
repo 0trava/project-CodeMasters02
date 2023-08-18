@@ -11,16 +11,10 @@ export const fetchTasks = createAsyncThunk(
   'tasks/fetchAll',
   async (params, thunkAPI) => {
     try {
-      console.log(params)
-      const { data } = await privateApi.get(`tasks?${params}`
-      // , {
-      //   params: params.period,
-      //   signal: params.signal,
-      // }
-      );
-      console.log(data);
+      console.log(`tasks?dateFrom=${params.taskFirstDayOfMonth}&dateTo=${params.taskLastDayOfMonth}`);
+      const { data } = await privateApi.get(`tasks?dateFrom=${params.taskFirstDayOfMonth}&dateTo=${params.taskLastDayOfMonth}`);
       Notify.success(`Welcome, all your tasks.`);
-      return data.data;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -33,7 +27,7 @@ export const addTask = createAsyncThunk(
   async (task, thunkAPI) => {
     try {
 
-      const { data } = await privateApi.post('tasks', task);
+      const { data } = await axios.post('tasks', task);
       Notify.success(`Task added.`);
       return data;
     } catch (e) {
@@ -49,7 +43,7 @@ export const editTask = createAsyncThunk(
     const { _id, start, end, priority, title, category, date, description } =
       data;
     try {
-      const { data } = await privateApi.patch(`tasks/${_id}`, {
+      const { data } = await axios.patch(`tasks/${_id}`, {
         start,
         end,
         priority,
@@ -71,7 +65,7 @@ export const deleteTask = createAsyncThunk(
   'tasks/deleteTask',
   async (id, thunkAPI) => {
     try {
-      const { data } = await privateApi.delete(`tasks/${id}`);
+      const { data } = await axios.delete(`tasks/${id}`);
       Notify.success(`The task has been deleted.`);
       return data.data.result._id;
     } catch (e) {

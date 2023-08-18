@@ -1,16 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './CalendarGrid.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getYear, getMonth, getDate, getDay, parseISO } from 'date-fns';
 import { changeSelectedDate } from '../../../../../redux/date/actions';
+import { fetchTasks } from 'redux/tasks/operation';
 // import { fetchTasks } from 'redux/tasks/operation';
 
 export const CalendarGrid = () => {
   const selectedDate = useSelector(state => state.date);
   const dateObject = parseISO(selectedDate);
   const dispatch = useDispatch();
-
-  console.log(selectedDate);
 
   const currentYear = getYear(dateObject);
   const currentMonth = getMonth(dateObject);
@@ -22,8 +21,15 @@ export const CalendarGrid = () => {
   const emptyCells = (getDay(firstDayOfMonth) + 6) % 7;
 
   // GET USER TASK LIST ------------------------------------------
-  // const TASK = useSelector(fetchTasks);
-  // console.log(TASK);
+
+
+  useEffect(() => {
+    const taskFirstDayOfMonth = new Date(firstDayOfMonth).toISOString();
+    const taskLastDayOfMonth = new Date(lastDayOfMonth).toISOString();
+    dispatch(fetchTasks({taskFirstDayOfMonth, taskLastDayOfMonth}));
+ }, [dispatch]);
+
+
 
   // --------------------------------------------------------------
 

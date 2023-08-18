@@ -1,6 +1,8 @@
 import React from 'react';
 import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
+
 import { TasksColumnsSchedule } from 'components/ComponentsTasks/TasksColumnsSchedule/TasksColumnsSchedule';
+
 
 export const CalendarDay = () => {
   return (
