@@ -50,6 +50,8 @@ export const loginGoogle = createAsyncThunk(
       const data = credentials;
       setToken(data.token);
       Notify.success(`Welcome!!!`);
+      console.log(data);
+      return data;
     } catch (error) {
       Notify.failure(`Login failed. Try again`);
       return rejectWithValue(error.message);
