@@ -1,0 +1,35 @@
+.tasksWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 334px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #F2F2F2;
+    border-radius: 12px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #E7E5E5;
+    border-radius: 12px;
+  }
+
+  
+
+  @media screen and (min-width: 768px) {
+    gap: 18px;
+    max-height: 376px;
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+  }
+}

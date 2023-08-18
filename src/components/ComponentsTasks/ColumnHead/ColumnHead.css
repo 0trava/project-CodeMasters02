@@ -1,0 +1,40 @@
+.columnHeadWrapper {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 25px 18px 0 14px;
+  margin-bottom: 30px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 42px;
+  }
+}
+
+.taskTitle {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+
+  text-align: center;
+
+  color: #111111;
+}
+
+.taskHeaderBtn {
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  width: 22px;
+  height: 22px;
+
+  cursor: pointer;
+}
+.taskHeaderIcon {
+  width: 22px;
+  height: 22px;
+  stroke: #111111;
+  fill: transparent;
+}
