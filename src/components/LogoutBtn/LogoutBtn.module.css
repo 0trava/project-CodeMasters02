@@ -1,82 +1,80 @@
 .btn {
-    
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    border-radius: 16px;
-    border: 2px solid var(--color-blue);
-    background-color: var(--color-blue);
-    transition: all 0.5s var(--transition);
-
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 2px solid var(--color-blue);
+  background-color: var(--color-blue);
+  transition: all 0.5s var(--transition);
 }
 
 .btn:hover, .btn:focus {
-    border: 2px solid var(--color-blue-hover);
-    background-color: var(--color-blue-hover);
+  border: 2px solid var(--color-blue-hover);
+  background-color: var(--color-blue-hover);
 }
 
 .btn_text {
-    font-family: Inter;
-    font-weight: 600;
-    line-height: 0.8;
-    color: var(--color-white);
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 0.8;
+  color: var(--color-white);
 }
 @media (max-width: 375px) {
-    .btn {
-        margin-top: 45px;
-        margin-left: 20px;
-        display: flex;
-        gap: 6px;
-    }
-    .btn_text {
-        padding: 14px 0 14px 28.5px;
-        font-size: 14px;
-        letter-spacing: -0.28px;
-    }
-    .icon {
-        width: 18px;
-        height: 18px;
-        padding-right: 28.5px;
-    }
+  .btn {
+    margin-top: 45px;
+    margin-left: 20px;
+    display: flex;
+    gap: 6px;
+  }
+  .btn_text {
+    padding: 14px 0 14px 28.5px;
+    font-size: 14px;
+    letter-spacing: -0.28px;
+  }
+  .icon {
+    width: 18px;
+    height: 18px;
+    padding-right: 28.5px;
+  }
 }
 @media (min-width: 375px) {
-    .btn {
-        margin-top: 45px;
-        margin-left: 20px;
-        display: flex;
-        gap: 6px;
-    }
-    .btn_text {
-        padding: 14px 0 14px 28.5px;
-        font-size: 14px;
-        letter-spacing: -0.28px;
-    }
-    .icon {
-        width: 18px;
-        height: 18px;
-        padding-right: 28.5px;
-    }
+  .btn {
+    margin-top: 45px;
+    margin-left: 20px;
+    display: flex;
+    gap: 6px;
+  }
+  .btn_text {
+    padding: 14px 0 14px 28.5px;
+    font-size: 14px;
+    letter-spacing: -0.28px;
+  }
+  .icon {
+    width: 18px;
+    height: 18px;
+    padding-right: 28.5px;
+  }
 }
 @media (min-width: 768px) {
-    .btn {
-        margin-top: 45px;
-        margin-left: 32px;
-        gap: 11px;
-    }
-    .btn_text {
-        padding: 16px 0 16px 23px;
-        font-size: 18px;
-        letter-spacing: -0.36px;
-    }
-    .icon {
-        width: 20px;
-        height: 20px;
-        padding-right: 23px;
-    }
+  .btn {
+    margin-top: 45px;
+    margin-left: 32px;
+    gap: 11px;
+  }
+  .btn_text {
+    padding: 16px 0 16px 23px;
+    font-size: 18px;
+    letter-spacing: -0.36px;
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+    padding-right: 23px;
+  }
 }
 @media (min-width: 1440px) {
-    .btn {
-        margin-top: 439px;
-        margin-left: 24px;
-    }
+  .btn {
+    margin-top: 439px;
+    margin-left: 24px;
+  }
 }

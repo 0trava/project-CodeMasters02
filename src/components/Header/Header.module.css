@@ -1,5 +1,4 @@
 .wrapper {
-  /*max-width: 335px;*/
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,10 +8,8 @@
 
   @media (min-width: 768px) {
     min-width: 704px;
-
     margin-bottom: 64px;
   }
-
   @media (min-width: 1440px) {
     min-width: 1087px;
     margin-top: 40px;
@@ -30,7 +27,6 @@
   color: #111111;
   @media (min-width: 1440px) {
     display: block;
-
     font-weight: 700;
     font-size: 32px;
   }
@@ -39,7 +35,6 @@
 .menuBurger {
   fill: transparent;
   stroke: var(--text-review);
-
   height: 24px;
   width: 24px;
 
@@ -51,14 +46,12 @@
     display: none;
   }
 }
-
 .btn {
   color: transparent;
   background-color: transparent;
   border: none;
   padding: 0px;
   cursor: pointer;
-
   height: 24px;
   width: 24px;
 

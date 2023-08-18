@@ -30,7 +30,6 @@
   background-color: #e3f3ff;
 }
 .link {
-  /* width: 100px; */
   font-family: Inter;
   font-weight: 600;
   line-height: 0.8;
@@ -61,15 +60,14 @@
   stroke-opacity: 1;
 }
 @media (max-width: 768px) {
- 
   .icon,
   .icon_2 {
     width: 20px;
     height: 20px;
   }
-    .item {
-  width: 225px;
-}
+  .item {
+    width: 225px;
+  }
 }
 @media (min-width: 375px) {
   .text {
@@ -87,6 +85,6 @@
     font-size: 16px;
   }
   .item {
-  width: 289px;
-}
+    width: 289px;
+  }
 }
