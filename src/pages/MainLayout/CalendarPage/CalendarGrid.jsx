@@ -10,6 +10,8 @@ export const CalendarGrid = () => {
   const dateObject = parseISO(selectedDate);
   const dispatch = useDispatch();
 
+
+
   const currentYear = getYear(dateObject);
   const currentMonth = getMonth(dateObject);
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
@@ -19,14 +21,11 @@ export const CalendarGrid = () => {
   const calendarGrid = [];
   const emptyCells = (getDay(firstDayOfMonth) + 6) % 7;
 
-  // GET USER TASK LIST ------------------------------------------
-  // const TASK = fetchTasks(fetchTasks(`dateFrom:${firstDayOfMonth}&dateTo:${lastDayOfMonth}`));
-  // console.log(TASK);
 
   // Перевірка що токен валідний
-  useEffect(() => {
-     dispatch(fetchTasks(`dateFrom:${firstDayOfMonth}&dateTo:${lastDayOfMonth}`));
-  }, []);
+  useEffect(async() => {
+     await dispatch(fetchTasks(`dateFrom:${firstDayOfMonth}&dateTo:${lastDayOfMonth}`));
+  }, [dispatch]);
 
 
 
