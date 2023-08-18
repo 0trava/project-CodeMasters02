@@ -27,7 +27,7 @@ export const CalendarGrid = () => {
     const taskFirstDayOfMonth = new Date(firstDayOfMonth).toISOString();
     const taskLastDayOfMonth = new Date(lastDayOfMonth).toISOString();
     dispatch(fetchTasks({taskFirstDayOfMonth, taskLastDayOfMonth}));
- }, [dispatch]);
+ }, [dispatch, firstDayOfMonth, lastDayOfMonth]);
 
 
 
