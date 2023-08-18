@@ -3,11 +3,13 @@ import './CalendarGrid.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getYear, getMonth, getDate, getDay, parseISO } from 'date-fns';
 import { changeSelectedDate } from '../../../redux/date/actions';
+import { fetchTasks } from 'redux/tasks/operation';
 
 export const CalendarGrid = () => {
   const selectedDate = useSelector(state => state.date);
   const dateObject = parseISO(selectedDate);
   const dispatch = useDispatch();
+
   console.log(selectedDate);
 
   const currentYear = getYear(dateObject);
@@ -18,6 +20,15 @@ export const CalendarGrid = () => {
 
   const calendarGrid = [];
   const emptyCells = (getDay(firstDayOfMonth) + 6) % 7;
+
+  // GET USER TASK LIST ------------------------------------------
+  const TASK = useSelector(fetchTasks);
+  console.log(TASK);
+
+
+
+
+  // --------------------------------------------------------------
 
   for (let i = 0; i < emptyCells; i++) {
     calendarGrid.push(<div key={`empty-${i}`} className="empty-cell"></div>);
@@ -53,7 +64,9 @@ export const CalendarGrid = () => {
   weeks.push(currentWeek);
 
   const handleDayClick = (day) => {
-    const newDate = new Date(currentYear, currentMonth, day);
+
+// !!!!!!! - DATE - зберігалась на один день назад. Поправила для тесту ------
+    const newDate = new Date(currentYear, currentMonth, day + 1);
     dispatch(changeSelectedDate(newDate));
   };
 
