@@ -12,9 +12,9 @@ export const fetchTasks = createAsyncThunk(
   async (params, thunkAPI) => {
     try {
       console.log(`tasks?dateFrom=${params.taskFirstDayOfMonth}&dateTo=${params.taskLastDayOfMonth}`);
-      const { data } = await axios.get(`tasks?dateFrom=${params.taskFirstDayOfMonth}&dateTo=${params.taskLastDayOfMonth}`);
+      const { data } = await privateApi.get(`tasks?dateFrom=${params.taskFirstDayOfMonth}&dateTo=${params.taskLastDayOfMonth}`);
       Notify.success(`Welcome, all your tasks.`);
-      return data.data;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
