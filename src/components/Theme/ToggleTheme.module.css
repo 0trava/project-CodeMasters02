@@ -4,7 +4,6 @@
   border: none;
   padding: 0px;
   cursor: pointer;
-
   margin: 0 8px 0 18px;
   height: 24px;
   width: 24px;
@@ -17,7 +16,7 @@
 }
 
 .icon {
-  fill: #3e85f3;
+  fill: var(--color-blue);
   height: 24px;
   width: 24px;
 
