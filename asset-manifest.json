@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/project-CodeMasters02/static/css/main.ac399bff.css",
+    "main.css": "/project-CodeMasters02/static/css/main.2e20988e.css",
     "main.js": "/project-CodeMasters02/static/js/main.9fe73357.js",
     "static/media/MainPage_img_1_tablet_2x.png": "/project-CodeMasters02/static/media/MainPage_img_1_tablet_2x.af1d4f58bd47b9a5840f.png",
     "static/media/MainPage_img_1_desktop_2x.png": "/project-CodeMasters02/static/media/MainPage_img_1_desktop_2x.fa1578686c34d420578a.png",
@@ -20,11 +20,11 @@
     "index.html": "/project-CodeMasters02/index.html",
     "static/media/google.svg": "/project-CodeMasters02/static/media/google.8b79484f2f458b893cf27d51405d9a60.svg",
     "static/media/log-in-01.svg": "/project-CodeMasters02/static/media/log-in-01.f5859fe35421bf27c20ed178401b8bd6.svg",
-    "main.ac399bff.css.map": "/project-CodeMasters02/static/css/main.ac399bff.css.map",
+    "main.2e20988e.css.map": "/project-CodeMasters02/static/css/main.2e20988e.css.map",
     "main.9fe73357.js.map": "/project-CodeMasters02/static/js/main.9fe73357.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac399bff.css",
+    "static/css/main.2e20988e.css",
     "static/js/main.9fe73357.js"
   ]
 }
