@@ -22,16 +22,15 @@
     display: flex;
     align-items: center;
 
-}
-
-.TaskDrop_item p {
     color: #343434;
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 18px; /* 128.571% */
+
 }
+
 
 .TaskDrop_item svg {
     width: 16px;
@@ -39,7 +38,6 @@
 }
 
 .TaskDrop_item:hover, .TaskDrop_item:focus,
-.TaskDrop_icon svg:hover, .TaskDrop_icon svg:focus,
 .TaskDrop_item p:hover, .TaskDrop_item p:focus   {
     scale: 1.1;
     fill: rgba(62, 133, 243, 1);

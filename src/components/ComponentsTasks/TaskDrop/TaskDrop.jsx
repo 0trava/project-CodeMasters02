@@ -11,11 +11,11 @@ export const TaskDrop = () => {
   <div className="TaskDrop__container">
 
     <button className='TaskDrop_item' onClick={()=> {}}>
-        <p>In progress</p>
+        In progress
        <BsBoxArrowRight  className='TaskDrop_icon'/>
     </button>
     <button className='TaskDrop_item' onClick={()=> {}}>
-       <p>Done</p>
+       Done
        <BsBoxArrowRight  className='TaskDrop_icon'/>
     </button>
    
