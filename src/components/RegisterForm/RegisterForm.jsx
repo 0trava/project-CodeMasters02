@@ -20,18 +20,18 @@ const SignUpSchema = yup.object().shape({
   name: yup
     .string()
     .max(16, 'Name must be 16 characters or less.')
-    .required('Name is a required!'),
+    .required('Name is required!'),
   email: yup
     .string()
     .max(254)
     .matches(emailRegExp, 'Invalid email address. The email address must contain the @ sign.')
-    .required('Email is a required!')
+    .required('Email is required!')
     .email('Invalid email address. The email address must contain the @ sign.'),
   password: yup
     .string()
     .min(6, 'Password must be at least 6 characters.')
     .max(254, 'Password is too long')
-    .required('Password is a required!'),
+    .required('Password is required!'),
 });
 
 export default function RegisterForm() {
