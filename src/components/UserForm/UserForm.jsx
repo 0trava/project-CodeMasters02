@@ -80,8 +80,8 @@ export const UserForm = () => {
   // AVATAR - pre load
   const hadleChangeAvatar = (e) => {
     e.preventDefault();
+
     // const TEST = document.getElementById("file").files[0];
-    const TEST = document.getElementById("file").files[0];
     
     setLoadAvatar(URL.createObjectURL(e.target.files[0]));
     console.log(loadAvatar);
