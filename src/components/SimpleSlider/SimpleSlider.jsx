@@ -21,13 +21,13 @@ export default class SimpleSlider extends Component {
       speed: 500,
       responsive: [
         {
-            breakpoint: 334,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              speed: 500,
-              initialSlide: 0,
-              infinite: true,
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            speed: 500,
+            initialSlide: 0,
+            infinite: true,
             }
           },
         {
@@ -35,8 +35,18 @@ export default class SimpleSlider extends Component {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
+            speed: 600,
             initialSlide: 0,
-            speed: 800,
+            infinite: false,
+          }
+        },
+        {
+          breakpoint: 1439,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            speed: 600,
+            initialSlide: 0,
             infinite: false,
           }
         },
@@ -45,28 +55,22 @@ export default class SimpleSlider extends Component {
             settings: {
               slidesToShow: 2,
               slidesToScroll: 1,
+              speed: 600,
               initialSlide: 0,
               infinite: false,
             }
           },
-    
     ]
     };
 
-
-
     return (
       <div className="SimpleSlider">
-        <h2> Reviews</h2>
+        <h2> Reviews </h2>
         <Slider {...settings} className="slider">
         {listReview.map((review, index ) => {
-              
-             return (
-
+              return (
                 <Review key={index} listReview={review}/>
-
-             )
-            
+              )
           })}
         </Slider>
       </div>
