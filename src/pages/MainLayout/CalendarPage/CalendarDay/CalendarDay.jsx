@@ -1,10 +1,11 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,  useEffect } from 'react';
 import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
 import { fetchTasks } from 'redux/tasks/operation';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { TasksColumnsSchedule } from 'components/ComponentsTasks/TasksColumnsSchedule/TasksColumnsSchedule';
 import { TasksColumn } from 'components/ComponentsTasks/TasksColumn/TasksColumn';
+import { selectTasks } from 'redux/tasks/selectors';
 
 export const CalendarDay = () => {
   const dispatch = useDispatch();
@@ -15,20 +16,45 @@ export const CalendarDay = () => {
 
    useEffect(() => {
     console.log(selectedDate);
-    const dateFrom = new Date(selectedDate).toISOString();
-    const dateTo = new Date(selectedDate).toISOString();
+    let startDay = new Date(selectedDate);
+    startDay.setHours(0);
+    startDay.setMinutes(0);
+    startDay.setSeconds(0);
+    startDay.setMilliseconds(0);
+    const dateFrom = startDay.toISOString();
+
+    let endDay = new Date(selectedDate);
+    endDay.setHours(24);
+    endDay.setMinutes(0);
+    endDay.setSeconds(0);
+    endDay.setMilliseconds(0);
+    const dateTo = endDay.toISOString();
+
     dispatch(fetchTasks({ dateFrom, dateTo }));
   }, [selectDay]);
 
-  // const allTaskForDay = useSelector(state => state.task.task);
-  // console.log(allTaskForDay);
+  // Отримаємо список тасків
+  const allTaskForDay = useSelector(selectTasks);
 
+  // Фільтруємо по статусу виконання ( To do, In progress, Done)
+  //  categorizedArrays.in-progress || categorizedArrays.done  || categorizedArrays.to-do
+  const categorizedArrays = allTaskForDay.reduce((result, currentItem) => {
+    const category = currentItem.category;
+  
+    if (!result[category]) {
+      result[category] = [];
+    }
+  
+    result[category].push(currentItem);
+  
+    return result;
+  }, {});
 
   return (
     <div className="day-calendar-page">
       <DayCalendarHead />
 
-      <TasksColumnsSchedule />
+      <TasksColumnsSchedule tasks={categorizedArrays}/>
     </div>
   );
 };

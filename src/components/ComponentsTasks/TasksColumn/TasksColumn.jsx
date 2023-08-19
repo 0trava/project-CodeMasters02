@@ -11,7 +11,7 @@ import { AddTaskBtn } from '../AddTaskBtn/AddTaskBtn';
 
 const tasksNames = ['To do', 'In progress', 'Done'];
 
-export const TasksColumn = ({ tasks, setTasks }) => {
+export const TasksColumn = ({tasks}) => {
   const [showModal, setShowModal] = useState(false);
   const [action, setAction] = useState('edit');
   const [column, setColumn] = useState('To do');
