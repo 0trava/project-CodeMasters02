@@ -4,7 +4,7 @@ import { fetchTasks } from 'redux/tasks/operation';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { TasksColumnsSchedule } from 'components/ComponentsTasks/TasksColumnsSchedule/TasksColumnsSchedule';
-import { TasksColumn } from 'components/ComponentsTasks/TasksColumn/TasksColumn';
+
 import { selectTasks } from 'redux/tasks/selectors';
 
 export const CalendarDay = () => {
