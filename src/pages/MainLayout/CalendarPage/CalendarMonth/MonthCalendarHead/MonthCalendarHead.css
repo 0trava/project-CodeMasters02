@@ -9,12 +9,11 @@
   /* padding: 16px 16px; */
 
   margin-bottom: 14px;
-
   background: #ffffff;
   border: 1px solid rgba(220, 227, 229, 0.5);
   border-radius: 8px;
 
-  @media (min-width: (768px-0.01px)) {
+  @media (min-width: 769px) {
     display: none;
   }
 }
@@ -23,9 +22,7 @@
   display: none;
   width: 340px;
 
-
-  @media (max-width: 768px) {
-
+  @media (min-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,16 +38,20 @@
     background: #ffffff;
     border: 1px solid rgba(220, 227, 229, 0.8);
     border-radius: 8px;
+  }
 
-    @media (max-width: 1440px) {
-      width: 1087px;
-      height: 46px;
-
-      /* padding: 14px 60px; */
-      margin-bottom: 15px;
-
-      gap: 122px;
+  @media (min-width: 768px) and (max-width: 1440px) {
+    .desktopDayList {
+      width: 704px;
     }
+  }
+}
+@media (min-width: 1440px) {
+  .desktopDayList {
+    width: 100%;
+    height: 46px;
+    margin-bottom: 15px;
+    gap: 122px;
   }
 }
 
