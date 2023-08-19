@@ -39,7 +39,7 @@ export const CalendarDay = () => {
   // Фільтруємо по статусу виконання ( To do, In progress, Done)
   //  categorizedArrays.in-progress || categorizedArrays.done  || categorizedArrays.to-do
   const categorizedArrays = allTaskForDay.reduce((result, currentItem) => {
-    const category = currentItem.category;
+    const category = currentItem.category.replace("-", "");
   
     if (!result[category]) {
       result[category] = [];
@@ -49,6 +49,8 @@ export const CalendarDay = () => {
   
     return result;
   }, {});
+
+  // ___________________________________________________________________
 
   return (
     <div className="day-calendar-page">

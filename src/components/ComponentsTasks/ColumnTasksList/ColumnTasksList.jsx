@@ -1,22 +1,42 @@
 import { TaskCard } from "../TaskCard/TaskCard";
 import './ColumnTasksList.css';
-export const ColumnTasksList = (tasks) => {
+export const ColumnTasksList = ({tasks, column}) => {
   //!!!!!!!!!!!!!!!!!!TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
-  console.log(tasks);
+  let taskRander = [];
+
+  // Перевірка яка Колонка для тасків
+  if (column === "Done") {
+    taskRander = tasks.done;
+  }
+
+  if (column === "In progress") {
+    taskRander = tasks.inprogress;
+    // taskRander = tasks.in-progress ;
+  }
+
+  if (column === "To do") {
+    taskRander = tasks.todo;
+  }
+
   
   return (
     <div className="tasksWrapper">
-      {/* {tasks.map((task, index) => (
-        <TaskCard
-          key={index}
-          task={task}
-          onOpen={onOpen}
-          setAction={setAction}
-          setColumn={setColumn}
-          index={index}
-        />
-      ))} */}
-    </div>
+    { !taskRander ? "" :
+    <>
+    {taskRander.map((task, index) => (
+      <TaskCard
+        key={index}
+        task={task}
+        // onOpen={onOpen}
+        // setAction={setAction}
+        // setColumn={setColumn}
+        index={index}
+      />
+        ))}
+      </>
+      }
+  </div>
+
   );
 };
 

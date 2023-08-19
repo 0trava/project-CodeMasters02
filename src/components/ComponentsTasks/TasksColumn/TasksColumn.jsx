@@ -38,6 +38,7 @@ export const TasksColumn = ({tasks}) => {
 
           <ColumnTasksList
             tasks={tasks}
+
             onOpen={openModal}
             setAction={() => setAction('edit')}
             setColumn={() => setColumn(columnName)}
