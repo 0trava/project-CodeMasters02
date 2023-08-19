@@ -2,7 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-axios.defaults.baseURL = 'https://project-codemasters02-backend.onrender.com/api/';
+axios.defaults.baseURL =
+  'https://project-codemasters02-backend.onrender.com/api/';
 
 const setToken = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -42,6 +43,20 @@ export const login = createAsyncThunk(
   }
 );
 
+export const loginGoogle = createAsyncThunk(
+  'auth/loginGoogle',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const data = credentials;
+      setToken(data.token);
+      Notify.success(`Welcome!!!`);
+      return data;
+    } catch (error) {
+      Notify.failure(`Login failed. Try again`);
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 export const logout = createAsyncThunk(
   'auth/logout',
@@ -56,7 +71,6 @@ export const logout = createAsyncThunk(
   }
 );
 
-
 export const refresh = createAsyncThunk(
   'auth/refresh/fetchCurrentUser',
   async (_, { getState, rejectWithValue }) => {
@@ -66,7 +80,7 @@ export const refresh = createAsyncThunk(
     }
     try {
       setToken(token);
-      
+
       const { data } = await axios.get('users/current');
       return data;
     } catch (error) {

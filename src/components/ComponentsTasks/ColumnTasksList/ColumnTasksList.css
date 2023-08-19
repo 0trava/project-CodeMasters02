@@ -1,6 +1,7 @@
 .tasksWrapper {
   display: flex;
   flex-direction: column;
+  padding-right: 6px;
   gap: 14px;
   max-height: 334px;
   overflow-y: auto;
@@ -9,7 +10,8 @@
   
 
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 12px;
+    height: 12px;
   }
 
   ::-webkit-scrollbar-track {
