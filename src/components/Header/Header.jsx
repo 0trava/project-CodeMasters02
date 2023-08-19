@@ -1,8 +1,7 @@
 import css from './Header.module.css';
 import sprite from '../../images/sprite.svg';
 import { useLocation } from 'react-router-dom';
-import { ToggleTheme } from '../Theme/ToggleTheme';
-//import { ThemeTogglerBtn } from 'components/Header/ThemeTogglerBtn/ThemeTogglerBtn';
+import { ToggleTheme } from './ThemeToggler/ToggleTheme';
 import { FeedbackBtn } from 'components/Header/FeedbackBtn/FeedbackBtn';
 import { UserInfo } from './UserInfo/UserInfo';
 import { FeedbackModal } from './FeedbackModal/FeedbackModal';
