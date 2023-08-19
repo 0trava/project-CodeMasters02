@@ -1,14 +1,23 @@
 import React, { useEffect } from 'react';
 import './CalendarGrid.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getYear, getMonth, getDate, getDay, parseISO } from 'date-fns';
+import {
+  getYear,
+  getMonth,
+  getDate,
+  getDay,
+  parseISO,
+  isSameDay,
+} from 'date-fns';
 import { changeSelectedDate } from '../../../../../redux/date/actions';
 import { fetchTasks } from 'redux/tasks/operation';
-// import { fetchTasks } from 'redux/tasks/operation';
+import { useParams } from 'react-router-dom';
 
 export const CalendarGrid = () => {
+  const { currentDate } = useParams();
   const selectedDate = useSelector(state => state.date);
   const dateObject = parseISO(selectedDate);
+  const tasks = useSelector(state => state.tasks.tasks);
   const dispatch = useDispatch();
 
   const currentYear = getYear(dateObject);
@@ -37,12 +46,23 @@ export const CalendarGrid = () => {
     const dayOfWeek = getDay(date);
     const isWeekend = dayOfWeek === 6 || dayOfWeek === 0;
 
+    const tasksForDay = tasks.filter(task => {
+      return isSameDay(new Date(task.date), date);
+    });
+
+    const tasksElements = tasksForDay.map(task => (
+      <div key={task.id} className="task">
+        {task.title}
+      </div>
+    ));
     calendarGrid.push(
       <div
         key={`day-${day}`}
         className={`calendar-cell ${isWeekend ? 'weekend' : ''}`}
       >
         {day}
+
+        <div>{tasksElements}</div>
       </div>
     );
   }
@@ -63,8 +83,11 @@ export const CalendarGrid = () => {
 
   const handleDayClick = day => {
     // !!!!!!! - DATE - зберігалась на один день назад. Поправила для тесту ------
-    const newDate = new Date(currentYear, currentMonth, day + 1);
-    dispatch(changeSelectedDate(newDate));
+
+    //!!! DATE переробив, щоб визначало саме ту дату, на яку клікнули (можна прив'язати лінк з переходом відразу на задачі вибраного дня)
+
+    const clickedDate = new Date(currentYear, currentMonth, day);
+    dispatch(changeSelectedDate(clickedDate));
   };
 
   return (
@@ -81,8 +104,10 @@ export const CalendarGrid = () => {
                 >
                   <div className="calendar_grid-day">{day.props.children}</div>
                 </td>
+                
               ))}
             </tr>
+            
           ))}
         </tbody>
       </table>
