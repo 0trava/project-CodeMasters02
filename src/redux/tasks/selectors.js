@@ -1,5 +1,3 @@
-export const getTasks = state => state.tasks.tasks;
-export const getIsTasksLoading = state => state.tasks.isLoading;
-export const getError = state => state.tasks.error;
-export const getSavedPeriods = state => state.tasks.savedPeriods;
-export const getActiveDate = state => state.tasks.activeDate;
+export const selectTasks = state => state.tasks.tasks;
+export const selectIsLoading = state => state.tasks.isLoading;
+export const selectError = state => state.tasks.error;

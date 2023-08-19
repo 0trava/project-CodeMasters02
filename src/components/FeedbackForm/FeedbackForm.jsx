@@ -28,7 +28,7 @@ export const FeedbackForm =  ({ onClose }) => {
   // COMMAND - delete review
   const toDelete = async (e) => {
     e.preventDefault();
-    dispatch(deleteReview);
+    // dispatch(deleteReview);
     // eslint-disable-next-line
     await dispatch(deleteReview());
     setValueText("");

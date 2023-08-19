@@ -10,6 +10,7 @@ import BeatLoader from 'react-spinners/BeatLoader';
 
 import { selectToken } from 'redux/auth/selectors';
 import {fetchReviewById} from 'redux/reviews/operations';
+import { fetchTasks } from 'redux/tasks/operation';
 
 export const App = () => {
 

@@ -14,7 +14,7 @@ import storage from 'redux-persist/lib/storage';
 import { authSlice } from './auth/authSlice';
 import { reviewReducer } from './reviews/reviewSlice';
 // import { statisticsReducer } from './statistics/statisticsSlice';
-import { tasksReducer } from './tasks/slice';
+import { tasksReducer } from './tasks/taskSlice';
 import {calendarReducer, dateReducer } from './date/reducer'
 
 

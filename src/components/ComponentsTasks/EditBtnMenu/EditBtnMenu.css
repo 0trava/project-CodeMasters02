@@ -1,0 +1,32 @@
+.EditBtnMenu__btn-block {
+    display: flex;
+    gap: 10px;
+}
+
+.EditBtnMenu_item {
+    background-color: transparent;
+
+    border: none;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: all 0.5sc var(--transition);
+
+}
+
+.EditBtnMenu_icon, .EditBtnMenu_icon use, .EditBtnMenu_item svg  {
+    width: 16px;
+    height: 16px;
+}
+
+.EditBtnMenu_item:hover, .EditBtnMenu_item:focus,
+.EditBtnMenu_item svg:hover, .EditBtnMenu_item svg:focus,
+.EditBtnMenu_icon:hover, .EditBtnMenu_icon:focus{
+    scale: 1.1;
+    fill: rgba(62, 133, 243, 1);
+}
