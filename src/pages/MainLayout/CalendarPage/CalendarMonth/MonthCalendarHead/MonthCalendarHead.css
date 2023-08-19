@@ -14,18 +14,15 @@
   border: 1px solid rgba(220, 227, 229, 0.5);
   border-radius: 8px;
 
-  @media (min-width: (768px-0.01px)) {
+  @media (min-width: 768px) {
     display: none;
   }
 }
 
 .desktopDayList {
   display: none;
-  width: 340px;
 
-
-  @media (max-width: 768px) {
-
+  @media (min-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +39,7 @@
     border: 1px solid rgba(220, 227, 229, 0.8);
     border-radius: 8px;
 
-    @media (max-width: 1440px) {
+    @media (min-width: 1440px) {
       width: 1087px;
       height: 46px;
 
