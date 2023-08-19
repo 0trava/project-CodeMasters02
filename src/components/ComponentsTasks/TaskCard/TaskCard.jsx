@@ -5,13 +5,20 @@ import { EditBtnMenu } from '../EditBtnMenu/EditBtnMenu';
 
 
 
-export const TaskCard = () => {
+export const TaskCard = ({task}) => {
   const { name, avatar } = useSelector(selectUser);
-  const status="Low";
+  const {priority, title} = task;
+  let shortTitle = title;
+  if (shortTitle.lenght > 35) {
+    shortTitle = title.slice(0, 10) + "...";
+  }
+
+
+
 
   return (
   <div className="TaskCard__container">
-    <p className="TaskCard__title">Read and respond to emails and messages...</p>
+    <p className="TaskCard__title">{shortTitle}</p>
     
     <div className='TaskCard__info'>
 
@@ -27,19 +34,19 @@ export const TaskCard = () => {
         </div>
       
       {/* Task Status */}
-      {status === "Low" ? 
+      {priority === "low" ? 
         <div className='TaskCard__status-low'>
         <p className='TaskCard__status-title'>Low</p>
         </div>
       : ""}
 
-      {status === "Medium" ? 
+      {priority === "medium" ? 
         <div className='TaskCard__status-medium'>
         <p className='TaskCard__status-title'>Medium</p>
         </div>
       : ""}
 
-      {status === "High" ? 
+      {priority === "high" ? 
         <div className='TaskCard__status-high'>
         <p className='TaskCard__status-title'>High</p>
         </div>
