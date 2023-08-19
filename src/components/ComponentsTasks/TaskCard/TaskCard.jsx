@@ -7,6 +7,7 @@ import { EditBtnMenu } from '../EditBtnMenu/EditBtnMenu';
 
 export const TaskCard = () => {
   const { name, avatar } = useSelector(selectUser);
+  const status="Low";
 
   return (
   <div className="TaskCard__container">
@@ -26,9 +27,25 @@ export const TaskCard = () => {
         </div>
       
       {/* Task Status */}
-      <div className='TaskCard__status'>
-        <p>TaskCard</p>
-      </div>
+      {status === "Low" ? 
+        <div className='TaskCard__status-low'>
+        <p className='TaskCard__status-title'>Low</p>
+        </div>
+      : ""}
+
+      {status === "Medium" ? 
+        <div className='TaskCard__status-medium'>
+        <p className='TaskCard__status-title'>Medium</p>
+        </div>
+      : ""}
+
+      {status === "High" ? 
+        <div className='TaskCard__status-high'>
+        <p className='TaskCard__status-title'>High</p>
+        </div>
+      : ""}
+
+
 
 
     </div>

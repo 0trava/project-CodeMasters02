@@ -21,6 +21,8 @@
     font-style: normal;
     font-weight: 500;
     line-height: 18px; /* 128.571% */
+    pointer-events: none;
+
 }
 
 /* Avatar */
@@ -44,6 +46,7 @@
     font-weight: 700;
     line-height: 32px; /* 114.286% */
     text-transform: uppercase;
+    /* pointer-events: none; */
 }
 
 .TaskCard__block {
@@ -56,6 +59,7 @@
     display: inline-flex;
     align-items: flex-end;
     justify-content: space-between;
+    /* pointer-events: none; */
 }
 
 .TaskCard__avatar img {
@@ -65,7 +69,8 @@
 
 /* Task Status */
 
-.TaskCard__status {
+.TaskCard__status-low, .TaskCard__status-medium, 
+.TaskCard__status-high {
     display: flex;
     padding: 4px 12px;
     justify-content: center;
@@ -74,10 +79,22 @@
     /* width: 47px;
     height: 20px; */
 
+    
+}
+
+.TaskCard__status-low {
+    background: #72C2F8;
+}
+
+.TaskCard__status-medium {
+    background: #F3B249;
+}
+
+.TaskCard__status-high {
     background: #EA3D65;
 }
 
-.TaskCard__status p {
+.TaskCard__status-title {
     color: #F7F6F9;
     text-align: center;
     font-family: Inter;
@@ -85,4 +102,5 @@
     font-style: normal;
     font-weight: 600;
     line-height: 12px; /* 120% */
+    pointer-events: none;
 }

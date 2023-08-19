@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './CalendarGrid.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getYear, getMonth, getDate, getDay, parseISO } from 'date-fns';
@@ -22,16 +22,11 @@ export const CalendarGrid = () => {
 
   // GET USER TASK LIST ------------------------------------------
 
-
   useEffect(() => {
     const taskFirstDayOfMonth = new Date(firstDayOfMonth).toISOString();
     const taskLastDayOfMonth = new Date(lastDayOfMonth).toISOString();
-    dispatch(fetchTasks({taskFirstDayOfMonth, taskLastDayOfMonth}));
- }, [dispatch, firstDayOfMonth, lastDayOfMonth]);
-
-
-
-  // --------------------------------------------------------------
+    dispatch(fetchTasks({ taskFirstDayOfMonth, taskLastDayOfMonth }));
+  }, [dispatch, firstDayOfMonth, lastDayOfMonth]);
 
   for (let i = 0; i < emptyCells; i++) {
     calendarGrid.push(<div key={`empty-${i}`} className="empty-cell"></div>);
