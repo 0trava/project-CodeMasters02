@@ -11,6 +11,7 @@ export const CalendarDay = () => {
   const dispatch = useDispatch();
   const selectedDate = useSelector(state => state.date);
   const [selectDay, setSelectDay] = useState(selectedDate);
+  const taskList = useSelector(state => state.task);
 
    // GET USER TASK LIST FOR DAY------------------------------------------
 
@@ -31,7 +32,7 @@ export const CalendarDay = () => {
     const dateTo = endDay.toISOString();
 
     dispatch(fetchTasks({ dateFrom, dateTo }));
-  }, [selectDay]);
+  }, [selectDay, dispatch]);
 
   // Отримаємо список тасків
   const allTaskForDay = useSelector(selectTasks);

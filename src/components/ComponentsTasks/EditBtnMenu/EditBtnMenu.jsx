@@ -9,7 +9,12 @@ import sprite from '../../../images/sprite.svg'
 
 // !!!!  ІНФО - треба передати пропсами 3 задачи на кнопки. 
 
-export const EditBtnMenu = () => {
+export const EditBtnMenu = ({clickDelete}) => {
+
+  const handleDeleteClick = (e) => {
+    clickDelete(e); // Call the clickDelete() function from props
+  }
+
   return (
   <div className='EditBtnMenu__btn-block'>
     {/* Перемістити */}
@@ -24,7 +29,7 @@ export const EditBtnMenu = () => {
     </button>
 
     {/* Видалити */}
-    <button className='EditBtnMenu_item' onClick={()=> {}}>
+    <button className='EditBtnMenu_item' onClick={handleDeleteClick}>
       <RiDeleteBinLine className='EditBtnMenu_icon'/>
     </button>
   </div>);
