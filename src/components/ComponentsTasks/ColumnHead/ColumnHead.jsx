@@ -14,7 +14,7 @@ export const ColumnHead = ({ taskName, onOpen, setAction, setColumn }) => {
         }}
       >
         <svg className="taskHeaderIcon">
-          <use href={`${sprite}#icon-plus-square`} />
+          <use href={`${sprite}#icon-plus`} />
         </svg>
       </button>
     </div>
