@@ -1,0 +1,60 @@
+.tasksColumnWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  gap: 16px;
+  padding-bottom: 20px;
+  width: 335px;
+
+  @media (min-width: 768px) {
+    width: 704px;
+  }
+
+  @media (min-width: 1440px) {
+    gap: 27px;
+
+    width: 1087px;
+  }
+}
+
+.tasksColumnWrapper {
+  @media (max-width: 1439px) {
+    ::-webkit-scrollbar {
+      height: 12px;
+      background: #f2f2f2;
+      border-radius: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #e7e5e5;
+      border-radius: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #f2f2f2;
+      border-radius: 12px;
+    }
+  }
+}
+
+.taskItem {
+  display: block;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: center;
+
+  min-width: 335px;
+  min-height: 155px;
+  flex: 1;
+
+  border-radius: 8px;
+  border: 1px solid rgba(220, 227, 229, 0.5);
+  background: #fff;
+
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    min-width: 344px;
+    min-height: 165px;
+  }
+}

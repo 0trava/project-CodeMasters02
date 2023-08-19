@@ -1,15 +1,15 @@
 import React from 'react';
 import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
-import { TaskCard } from 'components/ComponentsTasks/TaskCard/TaskCard';
-import { TaskDrop } from 'components/ComponentsTasks/TaskDrop/TaskDrop';
+
+import { TasksColumnsSchedule } from 'components/ComponentsTasks/TasksColumnsSchedule/TasksColumnsSchedule';
+import { TasksColumn } from 'components/ComponentsTasks/TasksColumn/TasksColumn';
 
 export const CalendarDay = () => {
   return (
     <div className="day-calendar-page">
       <DayCalendarHead />
-      <TaskCard/>
-      <TaskDrop/>
+
+      <TasksColumnsSchedule />
     </div>
   );
 };
-
