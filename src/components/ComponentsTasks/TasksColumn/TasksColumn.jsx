@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './TasksColumn.css';
 
 import { ColumnHead } from '../ColumnHead/ColumnHead';
 import { ColumnTasksList } from '../ColumnTasksList/ColumnTasksList';

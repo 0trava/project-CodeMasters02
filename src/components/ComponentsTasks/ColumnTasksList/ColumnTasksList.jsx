@@ -1,5 +1,5 @@
 import { TaskCard } from "../TaskCard/TaskCard";
-
+import './ColumnTasksList.css';
 export const ColumnTasksList = ({
   
   onOpen,
@@ -7,6 +7,7 @@ export const ColumnTasksList = ({
   setColumn,
  
 }) => {
+  //!!!!!!!!!!!!!!!!!!TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 const testTasks = [
   [
     {

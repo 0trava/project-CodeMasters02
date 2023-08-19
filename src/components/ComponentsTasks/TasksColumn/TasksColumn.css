@@ -1,4 +1,4 @@
-tasksColumnWrapper {
+.tasksColumnWrapper {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
@@ -37,10 +37,10 @@ tasksColumnWrapper {
   }
 }
 
-taskItem {
+.taskItem {
   display: block;
   flex-direction: row;
-  /* flex-grow: 1; */
+  flex-grow: 1;
   align-items: center;
 
   min-width: 335px;
