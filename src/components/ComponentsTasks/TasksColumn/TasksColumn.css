@@ -14,6 +14,7 @@
     gap: 27px;
 
     width: 1087px;
+     overflow-x: hidden;
   }
 }
 
@@ -42,7 +43,7 @@
   flex-direction: row;
   flex-grow: 1;
   align-items: center;
-
+padding: 0 18px 28px 14px;
   min-width: 335px;
   min-height: 155px;
   flex: 1;
