@@ -6,7 +6,13 @@
   border-radius: 8px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+  .calendar-grid {
+    width: 335px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
   .calendar-grid {
     width: 704px;
   }
@@ -18,10 +24,16 @@
   }
 }
 
+@media (m-width: 1440px) {
+  .calendar-grid {
+    width: 704px;
+  }
+}
+
 .calendar-table {
+  width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  width: 100%;
 }
 
 .calendar-cell {
@@ -43,17 +55,19 @@
   transform: scale(1.05);
   transition: transform 0.3s var(--transition);
 
+
   &:hover .calendar-day {
     color: var(--color-white);
     background-color: var(--color-blue);
     transition: transform 0.3s var(--transition);
   }
+
  
 }
 .calendar-day {
   position: absolute;
-  top: 8px;
-  right: 4px;
+  top: 12px;
+  right: 10px;
   padding: 4px 6px;
   background-color: transparent;
   color: var(--text-review);
@@ -64,6 +78,7 @@
   line-height: 1.17;
   text-transform: uppercase;
   display: inline-block;
+
   .calendar-day .task{
       margin-top: 22px;
     }
@@ -84,10 +99,12 @@
 }
 
 @media (max-width: 768px) {
+
   .calendar-cell {
     max-width: calc(704px / 7);
     height: 144px;
   }
+
   .calendar-day {
     gap: 14px;
     padding: 4px 8px;
@@ -96,9 +113,11 @@
 }
 
 @media (min-width: 1440px) {
+
   .calendar-grid {
     width: 1087px;
   }
+
   .calendar-cell {
     max-width: calc(1087px / 7);
     height: 144px;

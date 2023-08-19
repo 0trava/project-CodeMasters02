@@ -102,7 +102,7 @@ export const CalendarGrid = () => {
                   className={day.props.className}
                   onClick={() => handleDayClick(parseInt(day.props.children))}
                 >
-                  <div className="calendar-day">{day.props.children}</div>
+                  <div className="calendar_grid-day">{day.props.children}</div>
                 </td>
                 
               ))}
