@@ -24,9 +24,9 @@ export const CalendarGrid = () => {
 
 
   useEffect(() => {
-    const taskFirstDayOfMonth = new Date(firstDayOfMonth).toISOString();
-    const taskLastDayOfMonth = new Date(lastDayOfMonth).toISOString();
-    dispatch(fetchTasks({taskFirstDayOfMonth, taskLastDayOfMonth}));
+    const dateFrom = new Date(firstDayOfMonth).toISOString();
+    const DateTo = new Date(lastDayOfMonth).toISOString();
+    dispatch(fetchTasks({dateFrom, DateTo}));
  }, [dispatch]);
 
 

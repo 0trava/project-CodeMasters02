@@ -1,75 +1,71 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-export const privateApi = axios.create({
-  baseURL: 'https://project-codemasters02-backend.onrender.com/api/',
-});
+axios.defaults.baseURL = 'https://project-codemasters02-backend.onrender.com/api/';
 
-// GET @ /tasks
+
+
 export const fetchTasks = createAsyncThunk(
-  'tasks/fetchAll',
-  async (params, thunkAPI) => {
+  'tasks/fetchTasks',
+  async (params, { rejectWithValue }) => {
     try {
-      console.log(`tasks?dateFrom=${params.taskFirstDayOfMonth}&dateTo=${params.taskLastDayOfMonth}`);
-      const { data } = await privateApi.get(`tasks?dateFrom=${params.taskFirstDayOfMonth}&dateTo=${params.taskLastDayOfMonth}`);
-      Notify.success(`Welcome, all your tasks.`);
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      console.log(axios.defaults.headers.common.Authorization)
+      const response = await axios.get(`tasks`, {
+        params: {
+          dateFrom: params.dateFrom,
+          dateTo: params.DateTo
+        }
+      });
+      console.log(response);
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e.message);
     }
   }
 );
 
-// POST @ /tasks
 export const addTask = createAsyncThunk(
   'tasks/addTask',
-  async (task, thunkAPI) => {
+  async (task, { rejectWithValue }) => {
     try {
-
       const { data } = await axios.post('tasks', task);
-      Notify.success(`Task added.`);
       return data;
     } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+      return rejectWithValue(e.message);
     }
   }
 );
 
-// PATCH @ /tasks/:id
+export const deleteTask = createAsyncThunk(
+  'tasks/deleteTask',
+  async (taskId, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.delete(`tasks/${taskId}`);
+      return data;
+    } catch (e) {
+      return rejectWithValue(e.message);
+    }
+  }
+);
+
 export const editTask = createAsyncThunk(
   'tasks/editTask',
-  async (data, thunkAPI) => {
-    const { _id, start, end, priority, title, category, date, description } =
-      data;
+  async (
+    { _id, title, start, end, priority, date, category },
+    { rejectWithValue }
+  ) => {
     try {
       const { data } = await axios.patch(`tasks/${_id}`, {
+        title,
         start,
         end,
         priority,
-        title,
         date,
         category,
-        description,
       });
-      Notify.success(`The task has been corrected.`);
-      return data.data.result;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
-    }
-  }
-);
-
-// DELETE @ /tasks/:id
-export const deleteTask = createAsyncThunk(
-  'tasks/deleteTask',
-  async (id, thunkAPI) => {
-    try {
-      const { data } = await axios.delete(`tasks/${id}`);
-      Notify.success(`The task has been deleted.`);
-      return data.data.result._id;
+      return data;
     } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+      return rejectWithValue(e.message);
     }
   }
 );
