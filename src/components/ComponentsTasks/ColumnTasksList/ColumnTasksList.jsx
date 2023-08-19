@@ -1,7 +1,6 @@
 import { TaskCard } from "../TaskCard/TaskCard";
 import './ColumnTasksList.css';
 export const ColumnTasksList = ({tasks, column}) => {
-  //!!!!!!!!!!!!!!!!!!TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
   let taskRander = [];
 
   // Перевірка яка Колонка для тасків
@@ -11,13 +10,12 @@ export const ColumnTasksList = ({tasks, column}) => {
 
   if (column === "In progress") {
     taskRander = tasks.inprogress;
-    // taskRander = tasks.in-progress ;
   }
 
   if (column === "To do") {
     taskRander = tasks.todo;
   }
-
+// -------------------------------------
   
   return (
     <div className="tasksWrapper">
