@@ -18,8 +18,6 @@ export const TaskCard = ({task}) => {
   }
 
 // BUTTON - на видалення.
-console.log(task);
-
 
 const clickDelete = async (e) => {
     e.preventDefault();

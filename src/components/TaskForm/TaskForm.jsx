@@ -5,6 +5,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { addTask, editTask } from '../../redux/tasks/operation';
+import { useState } from 'react';
 
 const taskSchema = yup.object().shape({
   title: yup
@@ -40,9 +41,17 @@ const taskSchema = yup.object().shape({
 });
 
 export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
-  //     const { _id, title, start, end, priority, date } = taskToEdit;
+const [useTitle, setUseTitle] = useState("");
+const [useTimeStart, setUseTimeStart] = useState('09:00');
+const [useTimeEnd, setUseTimeEnd] = useState('14:00');
+const [usePriority, setUsePriority] = useState("low");
+const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g, '-'));
 
-  // const dispatch = useDispatch();
+const {_id, title, priority, start, end, date} = taskToEdit;
+const dispatch = useDispatch();
+
+console.log(useCategory);
+  
 
   //     const handleSubmit = (values, { resetForm }) => {
   //         if (action === 'add') {
@@ -70,10 +79,37 @@ export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
     // category: setCategory(),
   };
 
-  const handleSubmit = (values, action) => {
-    console.log(values);
-    console.log(action);
+
+  // ВІДПРАВКА ФОРМИ
+  const onSubmitFormik = async (e, valuesFormik, actionsFormik) => {
+    e.preventDefault();
+    const title = e.currentTarget.title.value;
+    const start = e.currentTarget.start.value;
+    const end = e.currentTarget.end.value;
+    const priority = e.currentTarget.priority.value;
+    const date = "2023-08-19T07:00:00.000+00:00";
+    const category = useCategory;
+
+    if (title) {
+      const { payload } = await dispatch(addTask({ title, start, end, priority, date, category}));
+      if (
+          payload === 'Request failed with status code 400' ||
+          payload === 'Request failed with status code 401' ||
+          payload === 'Request failed with status code 403' ||
+          payload === 'Request failed with status code 500' ||
+          payload === 'Request failed with status code 409'
+        ) {
+          return;
+        } else  {
+          console.log("BUG")
+        }
+  } else {
+      return;
+  }
+
   };
+
+  
 
   return (
     <div className={css.taskForm_container}>
@@ -85,10 +121,14 @@ export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
       <Formik
         initialValues={initialValues}
         validationSchema={taskSchema}
-        onSubmit={handleSubmit}
+        onSubmit={(values, actions) => {
+          onSubmitFormik(values, actions);
+        }}
       >
-        <Form className={css.form}>
+        <Form className={css.form} onSubmit={onSubmitFormik}>
           <div className={css.title_container}>
+
+{/* TITLE */}
             <label className={css.label} htmlFor="title">
               Title
               <Field
@@ -97,11 +137,13 @@ export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
                 type="text"
                 name="title"
                 placeholder="Enter text"
+                // defaultValue={title ? title : useTitle}
+                
               />
               <ErrorMessage name="title" component="div" />
             </label>
           </div>
-
+{/* START */}
           <div className={css.time_container}>
             <label className={css.label} htmlFor="start">
               Start
@@ -110,6 +152,7 @@ export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
                 id="start"
                 type="time"
                 name="start"
+                // defaultValue={start ? start : useTimeStart}
               />
               <ErrorMessage name="start" component="div" />
             </label>
