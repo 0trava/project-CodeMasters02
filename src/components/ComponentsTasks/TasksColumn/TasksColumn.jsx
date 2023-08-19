@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './TasksColumn.css';
+import css from './TasksColumn.module.css';
 
 import { ColumnHead } from '../ColumnHead/ColumnHead';
 import { ColumnTasksList } from '../ColumnTasksList/ColumnTasksList';
@@ -26,9 +26,9 @@ export const TasksColumn = ({tasks}) => {
   };
 
   return (
-    <div className="tasksColumnWrapper">
+    <div className={css.tasksColumnWrapper}>
       {tasksNames.map(columnName => (
-        <div className="taskItem" key={columnName}>
+      <div className={css.taskItem} key={columnName}>
           <ColumnHead
             taskName={columnName}
             onOpen={openModal}
