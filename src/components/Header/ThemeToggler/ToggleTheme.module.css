@@ -1,33 +1,27 @@
 .btn {
-  cursor: pointer;
-  border-radius: 50px;
-  outline: none;
+  color: transparent;
+  background-color: transparent;
   border: none;
-  background: transparent;
-  width: 24px;
+  padding: 0px;
+  cursor: pointer;
+  margin: 0 8px 0 18px;
   height: 24px;
-  margin-right: 8px;
-  margin-left: 18px;
+  width: 24px;
+
+  @media (min-width: 768px) {
+    margin: 0 14px 0 24px;
+    height: 32px;
+    width: 32px;
+  }
 }
 
 .icon {
   fill: var(--color-blue);
-}
-@media (min-width: 375px) {
-  .icon {
-    width: 24px;
-    height: 24px;
-  }
-}
-@media (min-width: 768px) {
-  .icon {
-    width: 32px;
+  height: 24px;
+  width: 24px;
+
+  @media (min-width: 768px) {
     height: 32px;
-  }
-  .btn {
     width: 32px;
-    height: 32px;
-    margin-right: 14px;
-    margin-left: 24px;
   }
 }
