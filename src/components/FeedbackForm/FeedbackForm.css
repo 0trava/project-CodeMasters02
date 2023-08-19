@@ -144,14 +144,8 @@ scale: 1.1;
   border: none;
   background-color: #E3F3FF;
   cursor: pointer;
-}
-
-.icon_pencil {
   fill: #3E85F3;
-  width: 22px;
-  height: 22px;
-  transition: all 0.5sec var(--transition);
-  z-index: 2;
+  transition: background-color var(--transition), fill var(--transition);
 }
 
 .btn_icon_pencil:hover,
@@ -160,7 +154,6 @@ scale: 1.1;
 .icon_pencil:focus {
 background-color: #3E85F3;
 fill: #ffffff;
-transition: all 0.5sec var(--transition);
 }
 
 .btn_icon_trash {
@@ -170,22 +163,15 @@ transition: all 0.5sec var(--transition);
   border-radius: 50px;
   border: none;
   background-color: rgba(234, 61, 101, 0.20);
+  fill: #ea3d65dd;
   cursor: pointer;
-}
-
-.icon_trash {
-  fill: #EA3D65;
-  width: 22px;
-  height: 22px;
-  transition: all 0.5sec var(--transition);
-  z-index: 2;
+  transition: background-color var(--transition), fill var(--transition);
 }
 
 .btn_icon_trash:hover,
 .btn_icon_trash:focus,
 .icon_trash:hover,
 .icon_trash:focus {
-background-color: #EA3D65;
+background-color: #ea3d65dd;
 fill: #ffffff;
-transition: all 0.5sec var(--transition);
 }

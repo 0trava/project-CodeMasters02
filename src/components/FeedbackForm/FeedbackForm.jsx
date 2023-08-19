@@ -1,5 +1,6 @@
 import React from 'react';
 import './FeedbackForm.css';
+import sprite from '../../images/sprite.svg'
 import { useState } from 'react';
 import { RiPencilLine } from 'react-icons/ri';
 import { RiDeleteBinLine } from 'react-icons/ri';
@@ -116,11 +117,15 @@ export const FeedbackForm =  ({ onClose }) => {
 
           {Review ? (
             <div className="FeedbackForm__btn-changeblock">
-              <button onClick={handleChage}className="btn_icon_pencil">
-                <RiPencilLine className="icon_pencil" />
+              <button onClick={handleChage} className="btn_icon_pencil">
+                <svg width="16" height="16">
+                  <use href={sprite + '#icon-pencil'}></use>
+                </svg>
               </button>
               <button onClick={toDelete} className="btn_icon_trash" >
-                <RiDeleteBinLine className="icon_trash"/>
+                <svg width="16" height="16">
+                  <use href={sprite + '#icon-trash-2'}></use>
+                </svg>
               </button>
             </div>
           ) : (

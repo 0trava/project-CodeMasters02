@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from 'yup';
 import css from './LoginForm.module.css';
+import sprite from '../../images/sprite.svg'
 import { useDispatch } from "react-redux";
 import { login } from 'redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
@@ -155,8 +156,8 @@ const changeVisible = () => {
                                 <div className={css.button_container}>
                                 <button className={css.button} type="submit">
                                     Log In
-                                    <svg width="18" height="18">
-                                        <use href=""></use>
+                                    <svg className={css.icon} width="18" height="18">
+                                        <use href={sprite + '#icon-log-out-01'}></use>
                                     </svg>
                                 </button>
                                 <a href={'https://project-codemasters02-backend.onrender.com/api/auth/google'}>

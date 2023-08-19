@@ -41,34 +41,34 @@ const taskSchema = yup.object().shape({
 });
 
 export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
-const [useTitle, setUseTitle] = useState("");
-const [useTimeStart, setUseTimeStart] = useState('09:00');
-const [useTimeEnd, setUseTimeEnd] = useState('14:00');
-const [usePriority, setUsePriority] = useState("low");
-const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g, '-'));
+// const [useTitle, setUseTitle] = useState("");
+// const [useTimeStart, setUseTimeStart] = useState('09:00');
+// const [useTimeEnd, setUseTimeEnd] = useState('14:00');
+// const [usePriority, setUsePriority] = useState("low");
+// const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g, '-'));
 
-const {_id, title, priority, start, end, date} = taskToEdit;
-const dispatch = useDispatch();
+// const {_id, title, priority, start, end, date} = taskToEdit;
+// const dispatch = useDispatch();
 
-console.log(useCategory);
+// console.log(useCategory);
   
 
-  //     const handleSubmit = (values, { resetForm }) => {
-  //         if (action === 'add') {
-  //             dispatch(addTask(values));
-  //         }
-  //         if (action === 'edit') {
-  //             dispatch(editTask({ _id, ...values }));
-  //         }
-  //         resetForm();
-  //         onClose();
-  //     };
+//   //     const handleSubmit = (values, { resetForm }) => {
+//   //         if (action === 'add') {
+//   //             dispatch(addTask(values));
+//   //         }
+//   //         if (action === 'edit') {
+//   //             dispatch(editTask({ _id, ...values }));
+//   //         }
+//   //         resetForm();
+//   //         onClose();
+//   //     };
 
-  //     const setCategory = () => {
-  //         if (column === 'To do') return 'to-do';
-  //         if (column === 'In progress') return 'in-progress';
-  //         if (column === 'Done') return 'done';
-  //     };
+//   //     const setCategory = () => {
+//   //         if (column === 'To do') return 'to-do';
+//   //         if (column === 'In progress') return 'in-progress';
+//   //         if (column === 'Done') return 'done';
+//   //     };
 
   const initialValues = {
     title: '',
@@ -80,41 +80,41 @@ console.log(useCategory);
   };
 
 
-  // ВІДПРАВКА ФОРМИ
-  const onSubmitFormik = async (e, valuesFormik, actionsFormik) => {
-    e.preventDefault();
-    const title = e.currentTarget.title.value;
-    const start = e.currentTarget.start.value;
-    const end = e.currentTarget.end.value;
-    const priority = e.currentTarget.priority.value;
-    const date = "2023-08-19T07:00:00.000+00:00";
-    const category = useCategory;
+//   // ВІДПРАВКА ФОРМИ
+//   const onSubmitFormik = async (e, valuesFormik, actionsFormik) => {
+//     e.preventDefault();
+//     const title = e.currentTarget.title.value;
+//     const start = e.currentTarget.start.value;
+//     const end = e.currentTarget.end.value;
+//     const priority = e.currentTarget.priority.value;
+//     const date = "2023-08-19T07:00:00.000+00:00";
+//     const category = useCategory;
 
-    if (title) {
-      const { payload } = await dispatch(addTask({ title, start, end, priority, date, category}));
-      if (
-          payload === 'Request failed with status code 400' ||
-          payload === 'Request failed with status code 401' ||
-          payload === 'Request failed with status code 403' ||
-          payload === 'Request failed with status code 500' ||
-          payload === 'Request failed with status code 409'
-        ) {
-          return;
-        } else  {
-          console.log("BUG")
-        }
-  } else {
-      return;
-  }
+//     if (title) {
+//       const { payload } = await dispatch(addTask({ title, start, end, priority, date, category}));
+//       if (
+//           payload === 'Request failed with status code 400' ||
+//           payload === 'Request failed with status code 401' ||
+//           payload === 'Request failed with status code 403' ||
+//           payload === 'Request failed with status code 500' ||
+//           payload === 'Request failed with status code 409'
+//         ) {
+//           return;
+//         } else  {
+//           console.log("BUG")
+//         }
+//   } else {
+//       return;
+//   }
 
-  };
+//   };
 
   
 
   return (
     <div className={css.taskForm_container}>
       <button className={css.button_close_form} type="button" onClick={onClose}>
-        <svg className={css.iconClose}>
+        <svg className={css.button_close_form_icon}>
           <use href={`${sprite}#icon-x-close`} />
         </svg>
       </button>
@@ -122,10 +122,12 @@ console.log(useCategory);
         initialValues={initialValues}
         validationSchema={taskSchema}
         onSubmit={(values, actions) => {
-          onSubmitFormik(values, actions);
+          // onSubmitFormik(values, actions);
         }}
       >
-        <Form className={css.form} onSubmit={onSubmitFormik}>
+        <Form className={css.form}
+        //  onSubmit={onSubmitFormik}
+         >
           <div className={css.title_container}>
 
 {/* TITLE */}
@@ -167,38 +169,34 @@ console.log(useCategory);
             <div className={css.radio}>
               <label htmlFor="low" className={css.label_radio}>
                 <Field
-                  className={css.input_radio_low}
-                  checked
                   id="low"
                   type="radio"
                   name="priority"
                   value="low"
                 />
-                Low
+                <span className={css.input_radio_low}>Low</span> 
               </label>
             </div>
             <div className={css.radio}>
               <label htmlFor="medium" className={css.label_radio}>
                 <Field
-                  className={css.input_radio_medium}
                   id="medium"
                   type="radio"
                   name="priority"
                   value="medium"
                 />
-                Medium
+                <span className={css.input_radio_medium}>Medium</span>
               </label>
             </div>
             <div className={css.radio}>
               <label htmlFor="high" className={css.label_radio}>
                 <Field
-                  className={css.input_radio_high}
                   id="high"
                   type="radio"
                   name="priority"
                   value="high"
                 />
-                High
+                <span className={css.input_radio_high} >High</span>
               </label>
             </div>
           </div>
