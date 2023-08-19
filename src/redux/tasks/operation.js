@@ -13,7 +13,7 @@ export const fetchTasks = createAsyncThunk(
       const response = await axios.get(`tasks`, {
         params: {
           dateFrom: params.dateFrom,
-          dateTo: params.DateTo
+          dateTo: params.dateTo
         }
       });
       console.log(response);

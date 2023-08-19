@@ -23,10 +23,10 @@ export const CalendarGrid = () => {
   // GET USER TASK LIST ------------------------------------------
 
   useEffect(() => {
-    const taskFirstDayOfMonth = new Date(firstDayOfMonth).toISOString();
-    const taskLastDayOfMonth = new Date(lastDayOfMonth).toISOString();
-    dispatch(fetchTasks({ taskFirstDayOfMonth, taskLastDayOfMonth }));
-  }, [dispatch, firstDayOfMonth, lastDayOfMonth]);
+    const dateFrom = new Date(firstDayOfMonth).toISOString();
+    const dateTo = new Date(lastDayOfMonth).toISOString();
+    dispatch(fetchTasks({ dateFrom, dateTo }));
+  }, [dispatch]);
 
   for (let i = 0; i < emptyCells; i++) {
     calendarGrid.push(<div key={`empty-${i}`} className="empty-cell"></div>);
