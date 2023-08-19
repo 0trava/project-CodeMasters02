@@ -1,11 +1,15 @@
+import { TaskForm } from 'components/TaskForm/TaskForm';
 import { Modal } from '../Modal/Modal';
-import {TaskForm} from '../TaskForm/TaskForm';
 
-
-export const TaskModal =({date,onClose,column})=> {
+export const TaskModal =({ onClose, action, column, taskToEdit })=> {
   return (
     <Modal onClose={onClose}>
-      <TaskForm date={date} onClose={onClose} column={column}/>
+      <TaskForm
+        onClose={onClose}
+        action={action}
+        column={column}
+        taskToEdit={taskToEdit}
+      />
     </Modal>
   );
 };
