@@ -4,7 +4,7 @@ import { StatisticsCalendar } from '../StatisticsCalendar/StatisticsCalendar';
 import { format, addDays } from 'date-fns';
 import './StatisticsSection.css';
 import sprite from '../../../images/sprite.svg';
-
+import { StatisticsPage } from '../SimpleBarChart/SimpleBarChart';
 export const StatisticsSection = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -53,7 +53,10 @@ export const StatisticsSection = () => {
           </p>
         </div>
       </div>
-      <div className="chartContainer"></div>
+      <div className="chartContainer">
+        < StatisticsPage/>
+      </div>
+
     </section>
   );
 };
