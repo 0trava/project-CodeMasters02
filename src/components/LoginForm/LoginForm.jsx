@@ -41,7 +41,6 @@ export default function LoginForm() {
   const [passVisible, setPasswordVisible] = useState(false);
 
   const token = searchParams.get('token');
-  console.log(token);
 
   useEffect(() => {
     dispatch(loginGoogle({ token }));
