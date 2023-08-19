@@ -11,7 +11,9 @@ import {
 } from 'date-fns';
 import { changeSelectedDate } from '../../../../../redux/date/actions';
 import { fetchTasks } from 'redux/tasks/operation';
-import { useParams } from 'react-router-dom';
+import { useParams  } from 'react-router-dom';
+import { PeriodPaginator } from '../../CalendarToolbar/PeriodPaginator/PeriodPaginator';
+
 
 export const CalendarGrid = () => {
   const { currentDate } = useParams();
@@ -19,7 +21,7 @@ export const CalendarGrid = () => {
   const dateObject = parseISO(selectedDate);
   const tasks = useSelector(state => state.tasks.tasks);
   const dispatch = useDispatch();
-
+ 
   const currentYear = getYear(dateObject);
   const currentMonth = getMonth(dateObject);
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
@@ -28,6 +30,9 @@ export const CalendarGrid = () => {
 
   const calendarGrid = [];
   const emptyCells = (getDay(firstDayOfMonth) + 6) % 7;
+
+
+
 
   // GET USER TASK LIST ------------------------------------------
 
@@ -51,7 +56,7 @@ export const CalendarGrid = () => {
     });
 
     const tasksElements = tasksForDay.map(task => (
-      <div key={task.id} className="task">
+      <div key={task.id} className={`task ${task.priority}-priority`}>
         {task.title}
       </div>
     ));
@@ -60,9 +65,10 @@ export const CalendarGrid = () => {
         key={`day-${day}`}
         className={`calendar-cell ${isWeekend ? 'weekend' : ''}`}
       >
-        {day}
+        
+        <div className="day_grid-container">{day}</div>
 
-        <div>{tasksElements}</div>
+        <div className="tasks-container">{tasksElements}</div>
       </div>
     );
   }
@@ -102,15 +108,19 @@ export const CalendarGrid = () => {
                   className={day.props.className}
                   onClick={() => handleDayClick(parseInt(day.props.children))}
                 >
-                  <div className="calendar_grid-day">{day.props.children}</div>
+                  <div className="calendar-cell-content">
+
+                    <div className="calendar_grid-day">
+                      <div>{day.props.children}</div>
+                    </div>
+                  </div>
                 </td>
-                
               ))}
             </tr>
-            
           ))}
         </tbody>
       </table>
+      
     </div>
   );
 };
