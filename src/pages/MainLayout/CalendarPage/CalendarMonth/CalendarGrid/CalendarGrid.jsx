@@ -65,10 +65,11 @@ export const CalendarGrid = () => {
         key={`day-${day}`}
         className={`calendar-cell ${isWeekend ? 'weekend' : ''}`}
       >
-        
-        <div className="day_grid-container">{day}</div>
-
         <div className="tasks-container">{tasksElements}</div>
+        <div className="day_grid-container">{day}</div>
+        
+               
+
       </div>
     );
   }
