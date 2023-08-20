@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { StaticticsToolbar } from '../StaticticsToolbar/StaticticsToolbar';
 import { StatisticsCalendar } from '../StatisticsCalendar/StatisticsCalendar';
+import { StatisticsChart } from '../StatisticsChart/StatisticsChart';
 import { format, addDays } from 'date-fns';
 import './StatisticsSection.css';
 import sprite from '../../../images/sprite.svg';
@@ -53,7 +54,9 @@ export const StatisticsSection = () => {
           </p>
         </div>
       </div>
-      <div className="chartContainer"></div>
+      <div className="chartContainer">
+        <StatisticsChart />
+      </div>
     </section>
   );
 };
