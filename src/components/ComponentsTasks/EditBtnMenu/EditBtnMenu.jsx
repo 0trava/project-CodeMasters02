@@ -9,7 +9,7 @@ import sprite from '../../../images/sprite.svg'
 
 // !!!!  ІНФО - треба передати пропсами 3 задачи на кнопки. 
 
-export const EditBtnMenu = ({clickDelete, clickEdit}) => {
+export const EditBtnMenu = ({clickDelete, clickEdit, clickMove}) => {
 
   const handleDeleteClick = (e) => {
     clickDelete(e); // Call the clickDelete() function from props
@@ -19,11 +19,15 @@ export const EditBtnMenu = ({clickDelete, clickEdit}) => {
       clickEdit(e); // Call the clickEdit() function from props
   }
 
+  const handleMoveClick = (e) => {
+    clickMove(e); // Call the clickMove() function from props
+}
+
 
   return (
   <div className='EditBtnMenu__btn-block'>
     {/* Перемістити */}
-    <button className='EditBtnMenu_item' onClick={()=> {}}>
+    <button className='EditBtnMenu_item' onClick={handleMoveClick}>
       <BsBoxArrowRight  className='EditBtnMenu_icon'/>
     </button>
 

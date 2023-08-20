@@ -33,6 +33,13 @@ const clickEdit = (e) => {
   openModal();
 }
 
+// BUTTON MOVE - на пересування
+const clickMove = (e) => {
+  e.preventDefault();
+  
+  console.log()
+}
+
 // MODAL WINDOW-------------------------------
 const [showModal, setShowModal] = useState(false);
 
@@ -93,7 +100,8 @@ const closeModal = () => {
       <EditBtnMenu 
        className="TaskCard__btn"
        clickDelete={clickDelete}
-       clickEdit = {clickEdit} />
+       clickEdit = {clickEdit}
+       clickMove= {clickMove} />
     </div>
     
 
