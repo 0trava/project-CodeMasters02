@@ -74,7 +74,7 @@ export const getStatistics = createAsyncThunk(
   'tasks/getStatistics',
   async (date, { rejectWithValue }) => {
     try {
-      const data = await axios.get('/tasks/statistics', { date });
+      const data = await axios.get('tasks/statistics', { date });
       console.log(data);
       return data;
     } catch (e) {
