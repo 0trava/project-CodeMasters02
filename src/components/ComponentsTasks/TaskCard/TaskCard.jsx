@@ -5,6 +5,9 @@ import { EditBtnMenu } from '../EditBtnMenu/EditBtnMenu';
 import { useDispatch } from "react-redux";
 import { deleteTask } from 'redux/tasks/operation';
 
+import { TaskModal } from 'components/TaskModal/TaskModal';
+import { useState } from 'react';
+
 
 export const TaskCard = ({task}) => {
   const dispatch = useDispatch();
@@ -27,10 +30,23 @@ const clickDelete = async (e) => {
 const clickEdit = (e) => {
   e.preventDefault();
   console.log(_id);
-
+  openModal();
 }
 
+// MODAL WINDOW-------------------------------
+const [showModal, setShowModal] = useState(false);
 
+const openModal = (e) => {
+
+  // setColumn(e.target.id);
+  setShowModal(true);
+};
+
+const closeModal = () => {
+  setShowModal(false);
+};
+
+// ----------------------------------------------
 
 
   return (
@@ -79,7 +95,17 @@ const clickEdit = (e) => {
        clickDelete={clickDelete}
        clickEdit = {clickEdit} />
     </div>
+    
 
+    {showModal && (
+            <TaskModal
+              // action={action}
+              onClose={closeModal}
+              column={""}
+              id= {""}
+              taskToEdit={task}
+            />
+          )}
 
   </div>
   );
