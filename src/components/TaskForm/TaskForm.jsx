@@ -114,7 +114,7 @@ const dispatch = useDispatch();
   return (
     <div className={css.taskForm_container}>
       <button className={css.button_close_form} type="button" onClick={onClose}>
-        <svg className={css.iconClose}>
+        <svg className={css.button_close_form_icon}>
           <use href={`${sprite}#icon-x-close`} />
         </svg>
       </button>
@@ -167,38 +167,34 @@ const dispatch = useDispatch();
             <div className={css.radio}>
               <label htmlFor="low" className={css.label_radio}>
                 <Field
-                  className={css.input_radio_low}
-                  checked
                   id="low"
                   type="radio"
                   name="priority"
                   value="low"
                 />
-                Low
+                <span className={css.input_radio_low}>Low</span> 
               </label>
             </div>
             <div className={css.radio}>
               <label htmlFor="medium" className={css.label_radio}>
                 <Field
-                  className={css.input_radio_medium}
                   id="medium"
                   type="radio"
                   name="priority"
                   value="medium"
                 />
-                Medium
+                <span className={css.input_radio_medium}>Medium</span>
               </label>
             </div>
             <div className={css.radio}>
               <label htmlFor="high" className={css.label_radio}>
                 <Field
-                  className={css.input_radio_high}
                   id="high"
                   type="radio"
                   name="priority"
                   value="high"
                 />
-                High
+                <span className={css.input_radio_high} >High</span>
               </label>
             </div>
           </div>
@@ -206,15 +202,24 @@ const dispatch = useDispatch();
           <div className={css.button_container}>
             {/* {action === 'add' ? (
                     <button type="submit" className={css.button_add}>
-                        Add
-                    </button>                        
+                      <svg className={css.iconPlus}>
+                        <use href={sprite + "#icon-plus-square"}></use>
+                      </svg>
+                      Add
+                    </button>                       
                     ) : (
                     <button type="submit" className={css.button_edit}>
-                        Edit
+                      <svg className={css.iconPencil}>
+                        <use href={sprite + '#icon-pencil'}></use>
+                      </svg>
+                      Edit
                     </button>                        
                     )} */}
 
             <button type="submit" className={css.button_add}>
+              <svg className={css.iconPlus}>
+                <use href={sprite + "#icon-plus-square"}></use>
+              </svg>
               Add
             </button>
             <button
