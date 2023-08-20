@@ -19,7 +19,8 @@ export const FeedbackForm =  ({ onClose }) => {
 
 
   // BUTTON - change review
-  const handleChage = () => {
+  const handleChage = (e) => {
+    e.preventDefault();
     setChangeReview(true);
     document.getElementById('textarea').removeAttribute('readOnly')
   };
@@ -50,8 +51,8 @@ export const FeedbackForm =  ({ onClose }) => {
     const text = valueText;
 
     if ( text || rating) {
-      const { payload } = await dispatch(addReview({ rating, text }));
-      console.log(payload);
+      await dispatch(addReview({ rating, text }));
+
       // onClose();
     } else {
       return;
@@ -142,7 +143,7 @@ export const FeedbackForm =  ({ onClose }) => {
           onChange={changeText}
           placeholder="Enter text"
           defaultValue={Review ? Review : ""}
-          value={valueText}
+          // value={valueText}
           maxLength="300"
           required
         ></textarea>
