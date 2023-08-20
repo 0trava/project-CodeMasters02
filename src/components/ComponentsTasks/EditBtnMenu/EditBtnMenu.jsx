@@ -9,11 +9,16 @@ import './EditBtnMenu.css';
 
 // !!!!  ІНФО - треба передати пропсами 3 задачи на кнопки. 
 
-export const EditBtnMenu = ({clickDelete}) => {
+export const EditBtnMenu = ({clickDelete, clickEdit}) => {
 
   const handleDeleteClick = (e) => {
     clickDelete(e); // Call the clickDelete() function from props
   }
+
+  const handleEditClick = (e) => {
+      clickEdit(e); // Call the clickEdit() function from props
+  }
+
 
   return (
   <div className='EditBtnMenu__btn-block'>
@@ -24,7 +29,7 @@ export const EditBtnMenu = ({clickDelete}) => {
 
 
     {/* Редагувати */}
-    <button className='EditBtnMenu_item' onClick={()=> {}}>
+    <button className='EditBtnMenu_item' onClick={handleEditClick}>
       <RiPencilLine  className='EditBtnMenu_icon'/>
     </button>
 
