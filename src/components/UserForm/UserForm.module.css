@@ -17,9 +17,9 @@
     padding: 60px 164px;
     margin: 0;
     margin-bottom: 32px;
+    margin-top: 32px;
   }
 }
-
 .avatarWrapper {
   display: flex;
   flex-direction: column;
