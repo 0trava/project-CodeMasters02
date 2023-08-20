@@ -60,8 +60,6 @@ export const Header = () => {
       </div>
       {showModal && <FeedbackModal onClose={closeModal} />}
       {showSideBar ? <ModalSideBar setShowSideBar={closeSideBar}/> : ""}
-      
-
     </>
   );
 };
