@@ -4,12 +4,17 @@ import './DayCalendarHead.css';
 const workDayNames = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 const weekendDayNames = ['SAT', 'SUN'];
 
-export const DayCalendarHead = () => {
+export const DayCalendarHead = ({setSelectDay, selectDay}) => {
   const currentDate = new Date();
   const currentDayIndex = currentDate.getDay();
   const days = [...workDayNames, ...weekendDayNames];
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(selectDay);
   const isMobile = window.innerWidth <= 768;
+
+  // Вибрана дата
+  console.log(selectDay);
+
+ 
   useEffect(() => {
     const calendarDayElements = document.querySelectorAll('.calendar-day');
     calendarDayElements.forEach((element) => {
@@ -19,9 +24,22 @@ export const DayCalendarHead = () => {
     });
   }, []);
 
+
+ // ЗМІНА ДАТИ
   const handleDateClick = (date) => {
+
+    let startDay = new Date(date);
+    startDay.setHours(0);
+    startDay.setMinutes(0);
+    startDay.setSeconds(0);
+    startDay.setMilliseconds(0);
+    const dateToChange = startDay.toISOString();
+    setSelectDay(dateToChange);
+
     setSelectedDate(date);
   };
+
+
   return (
     <div className="day-calendar-head">
       {days.map((dayName, index) => {
