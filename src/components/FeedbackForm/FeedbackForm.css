@@ -144,16 +144,17 @@ scale: 1.1;
   border: none;
   background-color: #E3F3FF;
   cursor: pointer;
-  fill: #3E85F3;
-  transition: background-color var(--transition), fill var(--transition);
+  fill: transparent;
+  stroke: #3E85F3;
 }
 
 .btn_icon_pencil:hover,
 .btn_icon_pencil:focus,
-.icon_pencil:hover,
-.icon_pencil:focus {
+.iconPencil:hover,
+.iconPencil:focus {
 background-color: #3E85F3;
-fill: #ffffff;
+fill: transparent;
+stroke: #ffffff;
 }
 
 .btn_icon_trash {
@@ -165,7 +166,6 @@ fill: #ffffff;
   background-color: rgba(234, 61, 101, 0.20);
   fill: #ea3d65dd;
   cursor: pointer;
-  transition: background-color var(--transition), fill var(--transition);
 }
 
 .btn_icon_trash:hover,

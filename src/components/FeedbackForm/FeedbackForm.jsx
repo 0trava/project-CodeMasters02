@@ -118,7 +118,7 @@ export const FeedbackForm =  ({ onClose }) => {
           {Review ? (
             <div className="FeedbackForm__btn-changeblock">
               <button onClick={handleChage} className="btn_icon_pencil">
-                <svg width="16" height="16">
+                <svg className="iconPencil" width="16" height="16">
                   <use href={sprite + '#icon-pencil'}></use>
                 </svg>
               </button>

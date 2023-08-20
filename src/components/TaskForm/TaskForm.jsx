@@ -12,7 +12,7 @@ const taskSchema = yup.object().shape({
     .string()
     .max(250, 'Title must be 250 characters or less.')
     .required('Title is required!'),
-  start: yup.string().required('Start time is required!'), //?????????????????????
+  start: yup.string().required('Start time is required!'),
   end: yup
     .string()
     .required('End time is required!')
@@ -28,7 +28,7 @@ const taskSchema = yup.object().shape({
         }
         return true;
       }
-    ), //???????????????????????
+    ), //???????????
   priority: yup
     .string()
     .oneOf(['low', 'medium', 'high'])
@@ -41,34 +41,33 @@ const taskSchema = yup.object().shape({
 });
 
 export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
-// const [useTitle, setUseTitle] = useState("");
-// const [useTimeStart, setUseTimeStart] = useState('09:00');
-// const [useTimeEnd, setUseTimeEnd] = useState('14:00');
-// const [usePriority, setUsePriority] = useState("low");
-// const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g, '-'));
+const [useTitle, setUseTitle] = useState("");
+const [useTimeStart, setUseTimeStart] = useState('09:00');
+const [useTimeEnd, setUseTimeEnd] = useState('14:00');
+const [usePriority, setUsePriority] = useState("low");
+const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g, '-'));
 
-// const {_id, title, priority, start, end, date} = taskToEdit;
-// const dispatch = useDispatch();
+const {_id, title, priority, start, end, date} = taskToEdit;
+const dispatch = useDispatch();
 
 // console.log(useCategory);
-  
 
-//   //     const handleSubmit = (values, { resetForm }) => {
-//   //         if (action === 'add') {
-//   //             dispatch(addTask(values));
-//   //         }
-//   //         if (action === 'edit') {
-//   //             dispatch(editTask({ _id, ...values }));
-//   //         }
-//   //         resetForm();
-//   //         onClose();
-//   //     };
+  //     const handleSubmit = (values, { resetForm }) => {
+  //         if (action === 'add') {
+  //             dispatch(addTask(values));
+  //         }
+  //         if (action === 'edit') {
+  //             dispatch(editTask({ _id, ...values }));
+  //         }
+  //         resetForm();
+  //         onClose();
+  //     };
 
-//   //     const setCategory = () => {
-//   //         if (column === 'To do') return 'to-do';
-//   //         if (column === 'In progress') return 'in-progress';
-//   //         if (column === 'Done') return 'done';
-//   //     };
+  //     const setCategory = () => {
+  //         if (column === 'To do') return 'to-do';
+  //         if (column === 'In progress') return 'in-progress';
+  //         if (column === 'Done') return 'done';
+  //     };
 
   const initialValues = {
     title: '',
@@ -80,36 +79,33 @@ export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
   };
 
 
-//   // ВІДПРАВКА ФОРМИ
-//   const onSubmitFormik = async (e, valuesFormik, actionsFormik) => {
-//     e.preventDefault();
-//     const title = e.currentTarget.title.value;
-//     const start = e.currentTarget.start.value;
-//     const end = e.currentTarget.end.value;
-//     const priority = e.currentTarget.priority.value;
-//     const date = "2023-08-19T07:00:00.000+00:00";
-//     const category = useCategory;
+  // ВІДПРАВКА ФОРМИ
+  const onSubmitFormik = async (e, valuesFormik, actionsFormik) => {
+    e.preventDefault();
+    const title = e.currentTarget.title.value;
+    const start = e.currentTarget.start.value;
+    const end = e.currentTarget.end.value;
+    const priority = e.currentTarget.priority.value;
+    const date = "2023-08-19T07:00:00.000+00:00";
+    const category = useCategory;
 
-//     if (title) {
-//       const { payload } = await dispatch(addTask({ title, start, end, priority, date, category}));
-//       if (
-//           payload === 'Request failed with status code 400' ||
-//           payload === 'Request failed with status code 401' ||
-//           payload === 'Request failed with status code 403' ||
-//           payload === 'Request failed with status code 500' ||
-//           payload === 'Request failed with status code 409'
-//         ) {
-//           return;
-//         } else  {
-//           console.log("BUG")
-//         }
-//   } else {
-//       return;
-//   }
-
-//   };
-
-  
+    if (title) {
+      const { payload } = await dispatch(addTask({ title, start, end, priority, date, category}));
+      if (
+          payload === 'Request failed with status code 400' ||
+          payload === 'Request failed with status code 401' ||
+          payload === 'Request failed with status code 403' ||
+          payload === 'Request failed with status code 500' ||
+          payload === 'Request failed with status code 409'
+        ) {
+          return;
+        } else  {
+          console.log("BUG")
+        }
+  } else {
+      return;
+  }
+};
 
   return (
     <div className={css.taskForm_container}>
@@ -122,11 +118,11 @@ export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
         initialValues={initialValues}
         validationSchema={taskSchema}
         onSubmit={(values, actions) => {
-          // onSubmitFormik(values, actions);
+          onSubmitFormik(values, actions);
         }}
       >
         <Form className={css.form}
-        //  onSubmit={onSubmitFormik}
+         onSubmit={onSubmitFormik}
          >
           <div className={css.title_container}>
 
@@ -204,15 +200,24 @@ export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
           <div className={css.button_container}>
             {/* {action === 'add' ? (
                     <button type="submit" className={css.button_add}>
-                        Add
-                    </button>                        
+                      <svg className={css.iconPlus}>
+                        <use href={sprite + "#icon-plus-square"}></use>
+                      </svg>
+                      Add
+                    </button>                       
                     ) : (
                     <button type="submit" className={css.button_edit}>
-                        Edit
+                      <svg className={css.iconPencil}>
+                        <use href={sprite + '#icon-pencil'}></use>
+                      </svg>
+                      Edit
                     </button>                        
                     )} */}
 
             <button type="submit" className={css.button_add}>
+              <svg className={css.iconPlus}>
+                <use href={sprite + "#icon-plus-square"}></use>
+              </svg>
               Add
             </button>
             <button
