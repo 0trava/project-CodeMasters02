@@ -2,7 +2,7 @@ import sprite from '../../images/sprite.svg';
 import css from './TaskForm.module.css'; 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 // import * as yup from 'yup';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { addTask, editTask } from '../../redux/tasks/operation';
 import { useState } from 'react';
 
@@ -46,58 +46,27 @@ const useTimeStart = '09:00';
 const useTimeEnd ='14:00';
 const [usePriority, setUsePriority] = useState("low");
 const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g, '-'));
-
-// const selectedDate = useSelector(state => state.date);  // !!!! Date -  
-const [useDay, setUseDay] = useState(new Date());
-
+const selectedDate = useSelector(state => state.date);
 
 const {_id, title, priority, start, end, date, category} = taskToEdit;
 const dispatch = useDispatch();
-
-// if (_id) {
-//   setUseTitle(title);
-//   setUseTimeStart(start);
-//   setUseTimeEnd(end);
-//   setUsePriority(priority);
-//   setUseCategory(category);
-//   setUseDay(date);
-// }
-
-  //     const handleSubmit = (values, { resetForm }) => {
-  //         if (action === 'add') {
-  //             dispatch(addTask(values));
-  //         }
-  //         if (action === 'edit') {
-  //             dispatch(editTask({ _id, ...values }));
-  //         }
-  //         resetForm();
-  //         onClose();
-  //     };
-
-  //     const setCategory = () => {
-  //         if (column === 'To do') return 'to-do';
-  //         if (column === 'In progress') return 'in-progress';
-  //         if (column === 'Done') return 'done';
-  //     };
-
 
   // ВІДПРАВКА ФОРМИ
   const onSubmitFormik = (e, valuesFormik, actionsFormik) => {
     e.preventDefault();
   
-
+// Add task
   if (!_id) {
       const title = e.currentTarget.title.value;
       const start = e.currentTarget.start.value;
       const end = e.currentTarget.end.value;
-      let priority = usePriority;
-      
-      const date = new Date().toISOString();
-      // Дата розібратись
+      const priority = usePriority;   
+      const date = selectedDate;
       const category = useCategory;
 
       dispatch(addTask({ title, start, end, priority, date, category}));
-  
+      onClose();
+// Edit task
   } else {
     const title = e.currentTarget.title.value;
     const start = e.currentTarget.start.value;
@@ -105,9 +74,7 @@ const dispatch = useDispatch();
     const priority = e.currentTarget.priority.value;
 
     dispatch(editTask({ _id, title, start, end, priority, date, category}));
-
-
-      return;
+    onClose();
   }
 
   };
@@ -122,7 +89,6 @@ const dispatch = useDispatch();
         </svg>
       </button>
       <Formik
-        // initialValues={initialValues}
         // validationSchema={taskSchema}
         onSubmit={(values, actions) => {
           onSubmitFormik(values, actions);
