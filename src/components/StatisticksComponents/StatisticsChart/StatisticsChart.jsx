@@ -11,9 +11,9 @@ import {
   Tooltip,
 } from 'recharts';
 import './StatisticsChart.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectStatistics } from 'redux/tasks/selectors';
-import { getStatistics } from 'redux/tasks/operation';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { selectStatistics } from 'redux/tasks/selectors';
+// import { getStatistics } from 'redux/tasks/operation';
 
 const data = [
   {
@@ -40,15 +40,15 @@ const dataWithPercentageSymbol = data.map(entry => ({
 }));
 
 export const StatisticsChart = data => {
-  const dispatch = useDispatch();
-  const date = useSelector(state => state.date);
-  const statistics = useSelector(selectStatistics);
-  console.log(statistics);
-  useEffect(() => {
-    if (date !== '') {
-      dispatch(getStatistics(date));
-    }
-  }, [dispatch, date]);
+  // const dispatch = useDispatch();
+  // const date = useSelector(state => state.date);
+  // const statistics = useSelector(selectStatistics);
+  // console.log(statistics);
+  // useEffect(() => {
+  //   if (date !== '') {
+  //     dispatch(getStatistics(date));
+  //   }
+  // }, [dispatch, date]);
 
   // const dataWithPercentageSymbol = data.map(entry => ({
   //   ...entry,
