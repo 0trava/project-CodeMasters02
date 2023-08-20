@@ -1,49 +1,49 @@
 import sprite from '../../images/sprite.svg';
 import css from './TaskForm.module.css'; 
-// import { RiCloseLine } from 'react-icons/ri';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import * as yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+// import * as yup from 'yup';
+import { useDispatch} from 'react-redux';
 import { addTask, editTask } from '../../redux/tasks/operation';
 import { useState } from 'react';
 
-const taskSchema = yup.object().shape({
-  title: yup
-    .string()
-    .max(250, 'Title must be 250 characters or less.')
-    .required('Title is required!'),
-  start: yup.string().required('Start time is required!'), //?????????????????????
-  end: yup
-    .string()
-    .required('End time is required!')
-    .test(
-      'is-greater',
-      'End time should be greater than start time',
-      function (value) {
-        const { start } = this.parent;
-        if (start && value) {
-          const startTime = new Date(`2000-01-01T${start}`);
-          const endTime = new Date(`2000-01-01T${value}`);
-          return endTime > startTime;
-        }
-        return true;
-      }
-    ), //???????????????????????
-  priority: yup
-    .string()
-    .oneOf(['low', 'medium', 'high'])
-    .required('Priority is required'),
-  date: yup.date().required('Date is required'),
-  category: yup
-    .string()
-    .oneOf(['to-do', 'in-progress', 'done'])
-    .required('Category is required'),
-});
+// const taskSchema = yup.object().shape({
+//   title: yup
+//     .string()
+//     .max(250, 'Title must be 250 characters or less.')
+//     .required('Title is required!'),
+//   start: yup.string().required('Start time is required!'), 
+//   end: yup
+//     .string()
+//     .required('End time is required!')
+//     .test(
+//       'is-greater',
+//       'End time should be greater than start time',
+//       function (value) {
+//         const { start } = this.parent;
+//         if (start && value) {
+//           const startTime = new Date(`2000-01-01T${start}`);
+//           const endTime = new Date(`2000-01-01T${value}`);
+//           return endTime > startTime;
+//         }
+//         return true;
+//       }
+//     ), 
+//   priority: yup
+//     .string()
+//     .oneOf(['low', 'medium', 'high'])
+//     .required('Priority is required'),
+//   date: yup.date().required('Date is required'),
+//   category: yup
+//     .string()
+//     .oneOf(['to-do', 'in-progress', 'done'])
+//     .required('Category is required'),
+// });
 
 export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
-const [useTitle, setUseTitle] = useState("");
-const [useTimeStart, setUseTimeStart] = useState('09:00');
-const [useTimeEnd, setUseTimeEnd] = useState('14:00');
+
+const useTitle = "";
+const useTimeStart = '09:00';
+const useTimeEnd ='14:00';
 const [usePriority, setUsePriority] = useState("low");
 const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g, '-'));
 
@@ -53,8 +53,6 @@ const [useDay, setUseDay] = useState(new Date());
 
 const {_id, title, priority, start, end, date, category} = taskToEdit;
 const dispatch = useDispatch();
-
-console.log(taskToEdit);
 
 // if (_id) {
 //   setUseTitle(title);
@@ -84,7 +82,7 @@ console.log(taskToEdit);
 
 
   // ВІДПРАВКА ФОРМИ
-  const onSubmitFormik = async (e, valuesFormik, actionsFormik) => {
+  const onSubmitFormik = (e, valuesFormik, actionsFormik) => {
     e.preventDefault();
   
 
@@ -92,12 +90,13 @@ console.log(taskToEdit);
       const title = e.currentTarget.title.value;
       const start = e.currentTarget.start.value;
       const end = e.currentTarget.end.value;
-      const priority = e.currentTarget.priority.value;
+      let priority = usePriority;
+      
       const date = new Date().toISOString();
       // Дата розібратись
       const category = useCategory;
 
-      await dispatch(addTask({ title, start, end, priority, date, category}));
+      dispatch(addTask({ title, start, end, priority, date, category}));
   
   } else {
     const title = e.currentTarget.title.value;
@@ -105,7 +104,7 @@ console.log(taskToEdit);
     const end = e.currentTarget.end.value;
     const priority = e.currentTarget.priority.value;
 
-    await dispatch(editTask({ _id, title, start, end, priority, date, category}));
+    dispatch(editTask({ _id, title, start, end, priority, date, category}));
 
 
       return;
@@ -182,7 +181,7 @@ console.log(taskToEdit);
                   type="radio"
                   name="priority"
                   value="low"
-                  defaultValue={priority === "low" ? true : false}
+                  checked={priority === "low"}
                 />
                 <span className={css.input_radio_low}>Low</span> 
               </label>
@@ -194,7 +193,7 @@ console.log(taskToEdit);
                   type="radio"
                   name="priority"
                   value="medium"
-                  defaultValue={priority === "medium" ? true : false}
+                  checked={priority === "medium"} 
                 />
                 <span className={css.input_radio_medium}>Medium</span>
               </label>
@@ -206,7 +205,7 @@ console.log(taskToEdit);
                   type="radio"
                   name="priority"
                   value="high"
-                  defaultValue={priority === "high" ? true : false}
+                  checked={priority === "high"} 
                 />
                 <span className={css.input_radio_high} >High</span>
               </label>
