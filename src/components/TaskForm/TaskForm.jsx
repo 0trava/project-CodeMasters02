@@ -50,8 +50,6 @@ const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g
 const {_id, title, priority, start, end, date} = taskToEdit;
 const dispatch = useDispatch();
 
-// console.log(useCategory);
-console.log(useCategory);
   
 
   //     const handleSubmit = (values, { resetForm }) => {
