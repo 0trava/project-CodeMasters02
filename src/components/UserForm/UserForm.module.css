@@ -188,6 +188,10 @@
   }
 }
 
+.new__avatar {
+  z-index: 1;
+}
+
 .UserForm__avatar img {
   position: absolute;
   width: 72px;
@@ -208,7 +212,7 @@
   width: 24px;
   height: 24px;
   fill: #3E85F32E;
-
+  cursor: pointer;
 
 }
 
