@@ -43,10 +43,12 @@ export default function LoginForm() {
   const token = searchParams.get('token');
 
   useEffect(() => {
-    if (token !== '') {
+    if (token) {
       dispatch(loginGoogle({ token }));
+      // .then(() => navigate('/calendar'))
+      // .catch(() => navigate('/login'));
     }
-  }, [token, dispatch]);
+  }, [token, dispatch, navigate]);
 
   // Change vibility for Password
   const changeVisible = () => {
