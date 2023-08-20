@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './CalendarGrid.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getYear, getMonth, getDate, getDay, parseISO } from 'date-fns';
+import { getYear, getMonth, getDate, getDay, parseISO, format  } from 'date-fns';
 import { changeSelectedDate } from '../../../redux/date/actions';
 import { fetchTasks } from 'redux/tasks/operation';
+import { useHistory } from 'react-router-dom';
 
 export const CalendarGrid = () => {
   const selectedDate = useSelector(state => state.date);
@@ -17,6 +18,10 @@ export const CalendarGrid = () => {
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
   const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
   const daysInMonth = getDate(lastDayOfMonth);
+  const currentDate = getDay(dateObject);
+  const shortFormat = 'yyyy-MM-dd';
+  const date1 = new Date(currentDate);  
+  const formattedDate1 = format(date1, shortFormat);
 
   const calendarGrid = [];
   const emptyCells = (getDay(firstDayOfMonth) + 6) % 7;
@@ -25,10 +30,17 @@ export const CalendarGrid = () => {
   // Перевірка що токен валідний
   useEffect(async() => {
      await dispatch(fetchTasks(`dateFrom:${firstDayOfMonth}&dateTo:${lastDayOfMonth}`));
-  }, [dispatch]);
 
+  }, [dispatch, firstDayOfMonth, lastDayOfMonth ]);
 
+  const history = useHistory();
+  const [redirectToDay, setRedirectToDay] = useState(null);
 
+useEffect(() => {
+    if (redirectToDay) {
+      history.push(`/calendar/day/${redirectToDay}`);
+    }
+  }, [redirectToDay, history]);
 
   // --------------------------------------------------------------
 
@@ -42,11 +54,13 @@ export const CalendarGrid = () => {
     const isWeekend = dayOfWeek === 6 || dayOfWeek === 0;
   
     calendarGrid.push(
+     <div className="day-wrapper" > 
       <div
         key={`day-${day}`}
         className={`calendar-cell ${isWeekend ? 'weekend' : ''}`}
       >
         {day}
+      </div>
       </div>
     );
   }
@@ -65,13 +79,16 @@ export const CalendarGrid = () => {
 
   weeks.push(currentWeek);
 
+ 
+
   const handleDayClick = (day) => {
 
 // !!!!!!! - DATE - зберігалась на один день назад. Поправила для тесту ------
-    const newDate = new Date(currentYear, currentMonth, day + 1);
+    const newDate = new Date(currentYear, currentMonth, Date);
     dispatch(changeSelectedDate(newDate));
+    setRedirectToDay(formattedDate1); 
   };
-
+  console.log(Date);
   return (
     <div className="calendar-grid">
       <table className="calendar-table">

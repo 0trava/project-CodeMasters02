@@ -58,6 +58,21 @@
 }
 
 .calendar_grid-day {
+ 
+  top: 12px;
+  right: 10px;
+  padding: 4px 6px;
+  background-color: transparent;
+  color: var(--text-review);
+  border-radius: 6px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.17;
+  z-index: 99;
+  
+  }
+.day_grid-container{
   position: absolute;
   top: 12px;
   right: 10px;
@@ -69,8 +84,11 @@
   font-size: 12px;
   font-weight: 700;
   line-height: 1.17;
-  text-transform: uppercase;
-  display: inline-block;
+}
+
+.day-wrapper{
+  width: 100%;
+  position: relative;
 }
 
 @media (max-width: 375px) {
@@ -126,13 +144,13 @@
 }
 
 .tasks-container {
-  width: auto;
-  display: flex;
+  margin-top: 30px;
+ 
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: left;
-
   width: auto;
   overflow-y: auto;
   overflow: hidden;
