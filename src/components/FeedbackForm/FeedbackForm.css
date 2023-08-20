@@ -75,6 +75,7 @@ scale: 1.1;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
+  resize: none;
 }
 
 .FeedbackForm__btn, .FeedbackForm__btn-cansel {

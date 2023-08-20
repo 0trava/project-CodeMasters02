@@ -243,6 +243,11 @@ a:link {
         right: 15px;
         color: var(--color-task-high);
     }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 @media (min-width:1440px) {
@@ -251,3 +256,9 @@ a:link {
     }
 }
 
+.icon {
+    width: 18px;
+    height: 18px;
+    fill: transparent;
+    stroke: #ffffff; 
+}
