@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeSelectedDate } from 'redux/date/actions';
 import './DayCalendarHead.css';
 
@@ -8,16 +8,16 @@ const weekendDayNames = ['SAT', 'SUN'];
 
 export const DayCalendarHead = ({   setSelectDay, selectDay}) => {
   const currentDate = new Date();
-  
+  const selectedDate = useSelector(state => state.date);
   const days = [...workDayNames, ...weekendDayNames];
-  const [selectedDate, setSelectedDate] = useState(selectDay);
+  // const [selectedDate, setSelectedDate] = useState(selectDay);
   const isMobile = window.innerWidth <= 768;
   const currentDayIndex = currentDate.getDay();
   const dispatch = useDispatch();
 
 
   // Вибрана дата
-  console.log(selectDay);
+  console.log(selectedDate);
 
  
   useEffect(() => {
@@ -81,7 +81,7 @@ export const DayCalendarHead = ({   setSelectDay, selectDay}) => {
               <div className="short-day-name">{dayName.charAt(0)}</div>
             ) : null}
             <div className="day-name">{dayName}</div>
-            <div className="day-date">{day.getDate()}</div>
+            <div className="day-date" id={day.getDate()}>{day.getDate()}</div>
           </div>
         );
       })}

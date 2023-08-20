@@ -49,6 +49,13 @@
     color: var(--color-white);
     
   }
+
+}
+
+.active{
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  
 }
 
 .highlighted-day {
