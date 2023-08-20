@@ -195,8 +195,8 @@ export default function RegisterForm() {
                 <div className={css.button_container}>
                   <button className={css.button} type="submit">
                     Sign Up
-                    <svg className={css.icon} width="18" height="18">
-                      <use href={sprite + '#icon-log-out-01'}></use>
+                    <svg className={css.icon}>
+                      <use href={sprite + '#icon-log-in'}></use>
                     </svg>
                   </button>
                   <a

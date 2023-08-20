@@ -3,7 +3,7 @@ import css from './TaskForm.module.css';
 // import { RiCloseLine } from 'react-icons/ri';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTask, editTask } from '../../redux/tasks/operation';
 import { useState } from 'react';
 
@@ -40,17 +40,30 @@ const taskSchema = yup.object().shape({
     .required('Category is required'),
 });
 
-export const TaskForm = ({ onClose, action, column, taskToEdit }, ) => {
+export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
 const [useTitle, setUseTitle] = useState("");
 const [useTimeStart, setUseTimeStart] = useState('09:00');
 const [useTimeEnd, setUseTimeEnd] = useState('14:00');
 const [usePriority, setUsePriority] = useState("low");
 const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g, '-'));
 
-const {_id, title, priority, start, end, date} = taskToEdit;
+// const selectedDate = useSelector(state => state.date);  // !!!! Date -  
+const [useDay, setUseDay] = useState(new Date());
+
+
+const {_id, title, priority, start, end, date, category} = taskToEdit;
 const dispatch = useDispatch();
 
-  
+console.log(taskToEdit);
+
+// if (_id) {
+//   setUseTitle(title);
+//   setUseTimeStart(start);
+//   setUseTimeEnd(end);
+//   setUsePriority(priority);
+//   setUseCategory(category);
+//   setUseDay(date);
+// }
 
   //     const handleSubmit = (values, { resetForm }) => {
   //         if (action === 'add') {
@@ -69,41 +82,32 @@ const dispatch = useDispatch();
   //         if (column === 'Done') return 'done';
   //     };
 
-  const initialValues = {
-    title: '',
-    start: '09:00',
-    end: '14:00',
-    priority: 'low',
-    date: new Date(),
-    // category: setCategory(),
-  };
-
 
   // ВІДПРАВКА ФОРМИ
   const onSubmitFormik = async (e, valuesFormik, actionsFormik) => {
     e.preventDefault();
+  
+
+  if (!_id) {
+      const title = e.currentTarget.title.value;
+      const start = e.currentTarget.start.value;
+      const end = e.currentTarget.end.value;
+      const priority = e.currentTarget.priority.value;
+      const date = new Date().toISOString();
+      // Дата розібратись
+      const category = useCategory;
+
+      await dispatch(addTask({ title, start, end, priority, date, category}));
+  
+  } else {
     const title = e.currentTarget.title.value;
     const start = e.currentTarget.start.value;
     const end = e.currentTarget.end.value;
     const priority = e.currentTarget.priority.value;
-    const date = "2023-08-20T07:00:00.000+00:00";
-    const category = useCategory;
-    
 
-    if (title) {
-      const { payload } = await dispatch(addTask({ title, start, end, priority, date, category}));
-      if (
-          payload === 'Request failed with status code 400' ||
-          payload === 'Request failed with status code 401' ||
-          payload === 'Request failed with status code 403' ||
-          payload === 'Request failed with status code 500' ||
-          payload === 'Request failed with status code 409'
-        ) {
-          return;
-        } else  {
-          console.log("BUG")
-        }
-  } else {
+    await dispatch(editTask({ _id, title, start, end, priority, date, category}));
+
+
       return;
   }
 
@@ -119,8 +123,8 @@ const dispatch = useDispatch();
         </svg>
       </button>
       <Formik
-        initialValues={initialValues}
-        validationSchema={taskSchema}
+        // initialValues={initialValues}
+        // validationSchema={taskSchema}
         onSubmit={(values, actions) => {
           onSubmitFormik(values, actions);
         }}
@@ -137,7 +141,7 @@ const dispatch = useDispatch();
                 type="text"
                 name="title"
                 placeholder="Enter text"
-                // defaultValue={title ? title : useTitle}
+                defaultValue={title ? title : useTitle}
                 
               />
               <ErrorMessage name="title" component="div" />
@@ -152,25 +156,33 @@ const dispatch = useDispatch();
                 id="start"
                 type="time"
                 name="start"
-                // defaultValue={start ? start : useTimeStart}
+                defaultValue={start ? start : useTimeStart}
               />
               <ErrorMessage name="start" component="div" />
             </label>
+{/* END */}
             <label className={css.label} htmlFor="end">
               End
-              <Field className={css.input} id="end" type="time" name="end" />
+              <Field className={css.input}
+               id="end" 
+               type="time" 
+               name="end"
+               defaultValue={end ? end : useTimeEnd}
+                />
               <ErrorMessage name="end" component="div" />
             </label>
           </div>
 
           <div className={css.radiobuttons_container}>
             <div className={css.radio}>
+{/* Priority */}
               <label htmlFor="low" className={css.label_radio}>
                 <Field
                   id="low"
                   type="radio"
                   name="priority"
                   value="low"
+                  defaultValue={priority === "low" ? true : false}
                 />
                 <span className={css.input_radio_low}>Low</span> 
               </label>
@@ -182,6 +194,7 @@ const dispatch = useDispatch();
                   type="radio"
                   name="priority"
                   value="medium"
+                  defaultValue={priority === "medium" ? true : false}
                 />
                 <span className={css.input_radio_medium}>Medium</span>
               </label>
@@ -193,6 +206,7 @@ const dispatch = useDispatch();
                   type="radio"
                   name="priority"
                   value="high"
+                  defaultValue={priority === "high" ? true : false}
                 />
                 <span className={css.input_radio_high} >High</span>
               </label>
@@ -200,28 +214,23 @@ const dispatch = useDispatch();
           </div>
 
           <div className={css.button_container}>
-            {/* {action === 'add' ? (
-                    <button type="submit" className={css.button_add}>
-                      <svg className={css.iconPlus}>
-                        <use href={sprite + "#icon-plus-square"}></use>
-                      </svg>
-                      Add
-                    </button>                       
-                    ) : (
-                    <button type="submit" className={css.button_edit}>
+{/* BUTTONS */}
+            { title ? 
+                      <button type="submit" className={css.button_edit}>
                       <svg className={css.iconPencil}>
-                        <use href={sprite + '#icon-pencil'}></use>
+                      <use href={sprite + '#icon-pencil'}></use>
                       </svg>
                       Edit
-                    </button>                        
-                    )} */}
+                      </button> 
+                    :
+                      <button type="submit" className={css.button_add}>
+                        <svg className={css.iconPlus}>
+                          <use href={sprite + "#icon-plus-square"}></use>
+                        </svg>
+                        Add
+                      </button>
+            }
 
-            <button type="submit" className={css.button_add}>
-              <svg className={css.iconPlus}>
-                <use href={sprite + "#icon-plus-square"}></use>
-              </svg>
-              Add
-            </button>
             <button
               type="submit"
               className={css.button_cansel}

@@ -7,32 +7,32 @@ export const UserNav = ({ setShowSideBar }) => {
   return (
     <>
       <p className={css.text}>User Panel</p>
-      <ul className={css.list}>
-        <li onClick={setShowSideBar}>
+      <div className={css.list}>
+        <button className={css.button} onClick={setShowSideBar}>
           <Link className={css.item} to={ROUTES.ACCOUNT}>
-            <svg className={css.icon} width="24" height="24">
+            <svg className={css.icon}>
               <use href={sprite + '#icon-user-check'}></use>
             </svg>
             <span className={css.link}>My Account</span>
           </Link>
-        </li>
-        <li onClick={setShowSideBar}>
+        </button>
+        <button className={css.button} onClick={setShowSideBar}>
           <Link className={css.item} to={ROUTES.CALENDAR}>
-            <svg className={css.icon} width="24" height="24">
+            <svg className={css.icon}>
               <use href={sprite + '#icon-calendar-check'}></use>
             </svg>
             <span className={css.link}>Calendar</span>
           </Link>
-        </li>
-        <li onClick={setShowSideBar}>
+        </button>
+        <button className={css.button} onClick={setShowSideBar}>
           <Link className={css.item} to={ROUTES.STATISTICS}>
-            <svg className={css.icon_2} width="24" height="24">
+            <svg className={css.icon_2}>
               <use href={sprite + '#icon-statistics'}></use>
             </svg>
             <span className={css.link}>Statistics</span>
           </Link>
-        </li>
-      </ul>
+        </button>
+      </div>
     </>
   );
 };

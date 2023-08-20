@@ -48,9 +48,11 @@ export const loginGoogle = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const data = credentials;
-      setToken(data.token);
+      const token = data.token;
+      setToken(token);
+      const { userData } = await axios.get('users/current');
       Notify.success(`Welcome!!!`);
-      return data;
+      return { token, userData };
     } catch (error) {
       Notify.failure(`Login failed. Try again`);
       return rejectWithValue(error.message);

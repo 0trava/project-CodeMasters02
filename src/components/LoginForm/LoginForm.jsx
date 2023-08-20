@@ -2,12 +2,12 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import css from './LoginForm.module.css';
 import { useDispatch } from 'react-redux';
-import { login, loginGoogle } from 'redux/auth/operations';
+import { login, loginGoogle, refresh } from 'redux/auth/operations';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ROUTES } from 'utils/routes';
 import { FiEyeOff } from 'react-icons/fi';
 import { FiEye } from 'react-icons/fi';
-
+import sprite from 'images/sprite.svg';
 import { FiAlertCircle } from 'react-icons/fi';
 import { FiCheckCircle } from 'react-icons/fi';
 import { ReactComponent as Google } from 'images/google.svg';
@@ -43,8 +43,12 @@ export default function LoginForm() {
   const token = searchParams.get('token');
 
   useEffect(() => {
-    dispatch(loginGoogle({ token }));
-  }, [token, dispatch]);
+    if (token) {
+      dispatch(loginGoogle({ token }));
+      // .then(() => navigate('/calendar'))
+      // .catch(() => navigate('/login'));
+    }
+  }, [token, dispatch, navigate]);
 
   // Change vibility for Password
   const changeVisible = () => {
@@ -163,8 +167,8 @@ export default function LoginForm() {
                 <div className={css.button_container}>
                   <button className={css.button} type="submit">
                     Log In
-                    <svg width="18" height="18">
-                      <use href=""></use>
+                    <svg className={css.icon}>
+                      <use href={sprite + '#icon-log-in'}></use>
                     </svg>
                   </button>
                   <a

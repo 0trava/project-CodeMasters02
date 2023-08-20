@@ -120,8 +120,8 @@ export const UserForm = () => {
 {/* AVATAR---------------------------------------------- */}
             <div className={css.UserForm__avatar}>
               {loadAvatar ? 
-                   <img src={loadAvatar} alt="newAvatar" id="avatar"/> 
-                   : ""} 
+                <img className={css.new__avatar} src={loadAvatar} alt="newAvatar" id="avatar"/> 
+                : ""} 
               {avatar ?
                 <img src={avatar} alt="newAvatar" /> 
                 

@@ -1,13 +1,12 @@
 import React from 'react';
 import './FeedbackForm.css';
 import { useState } from 'react';
-import { RiPencilLine } from 'react-icons/ri';
-import { RiDeleteBinLine } from 'react-icons/ri';
 import { RiCloseLine } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
 import { selectUserReview } from 'redux/reviews/selectors';
 import { useDispatch } from "react-redux";
 import { addReview, deleteReview, editReview } from 'redux/reviews/operations';
+import sprite from '../../images/sprite.svg';
 
 export const FeedbackForm =  ({ onClose }) => {
   const dispatch = useDispatch();
@@ -20,7 +19,8 @@ export const FeedbackForm =  ({ onClose }) => {
 
 
   // BUTTON - change review
-  const handleChage = () => {
+  const handleChage = (e) => {
+    e.preventDefault();
     setChangeReview(true);
     document.getElementById('textarea').removeAttribute('readOnly')
   };
@@ -51,8 +51,8 @@ export const FeedbackForm =  ({ onClose }) => {
     const text = valueText;
 
     if ( text || rating) {
-      const { payload } = await dispatch(addReview({ rating, text }));
-      console.log(payload);
+      await dispatch(addReview({ rating, text }));
+
       // onClose();
     } else {
       return;
@@ -116,11 +116,15 @@ export const FeedbackForm =  ({ onClose }) => {
 
           {Review ? (
             <div className="FeedbackForm__btn-changeblock">
-              <button onClick={handleChage}className="btn_icon_pencil">
-                <RiPencilLine className="icon_pencil" />
+              <button onClick={handleChage} className="btn_icon_pencil">
+                <svg className="iconPencil" width="16" height="16">
+                  <use href={sprite + '#icon-pencil'}></use>
+                </svg>
               </button>
               <button onClick={toDelete} className="btn_icon_trash" >
-                <RiDeleteBinLine className="icon_trash"/>
+                <svg width="16" height="16">
+                  <use href={sprite + '#icon-trash-2'}></use>
+                </svg>
               </button>
             </div>
           ) : (
@@ -139,7 +143,7 @@ export const FeedbackForm =  ({ onClose }) => {
           onChange={changeText}
           placeholder="Enter text"
           defaultValue={Review ? Review : ""}
-          value={valueText}
+          // value={valueText}
           maxLength="300"
           required
         ></textarea>

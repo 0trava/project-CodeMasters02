@@ -14,9 +14,9 @@
     gap: 27px;
 
     width: 1087px;
-     overflow-x: hidden;
+    overflow-x: hidden;
   }
-    @media (max-width: 1439px) {
+  @media (max-width: 1439px) {
     ::-webkit-scrollbar {
       height: 12px;
       background: #f2f2f2;
@@ -35,19 +35,16 @@
   }
 }
 
-
-
-
-
 .taskItem {
   display: block;
   flex-direction: row;
   flex-grow: 1;
   align-items: center;
-padding: 0 6px 28px 14px;
+  padding: 0 6px 28px 14px;
   min-width: 335px;
   min-height: 155px;
   flex: 1;
+  align-self: flex-start;
 
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.5);
