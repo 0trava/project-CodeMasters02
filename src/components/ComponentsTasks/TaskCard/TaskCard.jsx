@@ -5,6 +5,9 @@ import { EditBtnMenu } from '../EditBtnMenu/EditBtnMenu';
 import { useDispatch } from "react-redux";
 import { deleteTask } from 'redux/tasks/operation';
 
+import { TaskModal } from 'components/TaskModal/TaskModal';
+import { useState } from 'react';
+
 
 export const TaskCard = ({task}) => {
   const dispatch = useDispatch();
@@ -17,15 +20,40 @@ export const TaskCard = ({task}) => {
     shortTitle = title.slice(0, 10) + "...";
   }
 
-// BUTTON - на видалення.
-
+// BUTTON DELETE - на видалення.
 const clickDelete = async (e) => {
     e.preventDefault();
     await  dispatch(deleteTask(_id))
-
 }
 
+// BUTTON EDIT - на редагування 
+const clickEdit = (e) => {
+  e.preventDefault();
+  console.log(_id);
+  openModal();
+}
 
+// BUTTON MOVE - на пересування
+const clickMove = (e) => {
+  e.preventDefault();
+  
+  console.log()
+}
+
+// MODAL WINDOW-------------------------------
+const [showModal, setShowModal] = useState(false);
+
+const openModal = (e) => {
+
+  // setColumn(e.target.id);
+  setShowModal(true);
+};
+
+const closeModal = () => {
+  setShowModal(false);
+};
+
+// ----------------------------------------------
 
 
   return (
@@ -71,9 +99,21 @@ const clickDelete = async (e) => {
       {/* Buttons */}
       <EditBtnMenu 
        className="TaskCard__btn"
-       clickDelete={clickDelete} />
+       clickDelete={clickDelete}
+       clickEdit = {clickEdit}
+       clickMove= {clickMove} />
     </div>
+    
 
+    {showModal && (
+            <TaskModal
+              // action={action}
+              onClose={closeModal}
+              column={""}
+              id= {""}
+              taskToEdit={task}
+            />
+          )}
 
   </div>
   );

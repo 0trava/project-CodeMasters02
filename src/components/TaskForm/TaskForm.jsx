@@ -40,7 +40,7 @@ const taskSchema = yup.object().shape({
     .required('Category is required'),
 });
 
-export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
+export const TaskForm = ({ onClose, action, column, taskToEdit }, ) => {
 const [useTitle, setUseTitle] = useState("");
 const [useTimeStart, setUseTimeStart] = useState('09:00');
 const [useTimeEnd, setUseTimeEnd] = useState('14:00');
@@ -50,7 +50,6 @@ const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g
 const {_id, title, priority, start, end, date} = taskToEdit;
 const dispatch = useDispatch();
 
-console.log(useCategory);
   
 
   //     const handleSubmit = (values, { resetForm }) => {
@@ -87,8 +86,9 @@ console.log(useCategory);
     const start = e.currentTarget.start.value;
     const end = e.currentTarget.end.value;
     const priority = e.currentTarget.priority.value;
-    const date = "2023-08-19T07:00:00.000+00:00";
+    const date = "2023-08-20T07:00:00.000+00:00";
     const category = useCategory;
+    
 
     if (title) {
       const { payload } = await dispatch(addTask({ title, start, end, priority, date, category}));
@@ -114,7 +114,7 @@ console.log(useCategory);
   return (
     <div className={css.taskForm_container}>
       <button className={css.button_close_form} type="button" onClick={onClose}>
-        <svg className={css.iconClose}>
+        <svg className={css.button_close_form_icon}>
           <use href={`${sprite}#icon-x-close`} />
         </svg>
       </button>
@@ -167,38 +167,34 @@ console.log(useCategory);
             <div className={css.radio}>
               <label htmlFor="low" className={css.label_radio}>
                 <Field
-                  className={css.input_radio_low}
-                  checked
                   id="low"
                   type="radio"
                   name="priority"
                   value="low"
                 />
-                Low
+                <span className={css.input_radio_low}>Low</span> 
               </label>
             </div>
             <div className={css.radio}>
               <label htmlFor="medium" className={css.label_radio}>
                 <Field
-                  className={css.input_radio_medium}
                   id="medium"
                   type="radio"
                   name="priority"
                   value="medium"
                 />
-                Medium
+                <span className={css.input_radio_medium}>Medium</span>
               </label>
             </div>
             <div className={css.radio}>
               <label htmlFor="high" className={css.label_radio}>
                 <Field
-                  className={css.input_radio_high}
                   id="high"
                   type="radio"
                   name="priority"
                   value="high"
                 />
-                High
+                <span className={css.input_radio_high} >High</span>
               </label>
             </div>
           </div>
@@ -206,15 +202,24 @@ console.log(useCategory);
           <div className={css.button_container}>
             {/* {action === 'add' ? (
                     <button type="submit" className={css.button_add}>
-                        Add
-                    </button>                        
+                      <svg className={css.iconPlus}>
+                        <use href={sprite + "#icon-plus-square"}></use>
+                      </svg>
+                      Add
+                    </button>                       
                     ) : (
                     <button type="submit" className={css.button_edit}>
-                        Edit
+                      <svg className={css.iconPencil}>
+                        <use href={sprite + '#icon-pencil'}></use>
+                      </svg>
+                      Edit
                     </button>                        
                     )} */}
 
             <button type="submit" className={css.button_add}>
+              <svg className={css.iconPlus}>
+                <use href={sprite + "#icon-plus-square"}></use>
+              </svg>
               Add
             </button>
             <button

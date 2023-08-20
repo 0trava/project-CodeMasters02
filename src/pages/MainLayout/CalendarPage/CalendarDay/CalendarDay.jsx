@@ -19,15 +19,14 @@ export const CalendarDay = () => {
   // GET USER TASK LIST FOR DAY------------------------------------------
 
   useEffect(() => {
-    console.log(selectedDate);
-    let startDay = new Date(selectedDate);
+    let startDay = new Date(selectDay);
     startDay.setHours(0);
     startDay.setMinutes(0);
     startDay.setSeconds(0);
     startDay.setMilliseconds(0);
     const dateFrom = startDay.toISOString();
 
-    let endDay = new Date(selectedDate);
+    let endDay = new Date(selectDay);
     endDay.setHours(24);
     endDay.setMinutes(0);
     endDay.setSeconds(0);
@@ -63,6 +62,7 @@ export const CalendarDay = () => {
       setSelectedDate = {setSelectedDate}
      
       />
+      <DayCalendarHead selectDay={selectDate} setSelectDay={setSelectedDate}/>
 
       <TasksColumnsSchedule tasks={categorizedArrays} />
     </div>

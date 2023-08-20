@@ -1,7 +1,7 @@
 import { TaskForm } from 'components/TaskForm/TaskForm';
 import { Modal } from '../Modal/Modal';
 
-export const TaskModal =({ onClose, action, column, taskToEdit })=> {
+export const TaskModal =({ onClose, action, column, taskToEdit, id })=> {
   return (
     <Modal onClose={onClose}>
       <TaskForm
@@ -9,6 +9,7 @@ export const TaskModal =({ onClose, action, column, taskToEdit })=> {
         action={action}
         column={column}
         taskToEdit={taskToEdit}
+        id={id}
       />
     </Modal>
   );
