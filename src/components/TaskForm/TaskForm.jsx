@@ -40,7 +40,7 @@ const taskSchema = yup.object().shape({
     .required('Category is required'),
 });
 
-export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
+export const TaskForm = ({ onClose, action, column, taskToEdit }, ) => {
 const [useTitle, setUseTitle] = useState("");
 const [useTimeStart, setUseTimeStart] = useState('09:00');
 const [useTimeEnd, setUseTimeEnd] = useState('14:00');
@@ -50,7 +50,8 @@ const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g
 const {_id, title, priority, start, end, date} = taskToEdit;
 const dispatch = useDispatch();
 
-console.log(useCategory);
+// console.log(useCategory);
+// console.log(action);
   
 
   //     const handleSubmit = (values, { resetForm }) => {

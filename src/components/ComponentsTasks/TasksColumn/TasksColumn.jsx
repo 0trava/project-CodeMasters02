@@ -56,7 +56,8 @@ export const TasksColumn = ({tasks}) => {
             <TaskModal
               action={action}
               onClose={closeModal}
-              column={column}
+              column={columnName}
+              id= {columnName}
               taskToEdit={taskToEdit}
             />
           )}
