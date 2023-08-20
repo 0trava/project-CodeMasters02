@@ -2,9 +2,8 @@ import React from 'react';
 import { RiPencilLine } from 'react-icons/ri';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { BsBoxArrowRight } from "react-icons/bs";
-import arrowRight from '../../../images/arrow-circle-broken-right.svg'
 import './EditBtnMenu.css';
-import sprite from '../../../images/sprite.svg'
+
 
 
 // !!!!  ІНФО - треба передати пропсами 3 задачи на кнопки. 

@@ -6,6 +6,10 @@
   margin-bottom: 95px;
   min-width: 335px;
 
+  @media (max-width: 768px) {
+
+  }
+
   @media (min-width: 768px) {
     min-width: 704px;
     margin-bottom: 64px;
@@ -20,11 +24,16 @@
 .infoWrapper {
   display: flex;
   align-items: center;
+
+  @media (max-width: 374px) {
+    margin-right: 20px;
+  }
 }
 
 .title {
   display: none;
   color: #111111;
+
   @media (min-width: 1440px) {
     display: block;
     font-weight: 700;
@@ -42,10 +51,12 @@
     height: 34px;
     width: 34px;
   }
+
   @media (min-width: 1440px) {
     display: none;
   }
 }
+
 .btn {
   color: transparent;
   background-color: transparent;
@@ -54,6 +65,10 @@
   cursor: pointer;
   height: 24px;
   width: 24px;
+
+  @media (max-width: 374px) {
+        margin-left: 20px;
+  }
 
   @media (min-width: 768px) {
     height: 34px;

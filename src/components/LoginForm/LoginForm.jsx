@@ -7,7 +7,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ROUTES } from 'utils/routes';
 import { FiEyeOff } from 'react-icons/fi';
 import { FiEye } from 'react-icons/fi';
-
+import sprite from 'images/sprite.svg';
 import { FiAlertCircle } from 'react-icons/fi';
 import { FiCheckCircle } from 'react-icons/fi';
 import { ReactComponent as Google } from 'images/google.svg';
@@ -163,8 +163,8 @@ export default function LoginForm() {
                 <div className={css.button_container}>
                   <button className={css.button} type="submit">
                     Log In
-                    <svg width="18" height="18">
-                      <use href=""></use>
+                    <svg className={css.icon} width="18" height="18">
+                      <use href={sprite + '#icon-log-out-01'}></use>
                     </svg>
                   </button>
                   <a
