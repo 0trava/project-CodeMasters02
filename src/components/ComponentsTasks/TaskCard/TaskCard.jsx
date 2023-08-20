@@ -17,11 +17,16 @@ export const TaskCard = ({task}) => {
     shortTitle = title.slice(0, 10) + "...";
   }
 
-// BUTTON - на видалення.
-
+// BUTTON DELETE - на видалення.
 const clickDelete = async (e) => {
     e.preventDefault();
     await  dispatch(deleteTask(_id))
+}
+
+// BUTTON EDIT - на редагування 
+const clickEdit = (e) => {
+  e.preventDefault();
+  console.log(_id);
 
 }
 
@@ -71,7 +76,8 @@ const clickDelete = async (e) => {
       {/* Buttons */}
       <EditBtnMenu 
        className="TaskCard__btn"
-       clickDelete={clickDelete} />
+       clickDelete={clickDelete}
+       clickEdit = {clickEdit} />
     </div>
 
 
