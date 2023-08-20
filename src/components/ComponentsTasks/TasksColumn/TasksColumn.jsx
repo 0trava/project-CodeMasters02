@@ -5,9 +5,6 @@ import { ColumnHead } from '../ColumnHead/ColumnHead';
 import { ColumnTasksList } from '../ColumnTasksList/ColumnTasksList';
 import { TaskModal } from 'components/TaskModal/TaskModal';
 import { AddTaskBtn } from '../AddTaskBtn/AddTaskBtn';
-// import { editTask } from 'redux/tasks/operations';
-// import { useDispatch } from 'react-redux';
-// import { nanoid } from '@reduxjs/toolkit';
 
 const tasksNames = ['To do', 'In progress', 'Done'];
 
@@ -18,8 +15,7 @@ export const TasksColumn = ({tasks}) => {
   const [taskToEdit, setTaskToEdit] = useState({});
 
   const openModal = (e) => {
-
-    setColumn(e.target.id);
+    // setColumn(e.target.id);
     setShowModal(true);
   };
 

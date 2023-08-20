@@ -13,7 +13,7 @@ export const TaskCard = ({ task }) => {
   const dispatch = useDispatch();
   const { name, avatar } = useSelector(selectUser);
   // Отримання данних
-  const { priority, title, _id, category } = task;
+  const { _id, title, start, end, priority, date, category } = task;
   // Перевірка довжини тексту в задачі ( скорочення )
   let shortTitle = title;
   if (shortTitle.length > 35) {
@@ -21,22 +21,23 @@ export const TaskCard = ({ task }) => {
   }
 
   // BUTTON DELETE - на видалення.
-  const clickDelete = async e => {
+  const clickDelete = (e) => {
     e.preventDefault();
-    await dispatch(deleteTask(_id));
+    dispatch(deleteTask(_id));
   };
 
   // BUTTON EDIT - на редагування
   const clickEdit = e => {
     e.preventDefault();
-    console.log(_id);
     openModal();
   };
 
   // BUTTON MOVE - на пересування
 
-  const handleChangeCategory = async newCategory => {
-    await dispatch(editTask({ _id, category: newCategory }));
+  const handleChangeCategory = newCategory => {
+    // e.preventDefault();
+    const category = newCategory;
+    dispatch(editTask({ _id, title, start, end, priority, date, category }));
     setMenuOpening(false);
   };
   const clickMove = e => {
