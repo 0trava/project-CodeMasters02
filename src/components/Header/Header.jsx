@@ -52,7 +52,8 @@ export const Header = () => {
   return (
     <>
       <div className={css.wrapper}>
-        {showGooseImage ? <div>
+        {showGooseImage ? 
+        <div className={css.goose_wrapper}>
           <picture>
             <source
               media="(min-width: 1440px)"
@@ -60,13 +61,16 @@ export const Header = () => {
             />
             <img src={logo} alt="Logo goose" />
           </picture>
-
-          <h1 className={css.title}>{title}</h1>
-          <h2>
-            <span>Let go</span> of the past and focus on the present!
-          </h2>
+          
+          <div className={css.goose_text_wrapper}>          
+            <h1 className={css.title}>{title}</h1>
+            <p className={css.goose_text}>
+              <span className={css.goose_text_let_go}>Let go</span> of the past and focus on the present!
+            </p>
+          </div>
         </div> :
         <h1 className={css.title}>{title}</h1>}
+
         <button type="button" className={css.btn}>
           <svg className={css.menuBurger} onClick={openSideBar}>
             <use href={`${sprite}#icon-burger`} />
