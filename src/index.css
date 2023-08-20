@@ -88,3 +88,14 @@ ol {
   padding-left: 0;
   list-style: none;
 }
+
+@media (prefers-color-scheme: light) {
+  #favicon {
+    fill: var(--color-white);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  #favicon {
+    fill: var(--color-black);
+  }
+}
