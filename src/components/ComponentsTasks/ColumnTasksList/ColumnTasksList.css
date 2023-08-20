@@ -6,7 +6,7 @@
   max-height: 334px;
   overflow-y: auto;
   overflow-x: hidden;
-  position: relative;
+  /* position: relative; */
   
 
   ::-webkit-scrollbar {
