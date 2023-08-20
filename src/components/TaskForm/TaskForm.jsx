@@ -51,7 +51,7 @@ const {_id, title, priority, start, end, date} = taskToEdit;
 const dispatch = useDispatch();
 
 // console.log(useCategory);
-// console.log(action);
+console.log(useCategory);
   
 
   //     const handleSubmit = (values, { resetForm }) => {
@@ -88,8 +88,9 @@ const dispatch = useDispatch();
     const start = e.currentTarget.start.value;
     const end = e.currentTarget.end.value;
     const priority = e.currentTarget.priority.value;
-    const date = "2023-08-19T07:00:00.000+00:00";
+    const date = "2023-08-20T07:00:00.000+00:00";
     const category = useCategory;
+    
 
     if (title) {
       const { payload } = await dispatch(addTask({ title, start, end, priority, date, category}));

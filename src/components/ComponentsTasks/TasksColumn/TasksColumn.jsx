@@ -17,7 +17,9 @@ export const TasksColumn = ({tasks}) => {
   const [column, setColumn] = useState('To do');
   const [taskToEdit, setTaskToEdit] = useState({});
 
-  const openModal = () => {
+  const openModal = (e) => {
+
+    setColumn(e.target.id);
     setShowModal(true);
   };
 
@@ -50,13 +52,16 @@ export const TasksColumn = ({tasks}) => {
             onOpen={openModal}
             setAction={() => setAction('add')}
             setColumn={() => setColumn(columnName)}
+            column = {columnName}
+            id = {columnName}
+            onclick={() => {setColumn(columnName)}}
           />
 
           {showModal && (
             <TaskModal
               action={action}
               onClose={closeModal}
-              column={columnName}
+              column={column}
               id= {columnName}
               taskToEdit={taskToEdit}
             />
