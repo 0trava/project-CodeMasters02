@@ -2,28 +2,35 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { changeSelectedDate } from '../../../../../redux/date/actions';
 import sprite from '../../../../../images/sprite.svg';
-import { format, addMonths, parseISO } from 'date-fns';
+import { format, addMonths, addDays, parseISO } from 'date-fns';
 import './PeriodPaginator.css';
 
-export const PeriodPaginator = ({ periodType, selectedDate }) => {
+export const PeriodPaginator = ({
+  periodType,
+  selectedDate,
+  setSelectedDate,
+}) => {
   const dispatch = useDispatch();
 
   const handleDateChange = amount => {
-    const newDate = addMonths(parseISO(selectedDate), amount);
+    let newDate;
+    if (periodType === 'month') {
+      newDate = addMonths(parseISO(selectedDate), amount);
+    } else if (periodType === 'day') {
+      newDate = addDays(parseISO(selectedDate), amount);
+    }
     dispatch(changeSelectedDate(newDate));
+    setSelectedDate(newDate);
+    console.log(newDate);
   };
 
-  // const formatDate = (selectedDate) => {
-  //   if (periodType === 'month') {
-  //     return format(parseISO(selectedDate), 'MMMM yyyy').toUpperCase();
-  //   } else if (periodType === 'day') {
-  //     return format(parseISO(selectedDate), ' d MMMM yyyy').toUpperCase();
-  //   }
-  //   return '';
-  // };
-
   const periodFormat = () => {
-    return format(parseISO(selectedDate), 'MMMM yyyy').toUpperCase();
+    if (periodType === 'month') {
+      return format(parseISO(selectedDate), 'MMMM yyyy').toUpperCase();
+    } else if (periodType === 'day') {
+      return format(parseISO(selectedDate), ' d MMMM yyyy').toUpperCase();
+    }
+    return 'Invalid period type';
   };
 
   return (

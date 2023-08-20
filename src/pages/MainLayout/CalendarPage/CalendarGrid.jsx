@@ -25,7 +25,8 @@ export const CalendarGrid = () => {
   // Перевірка що токен валідний
   useEffect(async() => {
      await dispatch(fetchTasks(`dateFrom:${firstDayOfMonth}&dateTo:${lastDayOfMonth}`));
-  }, [dispatch]);
+
+  }, [dispatch, firstDayOfMonth, lastDayOfMonth ]);
 
 
 
@@ -68,7 +69,7 @@ export const CalendarGrid = () => {
   const handleDayClick = (day) => {
 
 // !!!!!!! - DATE - зберігалась на один день назад. Поправила для тесту ------
-    const newDate = new Date(currentYear, currentMonth, day + 1);
+    const newDate = new Date(currentYear, currentMonth, Date);
     dispatch(changeSelectedDate(newDate));
   };
 
