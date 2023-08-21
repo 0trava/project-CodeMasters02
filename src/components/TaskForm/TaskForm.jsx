@@ -4,6 +4,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 // import * as yup from 'yup';
 import { useDispatch, useSelector} from 'react-redux';
 import { addTask, editTask } from '../../redux/tasks/operation';
+import { useState } from 'react';
 
 // const taskSchema = yup.object().shape({
 //   title: yup
@@ -38,41 +39,54 @@ import { addTask, editTask } from '../../redux/tasks/operation';
 //     .required('Category is required'),
 // });
 
-export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
+export const TaskForm = ({ onClose, action, column, taskToEdit, id }) => {
 
 const useTitle = "";
 const useTimeStart = '09:00';
 const useTimeEnd ='14:00';
-const usePriority ="low";
+const [usePriority, setUsePriority] = useState("low");
 const useCategory = column.toLowerCase().replace(/ /g, '-');
+// eslint-disable-next-line
 const selectedDate = useSelector(state => state.date);
+
+// Зберігаємо данні натиску Priority
+const handleRadioChange = (event) => {
+  event.preventDefault();
+  setUsePriority(event.target.value);
+  console.log(usePriority);
+};
 
 const {_id, title, priority, start, end, date, category} = taskToEdit;
 const dispatch = useDispatch();
 
   // ВІДПРАВКА ФОРМИ
-  const onSubmitFormik = (e, valuesFormik, actionsFormik) => {
+  const onSubmitFormik = async (e, valuesFormik, actionsFormik) => {
     e.preventDefault();
-  
+    console.log('Selected priority:', usePriority);
 // Add task
   if (!_id) {
       const title = e.currentTarget.title.value;
       const start = e.currentTarget.start.value;
       const end = e.currentTarget.end.value;
-      const priority = usePriority;   
-      const date = selectedDate;
+      const priority = usePriority;  
       const category = useCategory;
+      // Transform date
+      let date = selectedDate;
+      const transformDate = new Date(date);
+      transformDate.setUTCHours(23, 0, 0, 0);
+      date = transformDate.toISOString();
 
-      dispatch(addTask({ title, start, end, priority, date, category}));
+
+      await dispatch(addTask({ title, start, end, priority, date, category}));
       onClose();
 // Edit task
   } else {
     const title = e.currentTarget.title.value;
     const start = e.currentTarget.start.value;
     const end = e.currentTarget.end.value;
-    const priority = e.currentTarget.priority.value;
+    const priority = usePriority;
 
-    dispatch(editTask({ _id, title, start, end, priority, date, category}));
+    await dispatch(editTask({ _id, title, start, end, priority, date, category}));
     onClose();
   }
 
@@ -147,6 +161,7 @@ const dispatch = useDispatch();
                   name="priority"
                   value="low"
                   checked={priority === "low"}
+                  onChange={handleRadioChange}
                 />
                 <span className={css.input_radio_low}>Low</span> 
               </label>
@@ -158,7 +173,8 @@ const dispatch = useDispatch();
                   type="radio"
                   name="priority"
                   value="medium"
-                  checked={priority === "medium"} 
+                  checked={priority === "medium"}
+                  onChange={handleRadioChange}
                 />
                 <span className={css.input_radio_medium}>Medium</span>
               </label>
@@ -170,7 +186,9 @@ const dispatch = useDispatch();
                   type="radio"
                   name="priority"
                   value="high"
-                  checked={priority === "high"} 
+                  checked={priority === "high"}
+                  onChange={handleRadioChange} 
+
                 />
                 <span className={css.input_radio_high} >High</span>
               </label>

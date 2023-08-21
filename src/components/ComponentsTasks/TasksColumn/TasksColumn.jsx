@@ -11,11 +11,12 @@ const tasksNames = ['To do', 'In progress', 'Done'];
 export const TasksColumn = ({tasks}) => {
   const [showModal, setShowModal] = useState(false);
   const [action, setAction] = useState('edit');
+  // eslint-disable-next-line
   const [column, setColumn] = useState('To do');
   const [taskToEdit, setTaskToEdit] = useState({});
 
   const openModal = (e) => {
-    // setColumn(e.target.id);
+    setColumn(e.target.id);
     setShowModal(true);
   };
 
@@ -58,7 +59,7 @@ export const TasksColumn = ({tasks}) => {
               action={action}
               onClose={closeModal}
               column={column}
-              id= {columnName}
+              id= {column}
               taskToEdit={taskToEdit}
             />
           )}
