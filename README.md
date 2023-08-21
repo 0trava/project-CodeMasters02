@@ -7,28 +7,16 @@ If you like our work, don't forget to put a ⭐
 THIS PROJECT WAS CREATED BY:
 
 - :man_student:[**Team Lead:** Lytvyn Svetlana](https://github.com/0trava)
-- :man_student:[**Scrum master** & **Full stack developer**: ](https://github.com/Tetiana1409)
+- :man_student:[**Team Lead:**  Olena Harkusha](https://github.com/OlenaHarkusha)
+- :man_student:[**Scrum master** & **Full stack developer**: Olha Lushina](https://github.com/OlhaLushina)
 
-
-- :man_student:[**Full stack developer**: Lytvyn Svetlana](https://github.com/0trava)
-- :man_student:[**Full stack developer**: Olena Harkusha](https://github.com/OlenaHarkusha)
-- :man_student:[**Full stack developer**: Olha Lushina](https://github.com/OlhaLushina)
 - :man_student:[**Full stack developer**: Anastasiia Ablieieva](https://github.com/Anastasiia-Ablieieva)
 - :man_student:[**Full stack developer**: Anatolii Koniev](https://github.com/Demag0g1)
 - :man_student:[**Full stack developer**: Yaroslav Yakovenko](https://github.com/Yaroslav-Yaroslav)
-- :man_student:[**Full stack developer**: Oleksandr Vysitskyi](https://github.com/Oleksandr1301)
-
 
 
 - :man_student:[**Full stack developer**: Oleg Artemenko](https://github.com/OlegArt1)
 - :man_student:[**Full stack developer**: Svitlana Shvydanenko ](https://github.com/Svitlana-Sh)
-- :man_student:[**Full stack developer**: Pavlo Skrypniuk](https://github.com/Skripnuyk)
-
-
-
-- :man_student:[**Full stack developer**: Volodymyr Holotnyk](https://github.com/Golotniks94)
-- :man_student:[**Full stack developer**: Meshchaninova Yuliia](https://github.com/JuliaPilik)
-- :man_student:[**Full stack developer**: Tuschenko Dmutro](https://github.com/T-Dmutro)
 
 
 Made by design  <a href="https://www.figma.com/file/kXtsjq7Tts3YzolUVqgNsp/Goose-Track?node-id=0%3A1&t=1A4UeIYiOYEgfGkN-1">LINK</a>

@@ -16,7 +16,7 @@ export const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [showSideBar, setShowSideBar] = useState(false);
 
-  const showGooseImage = useSelector(selectTasks);
+  let showGooseImage = useSelector(selectTasks);
 
   // Modal for Review
   const openModal = () => {
@@ -53,23 +53,25 @@ export const Header = () => {
     <>
       <div className={css.wrapper}>
         {showGooseImage ? 
-        <div className={css.goose_wrapper}>
-          <picture>
-            <source
-              media="(min-width: 1440px)"
-              srcSet={`${logo} 1x, ${logo2x} 2x`}
-            />
-            <img src={logo} alt="Logo goose" />
-          </picture>
-          
-          <div className={css.goose_text_wrapper}>          
+            <div className={css.goose_wrapper}>
+              <picture>
+                <source
+                  media="(min-width: 1440px)"
+                  srcSet={`${logo} 1x, ${logo2x} 2x`}
+                />
+                <img src={logo} alt="Logo goose" />
+              </picture>
+              
+              <div className={css.goose_text_wrapper}>          
+                <h1 className={css.title}>{title}</h1>
+                <p className={css.goose_text}>
+                  <span className={css.goose_text_let_go}>Let go</span> of the past and focus on the present!
+                </p>
+              </div>
+            </div> 
+        :
             <h1 className={css.title}>{title}</h1>
-            <p className={css.goose_text}>
-              <span className={css.goose_text_let_go}>Let go</span> of the past and focus on the present!
-            </p>
-          </div>
-        </div> :
-        <h1 className={css.title}>{title}</h1>}
+        }
 
         <button type="button" className={css.btn}>
           <svg className={css.menuBurger} onClick={openSideBar}>

@@ -42,7 +42,6 @@ useEffect(() => {
         </div>
       ) : (
         ""
-        // <MainPage/>
       )}
       <AppRoutes />
     </>
