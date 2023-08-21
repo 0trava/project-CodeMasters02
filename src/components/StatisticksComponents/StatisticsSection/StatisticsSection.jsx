@@ -1,14 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StaticticsToolbar } from '../StaticticsToolbar/StaticticsToolbar';
 import { StatisticsCalendar } from '../StatisticsCalendar/StatisticsCalendar';
 import { StatisticsChart } from '../StatisticsChart/StatisticsChart';
 import { format, addDays } from 'date-fns';
 import './StatisticsSection.css';
 import sprite from '../../../images/sprite.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectStatistics } from 'redux/tasks/selectors';
+import { getStatistics } from 'redux/tasks/operation';
 
 export const StatisticsSection = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const dispatch = useDispatch();
+  const statistics = useSelector(selectStatistics);
+  console.log(statistics);
+
+  useEffect(() => {
+    if (selectedDate) {
+      dispatch(getStatistics(selectedDate));
+    }
+  }, [dispatch, selectedDate]);
 
   const toggleCalendar = () => {
     setIsCalendarOpen(!isCalendarOpen);
@@ -24,7 +36,12 @@ export const StatisticsSection = () => {
     setSelectedDate(date);
     setIsCalendarOpen(false);
   };
-
+  const dataWithPercentageSymbol = statistics?.map(entry => ({
+    ...entry,
+    dayPercentage: `${entry.day}%`,
+    monthPercentage: `${entry.month}%`,
+  }));
+  console.log(dataWithPercentageSymbol);
   return (
     <section className="statisticsContainer">
       <div className="headWrapper">
@@ -55,7 +72,7 @@ export const StatisticsSection = () => {
         </div>
       </div>
       <div className="chartContainer">
-        <StatisticsChart />
+        {statistics && <StatisticsChart data={dataWithPercentageSymbol} />}
       </div>
     </section>
   );
