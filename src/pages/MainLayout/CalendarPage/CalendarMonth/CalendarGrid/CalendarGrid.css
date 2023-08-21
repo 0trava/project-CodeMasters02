@@ -4,6 +4,7 @@
   background-color: var(--color-white);
   border: 1px solid var(--input-placeholder-color);
   border-radius: 8px;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
