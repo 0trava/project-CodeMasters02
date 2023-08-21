@@ -1,3 +1,6 @@
+import React, { useRef } from 'react';
+import ReactDOM from 'react-dom';
+
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import css from './UserForm.module.css';
@@ -9,8 +12,7 @@ import InputMask from 'react-input-mask';
 import { updateUser } from 'redux/auth/operations';
 import { useDispatch } from "react-redux";
 
-// const SUPPORTED_FORMATS = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
-// Дозволяє завантажувати формати зображень .jpeg, .png, .gif
+
 
 // eslint-disable-next-line
 const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -21,14 +23,6 @@ const birthdayRegExp = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)\d\d
 
 
 const userFormSchema = yup.object().shape({
-  //   avatar: Yup.mixed()
-  //     .nullable()
-  //     .notRequired()
-  //     .test(
-  //       'FILE_FORMAT',
-  //       'The downloaded file format is not supported',
-  //       value => !value || (value && SUPPORTED_FORMATS.includes(value.type))
-  //     ),
   name: yup
     .string()
     .max(16, 'Name must be 16 characters or less.')
@@ -55,6 +49,7 @@ const userFormSchema = yup.object().shape({
 export const UserForm = () => {
   // Отримуємо данні з Redux
   const dispatch = useDispatch();
+  const inputRef = useRef();
   const [loadAvatar, setLoadAvatar] = useState("");
   // eslint-disable-next-line
   const { name, email, birthday, phone, skype, avatar } = useSelector(selectUser);
@@ -68,9 +63,7 @@ export const UserForm = () => {
   });
 
   // ВІДПРАВКА ФОРМИ
-  const onSubmitFormik = (e, valuesFormik, actionsFormik) => {
-    // console.log('actionsFormik:', actionsFormik);
-    // console.log('valuesFormik:', valuesFormik);
+  const onSubmitFormik = (e) => {
     e.preventDefault();
 
     if (avatarImg) {
@@ -98,12 +91,17 @@ export const UserForm = () => {
 
   // ПЕРЕЗАПИС данних з input
   const handleInputChange = (event) => {
+    // TEST -------------------------------------
     const { name, value } = event.target;
+    const inputElement = ReactDOM.findDOMNode(this.refs.myInput);
+    inputElement.focus();
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value
     }));
   };
+
+
 
   return (
     <div className={css.container}>
@@ -171,9 +169,10 @@ export const UserForm = () => {
              {/*  Birthday  */}
              <label className={css.labelField}>
               Birthday
-              <Field name="birthday">
+              <Field name="birthday" >
                 {({ field }) => (
                   <InputMask
+                    ref={inputRef}
                     mask="99/99/9999"
                     {...field}
                     maskChar="_" // Use an underscore as the placeholder character
