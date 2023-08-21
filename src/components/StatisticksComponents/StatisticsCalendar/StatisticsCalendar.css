@@ -1,7 +1,7 @@
 .react-datepicker {
-  /* position: absolute; */
-  top: 100%;
-  left: 0;
+  position: absolute;
+  top: -20px;
+  left: 0px;
   z-index: 1;
   background-color: #3e85f3;
   padding-top: 16px;
@@ -19,7 +19,7 @@
   line-height: 129%;
 
   @media (min-width: 768px) {
-    /* left: -285px; */
+    left: -290px;
     width: 373px;
 
     font-size: 18px;
@@ -27,7 +27,7 @@
   }
 
   @media (min-width: 1440px) {
-    /* left: -400px; */
+    left: -370px;
   }
 }
 
