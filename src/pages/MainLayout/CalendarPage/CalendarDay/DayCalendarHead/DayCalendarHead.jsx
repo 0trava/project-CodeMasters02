@@ -66,7 +66,7 @@ const chackDay= (day) => {
     <div className="day-calendar-head">
       {daysToDisplay.map((day, index) => {
         const dayName = format(day, 'EE');
-        const dayDate = day.getDate();
+        // const dayDate = day.getDate();
 
         return (
           <div

@@ -10,7 +10,7 @@ export const CalendarDay = () => {
   const dispatch = useDispatch();
   const selectedDate = useSelector(state => state.date);
 
-  const taskList = useSelector(state => state.task);
+  // const taskList = useSelector(state => state.task);
 
 
   // GET USER TASK LIST FOR DAY------------------------------------------
