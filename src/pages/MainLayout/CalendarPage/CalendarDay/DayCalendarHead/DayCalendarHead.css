@@ -24,6 +24,7 @@
 
 .day-name {
   font-weight: bold;
+  pointer-events: none;
 }
 .short-day-name {
   color: var(--text-review);
@@ -50,7 +51,8 @@
   border-radius: 6px;
   background-color: var(--color-blue);
   color: var(--color-white);
-  } */
+  pointer-events: none;
+}
 
 
 

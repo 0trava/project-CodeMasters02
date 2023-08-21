@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeSelectedDate } from 'redux/date/actions';
-import { format, addDays, startOfWeek, isSameDay } from 'date-fns'; // Переконайтеся, що ця бібліотека правильно імпортована
+import { format, addDays, startOfWeek, isSameDay } from 'date-fns';
 import './DayCalendarHead.css';
 
 const workDayNames = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
@@ -12,7 +12,7 @@ export const DayCalendarHead = ({ setSelectedDate }) => {
   const days = [...workDayNames, ...weekendDayNames];
   const selectedDate = useSelector(state => state.date);
   const isMobile = window.innerWidth <= 768;
-  // const currentDayIndex = currentDate.getDay();
+ 
 
   const dispatch = useDispatch();
 
@@ -81,7 +81,8 @@ const chackDay= (day) => {
             {/* <div className="day-date" id={day.getDate()}>{day.getDate()}</div> */}
             {/* День */}
             <div className={chackDay(day)} 
-            id={day.getDate()}
+                 id={day.getDate()}
+                 onClick={() => handleDateClick(day)}
             >{day.getDate()}</div>
           </div>
         );
