@@ -8,7 +8,7 @@ import {  useDispatch, useSelector } from 'react-redux';
 import BeatLoader from 'react-spinners/BeatLoader';
 
 import { selectToken } from 'redux/auth/selectors';
-import {fetchReviewById} from 'redux/reviews/operations';
+import { fetchReviews} from 'redux/reviews/operations';
 // import { fetchTasks } from 'redux/tasks/operation';
 
 export const App = () => {
@@ -18,7 +18,9 @@ useEffect(() => {
   setLoading(true);
   setTimeout(() => {
   setLoading(false);
+  dispatch(fetchReviews());
   }, 1000);
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
 
  const dispatch = useDispatch() 
@@ -28,7 +30,6 @@ useEffect(() => {
 // Перевірка що токен валідний
   useEffect(() => {
     dispatch(refresh());
-    dispatch(fetchReviewById());
   }, [dispatch, token]);
 
   

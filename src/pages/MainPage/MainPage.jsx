@@ -13,8 +13,8 @@ import { useSelector } from 'react-redux';
 
 export const MainPage = (e) => {
   const navigate = useNavigate();
-  // eslint-disable-next-line
-  const {rating, text, user} = useSelector(getReviews);
+  // Отримуємо відгуки
+  const Review = useSelector(getReviews);
 
 
   return (
@@ -69,7 +69,7 @@ export const MainPage = (e) => {
         </ul>
     </section>
     <section>
-      <SimpleSlider/>
+      <SimpleSlider review={Review}/>
     </section>
     </div>
   )

@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import './SimpleSlider.css';
 import { Review } from "components/Review/Review";
-import listReview from '../WORK-file/reviews.json';
+// import listReview from '../WORK-file/reviews.json';
 
 
 export default class SimpleSlider extends Component {
 
+  
 
   render() {
-    
+    const { review } = this.props;
   
     const settings = {
       dots: false,
@@ -67,9 +68,9 @@ export default class SimpleSlider extends Component {
       <div className="SimpleSlider">
         <h2> Reviews </h2>
         <Slider {...settings} className="slider">
-        {listReview.map((review, index ) => {
+        {review.map((rev, index ) => {
               return (
-                <Review key={index} listReview={review}/>
+                <Review key={index} review={rev}/>
               )
           })}
         </Slider>
