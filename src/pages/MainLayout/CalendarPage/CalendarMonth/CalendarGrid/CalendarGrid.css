@@ -59,8 +59,9 @@
 }
 
 .calendar_grid-day {
-  top: 12px;
+  top: 20px;
   right: 10px;
+  margin-top: 30px;
   padding: 4px 6px;
   background-color: transparent;
   color: var(--text-review);
@@ -70,22 +71,18 @@
   font-weight: 700;
   line-height: 1.17;
   z-index: 99;
-  height: 144px;
+  height: 110px;
   overflow-y: auto;
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: #f2f2f2;
-    border-radius: 6px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #e7e5e5;
-    border-radius: 6px;
-  }
+  /* Scrollbar - style */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
+.calendar_grid-day::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 .day_grid-container {
   position: absolute;
   top: 12px;
@@ -165,11 +162,26 @@
   justify-content: center;
   text-align: left;
   width: auto;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
+  }
+
+  .calendar_grid-day::-webkit-scrollbar-track {
+    background: orange;  
+    border-radius: 6px;
+    scrollbar-color: blue orange;
+
+  }
+
+  .calendar_grid-day::-webkit-scrollbar-thumb {
+    background: orange;  
+    border-radius: 6px;
+    scrollbar-color: blue orange;
+
+  }
+
 .task:hover {
   border-color: currentColor;
   transition: border-color 0.3s, background-color 0.3s;
