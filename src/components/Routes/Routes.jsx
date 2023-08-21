@@ -25,7 +25,6 @@ export const AppRoutes = () => {
     if (!value) {
       return <MainPage />;
     } else {
-
       return <MainLayout />;
     }
   };

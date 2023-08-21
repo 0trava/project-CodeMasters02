@@ -3,21 +3,18 @@ import { useNavigate  } from 'react-router-dom';
 import error_rocket from '../../images/error_rocket.png';
 import '../NotFound/NotFound.css';
 import { ROUTES } from 'utils/routes';
+import { selectToken } from 'redux/auth/selectors';
+import { useSelector } from 'react-redux';
 
 export const NotFound = () => {
 
-  const { isAuthenticated } = useState(false); //state.auth.user
-
+  const userIsLogin = useSelector(selectToken);
   const navigate = useNavigate();
 
-  // eslint-disable-next-line
+
   
   const handleBackToHome = () => {
-    if (isAuthenticated) {
       navigate(ROUTES.HOME);
-    } else {
-      navigate(ROUTES.START);
-    }
   };
 
   return (
