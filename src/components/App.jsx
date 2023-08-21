@@ -12,6 +12,8 @@ import { fetchReviews} from 'redux/reviews/operations';
 // import { fetchTasks } from 'redux/tasks/operation';
 
 export const App = () => {
+  const dispatch = useDispatch() 
+  const token = useSelector(selectToken);
 
 let [loading, setLoading] = useState(false);
 useEffect(() => {
@@ -23,16 +25,12 @@ useEffect(() => {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
 
- const dispatch = useDispatch() 
-  
- const token = useSelector(selectToken);
 
 // Перевірка що токен валідний
   useEffect(() => {
     dispatch(refresh());
   }, [dispatch, token]);
 
-  
 
   return (
     <>

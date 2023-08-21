@@ -9,11 +9,12 @@ import { TaskModal } from 'components/TaskModal/TaskModal';
 import { useEffect, useRef, useState } from 'react';
 import { TaskDrop } from '../TaskDrop/TaskDrop';
 
-export const TaskCard = ({ task }) => {
+export const TaskCard = ({ task,selectedDate }) => {
   const dispatch = useDispatch();
   const { name, avatar } = useSelector(selectUser);
   // Отримання данних
   const { _id, title, start, end, priority, date, category } = task;
+
   // Перевірка довжини тексту в задачі ( скорочення )
   let shortTitle = title;
   if (shortTitle.length > 35) {
@@ -21,9 +22,10 @@ export const TaskCard = ({ task }) => {
   }
 
   // BUTTON DELETE - на видалення.
-  const clickDelete = (e) => {
+  const clickDelete = async (e) => {
     e.preventDefault();
-    dispatch(deleteTask(_id));
+    await dispatch(deleteTask(_id));
+
   };
 
   // BUTTON EDIT - на редагування
