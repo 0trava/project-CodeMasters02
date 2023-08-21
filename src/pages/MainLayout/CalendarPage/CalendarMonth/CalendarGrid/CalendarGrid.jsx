@@ -59,7 +59,7 @@ export const CalendarGrid = () => {
     });
 
     const tasksElements = tasksForDay.map(task => (
-      <div key={task.id} className={`task ${task.priority}-priority`}>
+      <div key={task._id} className={`task ${task.priority}-priority`}>
         {task.title}
       </div>
     ));
