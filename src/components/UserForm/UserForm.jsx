@@ -70,7 +70,6 @@ export const UserForm = () => {
       formDataToSend.append('avatar', avatarImg);
       
       // Append other form data fields
-      console.log(formData);
       for (const key in formData) {
         formDataToSend.append(key, formData[key]);
       }
