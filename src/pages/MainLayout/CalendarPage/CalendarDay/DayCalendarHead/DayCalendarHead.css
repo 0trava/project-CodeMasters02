@@ -42,6 +42,13 @@
   margin-top: 6px;
   border-radius: 6px;
   background-color: transparent;
+  cursor: pointer;
+  transition: all 0.5sc var(--trasition);
+}
+
+.day-date:hover, .day-date:focus {
+  background-color: var(--color-blue);
+  color: var(--color-white);
 }
 
 
