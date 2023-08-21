@@ -35,6 +35,7 @@
   /* margin-right: 18px; */
   border-radius: 50px;
   background-color: var(--color-blue);
+  overflow: hidden;
 }
 
 .TaskCard__avatar p {
