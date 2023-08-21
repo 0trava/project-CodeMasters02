@@ -7,31 +7,34 @@
   overflow-y: auto;
   overflow-x: hidden;
   /* position: relative; */
-  
 
   ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background-color: #F2F2F2;
-    border-radius: 12px;
+    background-color: #f2f2f2;
+    border-radius: 6px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #E7E5E5;
-    border-radius: 12px;
+    background-color: #e7e5e5;
+    border-radius: 6px;
   }
 
-  
-
-  @media screen and (min-width: 768px) {
+  @media  (min-width: 768px) {
     gap: 18px;
     max-height: 376px;
 
     ::-webkit-scrollbar {
       width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      border-radius: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 8px;
     }
   }
 }

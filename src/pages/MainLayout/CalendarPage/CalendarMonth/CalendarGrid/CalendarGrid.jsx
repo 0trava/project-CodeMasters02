@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CalendarGrid.css';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -12,6 +12,8 @@ import {
 import { changeSelectedDate } from '../../../../../redux/date/actions';
 import { fetchTasks } from 'redux/tasks/operation';
 import { useParams  } from 'react-router-dom';
+import { selectToken } from 'redux/auth/selectors';
+import { TaskModal } from 'components/TaskModal/TaskModal';
 // import { PeriodPaginator } from '../../CalendarToolbar/PeriodPaginator/PeriodPaginator';
 
 
@@ -22,13 +24,14 @@ export const CalendarGrid = () => {
   const dateObject = parseISO(selectedDate);
   const tasks = useSelector(state => state.tasks.tasks);
   const dispatch = useDispatch();
+  const userIsLogin = useSelector(selectToken);
  
   const currentYear = getYear(dateObject);
   const currentMonth = getMonth(dateObject);
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
   const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
   const daysInMonth = getDate(lastDayOfMonth);
-
+  const [task, setTask] = useState("");
   const calendarGrid = [];
   const emptyCells = (getDay(firstDayOfMonth) + 6) % 7;
 
@@ -36,14 +39,42 @@ export const CalendarGrid = () => {
 
 
   // GET USER TASK LIST ------------------------------------------
-
   useEffect(() => {
 
-    const dateFrom = new Date(firstDayOfMonth).toISOString();
-    const dateTo = new Date(lastDayOfMonth).toISOString();
-    dispatch(fetchTasks({ dateFrom, dateTo }));
+    if (userIsLogin) {
+      const dateFrom = new Date(firstDayOfMonth).toISOString();
+      const dateTo = new Date(lastDayOfMonth).toISOString();
+      dispatch(fetchTasks({ dateFrom, dateTo }));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
+
+// BUTTON - clicked select task
+const handleSelectTask = (e) => {
+  e.preventDefault();
+  
+  const selectTaskId = tasks.filter(task => task._id === e.target.id);
+  setTask(selectTaskId[0]);
+  openModal();
+}
+
+  // MODAL WINDOW-------------------------------
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    // setColumn(e.target.id);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  // ----------------------------------------------
+
+
+
+
 
   for (let i = 0; i < emptyCells; i++) {
     calendarGrid.push(<div key={`empty-${i}`} className="empty-cell"></div>);
@@ -59,7 +90,11 @@ export const CalendarGrid = () => {
     });
 
     const tasksElements = tasksForDay.map(task => (
-      <div key={task._id} className={`task ${task.priority}-priority`}>
+// TASK - for render
+      <div key={task._id} 
+           className={`task ${task.priority}-priority`} 
+           id={task._id}
+           onClick={handleSelectTask}>
         {task.title}
       </div>
     ));
@@ -125,6 +160,20 @@ export const CalendarGrid = () => {
         </tbody>
       </table>
       
+      {showModal && (
+        <TaskModal
+          // action={action}
+          onClose={closeModal}
+          column={''}
+          id={''}
+          taskToEdit={task}
+        />
+      )}
+
+
+
+
+
     </div>
   );
 };

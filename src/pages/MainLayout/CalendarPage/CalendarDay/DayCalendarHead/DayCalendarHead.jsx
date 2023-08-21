@@ -44,7 +44,8 @@ const chackDay= (day) => {
 
 
  // ЗМІНА ДАТИ
-  const handleDateClick = date => {
+
+  const handleDateClick = (date) => {
     let startDay = new Date(date);
     startDay.setHours(0);
     startDay.setMinutes(0);
