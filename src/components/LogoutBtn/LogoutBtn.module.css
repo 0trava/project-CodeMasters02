@@ -1,5 +1,6 @@
 .btn {
-  bottom: 20px;
+  position: fixed;
+  bottom: 24px;
   margin-left: 20px;
   width: 131px;
   height: 46px;
@@ -24,8 +25,7 @@
 
   @media (min-width: 768px) {
     margin-left: 32px;
-    margin-top: 439px;
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
     width: 141px;
     height: 56px;
     font-size: 18px;
