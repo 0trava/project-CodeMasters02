@@ -1,6 +1,6 @@
 import { TaskCard } from "../TaskCard/TaskCard";
 import './ColumnTasksList.css';
-export const ColumnTasksList = ({tasks, column}) => {
+export const ColumnTasksList = ({tasks, column, selectedDate}) => {
   let taskRander = [];
 
   // Перевірка яка Колонка для тасків
@@ -29,6 +29,7 @@ export const ColumnTasksList = ({tasks, column}) => {
         // setAction={setAction}
         // setColumn={setColumn}
         index={index}
+        selectedDate={selectedDate}
       />
         ))}
       </>

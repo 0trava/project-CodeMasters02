@@ -1,25 +1,20 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { changeSelectedDate } from 'redux/date/actions';
 import './DayCalendarHead.css';
 
 const workDayNames = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 const weekendDayNames = ['SAT', 'SUN'];
 
-export const DayCalendarHead = ({   setSelectDay, selectDay}) => {
+export const DayCalendarHead = ({ setSelectDay}) => {
   const currentDate = new Date();
-  const selectedDate = useSelector(state => state.date);
   const days = [...workDayNames, ...weekendDayNames];
-  // const [selectedDate, setSelectedDate] = useState(selectDay);
   const isMobile = window.innerWidth <= 768;
   const currentDayIndex = currentDate.getDay();
   const dispatch = useDispatch();
 
 
-  // Вибрана дата
-  console.log(selectedDate);
 
- 
   useEffect(() => {
     const calendarDayElements = document.querySelectorAll('.calendar-day');
     calendarDayElements.forEach(element => {

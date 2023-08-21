@@ -5,9 +5,6 @@ import { BsBoxArrowRight } from "react-icons/bs";
 import './EditBtnMenu.css';
 
 
-
-// !!!!  ІНФО - треба передати пропсами 3 задачи на кнопки. 
-
 export const EditBtnMenu = ({clickDelete, clickEdit, clickMove}) => {
 
   const handleDeleteClick = (e) => {

@@ -8,13 +8,16 @@ import { AddTaskBtn } from '../AddTaskBtn/AddTaskBtn';
 
 const tasksNames = ['To do', 'In progress', 'Done'];
 
-export const TasksColumn = ({tasks}) => {
+export const TasksColumn = ({tasks, selectedDate}) => {
+
   const [showModal, setShowModal] = useState(false);
   const [action, setAction] = useState('edit');
-  // eslint-disable-next-line
+
   const [column, setColumn] = useState('To do');
   const [taskToEdit, setTaskToEdit] = useState({});
 
+
+  // MODAL WINDOW 
   const openModal = (e) => {
     setColumn(e.target.id);
     setShowModal(true);
@@ -23,6 +26,8 @@ export const TasksColumn = ({tasks}) => {
   const closeModal = () => {
     setShowModal(false);
   };
+
+
 
   return (
     <div className={css.tasksColumnWrapper}>
@@ -42,6 +47,7 @@ export const TasksColumn = ({tasks}) => {
             setAction={() => setAction('edit')}
             setColumn={() => setColumn(columnName)}
             onEdit={setTaskToEdit}
+            selectedDate={selectedDate}
             column={columnName}
           />
 
@@ -61,6 +67,7 @@ export const TasksColumn = ({tasks}) => {
               column={column}
               id= {column}
               taskToEdit={taskToEdit}
+
             />
           )}
         </div>
