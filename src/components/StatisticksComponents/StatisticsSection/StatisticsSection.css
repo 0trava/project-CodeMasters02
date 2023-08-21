@@ -1,9 +1,9 @@
 .statisticsContainer {
   position: relative;
   border-radius: 16px;
-  background-color: var(--toogler-body-white);
+  background-color: var(--color-white);
   width: 335px;
-  
+  margin-top: 38px;
   padding: 28px 14px 135px;
 
   @media (min-width: 768px) {
@@ -23,7 +23,7 @@
 .chartContainer {
   margin-bottom: 40px;
   border-radius: 20px;
-  border: 0.8px solid #e3f3ff;
+  /* border: 0.8px solid #e3f3ff; */
   width: 307px;
   height: 413px;
   padding: 40px 14px;

@@ -5,7 +5,7 @@ import css from './SideBarPage.module.css';
 
 export const SideBarPage = ({ setShowSideBar }) => {
   return (
-    <>
+    <div className={css.SideBarPage_block}>
       <div className={css.block}>
         <div className={css.logo}>
           <img
@@ -22,6 +22,6 @@ export const SideBarPage = ({ setShowSideBar }) => {
       </div>
       <UserNav setShowSideBar={setShowSideBar} />
       <LogoutBtn />
-    </>
+    </div>
   );
 };
