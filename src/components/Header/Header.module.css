@@ -33,11 +33,13 @@
   @media (max-width: 1439px) {
     display: none;
     opacity: 0;
+    pointer-events: none;
   }
 
   @media (min-width: 1440px) {
     display: flex;
     gap: 8px;
+    pointer-events: none;
   }
 }
 
