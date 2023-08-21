@@ -43,7 +43,18 @@
   background-color: transparent;
 }
 
-.selected .day-date {
+
+.day-date-active{
+  padding: 4px 6px;
+  margin-top: 6px;
+  border-radius: 6px;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  } */
+
+
+
+.highlighted-day {
   background-color: var(--color-blue);
   color: var(--color-white);
 }

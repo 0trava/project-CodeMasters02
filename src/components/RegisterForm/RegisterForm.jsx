@@ -77,6 +77,7 @@ export default function RegisterForm() {
       ) {
         return;
       } else {
+        localStorage.setItem('firstLoad', 'true');
         navigate(ROUTES.HOME);
       }
     } else {

@@ -2,7 +2,7 @@ import sprite from '../../images/sprite.svg';
 import css from './TaskForm.module.css'; 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 // import * as yup from 'yup';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { addTask, editTask } from '../../redux/tasks/operation';
 import { useState } from 'react';
 
@@ -39,75 +39,55 @@ import { useState } from 'react';
 //     .required('Category is required'),
 // });
 
-export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
+export const TaskForm = ({ onClose, action, column, taskToEdit, id }) => {
 
 const useTitle = "";
 const useTimeStart = '09:00';
 const useTimeEnd ='14:00';
 const [usePriority, setUsePriority] = useState("low");
-const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g, '-'));
+const useCategory = column.toLowerCase().replace(/ /g, '-');
+// eslint-disable-next-line
+const selectedDate = useSelector(state => state.date);
 
-// const selectedDate = useSelector(state => state.date);  // !!!! Date -  
-const [useDay, setUseDay] = useState(new Date());
-
+// Зберігаємо данні натиску Priority
+const handleRadioChange = (event) => {
+  event.preventDefault();
+  setUsePriority(event.target.value);
+  console.log(usePriority);
+};
 
 const {_id, title, priority, start, end, date, category} = taskToEdit;
 const dispatch = useDispatch();
 
-// if (_id) {
-//   setUseTitle(title);
-//   setUseTimeStart(start);
-//   setUseTimeEnd(end);
-//   setUsePriority(priority);
-//   setUseCategory(category);
-//   setUseDay(date);
-// }
-
-  //     const handleSubmit = (values, { resetForm }) => {
-  //         if (action === 'add') {
-  //             dispatch(addTask(values));
-  //         }
-  //         if (action === 'edit') {
-  //             dispatch(editTask({ _id, ...values }));
-  //         }
-  //         resetForm();
-  //         onClose();
-  //     };
-
-  //     const setCategory = () => {
-  //         if (column === 'To do') return 'to-do';
-  //         if (column === 'In progress') return 'in-progress';
-  //         if (column === 'Done') return 'done';
-  //     };
-
-
   // ВІДПРАВКА ФОРМИ
-  const onSubmitFormik = (e, valuesFormik, actionsFormik) => {
+  const onSubmitFormik = async (e, valuesFormik, actionsFormik) => {
     e.preventDefault();
-  
-
+    console.log('Selected priority:', usePriority);
+// Add task
   if (!_id) {
       const title = e.currentTarget.title.value;
       const start = e.currentTarget.start.value;
       const end = e.currentTarget.end.value;
-      let priority = usePriority;
-      
-      const date = new Date().toISOString();
-      // Дата розібратись
+      const priority = usePriority;  
       const category = useCategory;
+      // Transform date
+      let date = selectedDate;
+      const transformDate = new Date(date);
+      transformDate.setUTCHours(23, 0, 0, 0);
+      date = transformDate.toISOString();
 
-      dispatch(addTask({ title, start, end, priority, date, category}));
-  
+
+      await dispatch(addTask({ title, start, end, priority, date, category}));
+      onClose();
+// Edit task
   } else {
     const title = e.currentTarget.title.value;
     const start = e.currentTarget.start.value;
     const end = e.currentTarget.end.value;
-    const priority = e.currentTarget.priority.value;
+    const priority = usePriority;
 
-    dispatch(editTask({ _id, title, start, end, priority, date, category}));
-
-
-      return;
+    await dispatch(editTask({ _id, title, start, end, priority, date, category}));
+    onClose();
   }
 
   };
@@ -122,7 +102,6 @@ const dispatch = useDispatch();
         </svg>
       </button>
       <Formik
-        // initialValues={initialValues}
         // validationSchema={taskSchema}
         onSubmit={(values, actions) => {
           onSubmitFormik(values, actions);
@@ -182,6 +161,7 @@ const dispatch = useDispatch();
                   name="priority"
                   value="low"
                   checked={priority === "low"}
+                  onChange={handleRadioChange}
                 />
                 <span className={css.input_radio_low}>Low</span> 
               </label>
@@ -193,7 +173,8 @@ const dispatch = useDispatch();
                   type="radio"
                   name="priority"
                   value="medium"
-                  checked={priority === "medium"} 
+                  checked={priority === "medium"}
+                  onChange={handleRadioChange}
                 />
                 <span className={css.input_radio_medium}>Medium</span>
               </label>
@@ -205,7 +186,9 @@ const dispatch = useDispatch();
                   type="radio"
                   name="priority"
                   value="high"
-                  checked={priority === "high"} 
+                  checked={priority === "high"}
+                  onChange={handleRadioChange} 
+
                 />
                 <span className={css.input_radio_high} >High</span>
               </label>

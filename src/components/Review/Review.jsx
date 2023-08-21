@@ -2,21 +2,10 @@ import React from 'react';
 import reviewImg from '../WORK-file/Review_1.png';
 import './Review.css';
 
-export const Review = ({listReview}) => {
+export const Review = ({review}) => {
 
-
-  // console.log(review.listReview.owner);
   // eslint-disable-next-line
-  const {rating, owner, comment, avatar, id } = listReview;
-
-  // const checkID = (value) => {
-
-  //   if (value === rating) {
-  //     return true;
-  //   }
-  //   return false;
-  // };
-
+  const {rating, owner, comment, avatar, id } = review;
 
   return (
     <div>

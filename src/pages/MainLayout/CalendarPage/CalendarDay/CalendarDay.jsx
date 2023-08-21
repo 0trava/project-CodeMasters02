@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
 import { fetchTasks } from 'redux/tasks/operation';
 import { useSelector, useDispatch } from 'react-redux';
@@ -9,12 +9,13 @@ import { setSelectedDate } from 'redux/date/actions';
 export const CalendarDay = () => {
   const dispatch = useDispatch();
   const selectedDate = useSelector(state => state.date);
+
   const taskList = useSelector(state => state.task);
+
 
   // GET USER TASK LIST FOR DAY------------------------------------------
 
   useEffect(() => {
-    console.log(selectedDate);
     let startDay = new Date(selectedDate);
     startDay.setHours(0);
     startDay.setMinutes(0);
@@ -55,7 +56,7 @@ export const CalendarDay = () => {
     <div className="day-calendar-page">
       <DayCalendarHead setSelectDay={setSelectedDate} selectDay={selectedDate} />
 
-      <TasksColumnsSchedule tasks={categorizedArrays} />
+      <TasksColumnsSchedule tasks={categorizedArrays} selectedDate={selectedDate}/>
     </div>
   );
 };

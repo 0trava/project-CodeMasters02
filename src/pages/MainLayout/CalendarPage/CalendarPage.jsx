@@ -13,6 +13,7 @@ export const CalendarPage = () => {
   const currentDate = new Date();
   const dispatch = useDispatch();
 
+
   const handleSelectedDateChange = newDate => {
     dispatch(changeSelectedDate(newDate));
   };

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeSelectedDate } from 'redux/date/actions';
 import { format, addDays, startOfWeek, isSameDay } from 'date-fns'; // Переконайтеся, що ця бібліотека правильно імпортована
 import './DayCalendarHead.css';
@@ -13,10 +13,12 @@ export const DayCalendarHead = ({ setSelectedDate, selectDay }) => {
   const selectedDate = useState(selectDay);
   const isMobile = window.innerWidth <= 768;
   const currentDayIndex = currentDate.getDay();
+  const selectedDate = useSelector(state => state.date);
   const dispatch = useDispatch();
 
-  // Вибрана дата
-  console.log(selectDay);
+
+
+
 
   useEffect(() => {
     const calendarDayElements = document.querySelectorAll('.calendar-day');
@@ -28,7 +30,19 @@ export const DayCalendarHead = ({ setSelectedDate, selectDay }) => {
     });
   }, []);
 
-  // ЗМІНА ДАТИ
+
+// СТИЛІ - активна дата
+const chackDay= (day) => {
+  const dayForPut = new Date(selectedDate);
+  if (dayForPut.getDate() === day.getDate()) {
+    return "day-date-active";
+  } else {
+    return "day-date";
+  }
+}
+
+
+ // ЗМІНА ДАТИ
   const handleDateClick = date => {
     let startDay = new Date(date);
     startDay.setHours(0);

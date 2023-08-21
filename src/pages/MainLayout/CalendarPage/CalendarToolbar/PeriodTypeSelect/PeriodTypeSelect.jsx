@@ -11,7 +11,7 @@ export const PeriodTypeSelect = ({ periodType, setPeriodType }) => {
     <div className="typeDateWrapper">
       <NavLink
         to={`month/${currentDate}`}
-        className={`monthBtn ${periodType === 'month' ? 'active' : ''} `}
+        className='monthBtn'
         onClick={() => setPeriodType('month')}
       >
         Month
@@ -19,7 +19,7 @@ export const PeriodTypeSelect = ({ periodType, setPeriodType }) => {
 
       <NavLink
         to={`day/${currentDate}`}
-        className={`dayBtn ${periodType === 'day' ? 'active' : ''} `}
+        className='dayBtn'
         onClick={() => setPeriodType('day')}
       >
         Day

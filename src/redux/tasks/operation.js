@@ -8,14 +8,14 @@ export const fetchTasks = createAsyncThunk(
   'tasks/fetchTasks',
   async (params, { rejectWithValue }) => {
     try {
-      console.log(axios.defaults.headers.common.Authorization);
+      // console.log(axios.defaults.headers.common.Authorization);
       const response = await axios.get(`tasks`, {
         params: {
           dateFrom: params.dateFrom,
           dateTo: params.dateTo,
         },
       });
-      console.log(response);
+
       return response.data;
     } catch (e) {
       return rejectWithValue(e.message);
@@ -27,7 +27,7 @@ export const addTask = createAsyncThunk(
   'tasks/addTask',
   async (task, { rejectWithValue }) => {
     try {
-      console.log(task);
+
       const { data } = await axios.post('tasks', task);
       return data;
     } catch (e) {
@@ -40,7 +40,9 @@ export const deleteTask = createAsyncThunk(
   'tasks/deleteTask',
   async (taskId, { rejectWithValue }) => {
     try {
+
       const { data } = await axios.delete(`tasks/${taskId}`);
+      console.log(data);
       return data;
     } catch (e) {
       return rejectWithValue(e.message);
@@ -55,6 +57,7 @@ export const editTask = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
+      
       const { data } = await axios.patch(`tasks/${_id}`, {
         title,
         start,

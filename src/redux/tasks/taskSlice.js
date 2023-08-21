@@ -32,6 +32,7 @@ const tasksSlice = createSlice({
         state.error = null;
         state.tasks = action.payload;
       })
+
       .addCase(fetchTasks.rejected, handleRejected)
       .addCase(addTask.pending, handlePending)
       .addCase(addTask.fulfilled, (state, action) => {
@@ -39,12 +40,15 @@ const tasksSlice = createSlice({
         state.error = null;
         state.tasks.push(action.payload);
       })
+
       .addCase(addTask.rejected, handleRejected)
       .addCase(deleteTask.pending, handlePending)
       .addCase(deleteTask.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        console.log(action.payload);
         state.tasks = state.tasks.filter(task => task._id !== action.payload);
+
       })
       .addCase(deleteTask.rejected, handleRejected)
       .addCase(editTask.pending, handlePending)

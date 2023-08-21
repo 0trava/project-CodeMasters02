@@ -12,10 +12,11 @@ import {
 import { changeSelectedDate } from '../../../../../redux/date/actions';
 import { fetchTasks } from 'redux/tasks/operation';
 import { useParams  } from 'react-router-dom';
-import { PeriodPaginator } from '../../CalendarToolbar/PeriodPaginator/PeriodPaginator';
+// import { PeriodPaginator } from '../../CalendarToolbar/PeriodPaginator/PeriodPaginator';
 
 
 export const CalendarGrid = () => {
+  // eslint-disable-next-line
   const { currentDate } = useParams();
   const selectedDate = useSelector(state => state.date);
   const dateObject = parseISO(selectedDate);
@@ -37,9 +38,11 @@ export const CalendarGrid = () => {
   // GET USER TASK LIST ------------------------------------------
 
   useEffect(() => {
+
     const dateFrom = new Date(firstDayOfMonth).toISOString();
     const dateTo = new Date(lastDayOfMonth).toISOString();
     dispatch(fetchTasks({ dateFrom, dateTo }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   for (let i = 0; i < emptyCells; i++) {
@@ -56,7 +59,7 @@ export const CalendarGrid = () => {
     });
 
     const tasksElements = tasksForDay.map(task => (
-      <div key={task.id} className={`task ${task.priority}-priority`}>
+      <div key={task._id} className={`task ${task.priority}-priority`}>
         {task.title}
       </div>
     ));

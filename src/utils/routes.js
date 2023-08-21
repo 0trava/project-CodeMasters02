@@ -6,6 +6,5 @@ export const ROUTES = {
     CALENDAR: "calendar/",
     STATISTICS: "statistics",
     NotFound: '*',
-    START: "/",
 
 };
