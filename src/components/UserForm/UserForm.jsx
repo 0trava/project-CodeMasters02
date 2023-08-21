@@ -1,5 +1,4 @@
-import React, { useRef } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -8,7 +7,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 import { PiUserBold } from 'react-icons/pi';
-import InputMask from 'react-input-mask';
+// import InputMask from 'react-input-mask';
 import { updateUser } from 'redux/auth/operations';
 import { useDispatch } from "react-redux";
 
@@ -23,16 +22,16 @@ const birthdayRegExp = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)\d\d
 
 
 const userFormSchema = yup.object().shape({
-  name: yup
-    .string()
-    .max(16, 'Name must be 16 characters or less.')
-    .required('Name is a required!'),
-  email: yup
-    .string()
-    .max(254)
-    .matches(emailRegExp, 'Invalid email address. The email address must contain the @ sign.')
-    .required('Email is a required!')
-    .email('Invalid email address. The email address must contain the @ sign.'),
+  // name: yup
+  //   .string()
+  //   .max(24, 'Name must be 24 characters or less.')
+  //   .required('Name is a required!'),
+  // email: yup
+  //   .string()
+  //   .max(254)
+  //   .matches(emailRegExp, 'Invalid email address. The email address must contain the @ sign.')
+  //   .required('Email is a required!')
+  //   .email('Invalid email address. The email address must contain the @ sign.'),
   date: yup
     .date(),
   phone: yup
@@ -49,34 +48,43 @@ const userFormSchema = yup.object().shape({
 export const UserForm = () => {
   // Отримуємо данні з Redux
   const dispatch = useDispatch();
-  const inputRef = useRef();
   const [loadAvatar, setLoadAvatar] = useState("");
   // eslint-disable-next-line
   const { name, email, birthday, phone, skype, avatar } = useSelector(selectUser);
+
   const [avatarImg, setAvatarImg] = useState("");
-  const [formData, setFormData] = useState({
-    birthday: birthday,
-    email: email,
-    name: name,
-    phone: phone,
-    skype: skype,
-  });
+  // const [formData, setFormData] = useState({
+  //   birthday: birthday,
+  //   email: email,
+  //   name: name,
+  //   phone: phone,
+  //   skype: skype,
+  // });
 
   // ВІДПРАВКА ФОРМИ
-  const onSubmitFormik = (e) => {
+  const onSubmitFormik = async (e) => {
     e.preventDefault();
+    
 
-    if (avatarImg) {
-      const formDataToSend = new FormData();
-      formDataToSend.append('avatar', avatarImg);
+      // const formDataToSend = new FormData();
+      // formDataToSend.append('avatar', avatarImg);
       
       // Append other form data fields
-      for (const key in formData) {
-        formDataToSend.append(key, formData[key]);
-      }
+      // console.log(formData);
+      // for (const key in formData) {
+      //   formDataToSend.append(key, formData[key]);
+      // }
 
-      dispatch(updateUser(formDataToSend));
-    }
+      const name = e.currentTarget.name.value;
+      const email = e.currentTarget.email.value;
+      const birthday = e.currentTarget.birthday.value;
+      const phone = e.currentTarget.phone.value; 
+      const skype = e.currentTarget.skype.value;
+      const avatar = avatarImg;
+
+      const {payload} = await dispatch(updateUser({ name, email, birthday, phone, skype, avatar}));
+      console.log(payload)
+
     
   };
 
@@ -92,13 +100,11 @@ export const UserForm = () => {
   // ПЕРЕЗАПИС данних з input
   const handleInputChange = (event) => {
     // TEST -------------------------------------
-    const { name, value } = event.target;
-    const inputElement = ReactDOM.findDOMNode(this.refs.myInput);
-    inputElement.focus();
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value
-    }));
+    // const { name, value } = event.target;
+    // setFormData((prevFormData) => ({
+    //   ...prevFormData,
+    //   [name]: value
+    // }));
   };
 
 
@@ -153,7 +159,7 @@ export const UserForm = () => {
           <div className={css.fieldWrapper}>
 
             <div>
-            {/* User */}
+{/* User */}
             <label className={css.labelField}>
               User Name
               <Field
@@ -169,10 +175,16 @@ export const UserForm = () => {
              {/*  Birthday  */}
              <label className={css.labelField}>
               Birthday
-              <Field name="birthday" >
-                {({ field }) => (
+              <Field name="birthday" 
+                                  placeholder="DD/MM/YYYY"
+                                  className={css.inputField}
+                                  defaultValue={birthday ? birthday : ''}
+                                  onChange={handleInputChange}
+                                  type="date"
+                                  // pattern="\d{4}-\d{2}-\d{2}"
+                                   >
+                {/* {({ field }) => (
                   <InputMask
-                    ref={inputRef}
                     mask="99/99/9999"
                     {...field}
                     maskChar="_" // Use an underscore as the placeholder character
@@ -181,7 +193,7 @@ export const UserForm = () => {
                     defaultValue={birthday ? birthday : ''}
                     onChange={handleInputChange} 
                   />
-                )}
+                )} */}
               </Field>
               <ErrorMessage
                 className={css.error}
@@ -214,8 +226,13 @@ export const UserForm = () => {
             {/* Phone */}
             <label className={css.labelField}>
               Phone
-              <Field name="phone">
-                {({ field }) => (
+              <Field name="phone"
+                                  placeholder="Add a phone number"
+                                  type="tel"
+                                  className={css.inputField}
+                                  defaultValue={phone ? phone : ''}
+                                  onChange={handleInputChange} >
+                {/* {({ field }) => (
                   <InputMask
                     mask="+38 (999) 999-9999"
                     {...field}
@@ -226,7 +243,7 @@ export const UserForm = () => {
                     defaultValue={phone ? phone : ''}
                     onChange={handleInputChange} 
                   />
-                )}
+                )} */}
               </Field>
               <ErrorMessage className={css.error} name="phone" component="p" />
             </label>

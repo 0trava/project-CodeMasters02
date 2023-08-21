@@ -13,9 +13,9 @@
 
   border: none;
   border-right: 1px solid rgba(62, 133, 243, 0.2);
-  background: #e3f3ff;
+  background: var(--calendar-btn);
 
-  color: #3e85f3;
+  color: var(--text-btn);
   text-align: center;
   font-size: 14px;
   font-family: Inter;
@@ -27,7 +27,7 @@
   }
 
   &.active {
-    background: #cae8ff;
+    background: var(--addTaskBtn);
   }
 }
 
@@ -41,9 +41,9 @@
 
   border: none;
   /* border-left: 0.5px solid rgba(62, 133, 243, 0.2); */
-  background: #e3f3ff;
+  background: var(--calendar-btn);
 
-  color: #3e85f3;
+  color: var(--text-btn);
   text-align: center;
   font-size: 14px;
   font-family: Inter;
@@ -55,6 +55,6 @@
   }
 
   &.active {
-    background: #cae8ff;
+    background: var(--addTaskBtn);
   }
 }

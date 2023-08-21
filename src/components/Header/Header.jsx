@@ -9,14 +9,15 @@ import { UserInfo } from './UserInfo/UserInfo';
 import { FeedbackModal } from './FeedbackModal/FeedbackModal';
 import { useState } from 'react';
 import { ModalSideBar } from 'components/Modal/ModalSideBar';
-import { selectTasks } from '../../redux/tasks/selectors';
-import { useSelector } from 'react-redux';
+// import { selectTasks } from '../../redux/tasks/selectors';
+// import { useSelector } from 'react-redux';
 
 export const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [showSideBar, setShowSideBar] = useState(false);
 
-  let showGooseImage = useSelector(selectTasks);
+  // let showGooseImage = useSelector(selectTasks);
+     let showGooseImage = true;
 
   // Modal for Review
   const openModal = () => {
@@ -52,7 +53,7 @@ export const Header = () => {
   return (
     <>
       <div className={css.wrapper}>
-        {showGooseImage.lenght > 0 ? 
+        {showGooseImage ? 
             <div className={css.goose_wrapper}>
               <picture>
                 <source

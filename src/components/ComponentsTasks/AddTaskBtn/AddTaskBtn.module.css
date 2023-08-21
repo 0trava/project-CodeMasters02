@@ -10,7 +10,7 @@
   line-height: 129%;
   font-weight: 600;
   color: #111111;
-  background-color: var(--toogler-body-white);
+  background-color: var(--addTaskBtn);
   border: 1px dashed #3e85f3;
   border-radius: 8px;
   cursor: pointer;

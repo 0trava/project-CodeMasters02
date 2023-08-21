@@ -10,7 +10,7 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 129%;
-  color: var(--text-review);
+  color: var(--text-color);
   @media (min-width: 768px) {
     font-size: 18px;
     line-height: 100%;

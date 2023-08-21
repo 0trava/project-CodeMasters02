@@ -64,7 +64,7 @@
 }
 
 .react-datepicker__day--outside-month {
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
 }
 
 .react-datepicker__header {
@@ -72,10 +72,10 @@
   font-weight: 300;
   line-height: calc((18 / 14) * 100%);
   background-color: #3e85f3;
-  color: white;
+  color: var(--text-color);
 }
 .react-datepicker__day-name {
-  color: #ffffff;
+  color: var(--text-color);
   text-align: center;
   font-size: 14px;
   font-family: Inter;
@@ -127,3 +127,4 @@
 .datePicker {
   display: none;
 }
+

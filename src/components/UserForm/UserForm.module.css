@@ -4,7 +4,7 @@
   padding: 0px 18px 40px 18px;
   margin: 95px 20px 40px 20px;
   border-radius: 16px;
-  background: var(--color-white);
+  background: var(--toogler-block);
 
   @media (min-width: 768px) {
     width: 704px;
@@ -29,7 +29,7 @@
 }
 
 .userName {
-  color: #343434;
+  color: var(--text-color);
   font-size: 14px;
   margin-top: -18px;
   margin-bottom: 4px;
@@ -46,7 +46,7 @@
   }
 }
 .user {
-  color: #343434;
+  color: var(--text-color-2);
   font-weight: 600;
   font-size: 12px;
   line-height: 117%;
@@ -85,7 +85,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 129%;
-  color: #111;
+  color: var(--text-color-2);
 
   @media (min-width: 768px) {
   margin-bottom: 24px;
@@ -97,10 +97,11 @@
   box-sizing: border-box;
   outline: none;
   border-radius: 8px;
-  border: 1px solid rgba(17, 17, 17, 0.15);
-  color: #111;
+  border: 1px solid var(--border--calendar);
+  color: var(--text-input);
   padding: 14px 18px;
   width: 100%;
+  background-color: transparent;
 
   font-family: Inter;
   font-size: 14px;
@@ -200,7 +201,7 @@
   height: 72px;
   border-radius: 72px;
   border-radius: 72px;
-  border: 2px solid var(--color-blue);
+  border: 3px solid var(--color-blue);
 
   @media (min-width: 768px) {
     width: 124px;
@@ -271,9 +272,6 @@
  background-repeat: no-repeat;
  fill: #fff;
  background-size: cover;
-
-
- 
 
 }
 

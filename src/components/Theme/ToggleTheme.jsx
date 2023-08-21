@@ -30,15 +30,18 @@ export const ToggleTheme = () => {
 
   }, [theme]);
   function handleClick() {
+
+    // LIGHT
     if (theme === true) {
       setTheme(false);
-      document.body.style.backgroundColor = '#fff';
-      document.body.style.color = '#181921';
+      document.documentElement.setAttribute('data-theme', "light")
+
     }
+    // DADK
     else {
       setTheme(true);
-      document.body.style.backgroundColor = '#181921';
-      document.body.style.color = '#fff';
+      document.documentElement.setAttribute('data-theme', "dark")
+
     }
     dispatch();
   }

@@ -9,7 +9,7 @@
   /* padding: 16px 16px; */
 
   margin-bottom: 14px;
-  background: #ffffff;
+  background: var(--toogler-block);
   border: 1px solid rgba(220, 227, 229, 0.5);
   border-radius: 8px;
 
@@ -38,8 +38,8 @@
     width: 704px;
     height: 46px;
 
-    background: #ffffff;
-    border: 1px solid rgba(220, 227, 229, 0.8);
+    background: var(--toogler-block);
+    border: 1px solid var(--border--calendar);
     border-radius: 8px;
   }
 
@@ -61,7 +61,7 @@
 }
 
 .workDay {
-  color: #343434;
+  color: var(--text-color);
   font-size: 16px;
   font-family: Inter;
   font-weight: 600;

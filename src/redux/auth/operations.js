@@ -94,8 +94,20 @@ export const refresh = createAsyncThunk(
 export const updateUser = createAsyncThunk(
   'auth/update',
   async (credentials, { rejectWithValue }) => {
+    // const {name, email, birthday, phone, skype, avatar} = credentials;
     try {
-      const { data } = await axios.patch('users', credentials);
+      const { data } = await axios.patch('users', {
+        params: {
+          name: credentials.name,
+          email: credentials.email,
+        },
+        // name,
+        // email,
+        // birthday,
+        // phone,
+        // skype,
+        // avatar,
+      });
       Notify.success(`Your profile has been updated`);
       return data;
     } catch (error) {

@@ -5,10 +5,10 @@
   padding: 14px 18px;
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.5);
-  background-color: var(--color-white);
+  background-color: var(--toogler-block);
   width: 335px;
   height: 74px;
-  color: var(--text-review);
+  color: var(--text-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -24,6 +24,7 @@
 
 .day-name {
   font-weight: bold;
+  color: var(--text-color-2);
   pointer-events: none;
 }
 .short-day-name {

@@ -2,8 +2,8 @@
   width: 300px;
   height: 112px;
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #f7f6f9;
+  border: 1px solid var(--border--calendar);
+  background: var(--bacround-fon);
 
   padding: 14px 14px;
   display: flex;
@@ -11,9 +11,13 @@
   gap: 32px;
 }
 
+.EditBtnMenu_item svg {
+  fill: var(--text-input);
+}
+
 .TaskCard__title {
   overflow: hidden;
-  color: #111;
+  color: var(--text-input);
   text-overflow: ellipsis;
   flex-wrap: nowrap;
   font-family: Inter;
@@ -39,7 +43,7 @@
 }
 
 .TaskCard__avatar p {
-  color: var(--color-white);
+  color: var(--text-input);
   font-family: Inter;
   font-size: 28px;
   font-style: normal;

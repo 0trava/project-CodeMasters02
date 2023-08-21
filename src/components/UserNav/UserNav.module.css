@@ -3,10 +3,11 @@
   font-family: Inter;
   font-weight: 600;
   line-height: 0.8;
-  color: rgba(52, 52, 52, 0.5);
+  color: var(--text-sidebar);
   margin-left: 20px;
   margin-top: 64px;
   margin-bottom: 24px;
+  pointer-events: none;
 
   @media (min-width: 768px) {
     font-size: 14px;
@@ -57,7 +58,8 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  background-color: var(--color-white);
+  background-color: var(--btn-sidebar);
+  color: var(--text-sidebar);
 
   @media (min-width: 768px) {
     width: 225px;
@@ -86,20 +88,21 @@
 
 .button:hover,
 .button:focus {
-  background-color: #e3f3ff;
+
+  background-color: var(--color-blue-hover);
 }
 
 .link {
   font-family: Inter;
   font-weight: 600;
   line-height: 0.8;
-  color: rgba(52, 52, 52, 0.5);
+  color: var(--text-sidebar);
 }
 
 .icon {
   width: 20px;
   height: 20px;
-  stroke: var(--text-review);
+  stroke: var(--text-sidebar);
   stroke-opacity: 0.5;
 
   @media (min-width: 1440px) {
@@ -111,7 +114,7 @@
 .icon_2 {
   width: 20px;
   height: 20px;
-  fill: var(--text-review);
+  fill: var(--text-sidebar);
   fill-opacity: 0.5;
 
   @media (min-width: 1440px) {

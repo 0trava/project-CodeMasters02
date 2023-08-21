@@ -43,10 +43,10 @@
   padding: 8px 12px;
   text-align: center;
   border-radius: 8px 0 0 8px;
-  border-right: 0.5px solid rgba(220, 227, 229, 0.8);
+  border-right: 0.5px solid var(--border--calendar);
   background-color: transparent;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #fff;
+  border: 1px solid var(--border--calendar);
+  background: var(--toogler-block);
   cursor: pointer;
 }
 .chevronRightBtn {
@@ -57,14 +57,14 @@
   padding: 8px 12px;
   text-align: center;
   border-radius: 0 8px 8px 0;
+  border-right: 0.5px solid var(--border--calendar);
   background-color: transparent;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  border-left: 0.5px solid rgba(220, 227, 229, 0.8);
-  background: #fff;
+  border: 1px solid var(--border--calendar);
+  background: var(--toogler-block);
   cursor: pointer;
 }
 
 .icon-chevron {
   fill: transparent;
-  stroke: #343434;
+  stroke: var(--text-color);
 }

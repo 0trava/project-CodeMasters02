@@ -21,7 +21,6 @@
   border: none;
   background-color: var(--color-blue);
   transition: all 0.5s var(--transition);
-  box-shadow: 4px 2px 16px 0px rgba(136, 165, 191, 0.48);
 
   @media (min-width: 768px) {
     margin-left: 32px;
@@ -36,7 +35,6 @@
 }
 
 .btn:hover, .btn:focus {
-  border: 2px solid var(--color-blue-hover);
   background-color: var(--color-blue-hover);
 }
 

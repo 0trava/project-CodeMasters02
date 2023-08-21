@@ -17,6 +17,7 @@
   text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
     0px 47px 355px rgba(0, 0, 0, 0.07);
   color: var(--color-blue);
+  pointer-events: none;
 }
 .cursive {
   font-family: Inter;
@@ -41,7 +42,7 @@
   border-radius: 14px;
   border: 2px solid var(--color-blue);
   background-color: var(--color-blue);
-  color: var(--color-white);
+  color: var(--addTaskBtn);
 }
 @media (max-width: 767px) {
   .image {

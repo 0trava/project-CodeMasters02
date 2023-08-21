@@ -1,8 +1,8 @@
 .calendar-grid {
   width: 100%;
   display: grid;
-  background-color: var(--color-white);
-  border: 1px solid var(--input-placeholder-color);
+  background-color: var(--toogler-block);
+  border: 1px solid var(--border--calendar);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -44,9 +44,9 @@
   height: 94px;
   text-align: right;
   cursor: pointer;
-  border: 1px solid var(--input-placeholder-color);
+  border: 1px solid var(--border--calendar);
   box-sizing: border-box;
-  color: var(--text-review);
+  color: var(--text-color);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -64,7 +64,7 @@
   margin-top: 30px;
   padding: 4px 6px;
   background-color: transparent;
-  color: var(--text-review);
+  color: var(--text-color);
   border-radius: 6px;
   font-family: Inter;
   font-size: 12px;
@@ -89,7 +89,7 @@
   right: 10px;
   padding: 4px 6px;
   background-color: transparent;
-  color: var(--text-review);
+  color: var(--text-color);
   border-radius: 6px;
   font-family: Inter;
   font-size: 12px;

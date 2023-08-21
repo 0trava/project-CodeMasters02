@@ -1,18 +1,28 @@
 .MainLayout__navigation {
   border-right: 1px solid rgba(220, 227, 229, 0.5);
-  background: var(--color-white);
+  background: var(--bacround-fon);
 }
 .MainLayout__container {
-  position: fixed;
+
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 
   display: flex;
-  background-color: #f7f6f9;
+  background-color: var(--bacround-fon);
   width: 100%;
 }
+
+@media (min-width: 1440px) {
+  .MainLayout__container  {
+      position: fixed;
+
+  }
+}
+
+
+
 
 .MainLayout__afterbox {
   display: flex;

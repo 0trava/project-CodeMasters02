@@ -17,8 +17,11 @@
 
 @media (min-width: 1440px) {
   .login_page {
+    position: absolute;
     background-image: url(../../images/LoginPage__rocket_1x.png);
     background-repeat: no-repeat;
-    background-position: 1090px 320px;
+    background-position: 70vw 40vh;
+
   }
+  
 }

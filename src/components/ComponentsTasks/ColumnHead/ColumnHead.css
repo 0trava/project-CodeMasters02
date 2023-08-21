@@ -20,7 +20,7 @@
 
   text-align: center;
 
-  color: #111111;
+  color: var(--text-input);
 }
 
 .taskHeaderBtn {
@@ -35,6 +35,6 @@
 .taskHeaderIcon {
   width: 22px;
   height: 22px;
-  stroke: #111111;
+  stroke: var(--text-input);
   fill: transparent;
 }
