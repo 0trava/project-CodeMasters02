@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeSelectedDate } from 'redux/date/actions';
-import { format, addDays, startOfWeek, isSameDay } from 'date-fns';
+import { format, addDays, startOfWeek, isSameDay } from 'date-fns'; // Переконайтеся, що ця бібліотека правильно імпортована
 import './DayCalendarHead.css';
 
 const workDayNames = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 const weekendDayNames = ['SAT', 'SUN'];
 
-export const DayCalendarHead = ({ setSelectDay, selectDay }) => {
+export const DayCalendarHead = ({ setSelectedDate, selectDay }) => {
   const currentDate = new Date();
   const days = [...workDayNames, ...weekendDayNames];
-  const [selectedDate, setSelectedDate] = useState(selectDay);
+  const selectedDate = useState(selectDay);
   const isMobile = window.innerWidth <= 768;
   const currentDayIndex = currentDate.getDay();
   const dispatch = useDispatch();
@@ -24,6 +24,7 @@ export const DayCalendarHead = ({ setSelectDay, selectDay }) => {
       const shortName = element.getAttribute('data-short-name');
       const dayDateElement = element.querySelector('.day-date');
       dayDateElement.setAttribute('data-short-name', shortName);
+      dayDateElement.textContent = shortName; 
     });
   }, []);
 
@@ -35,7 +36,7 @@ export const DayCalendarHead = ({ setSelectDay, selectDay }) => {
     startDay.setSeconds(0);
     startDay.setMilliseconds(0);
     const dateToChange = startDay.toISOString();
-    setSelectDay(dateToChange);
+    setSelectedDate(dateToChange);
 
     dispatch(changeSelectedDate(date));
   };
