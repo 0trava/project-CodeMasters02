@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeSelectedDate } from 'redux/date/actions';
 import './DayCalendarHead.css';
 
@@ -11,7 +11,10 @@ export const DayCalendarHead = ({ setSelectDay}) => {
   const days = [...workDayNames, ...weekendDayNames];
   const isMobile = window.innerWidth <= 768;
   const currentDayIndex = currentDate.getDay();
+  const selectedDate = useSelector(state => state.date);
   const dispatch = useDispatch();
+
+
 
 
 
@@ -23,6 +26,17 @@ export const DayCalendarHead = ({ setSelectDay}) => {
       dayDateElement.setAttribute('data-short-name', shortName);
     });
   }, []);
+
+
+// СТИЛІ - активна дата
+const chackDay= (day) => {
+  const dayForPut = new Date(selectedDate);
+  if (dayForPut.getDate() === day.getDate()) {
+    return "day-date-active";
+  } else {
+    return "day-date";
+  }
+}
 
 
  // ЗМІНА ДАТИ
@@ -60,9 +74,9 @@ export const DayCalendarHead = ({ setSelectDay}) => {
             dayOffset = 7 - currentDayIndex;
           }
         }
-
         const day = new Date(currentDate);
-        day.setDate(currentDate.getDate() + dayOffset+1);
+        day.setDate(currentDate.getDate() + (dayOffset + 1));
+        console.log( day.getDate());
 
 
         return (
@@ -76,7 +90,10 @@ export const DayCalendarHead = ({ setSelectDay}) => {
               <div className="short-day-name">{dayName.charAt(0)}</div>
             ) : null}
             <div className="day-name">{dayName}</div>
-            <div className="day-date" id={day.getDate()}>{day.getDate()}</div>
+            {/* День */}
+            <div className={chackDay(day)} 
+            id={day.getDate()}
+            >{day.getDate()}</div>
           </div>
         );
       })}
