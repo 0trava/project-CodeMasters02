@@ -4,7 +4,6 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 // import * as yup from 'yup';
 import { useDispatch, useSelector} from 'react-redux';
 import { addTask, editTask } from '../../redux/tasks/operation';
-import { useState } from 'react';
 
 // const taskSchema = yup.object().shape({
 //   title: yup
@@ -44,8 +43,8 @@ export const TaskForm = ({ onClose, action, column, taskToEdit }) => {
 const useTitle = "";
 const useTimeStart = '09:00';
 const useTimeEnd ='14:00';
-const [usePriority, setUsePriority] = useState("low");
-const [useCategory, setUseCategory] = useState(column.toLowerCase().replace(/ /g, '-'));
+const usePriority ="low";
+const useCategory = column.toLowerCase().replace(/ /g, '-');
 const selectedDate = useSelector(state => state.date);
 
 const {_id, title, priority, start, end, date, category} = taskToEdit;

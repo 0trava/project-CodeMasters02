@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
 import { fetchTasks } from 'redux/tasks/operation';
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,7 +10,7 @@ import { setSelectedDate } from 'redux/date/actions';
 export const CalendarDay = () => {
   const dispatch = useDispatch();
   const selectedDate = useSelector(state => state.date);
-  const taskList = useSelector(state => state.task);
+  // const taskList = useSelector(state => state.task);
 
 
 

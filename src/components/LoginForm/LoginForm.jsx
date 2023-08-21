@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import css from './LoginForm.module.css';
 import { useDispatch } from 'react-redux';
-import { login, loginGoogle, refresh } from 'redux/auth/operations';
+import { login, loginGoogle } from 'redux/auth/operations';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ROUTES } from 'utils/routes';
 import { FiEyeOff } from 'react-icons/fi';

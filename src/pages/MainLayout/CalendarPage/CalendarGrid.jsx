@@ -12,7 +12,6 @@ export const CalendarGrid = () => {
   const dispatch = useDispatch();
 
 
-
   const currentYear = getYear(dateObject);
   const currentMonth = getMonth(dateObject);
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
