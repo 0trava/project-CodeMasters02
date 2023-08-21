@@ -29,7 +29,7 @@ export const MainLayout = () => {
     
   return (
     <div className="MainLayout__container">
-      <div>
+      <div className='MainLayout__afterbox'>
         <aside className="MainLayout__navigation">
           <nav>
             <SideBarPage></SideBarPage>

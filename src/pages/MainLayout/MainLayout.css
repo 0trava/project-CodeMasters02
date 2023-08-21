@@ -8,11 +8,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  
+
   display: flex;
   background-color: #f7f6f9;
   width: 100%;
 }
+
+.MainLayout__afterbox {
+  display: flex;
+  align-content: stretch;
+}
+
 
 .MainLayout__block {
   width: 100%;
