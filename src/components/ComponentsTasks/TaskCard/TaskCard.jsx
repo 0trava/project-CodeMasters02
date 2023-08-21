@@ -9,11 +9,16 @@ import { TaskModal } from 'components/TaskModal/TaskModal';
 import { useEffect, useRef, useState } from 'react';
 import { TaskDrop } from '../TaskDrop/TaskDrop';
 
-export const TaskCard = ({ task,selectedDate }) => {
+export const TaskCard = ({ task, selectedDate }) => {
   const dispatch = useDispatch();
   const { name, avatar } = useSelector(selectUser);
   // Отримання данних
   const { _id, title, start, end, priority, date, category } = task;
+  
+
+  console.log(task);
+
+
 
   // Перевірка довжини тексту в задачі ( скорочення )
   let shortTitle = title;
