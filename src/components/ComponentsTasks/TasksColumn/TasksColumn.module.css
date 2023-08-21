@@ -16,9 +16,10 @@
     width: 1087px;
     overflow-x: hidden;
   }
-  @media (max-width: 1439px) {
+  
     ::-webkit-scrollbar {
-      height: 12px;
+      width: 12px;
+
       background: #f2f2f2;
       border-radius: 12px;
     }
@@ -32,9 +33,8 @@
       background-color: #f2f2f2;
       border-radius: 12px;
     }
-  }
+  
 }
-
 .taskItem {
   display: block;
   flex-direction: row;
