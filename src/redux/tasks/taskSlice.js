@@ -20,7 +20,7 @@ const tasksSlice = createSlice({
   name: 'tasks',
   initialState: {
     tasks: [],
-    taskStatictics: {},
+    taskStatictics: null,
     isLoading: false,
     error: null,
   },
@@ -46,8 +46,9 @@ const tasksSlice = createSlice({
       .addCase(deleteTask.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.tasks = state.tasks.filter(task => task._id !== action.payload._id);
-
+        state.tasks = state.tasks.filter(
+          task => task._id !== action.payload._id
+        );
       })
       .addCase(deleteTask.rejected, handleRejected)
       .addCase(editTask.pending, handlePending)
@@ -67,7 +68,8 @@ const tasksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.taskStatictics = action.payload;
-      });
+      })
+      .addCase(getStatistics.rejected, handleRejected);
   },
 });
 
