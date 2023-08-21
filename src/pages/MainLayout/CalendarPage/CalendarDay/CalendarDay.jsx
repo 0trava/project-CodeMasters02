@@ -6,11 +6,12 @@ import { TasksColumnsSchedule } from 'components/ComponentsTasks/TasksColumnsSch
 import { selectTasks } from 'redux/tasks/selectors';
 import { setSelectedDate } from 'redux/date/actions';
 
-
 export const CalendarDay = () => {
   const dispatch = useDispatch();
   const selectedDate = useSelector(state => state.date);
- 
+
+  const taskList = useSelector(state => state.task);
+
 
   // GET USER TASK LIST FOR DAY------------------------------------------
 
@@ -50,15 +51,10 @@ export const CalendarDay = () => {
   }, {});
 
   // ___________________________________________________________________
- 
+
   return (
     <div className="day-calendar-page">
-
-      <DayCalendarHead 
-      selectedDate={ selectedDate }
-      setSelectedDate = {setSelectedDate}
-     
-      />
+      <DayCalendarHead setSelectDay={setSelectedDate} selectDay={selectedDate} />
 
       <TasksColumnsSchedule tasks={categorizedArrays} selectedDate={selectedDate}/>
     </div>

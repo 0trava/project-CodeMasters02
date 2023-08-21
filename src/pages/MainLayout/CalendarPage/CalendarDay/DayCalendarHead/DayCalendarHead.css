@@ -37,20 +37,11 @@
   text-transform: uppercase;
   opacity: 1;
 }
-
 .day-date {
   padding: 4px 6px;
   margin-top: 6px;
   border-radius: 6px;
   background-color: transparent;
-  cursor: pointer;
-
-  &:hover{
-    transition: var(--transition);
-    background-color: var(--color-blue);
-    color: var(--color-white);
-    
-  }
 }
 
 
@@ -69,6 +60,20 @@
   background-color: var(--color-blue);
   color: var(--color-white);
 }
+
+@media (max-width: 768px) {
+  .day-name {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .short-day-name {
+    display: none;
+  }
+}
+
+
 
 .selected {
   background-color: var(--color-blue);

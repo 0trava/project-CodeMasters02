@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeSelectedDate } from 'redux/date/actions';
+import { changeSelectedDate, setSelectedDate } from 'redux/date/actions';
+import { format, addDays, startOfWeek, isSameDay } from 'date-fns';
+
 import './DayCalendarHead.css';
 
 const workDayNames = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 const weekendDayNames = ['SAT', 'SUN'];
 
-export const DayCalendarHead = ({ setSelectDay}) => {
+export const DayCalendarHead = () => {
   const currentDate = new Date();
   const days = [...workDayNames, ...weekendDayNames];
-  const isMobile = window.innerWidth <= 768;
-  const currentDayIndex = currentDate.getDay();
   const selectedDate = useSelector(state => state.date);
+  const isMobile = window.innerWidth <= 768;
+ 
+
   const dispatch = useDispatch();
 
 
@@ -24,6 +27,7 @@ export const DayCalendarHead = ({ setSelectDay}) => {
       const shortName = element.getAttribute('data-short-name');
       const dayDateElement = element.querySelector('.day-date');
       dayDateElement.setAttribute('data-short-name', shortName);
+      dayDateElement.textContent = shortName; 
     });
   }, []);
 
@@ -40,55 +44,43 @@ const chackDay= (day) => {
 
 
  // ЗМІНА ДАТИ
-  const handleDateClick = (date) => {
 
+  const handleDateClick = (date) => {
     let startDay = new Date(date);
     startDay.setHours(0);
     startDay.setMinutes(0);
     startDay.setSeconds(0);
     startDay.setMilliseconds(0);
     const dateToChange = startDay.toISOString();
-    setSelectDay(dateToChange);
+    setSelectedDate(dateToChange);
 
     dispatch(changeSelectedDate(date));
   };
 
-
+  // Визначення днів тижня для відображення (починаємо з понеділка)
+  const startOfCurrentWeek = startOfWeek(currentDate, { weekStartsOn: 1 });
+  const daysToDisplay = [...Array(7)].map((_, index) => addDays(startOfCurrentWeek, index));
+  const dayShortNames = days.map(dayName => dayName.charAt(0));
 
   return (
     <div className="day-calendar-head">
-        {days.map((dayName, index) => {
-        let dayOffset = 0;
-        if (index <= 4) {
-          dayOffset = index - currentDayIndex;
-        } else if (index === 5) {
-          if (currentDayIndex === 0) {
-            dayOffset = 0; 
-          } else {
-            dayOffset = 6 - currentDayIndex;
-          }
-        } else if (index === 6) {
-          if (currentDayIndex === 0) {
-            dayOffset = 1; 
-          } else {
-            dayOffset = 7 - currentDayIndex;
-          }
-        }
-        const day = new Date(currentDate);
-        day.setDate(currentDate.getDate() + (dayOffset + 1));
-
+      {daysToDisplay.map((day, index) => {
+        const dayName = format(day, 'EE');
+        const dayDate = day.getDate();
 
         return (
           <div
-          key={index}
-          className={index === currentDayIndex ? 'current-day' : ''}
-          data-short-name={dayName.charAt(0)}
-          
-        >
+            key={index}
+            className={isSameDay(day, currentDate) ? 'current-day' : ''}
+            data-short-name={dayShortNames[index]}
+            onClick={() => handleDateClick(day)}
+          >
             {isMobile ? (
-              <div className="short-day-name">{dayName.charAt(0)}</div>
+              <div className="short-day-name">{dayShortNames[index]}</div>
             ) : null}
             <div className="day-name">{dayName}</div>
+            
+            {/* <div className="day-date" id={day.getDate()}>{day.getDate()}</div> */}
             {/* День */}
             <div className={chackDay(day)} 
                  id={day.getDate()}
