@@ -2,14 +2,14 @@
   box-sizing: border-box;
   width: 335px;
   padding: 0px 18px 40px 18px;
-  margin: 0px 20px 40px 20px;
+  margin: 95px 20px 40px 20px;
   border-radius: 16px;
   background: var(--toogler-body-white);
 
   @media (min-width: 768px) {
     width: 704px;
     padding: 40px 175px;
-    margin: 0px 32px 40px;
+    margin: 65px 32px 40px;
   }
 
   @media (min-width: 1440px) {
