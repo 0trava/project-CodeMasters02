@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeSelectedDate } from 'redux/date/actions';
+import { changeSelectedDate, setSelectedDate } from 'redux/date/actions';
 import { format, addDays, startOfWeek, isSameDay } from 'date-fns';
+
 import './DayCalendarHead.css';
 
 const workDayNames = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 const weekendDayNames = ['SAT', 'SUN'];
 
-export const DayCalendarHead = ({ setSelectedDate }) => {
+export const DayCalendarHead = () => {
   const currentDate = new Date();
   const days = [...workDayNames, ...weekendDayNames];
   const selectedDate = useSelector(state => state.date);
