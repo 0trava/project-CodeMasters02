@@ -7,13 +7,13 @@ import './DayCalendarHead.css';
 const workDayNames = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 const weekendDayNames = ['SAT', 'SUN'];
 
-export const DayCalendarHead = ({ setSelectedDate, selectDay }) => {
+export const DayCalendarHead = ({ setSelectedDate }) => {
   const currentDate = new Date();
   const days = [...workDayNames, ...weekendDayNames];
-  const selectedDate = useState(selectDay);
-  const isMobile = window.innerWidth <= 768;
-  const currentDayIndex = currentDate.getDay();
   const selectedDate = useSelector(state => state.date);
+  const isMobile = window.innerWidth <= 768;
+  // const currentDayIndex = currentDate.getDay();
+
   const dispatch = useDispatch();
 
 
@@ -77,7 +77,12 @@ const chackDay= (day) => {
               <div className="short-day-name">{dayShortNames[index]}</div>
             ) : null}
             <div className="day-name">{dayName}</div>
-            <div className="day-date">{dayDate}</div>
+            
+            {/* <div className="day-date" id={day.getDate()}>{day.getDate()}</div> */}
+            {/* День */}
+            <div className={chackDay(day)} 
+            id={day.getDate()}
+            >{day.getDate()}</div>
           </div>
         );
       })}
