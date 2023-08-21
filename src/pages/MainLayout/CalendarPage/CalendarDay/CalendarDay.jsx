@@ -10,16 +10,11 @@ import { setSelectedDate } from 'redux/date/actions';
 export const CalendarDay = () => {
   const dispatch = useDispatch();
   const selectedDate = useSelector(state => state.date);
-  // const taskList = useSelector(state => state.task);
-
-
-
  
 
   // GET USER TASK LIST FOR DAY------------------------------------------
 
   useEffect(() => {
-    console.log(selectedDate);
     let startDay = new Date(selectedDate);
     startDay.setHours(0);
     startDay.setMinutes(0);
@@ -65,7 +60,7 @@ export const CalendarDay = () => {
      
       />
 
-      <TasksColumnsSchedule tasks={categorizedArrays} />
+      <TasksColumnsSchedule tasks={categorizedArrays} selectedDate={selectedDate}/>
     </div>
   );
 };

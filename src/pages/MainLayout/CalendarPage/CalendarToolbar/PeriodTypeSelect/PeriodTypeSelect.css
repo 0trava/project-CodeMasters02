@@ -1,29 +1,3 @@
-.period-type-select {
-  color: #3e85f3;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.29;
-}
-.set-period-btn {
-  border-radius: 0px 8px 8px 8px;
-}
-
-.period-type-select button {
-  border-radius: 8px 8px 8px 8px;
-  background-color: #e3f3ff;
-  border: none;
-  color: #3E85F3;
-  cursor: pointer;
-  padding: 8px 15px;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-.period-type-select button.active {
-  background-color: #3e85f333;
-}
 .typeDateWrapper {
   display: flex;
 }
@@ -39,7 +13,7 @@
 
   border: none;
   border-right: 1px solid rgba(62, 133, 243, 0.2);
-  background: #CAE8FF;
+  background: #e3f3ff;
 
   color: #3e85f3;
   text-align: center;
@@ -53,7 +27,7 @@
   }
 
   &.active {
-    background: #E3F3FF;
+    background: #cae8ff;
   }
 }
 
@@ -67,7 +41,7 @@
 
   border: none;
   /* border-left: 0.5px solid rgba(62, 133, 243, 0.2); */
-  background: #CAE8FF;
+  background: #e3f3ff;
 
   color: #3e85f3;
   text-align: center;
@@ -81,6 +55,6 @@
   }
 
   &.active {
-    background: #E3F3FF;
+    background: #cae8ff;
   }
 }

@@ -6,20 +6,18 @@ import './DayCalendarHead.css';
 const workDayNames = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 const weekendDayNames = ['SAT', 'SUN'];
 
-export const DayCalendarHead = ({   setSelectDay, selectDay}) => {
+export const DayCalendarHead = ({ setSelectDay}) => {
   const currentDate = new Date();
-  const selectedDate = useSelector(state => state.date);
   const days = [...workDayNames, ...weekendDayNames];
-  // const [selectedDate, setSelectedDate] = useState(selectDay);
   const isMobile = window.innerWidth <= 768;
   const currentDayIndex = currentDate.getDay();
+  const selectedDate = useSelector(state => state.date);
   const dispatch = useDispatch();
 
 
-  // Вибрана дата
-  console.log(selectedDate);
 
- 
+
+
   useEffect(() => {
     const calendarDayElements = document.querySelectorAll('.calendar-day');
     calendarDayElements.forEach(element => {
@@ -30,9 +28,21 @@ export const DayCalendarHead = ({   setSelectDay, selectDay}) => {
   }, []);
 
 
- // ЗМІНА ДАТИ
-  const handleDateClick = date => {
+// СТИЛІ - активна дата
+const chackDay= (day) => {
+  const dayForPut = new Date(selectedDate);
+  if (dayForPut.getDate() === day.getDate()) {
+    return "day-date-active";
+  } else {
+    return "day-date";
+  }
+}
 
+
+ // ЗМІНА ДАТИ
+  const handleDateClick = (date) => {
+    console.log(date);
+    
     let startDay = new Date(date);
     startDay.setHours(0);
     startDay.setMinutes(0);
@@ -65,9 +75,8 @@ export const DayCalendarHead = ({   setSelectDay, selectDay}) => {
             dayOffset = 7 - currentDayIndex;
           }
         }
-
         const day = new Date(currentDate);
-        day.setDate(currentDate.getDate() + dayOffset+1);
+        day.setDate(currentDate.getDate() + (dayOffset + 1));
 
 
         return (
@@ -75,13 +84,17 @@ export const DayCalendarHead = ({   setSelectDay, selectDay}) => {
           key={index}
           className={index === currentDayIndex ? 'current-day' : ''}
           data-short-name={dayName.charAt(0)}
-          onClick={() => handleDateClick(day)}
+          
         >
             {isMobile ? (
               <div className="short-day-name">{dayName.charAt(0)}</div>
             ) : null}
             <div className="day-name">{dayName}</div>
-            <div className="day-date" id={day.getDate()}>{day.getDate()}</div>
+            {/* День */}
+            <div className={chackDay(day)} 
+                 id={day.getDate()}
+                 onClick={() => handleDateClick(day)}
+            >{day.getDate()}</div>
           </div>
         );
       })}

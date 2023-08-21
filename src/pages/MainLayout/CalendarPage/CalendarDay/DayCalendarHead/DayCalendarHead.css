@@ -24,6 +24,7 @@
 
 .day-name {
   font-weight: bold;
+  pointer-events: none;
 }
 .short-day-name {
   color: var(--text-review);
@@ -42,6 +43,7 @@
   margin-top: 6px;
   border-radius: 6px;
   background-color: transparent;
+  cursor: pointer;
 
   &:hover{
     transition: var(--transition);
@@ -49,14 +51,19 @@
     color: var(--color-white);
     
   }
-
 }
 
-.active{
+
+.day-date-active{
+  padding: 4px 6px;
+  margin-top: 6px;
+  border-radius: 6px;
   background-color: var(--color-blue);
   color: var(--color-white);
-  
+  pointer-events: none;
 }
+
+
 
 .highlighted-day {
   background-color: var(--color-blue);
