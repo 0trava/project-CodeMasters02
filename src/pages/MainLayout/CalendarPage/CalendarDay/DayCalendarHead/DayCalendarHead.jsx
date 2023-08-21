@@ -40,8 +40,9 @@ const chackDay= (day) => {
 
 
  // ЗМІНА ДАТИ
-  const handleDateClick = date => {
-
+  const handleDateClick = (date) => {
+    console.log(date);
+    
     let startDay = new Date(date);
     startDay.setHours(0);
     startDay.setMinutes(0);
@@ -76,7 +77,6 @@ const chackDay= (day) => {
         }
         const day = new Date(currentDate);
         day.setDate(currentDate.getDate() + (dayOffset + 1));
-        console.log( day.getDate());
 
 
         return (
@@ -84,7 +84,7 @@ const chackDay= (day) => {
           key={index}
           className={index === currentDayIndex ? 'current-day' : ''}
           data-short-name={dayName.charAt(0)}
-          onClick={() => handleDateClick(day)}
+          
         >
             {isMobile ? (
               <div className="short-day-name">{dayName.charAt(0)}</div>
@@ -92,7 +92,8 @@ const chackDay= (day) => {
             <div className="day-name">{dayName}</div>
             {/* День */}
             <div className={chackDay(day)} 
-            id={day.getDate()}
+                 id={day.getDate()}
+                 onClick={() => handleDateClick(day)}
             >{day.getDate()}</div>
           </div>
         );
