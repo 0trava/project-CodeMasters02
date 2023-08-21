@@ -21,8 +21,8 @@ export const AppRoutes = () => {
   // eslint-disable-next-line
   const userIsLogin = useSelector(selectToken);
 
-  const chackMainLogin = value => {
-    if (!value) {
+  const chackMainLogin = () => {
+    if (!userIsLogin) {
       return <MainPage />;
     } else {
       return <MainLayout />;
@@ -33,7 +33,7 @@ export const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route index element={chackMainLogin(userIsLogin)} />
+      <Route index element={chackMainLogin()} />
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />
       <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
       <Route
