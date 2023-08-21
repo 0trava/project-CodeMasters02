@@ -52,7 +52,7 @@ export const Header = () => {
   return (
     <>
       <div className={css.wrapper}>
-        {showGooseImage ? 
+        {showGooseImage.lenght > 0 ? 
             <div className={css.goose_wrapper}>
               <picture>
                 <source
