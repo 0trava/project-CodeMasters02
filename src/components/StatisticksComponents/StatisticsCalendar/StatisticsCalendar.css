@@ -19,6 +19,7 @@
   line-height: 129%;
 
   @media (min-width: 768px) {
+    top: 20px;
     left: -290px;
     width: 373px;
 
@@ -27,6 +28,7 @@
   }
 
   @media (min-width: 1440px) {
+    top: 20px;
     left: -370px;
   }
 }
