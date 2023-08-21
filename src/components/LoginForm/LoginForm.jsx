@@ -45,8 +45,6 @@ export default function LoginForm() {
   useEffect(() => {
     if (token) {
       dispatch(loginGoogle({ token }));
-      // .then(() => navigate('/calendar'))
-      // .catch(() => navigate('/login'));
     }
   }, [token, dispatch, navigate]);
 
