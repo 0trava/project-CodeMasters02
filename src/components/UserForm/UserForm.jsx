@@ -53,36 +53,36 @@ export const UserForm = () => {
   const { name, email, birthday, phone, skype, avatar } = useSelector(selectUser);
 
   const [avatarImg, setAvatarImg] = useState("");
-  // const [formData, setFormData] = useState({
-  //   birthday: birthday,
-  //   email: email,
-  //   name: name,
-  //   phone: phone,
-  //   skype: skype,
-  // });
+  const [formData, setFormData] = useState({
+    birthday: birthday,
+    email: email,
+    name: name,
+    phone: phone,
+    skype: skype,
+  });
 
   // ВІДПРАВКА ФОРМИ
   const onSubmitFormik = async (e) => {
     e.preventDefault();
     
 
-      // const formDataToSend = new FormData();
-      // formDataToSend.append('avatar', avatarImg);
+      const formDataToSend = new FormData();
+      formDataToSend.append('avatar', avatarImg);
       
       // Append other form data fields
-      // console.log(formData);
-      // for (const key in formData) {
-      //   formDataToSend.append(key, formData[key]);
-      // }
+      console.log(formData);
+      for (const key in formData) {
+        formDataToSend.append(key, formData[key]);
+      }
 
-      const name = e.currentTarget.name.value;
-      const email = e.currentTarget.email.value;
-      const birthday = e.currentTarget.birthday.value;
-      const phone = e.currentTarget.phone.value; 
-      const skype = e.currentTarget.skype.value;
-      const avatar = avatarImg;
+      // const name = e.currentTarget.name.value;
+      // const email = e.currentTarget.email.value;
+      // const birthday = e.currentTarget.birthday.value;
+      // const phone = e.currentTarget.phone.value; 
+      // const skype = e.currentTarget.skype.value;
+      // const avatar = avatarImg;
 
-      const {payload} = await dispatch(updateUser({ name, email, birthday, phone, skype, avatar}));
+      const {payload} = await dispatch(updateUser(formDataToSend));
       console.log(payload)
 
     
@@ -100,11 +100,11 @@ export const UserForm = () => {
   // ПЕРЕЗАПИС данних з input
   const handleInputChange = (event) => {
     // TEST -------------------------------------
-    // const { name, value } = event.target;
-    // setFormData((prevFormData) => ({
-    //   ...prevFormData,
-    //   [name]: value
-    // }));
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value
+    }));
   };
 
 
