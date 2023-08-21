@@ -106,12 +106,7 @@
     background-color: #ffffff;
     color: var(--color-blue);
 }
-a:visited {
-    text-decoration: none;
-}
-a:link {
-    text-decoration: none;
-}
+
 
 .button:hover,
 .button:focus {

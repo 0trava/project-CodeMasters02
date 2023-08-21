@@ -51,10 +51,8 @@
     color: var(--color-white);
     
   }
-
-
-
 }
+
 
 .day-date-active{
   padding: 4px 6px;
@@ -62,10 +60,14 @@
   border-radius: 6px;
   background-color: var(--color-blue);
   color: var(--color-white);
+<<<<<<< HEAD
   pointer-events: none;
   
   
 }
+=======
+  } */
+>>>>>>> cda0bd509348e1e78828d4656e31a8557175160d
 
 
 
