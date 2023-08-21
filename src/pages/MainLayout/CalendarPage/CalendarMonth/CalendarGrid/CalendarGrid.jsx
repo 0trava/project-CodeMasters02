@@ -55,8 +55,6 @@ const handleSelectTask = (e) => {
   
   const selectTaskId = tasks.filter(task => task._id === e.target.id);
   setTask(selectTaskId[0]);
-  console.log(task);
-
   openModal();
 }
 

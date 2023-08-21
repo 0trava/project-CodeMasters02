@@ -14,11 +14,6 @@ export const TaskCard = ({ task, selectedDate }) => {
   const { name, avatar } = useSelector(selectUser);
   // Отримання данних
   const { _id, title, start, end, priority, date, category } = task;
-  
-
-  console.log(task);
-
-
 
   // Перевірка довжини тексту в задачі ( скорочення )
   let shortTitle = title;
