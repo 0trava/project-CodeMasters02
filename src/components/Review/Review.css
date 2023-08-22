@@ -53,19 +53,10 @@
   }
 }
   /* ---------------- */
-  .rating {
-    /* pointer-events: none; */
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    margin-bottom: 24px;
-  }
-
-  .review__header  .rating {
-    pointer-events: none; 
-  }
-
-
+  
+ .review__header .rating {
+  pointer-events: none;
+ }
 
   .rating:not(:checked) > input {
     position: absolute;
@@ -75,9 +66,8 @@
   .rating:not(:checked) > label {
     float: right;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 30px;
     color: #666;
-    margin-right: 6px;
   }
   
   .rating:not(:checked) > label:before {
@@ -89,18 +79,14 @@
   .rating > input:checked ~ label:hover,
   .rating > input:checked ~ label:hover ~ label,
   .rating > label:hover ~ input:checked ~ label {
-    color: #FFAC33;
+    color: #e58e09;
   }
   
   .rating:not(:checked) > label:hover,
   .rating:not(:checked) > label:hover ~ label {
-    color: #FFAC33;
+    color: #ff9e0b;
   }
   
   .rating > input:checked ~ label {
-    color: #FFAC33;
+    color: #ffa723;
   }
-  
-  
-  
-  
