@@ -10,18 +10,12 @@ export const UserNav = ({ setShowSideBar }) => {
 // Перевірка яка сторінка відкрита
 const chackPage = (page) => {
   const open = location.pathname.slice(0, 11)
-  console.log(open)
   if ( open === page)  {
-     console.log(location.pathname)
      return css.button_active;
   } else {
     return css.button;
   }
 }
-
-
-
-
 
   return (
     <>
