@@ -12,7 +12,7 @@ import { useState } from 'react';
 
 import { FiAlertCircle } from 'react-icons/fi';
 import { FiCheckCircle } from 'react-icons/fi';
-import { ReactComponent as Google } from 'images/google.svg';
+// import { ReactComponent as Google } from 'images/google.svg';
 // eslint-disable-next-line
 const emailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -200,7 +200,7 @@ export default function RegisterForm() {
                       <use href={sprite + '#icon-log-in'}></use>
                     </svg>
                   </button>
-                  <a
+                  {/* <a
                     href={
                       'https://project-codemasters02-backend.onrender.com/api/auth/google'
                     }
@@ -208,7 +208,7 @@ export default function RegisterForm() {
                   >
                     <Google width="34" height="34" />
                     Continue with Google
-                  </a>
+                  </a> */}
                 </div>
               </Form>
             );

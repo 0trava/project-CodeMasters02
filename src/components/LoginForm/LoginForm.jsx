@@ -10,7 +10,7 @@ import { FiEye } from 'react-icons/fi';
 import sprite from 'images/sprite.svg';
 import { FiAlertCircle } from 'react-icons/fi';
 import { FiCheckCircle } from 'react-icons/fi';
-import { ReactComponent as Google } from 'images/google.svg';
+// import { ReactComponent as Google } from 'images/google.svg';
 
 import { useEffect, useState } from 'react';
 
@@ -78,8 +78,8 @@ export default function LoginForm() {
       ) {
         return;
       } else {
-        localStorage.setItem('firstLoad', 'true');
         navigate(ROUTES.HOME);
+        localStorage.setItem('firstLoad', "true");
       }
     } else {
       return;
@@ -172,7 +172,7 @@ export default function LoginForm() {
                       <use href={sprite + '#icon-log-in'}></use>
                     </svg>
                   </button>
-                  <a
+                  {/* <a
                     href={
                       'https://project-codemasters02-backend.onrender.com/api/auth/google'
                     }
@@ -180,7 +180,7 @@ export default function LoginForm() {
                   >
                     <Google width="34" height="34" />
                     Continue with Google
-                  </a>
+                  </a> */}
                 </div>
               </Form>
             );

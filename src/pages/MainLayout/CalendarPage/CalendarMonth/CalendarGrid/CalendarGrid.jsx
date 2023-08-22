@@ -70,12 +70,29 @@ const handleSelectTask = (e) => {
     setShowModal(false);
   };
 
-  // ----------------------------------------------
+
+  // Поточна дата
+  const chackDay= (day) => {
+    const dayForPut = new Date();
+
+    console.log(dayForPut.getMonth());
+    console.log(currentMonth);
+    if (dayForPut.getMonth() === currentMonth) {
+      if (dayForPut.getDate() === day) {
+        return "day_grid-container-active";
+      } else {
+        if (dayForPut.getDate() < day) {
+          return "day_grid-container";
+        } else {
+          return "day_grid-container-passed";
+        }
+        }
+    }
+    return "day_grid-container"; 
+  }
 
 
-
-
-
+// РЕНДЕР ТАБЛИЦІ Календаря
   for (let i = 0; i < emptyCells; i++) {
     calendarGrid.push(<div key={`empty-${i}`} className="empty-cell"></div>);
   }
@@ -104,7 +121,7 @@ const handleSelectTask = (e) => {
         className={`calendar-cell ${isWeekend ? 'weekend' : ''}`}
       >
         <div className="tasks-container">{tasksElements}</div>
-        <div className="day_grid-container">{day}</div>
+        <div className={chackDay(day)} id={day}>{day}</div>
         
                
 

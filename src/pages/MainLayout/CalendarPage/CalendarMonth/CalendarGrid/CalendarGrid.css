@@ -78,6 +78,8 @@
   -ms-overflow-style: none;
 }
 
+
+
 .calendar_grid-day::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -96,6 +98,39 @@
   font-weight: 700;
   line-height: 1.17;
 }
+
+.day_grid-container-passed {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  padding: 4px 6px;
+  background-color: transparent;
+  color: var(--text-color-2);
+  border-radius: 6px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.17;
+}
+
+.day_grid-container-active {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  padding: 4px 6px;
+  background-color: transparent;
+  color: white;
+  border-radius: 6px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.17;
+
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: #3E85F3;
+}
+
 
 .day-wrapper {
   width: 100%;

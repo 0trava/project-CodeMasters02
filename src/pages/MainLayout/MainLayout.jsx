@@ -14,13 +14,16 @@ export const MainLayout = () => {
   const getDate = useSelector(state => state.date);
   const dateObject = new Date(getDate);
   const transformedDateString = dateObject.toISOString().split('T')[0];
-  // Перевірка що токен валідний
+
+  // Перевірка що перший раз входить
   useEffect(() => {
      if (isFirstLoad === "true") {
       const ROUT = `calendar/month/${transformedDateString}`
       navigate(ROUT);
       localStorage.setItem('firstLoad', 'false');
      } 
+
+     return;
     // eslint-disable-next-line
     }, [])
 

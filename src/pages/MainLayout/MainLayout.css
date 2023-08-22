@@ -15,7 +15,7 @@
 
 @media (min-width: 1440px) {
   .MainLayout__container  {
-      position: fixed;
+      /* position: fixed; */
 
   }
 }
