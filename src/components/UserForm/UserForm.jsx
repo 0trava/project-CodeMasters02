@@ -67,26 +67,19 @@ export const UserForm = () => {
   // ВІДПРАВКА ФОРМИ
   const onSubmitFormik = async (e) => {
     e.preventDefault();
-
       let formDataToSend = new FormData();
 
-
-      console.log(avatarImg);   
       if (avatarImg) {
-        console.log("START"); 
         formDataToSend.append('avatar', avatarImg);
       }
 
-      console.log(formData);      
+     
       // Append other form data fields
       for (const key in formData) {
-        console.log(key, formData[key]);  
         formDataToSend.append(key, formData[key]);
       }
+      await dispatch(updateUser(formDataToSend));
 
-      console.log(formDataToSend);
-      const {payload} = await dispatch(updateUser(formDataToSend));
-      console.log(payload);
 
     
   };

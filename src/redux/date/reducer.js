@@ -23,8 +23,7 @@ export const calendarReducer = (state = initialState, action) => {
 export const dateReducer = (state = initialState.selectedDate, action) => {
   switch (action.type) {
     case CHANGE_SELECTED_DATE:
-      const transformedDate = action.payload/*.toISOString()*/;
-      console.log(transformedDate);     
+      const transformedDate = action.payload/*.toISOString()*/;     
       return transformedDate;
     default:
       return state;

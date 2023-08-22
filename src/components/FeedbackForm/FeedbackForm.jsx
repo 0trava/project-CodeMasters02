@@ -25,8 +25,6 @@ export const FeedbackForm =  ({ onClose }) => {
     e.preventDefault();
     setChangeReview(true);
     document.getElementById('textarea').removeAttribute('readOnly');
-    document.getElementsByName('FeedbackForm__stars').setAttribute('className', "FeedbackForm__stars");
-    // onclose();
 
   };
 
@@ -43,7 +41,6 @@ export const FeedbackForm =  ({ onClose }) => {
     console.log(TEST.attributes);
     console.log(TEST.getAttribute("textcontent"));
     document.getElementById('textarea').value = "";
-    document.getElementsByName('FeedbackForm__stars').setAttribute('className', "FeedbackForm__stars");
     
     
     
@@ -59,8 +56,6 @@ export const FeedbackForm =  ({ onClose }) => {
 
     if ( text || rating) {
       await dispatch(addReview({ rating, text }));
-      document.getElementsByName('FeedbackForm__stars').setAttribute('className', "FeedbackForm__stars-save");
-
       onClose();
     } else {
       return;
@@ -80,8 +75,7 @@ export const FeedbackForm =  ({ onClose }) => {
         setValueText(text);
         setChangeReview(false);
         document.getElementById('textarea').setAttribute('readOnly', true);
-        document.getElementsByName('FeedbackForm__stars').setAttribute('className', "FeedbackForm__stars-save");
-
+        
       } else {
         return;
       }
