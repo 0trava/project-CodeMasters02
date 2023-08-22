@@ -10,8 +10,8 @@ import { Notify } from 'notiflix';
 export const TaskForm = ({ onClose, action, column, taskToEdit, id }) => {
 
 const useTitle = "";
-const useTimeStart = '';
-const useTimeEnd ='';
+const useTimeStart = '09:00';
+const useTimeEnd ='10:00';
 const [usePriority, setUsePriority] = useState("low");
 const useCategory = column.toLowerCase().replace(/ /g, '-');
 // eslint-disable-next-line

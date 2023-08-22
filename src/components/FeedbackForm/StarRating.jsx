@@ -8,18 +8,17 @@ const StarRating = ({ rating, id }) => {
     }
 
 
-
   const radioInputs = Array.from({ length: 5 }, (_, index) => (
     <React.Fragment key={index}>
       <input
         type="radio"
-        id={`star${index + 1}`}
-        name={`star${id}`}
+        id={`star${id}${index + 1}`}
+        name={`star${id}${index + 1}`}
         value={index + 1}
         className="star"
         defaultChecked={test(index + 1)}
       />
-      <label htmlFor={`star${index + 1}`} title={`${index + 1} star`}></label>
+      <label htmlFor={`star${id}${index + 1}`} title={`${index + 1} star`}></label>
     </React.Fragment>
   ));
 
