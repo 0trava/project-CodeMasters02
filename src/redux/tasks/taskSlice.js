@@ -20,7 +20,7 @@ const tasksSlice = createSlice({
   name: 'tasks',
   initialState: {
     tasks: [],
-    taskStatictics: {},
+    taskStatictics: [],
     isLoading: false,
     error: null,
   },
@@ -67,7 +67,8 @@ const tasksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.taskStatictics = action.payload;
-      });
+      })
+      .addCase(getStatistics.rejected, handleRejected);
   },
 });
 
