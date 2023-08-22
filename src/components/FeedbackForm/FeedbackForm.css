@@ -66,6 +66,13 @@ scale: 1.1;
 
 }
 
+.FeedbackForm__stars-save {
+  margin-top: 8px;
+  margin-bottom: 24px;
+  pointer-events: none;
+
+}
+
 .FeedbackForm_input {
   width: 100%;
   padding: 12px 14px;

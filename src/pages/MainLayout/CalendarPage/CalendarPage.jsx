@@ -6,16 +6,20 @@ import { Suspense } from 'react';
 import BeatLoader from 'react-spinners/BeatLoader';
 import { Outlet } from 'react-router-dom';
 import { changeSelectedDate } from 'redux/date/actions';
+import { selectToken } from 'redux/auth/selectors';
 
 export const CalendarPage = () => {
   const selectedDate = useSelector(state => state.date);
   const [periodType, setPeriodType] = useState('month');
   const currentDate = new Date();
   const dispatch = useDispatch();
+  const userIsLogin = useSelector(selectToken);
 
 
   const handleSelectedDateChange = async (newDate) => {
-    await dispatch(changeSelectedDate(newDate));
+    if (userIsLogin) {
+      await dispatch(changeSelectedDate(newDate));
+    }
   };
 
   return (

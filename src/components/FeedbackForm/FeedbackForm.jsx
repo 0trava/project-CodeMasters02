@@ -7,6 +7,7 @@ import { selectUserReview } from 'redux/reviews/selectors';
 import { useDispatch } from "react-redux";
 import { addReview, deleteReview, editReview } from 'redux/reviews/operations';
 import sprite from '../../images/sprite.svg';
+import StarRating from './StarRating';
 
 export const FeedbackForm =  ({ onClose }) => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export const FeedbackForm =  ({ onClose }) => {
   const [changeReview, setChangeReview] = useState(false);
   const [valueText, setValueText] = useState("");
   let Review = text;
+  let Rating = rating;
 
 
 
@@ -23,7 +25,7 @@ export const FeedbackForm =  ({ onClose }) => {
     e.preventDefault();
     setChangeReview(true);
     document.getElementById('textarea').removeAttribute('readOnly');
-    
+    document.getElementsByName('FeedbackForm__stars').setAttribute('className', "FeedbackForm__stars");
     // onclose();
 
   };
@@ -40,7 +42,8 @@ export const FeedbackForm =  ({ onClose }) => {
     const TEST = document.getElementById('textarea');
     console.log(TEST.attributes);
     console.log(TEST.getAttribute("textcontent"));
-    document.getElementById('textarea').setAttribute("value", "");
+    document.getElementById('textarea').value = "";
+    document.getElementsByName('FeedbackForm__stars').setAttribute('className', "FeedbackForm__stars");
     
     
     
@@ -50,11 +53,13 @@ export const FeedbackForm =  ({ onClose }) => {
   const changeAddReview = async (e) => {
     e.preventDefault();
     // !!!!!! RATING TEST
+    console.log(e.target.rating)
     const rating = 1;
     const text = valueText;
 
     if ( text || rating) {
       await dispatch(addReview({ rating, text }));
+      document.getElementsByName('FeedbackForm__stars').setAttribute('className', "FeedbackForm__stars-save");
 
       onClose();
     } else {
@@ -75,6 +80,7 @@ export const FeedbackForm =  ({ onClose }) => {
         setValueText(text);
         setChangeReview(false);
         document.getElementById('textarea').setAttribute('readOnly', true);
+        document.getElementsByName('FeedbackForm__stars').setAttribute('className', "FeedbackForm__stars-save");
 
       } else {
         return;
@@ -87,6 +93,7 @@ export const FeedbackForm =  ({ onClose }) => {
   setValueText(e.target.value);
  }
 
+
   return (
     <div className="FeedbackForm__container">
       <button
@@ -97,22 +104,28 @@ export const FeedbackForm =  ({ onClose }) => {
         <RiCloseLine className="FeedbackForm__icon" />
       </button>
 
-      <form className="FeedbackForm__form" >
+      <form className="FeedbackForm__form">
 
         <label className="FeedbackForm__title">Rating</label>
         <div className="FeedbackForm__stars">
-          <div className="rating">
-            <input type="radio" id="star5" name="star5" value="5" />
-            <label htmlFor="star5" title="text"></label>
-            <input type="radio" id="star4" name="star4" value="4" />
-            <label htmlFor="star4" title="text"></label>
-            <input type="radio" id="star3" name="star3" value="3" />
-            <label htmlFor="star3" title="text"></label>
-            <input type="radio" id="star2" name="star2" value="2" />
-            <label htmlFor="star2" title="text"></label>
-            <input type="radio" id="star1" name="star1" value="1" />
-            <label htmlFor="star1" title="text"></label>
-          </div>
+{/* RATING ---------------------------------- */}
+          {Rating ? 
+              <StarRating rating={Rating} />
+            : 
+            <div className="rating">
+              <input type="radio" id="star5" name="star5" value="5" />
+              <label htmlFor="star5" title="text"></label>
+              <input type="radio" id="star4" name="star4" value="4" />
+              <label htmlFor="star4" title="text"></label>
+              <input type="radio" id="star3" name="star3" value="3" />
+              <label htmlFor="star3" title="text"></label>
+              <input type="radio" id="star2" name="star2" value="2" />
+              <label htmlFor="star2" title="text"></label>
+              <input type="radio" id="star1" name="star1" value="1" />
+              <label htmlFor="star1" title="text"></label>
+            </div>
+            }
+          
         </div>
         <div className="FeedbackForm__title-block">
           <label className="FeedbackForm__title">Review</label>
