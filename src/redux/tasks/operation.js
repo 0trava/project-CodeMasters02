@@ -73,8 +73,12 @@ export const editTask = createAsyncThunk(
 
 export const getStatistics = createAsyncThunk(
   'tasks/getStatistics',
-  async (params, { rejectWithValue }) => {
+  async (params, { getState, rejectWithValue }) => {
+    const { token } = getState().auth;
     try {
+      if (!axios.defaults.headers.common.Authorization) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+      }
       const response = await axios.get('tasks/statistics', {
         params: {
           date: params.date
