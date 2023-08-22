@@ -1,11 +1,12 @@
 import React from 'react';
 import reviewImg from '../WORK-file/Review_1.png';
 import './Review.css';
+import StarRating from 'components/FeedbackForm/StarRating';
 
 export const Review = ({review}) => {
 
   // eslint-disable-next-line
-  const {rating, owner, comment, avatar, id } = review;
+  const {rating, owner, text, avatar, id } = review;
 
   return (
     <div>
@@ -19,7 +20,8 @@ export const Review = ({review}) => {
         </div>
         <div>
           <h3 className="review__name">{owner.name}</h3>
-          <div className="rating">
+          <StarRating rating={rating} />
+          {/* <div className="rating">
             <input
               type="radio"
               id="star5"
@@ -60,10 +62,10 @@ export const Review = ({review}) => {
               
             />
             <label htmlFor="star1" title="text"></label>
-          </div>
+          </div> */}
         </div>
       </div>
-      <p className="review__comment">{comment}</p>
+      <p className="review__comment">{text}</p>
     </div>
   );
 };

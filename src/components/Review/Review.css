@@ -61,6 +61,10 @@
     margin-bottom: 24px;
   }
 
+  .review__header  .rating {
+    pointer-events: none; 
+  }
+
 
 
   .rating:not(:checked) > input {
