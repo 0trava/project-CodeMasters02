@@ -22,7 +22,9 @@ export const FeedbackForm =  ({ onClose }) => {
   const handleChage = (e) => {
     e.preventDefault();
     setChangeReview(true);
-    document.getElementById('textarea').removeAttribute('readOnly')
+    document.getElementById('textarea').removeAttribute('readOnly');
+    onclose();
+
   };
 
   // COMMAND - delete review
@@ -38,7 +40,7 @@ export const FeedbackForm =  ({ onClose }) => {
     console.log(TEST.attributes);
     console.log(TEST.getAttribute("textcontent"));
     document.getElementById('textarea').setAttribute("value", "");
-
+    
     
     
   };
@@ -53,7 +55,7 @@ export const FeedbackForm =  ({ onClose }) => {
     if ( text || rating) {
       await dispatch(addReview({ rating, text }));
 
-      // onClose();
+      onClose();
     } else {
       return;
     }

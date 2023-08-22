@@ -14,7 +14,6 @@ export const CalendarDay = () => {
 
   // const taskList = useSelector(state => state.task);
 
-console.log(selectedDate);
   // GET USER TASK LIST FOR DAY------------------------------------------
 
   useEffect(() => {

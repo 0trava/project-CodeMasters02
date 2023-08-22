@@ -84,6 +84,8 @@ useEffect(() => {
 
 // !!!!!!! - DATE - зберігалась на один день назад. Поправила для тесту ------
     const newDate = new Date(currentYear, currentMonth, Date);
+    console.log("!!!!!!!!!!!!!!!!!");
+    console.log(newDate);
     dispatch(changeSelectedDate(newDate));
     setRedirectToDay(formattedDate1); 
   };

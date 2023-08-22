@@ -6,7 +6,7 @@ export const setSelectedDate = (newDate) => ({
     payload: newDate,
   });
 
-  export const changeSelectedDate = date  => ({
+  export const changeSelectedDate = (date) => ({
     type: CHANGE_SELECTED_DATE,
     payload: new Date(date),
   });
