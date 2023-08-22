@@ -6,7 +6,12 @@ export const setSelectedDate = (newDate) => ({
     payload: newDate,
   });
 
-  export const changeSelectedDate = (date) => ({
+export const changeSelectedDate = (date) => {
+  const selectedDate = new Date(date);
+  const serializableDate = selectedDate.toISOString();
+  return ({
     type: CHANGE_SELECTED_DATE,
-    payload: new Date(date),
-  });
+    payload: serializableDate,
+  })
+};
+  
