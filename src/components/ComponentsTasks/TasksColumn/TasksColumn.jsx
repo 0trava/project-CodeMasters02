@@ -19,8 +19,6 @@ export const TasksColumn = ({tasks, selectedDate}) => {
 
   // MODAL WINDOW 
   const openModal = (e) => {
-  
-    console.log(e);
 
     setColumn(e);
     setShowModal(true);

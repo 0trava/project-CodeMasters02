@@ -4,6 +4,7 @@ import css from './TaskForm.module.css';
 import { useDispatch, useSelector} from 'react-redux';
 import { addTask, editTask } from '../../redux/tasks/operation';
 import { useState } from 'react';
+import { Notify } from 'notiflix';
 
 
 export const TaskForm = ({ onClose, action, column, taskToEdit, id }) => {
@@ -32,6 +33,7 @@ const dispatch = useDispatch();
     e.preventDefault();
 // Add task
   if (!_id) {
+
       const title = e.currentTarget.title.value;
       const start = e.currentTarget.start.value;
       const end = e.currentTarget.end.value;
@@ -44,10 +46,15 @@ const dispatch = useDispatch();
       const transformDate = new Date(date);
       transformDate.setUTCHours(23, 0, 0, 0);
       date = transformDate.toISOString();
+      if (start < end) {
+        await dispatch(addTask({ title, start, end, priority, date, category}));
+        onClose();
+      } else {
+        Notify.failure(`End time must be later than Start time`);
+      }
 
-      console.log(`Post`, title, start, end, priority, date, category)
-      await dispatch(addTask({ title, start, end, priority, date, category}));
-      onClose();
+
+
 // Edit task
   } else {
     const title = e.currentTarget.title.value;

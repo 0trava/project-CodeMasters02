@@ -5,12 +5,13 @@ import { getYear, getMonth, getDate, getDay, parseISO, format  } from 'date-fns'
 import { changeSelectedDate } from '../../../redux/date/actions';
 import { fetchTasks } from 'redux/tasks/operation';
 import { useHistory } from 'react-router-dom';
+import { selectToken } from 'redux/auth/selectors';
 
 export const CalendarGrid = () => {
   const selectedDate = useSelector(state => state.date);
   const dateObject = parseISO(selectedDate);
   const dispatch = useDispatch();
-
+  const userIsLogin = useSelector(selectToken);
 
   const currentYear = getYear(dateObject);
   const currentMonth = getMonth(dateObject);
@@ -28,7 +29,9 @@ export const CalendarGrid = () => {
 
   // Перевірка що токен валідний
   useEffect(async() => {
-     await dispatch(fetchTasks(`dateFrom:${firstDayOfMonth}&dateTo:${lastDayOfMonth}`));
+    if (userIsLogin) {
+      // await dispatch(fetchTasks(`dateFrom:${firstDayOfMonth}&dateTo:${lastDayOfMonth}`));
+    }
 
   }, [dispatch, firstDayOfMonth, lastDayOfMonth ]);
 

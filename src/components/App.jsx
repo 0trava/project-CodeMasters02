@@ -29,7 +29,9 @@ useEffect(() => {
 // Перевірка що токен валідний
   useEffect(() => {
     dispatch(refresh());
-    dispatch(fetchReviewById());
+    if (token) {
+      dispatch(fetchReviewById());
+    }
   }, [dispatch, token]);
 
 

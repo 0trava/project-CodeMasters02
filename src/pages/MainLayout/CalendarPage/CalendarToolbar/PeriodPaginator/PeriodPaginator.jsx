@@ -20,8 +20,9 @@ export const PeriodPaginator = ({
       newDate = addDays(parseISO(selectedDate), amount);
     }
     dispatch(changeSelectedDate(newDate));
-    setSelectedDate(newDate);
     console.log(newDate);
+    setSelectedDate(newDate);
+
   };
 
   const periodFormat = () => {

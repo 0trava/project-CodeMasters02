@@ -27,7 +27,7 @@ export const addTask = createAsyncThunk(
   'tasks/addTask',
   async (task, { rejectWithValue }) => {
     try {
-
+      console.log(axios.defaults.headers.common.Authorization);
       const { data } = await axios.post('tasks', task);
       return data;
     } catch (e) {

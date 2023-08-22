@@ -33,14 +33,16 @@ export const CalendarDay = () => {
     const dateFrom = startDay.toISOString();
 
     let endDay = new Date(selectedDate);
-    endDay.setHours(24);
+    endDay.setHours(23);
     endDay.setMinutes(0);
     endDay.setSeconds(0);
     endDay.setMilliseconds(0);
     const dateTo = endDay.toISOString();
 
+    if (userIsLogin) {
+      await dispatch(fetchTasks({ dateFrom, dateTo }));
+    }
 
-    await dispatch(fetchTasks({ dateFrom, dateTo }));
   }
 
   // Отримаємо список тасків

@@ -21,22 +21,25 @@ const phoneRegExp = /^\+38 \(\d{3}\) \d{3}-\d{4}$/;
 const birthdayRegExp = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)\d\d)$/;
 
 
-const userFormSchema = yup.object().shape({
-  // name: yup
-  //   .string()
-  //   .max(16, 'Name must be 24 characters or less.')
-  //   .required('Name is a required!'),
+const UserFormSchema = yup.object().shape({
+  name: yup
+    .string()
+    .max(16, 'Name must be 16 characters or less.'),
+    // .required('Name is required!'),
   email: yup
     .string()
     .max(254)
-    .matches(emailRegExp, 'Invalid email address. The email address must contain the @ sign.')
-    .required('Email is a required!')
+    .matches(
+      emailRegExp,
+      'Invalid email address. The email address must contain the @ sign.'
+    )
+    // .required('Email is a required!')
     .email('Invalid email address. The email address must contain the @ sign.'),
   date: yup
     .date(),
-  // phone: yup
-  //   .string()
-  //   .matches(phoneRegExp, 'Phone is not valid'),
+  phone: yup
+    .string()
+    .matches(phoneRegExp, 'Phone is not valid'),
   birthday: yup
     .string()
     .matches(birthdayRegExp, 'Bithday date is not valid'),
@@ -113,12 +116,12 @@ export const UserForm = () => {
     <div className={css.container}>
       <Formik
         initialValues={{ avatar: '', password: '' }}
-        validationSchema={userFormSchema}
+        validationSchema={UserFormSchema}
         onSubmit={(values, actions) => {
           onSubmitFormik(values, actions);
         }}
       >
-        <Form onSubmit={onSubmitFormik}>
+          <Form onSubmit={onSubmitFormik}>
           <div className={css.avatarWrapper}>
 
 {/* AVATAR---------------------------------------------- */}
@@ -163,11 +166,14 @@ export const UserForm = () => {
             <label className={css.labelField}>
               User Name
               <Field
+                type="text"
                 name="name"
+                required
                 placeholder="Add your name"
-                className={css.inputField}
                 defaultValue={name ? name : ''}
                 onChange={handleInputChange} 
+                className={css.inputField}
+
                 // max="16"
               />
               <ErrorMessage className={css.error} name="name" component="p" />

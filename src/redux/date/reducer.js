@@ -1,5 +1,6 @@
 import {SET_SELECTED_DATE , CHANGE_SELECTED_DATE} from './actions'
 
+
 const initialState = {
   selectedDate: new Date().toISOString(),
   
@@ -23,7 +24,7 @@ export const dateReducer = (state = initialState.selectedDate, action) => {
   switch (action.type) {
     case CHANGE_SELECTED_DATE:
       const transformedDate = action.payload.toISOString();
-      // const transformedDate = "2023-08-22";      
+      console.log(transformedDate);     
       return transformedDate;
     default:
       return state;
