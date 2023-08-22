@@ -12,13 +12,8 @@ import {
 } from 'recharts';
 import './StatisticsChart.css';
 
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectStatistics } from 'redux/tasks/selectors';
-import { getStatistics } from 'redux/tasks/operation';
-
 /*
-const data = [
+const data2 = [
   {
     name: 'To Do',
     day: 35,
@@ -36,37 +31,20 @@ const data = [
   },
 ];
 
-
-const dataWithPercentageSymbol = data.map(entry => ({
+const dataWithPercentageSymbol = data2.map(entry => ({
   ...entry,
   dayPercentage: `${entry.day}%`,
   monthPercentage: `${entry.month}%`,
 }));
 */
 
-export const StatisticsChart = data => {
-  const dispatch = useDispatch();
-  const date = useSelector(state => state.date);
-  const statistics = useSelector(selectStatistics);
-
-  const dataWithPercentageSymbol = statistics.map(entry => ({
-    ...entry,
-    dayPercentage: `${entry.day}%`,
-    monthPercentage: `${entry.month}%`,
-  }));
-
-  useEffect(() => {
-    if (date !== '') {
-      dispatch(getStatistics({ date }));
-    }
-  }, [dispatch, date]);
-
+export const StatisticsChart = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart
         width={500}
         height={300}
-        data={dataWithPercentageSymbol}
+        data={data}
         margin={{
           top: 60,
           right: 30,
