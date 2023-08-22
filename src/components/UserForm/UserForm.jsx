@@ -24,19 +24,19 @@ const birthdayRegExp = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/((19|20)\d\d
 const userFormSchema = yup.object().shape({
   // name: yup
   //   .string()
-  //   .max(24, 'Name must be 24 characters or less.')
+  //   .max(16, 'Name must be 24 characters or less.')
   //   .required('Name is a required!'),
-  // email: yup
-  //   .string()
-  //   .max(254)
-  //   .matches(emailRegExp, 'Invalid email address. The email address must contain the @ sign.')
-  //   .required('Email is a required!')
-  //   .email('Invalid email address. The email address must contain the @ sign.'),
+  email: yup
+    .string()
+    .max(254)
+    .matches(emailRegExp, 'Invalid email address. The email address must contain the @ sign.')
+    .required('Email is a required!')
+    .email('Invalid email address. The email address must contain the @ sign.'),
   date: yup
     .date(),
-  phone: yup
-    .string()
-    .matches(phoneRegExp, 'Phone is not valid'),
+  // phone: yup
+  //   .string()
+  //   .matches(phoneRegExp, 'Phone is not valid'),
   birthday: yup
     .string()
     .matches(birthdayRegExp, 'Bithday date is not valid'),
@@ -64,10 +64,15 @@ export const UserForm = () => {
   // ВІДПРАВКА ФОРМИ
   const onSubmitFormik = async (e) => {
     e.preventDefault();
-    
 
       let formDataToSend = new FormData();
-      formDataToSend.append('avatar', avatarImg);
+
+
+      console.log(avatarImg);   
+      if (avatarImg) {
+        console.log("START"); 
+        formDataToSend.append('avatar', avatarImg);
+      }
 
       console.log(formData);      
       // Append other form data fields
@@ -76,12 +81,6 @@ export const UserForm = () => {
         formDataToSend.append(key, formData[key]);
       }
 
-      // const name = e.currentTarget.name.value;
-      // const email = e.currentTarget.email.value;
-      // const birthday = e.currentTarget.birthday.value;
-      // const phone = e.currentTarget.phone.value; 
-      // const skype = e.currentTarget.skype.value;
-      // const avatar = avatarImg;
       console.log(formDataToSend);
       const {payload} = await dispatch(updateUser(formDataToSend));
       console.log(payload);
@@ -169,11 +168,12 @@ export const UserForm = () => {
                 className={css.inputField}
                 defaultValue={name ? name : ''}
                 onChange={handleInputChange} 
+                // max="16"
               />
               <ErrorMessage className={css.error} name="name" component="p" />
             </label>
 
-             {/*  Birthday  */}
+{/*  Birthday  */}
              <label className={css.labelField}>
               Birthday
               <Field name="birthday" 
@@ -182,7 +182,7 @@ export const UserForm = () => {
                                   defaultValue={birthday ? birthday : ''}
                                   onChange={handleInputChange}
                                   type="date"
-                                  // pattern="\d{4}-\d{2}-\d{2}"
+                                  pattern="\d{4}-\d{2}-\d{2}"
                                    >
                 {/* {({ field }) => (
                   <InputMask
@@ -232,7 +232,9 @@ export const UserForm = () => {
                                   type="tel"
                                   className={css.inputField}
                                   defaultValue={phone ? phone : ''}
-                                  onChange={handleInputChange} >
+                                  onChange={handleInputChange}
+                                  // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                                  >
                 {/* {({ field }) => (
                   <InputMask
                     mask="+38 (999) 999-9999"

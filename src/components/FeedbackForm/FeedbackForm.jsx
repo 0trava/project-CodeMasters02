@@ -23,7 +23,8 @@ export const FeedbackForm =  ({ onClose }) => {
     e.preventDefault();
     setChangeReview(true);
     document.getElementById('textarea').removeAttribute('readOnly');
-    onclose();
+    
+    // onclose();
 
   };
 

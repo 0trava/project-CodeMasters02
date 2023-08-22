@@ -23,6 +23,7 @@ export const dateReducer = (state = initialState.selectedDate, action) => {
   switch (action.type) {
     case CHANGE_SELECTED_DATE:
       const transformedDate = action.payload.toISOString();
+      // const transformedDate = "2023-08-22";      
       return transformedDate;
     default:
       return state;
