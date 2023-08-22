@@ -66,11 +66,13 @@ export const UserForm = () => {
     e.preventDefault();
     
 
-      const formDataToSend = new FormData();
+      let formDataToSend = new FormData();
       formDataToSend.append('avatar', avatarImg);
-      
+
+      console.log(formData);      
       // Append other form data fields
       for (const key in formData) {
+        console.log(key, formData[key]);  
         formDataToSend.append(key, formData[key]);
       }
 
@@ -80,9 +82,9 @@ export const UserForm = () => {
       // const phone = e.currentTarget.phone.value; 
       // const skype = e.currentTarget.skype.value;
       // const avatar = avatarImg;
-
+      console.log(formDataToSend);
       const {payload} = await dispatch(updateUser(formDataToSend));
-      console.log(payload)
+      console.log(payload);
 
     
   };
