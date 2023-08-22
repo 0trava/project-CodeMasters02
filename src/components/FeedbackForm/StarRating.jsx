@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StarRating = ({ rating }) => {
+const StarRating = ({ rating, id }) => {
     const test = (index) => {
         if (Number(rating) === index + 1) {
             return " ";
@@ -14,7 +14,7 @@ const StarRating = ({ rating }) => {
       <input
         type="radio"
         id={`star${index + 1}`}
-        name={`star`}
+        name={`star${id}`}
         value={index + 1}
         className="star"
         defaultChecked={test(index + 1)}

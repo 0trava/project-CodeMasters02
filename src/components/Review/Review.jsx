@@ -20,7 +20,7 @@ export const Review = ({review}) => {
         </div>
         <div>
           <h3 className="review__name">{owner.name}</h3>
-          <StarRating rating={rating} />
+          <StarRating rating={rating} id={id}/>
         </div>
       </div>
       <p className="review__comment">{text}</p>
