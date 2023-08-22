@@ -73,11 +73,14 @@ export const editTask = createAsyncThunk(
 
 export const getStatistics = createAsyncThunk(
   'tasks/getStatistics',
-  async (date, { rejectWithValue }) => {
+  async (params, { rejectWithValue }) => {
     try {
-      const data = await axios.get('tasks/statistics', { date });
-      console.log(data);
-      return data;
+      const response = await axios.get('tasks/statistics', {
+        params: {
+          date: params.date
+        },
+      });
+      return response.data;
     } catch (e) {
       return rejectWithValue(e.message);
     }
