@@ -54,7 +54,9 @@ const chackDay= (day) => {
     const dateToChange = startDay.toISOString();
     setSelectedDate(dateToChange);
 
-    dispatch(changeSelectedDate(date));
+    const testDate = new Date(date);
+
+    dispatch(changeSelectedDate(testDate));
   };
 
   // Визначення днів тижня для відображення (починаємо з понеділка)

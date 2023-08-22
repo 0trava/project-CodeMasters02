@@ -89,7 +89,9 @@ useEffect(() => {
     const newDate = new Date(currentYear, currentMonth, Date);
     console.log("!!!!!!!!!!!!!!!!!");
     console.log(newDate);
-    dispatch(changeSelectedDate(newDate));
+    const testDate = new Date(newDate);
+
+    dispatch(changeSelectedDate(testDate));
     setRedirectToDay(formattedDate1); 
   };
   console.log(Date);

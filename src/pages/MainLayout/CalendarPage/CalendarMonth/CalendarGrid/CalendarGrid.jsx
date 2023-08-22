@@ -147,6 +147,8 @@ const handleSelectTask = (e) => {
     //!!! DATE переробив, щоб визначало саме ту дату, на яку клікнули (можна прив'язати лінк з переходом відразу на задачі вибраного дня)
 
     const clickedDate = new Date(currentYear, currentMonth, day);
+    // const testDate = new Date(newDate);
+
     dispatch(changeSelectedDate(clickedDate));
   };
 

@@ -19,8 +19,11 @@ export const PeriodPaginator = ({
     } else if (periodType === 'day') {
       newDate = addDays(parseISO(selectedDate), amount);
     }
-    dispatch(changeSelectedDate(newDate));
-    console.log(newDate);
+    const testDate = new Date(newDate);
+
+    dispatch(changeSelectedDate(testDate));
+
+
     setSelectedDate(newDate);
 
   };

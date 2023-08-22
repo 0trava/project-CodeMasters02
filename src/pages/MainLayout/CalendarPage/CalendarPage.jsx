@@ -18,7 +18,9 @@ export const CalendarPage = () => {
 
   const handleSelectedDateChange = async (newDate) => {
     if (userIsLogin) {
-      await dispatch(changeSelectedDate(newDate));
+      const testDate = new Date(newDate);
+      console.log(testDate)
+      dispatch(changeSelectedDate(testDate));
     }
   };
 
