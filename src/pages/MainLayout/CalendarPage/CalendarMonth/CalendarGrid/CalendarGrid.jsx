@@ -75,8 +75,6 @@ const handleSelectTask = (e) => {
   const chackDay= (day) => {
     const dayForPut = new Date();
 
-    console.log(dayForPut.getMonth());
-    console.log(currentMonth);
     if (dayForPut.getMonth() === currentMonth) {
       if (dayForPut.getDate() === day) {
         return "day_grid-container-active";

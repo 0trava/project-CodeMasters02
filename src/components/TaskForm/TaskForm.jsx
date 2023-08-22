@@ -16,6 +16,8 @@ const useCategory = column.toLowerCase().replace(/ /g, '-');
 // eslint-disable-next-line
 const selectedDate = useSelector(state => state.date);
 
+
+
 // Зберігаємо данні натиску Priority
 const handleRadioChange = (event) => {
   // event.preventDefault();
@@ -35,13 +37,15 @@ const dispatch = useDispatch();
       const end = e.currentTarget.end.value;
       const priority = usePriority;  
       const category = useCategory;
+
+      
       // Transform date
       let date = selectedDate;
       const transformDate = new Date(date);
       transformDate.setUTCHours(23, 0, 0, 0);
       date = transformDate.toISOString();
 
-
+      console.log(`Post`, title, start, end, priority, date, category)
       await dispatch(addTask({ title, start, end, priority, date, category}));
       onClose();
 // Edit task

@@ -9,11 +9,12 @@
   font-size: 14px;
   line-height: 129%;
   font-weight: 600;
-  color: #111111;
+  color: var(--text-input);
   background-color: var(--addTaskBtn);
   border: 1px dashed #3e85f3;
   border-radius: 8px;
   cursor: pointer;
+  transition: all 0.5s var(--transition);
 
   @media (min-width: 765px) {
     width: 304px;
@@ -21,9 +22,16 @@
   }
 }
 
+.taskBtn:hover, .taskBtn:focus {
+  background-color: var(--color-white-hover);
+}
+
+
+
+
 .iconPlus {
   fill: transparent;
-  stroke: #111111;
+  stroke: var(--text-input);
   width: 24px;
   height: 24px;
   margin-right: 8px;

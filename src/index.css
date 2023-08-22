@@ -55,6 +55,7 @@ code {
   --bacround-fon: #171820;
   --text-sidebar: #ffffff;
   --color-blue-hover: #174c9c;
+  --color-white-hover: #174c9c;
   /* --btn-sidebar: #3E85F3; */
   --input-border: #ffffff;
   --border--calendar: rgba(255, 255, 255, 0.15);
@@ -78,7 +79,8 @@ code {
   --bacround-fon: #f7f6f9;
   --login-bacground: #dcebf7;
   --text-sidebar: rgba(52, 52, 52, 0.5);
-  --color-blue-hover: #e3f3ff;
+  --color-white-hover: #5fa2d486;
+  --color-blue-hover: #174c9c;
   --input-border: rgba(17, 17, 17, 0.15);
   --border--calendar: rgba(220, 227, 229, 0.8);
   --calendar-btn: #E3F3FF;

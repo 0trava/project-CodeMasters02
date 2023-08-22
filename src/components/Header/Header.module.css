@@ -80,7 +80,7 @@
 
 .menuBurger {
   fill: transparent;
-  stroke: var(--text-review);
+  stroke: var(--text-color);
   height: 24px;
   width: 24px;
 

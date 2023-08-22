@@ -13,13 +13,16 @@ export const TasksColumn = ({tasks, selectedDate}) => {
   const [showModal, setShowModal] = useState(false);
   const [action, setAction] = useState('edit');
 
-  const [column, setColumn] = useState('To do');
+  const [column, setColumn] = useState('');
   const [taskToEdit, setTaskToEdit] = useState({});
 
 
   // MODAL WINDOW 
   const openModal = (e) => {
-    // setColumn(e.target.id);
+  
+    console.log(e);
+
+    setColumn(e);
     setShowModal(true);
   };
 
@@ -38,6 +41,7 @@ export const TasksColumn = ({tasks, selectedDate}) => {
             onOpen={openModal}
             setAction={() => setAction('add')}
             setColumn={() => setColumn(columnName)}
+            id = {columnName}
           />
 
           <ColumnTasksList
@@ -52,7 +56,7 @@ export const TasksColumn = ({tasks, selectedDate}) => {
           />
 
           <AddTaskBtn
-            onOpen={openModal}
+            onOpen={() => openModal(columnName)}
             setAction={() => setAction('add')}
             setColumn={() => setColumn(columnName)}
             column = {columnName}
@@ -64,7 +68,7 @@ export const TasksColumn = ({tasks, selectedDate}) => {
             <TaskModal
               action={action}
               onClose={closeModal}
-              column={column}
+              column={columnName}
               id= {column}
               taskToEdit={taskToEdit}
 

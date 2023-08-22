@@ -11,6 +11,7 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  transition: all 0.5s var(--transition);
 
   @media (min-width: 768px) {
     padding: 12px 32px;
@@ -20,6 +21,6 @@
 
   &:hover,
   &:focus {
-    background-color: #2b78ef;
+    background-color: var(--color-blue-hover);
   }
 }

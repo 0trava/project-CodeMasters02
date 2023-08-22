@@ -178,7 +178,7 @@
   @media (min-width: 768px) {
     width: 124px;
     height: 124px;
-    background-color: var(--color-white-avatar);
+    background-color: var(--toogler-block);
     border-radius: 100px;
     border: 2px solid var(--color-blue);
     display: flex;
