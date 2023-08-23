@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './FeedbackForm.css';
 import { useState } from 'react';
 import { RiCloseLine } from 'react-icons/ri';
@@ -7,7 +7,7 @@ import { selectUserReview } from 'redux/reviews/selectors';
 import { useDispatch } from "react-redux";
 import { addReview, deleteReview, editReview } from 'redux/reviews/operations';
 import sprite from '../../images/sprite.svg';
-import StarRating from './StarRating';
+import {StarRating} from './StarRating/StarRating';
 
 export const FeedbackForm =  ({ onClose }) => {
   const dispatch = useDispatch();
@@ -15,8 +15,17 @@ export const FeedbackForm =  ({ onClose }) => {
   const {rating, text} = useSelector(selectUserReview);
   const [changeReview, setChangeReview] = useState(false);
   const [valueText, setValueText] = useState("");
+  const [editRating, setEditRating] = useState(false);
   let Review = text;
   let Rating = rating;
+
+  useEffect(() => {
+    console.log(editRating);
+    if (Rating) {
+      setEditRating(true);
+    }
+  }, [Rating]);
+  
 
 
 
@@ -25,6 +34,8 @@ export const FeedbackForm =  ({ onClose }) => {
     e.preventDefault();
     setChangeReview(true);
     document.getElementById('textarea').removeAttribute('readOnly');
+    setEditRating(false);
+
 
   };
 
@@ -38,11 +49,8 @@ export const FeedbackForm =  ({ onClose }) => {
     setChangeReview(false);
     document.getElementById('textarea').removeAttribute('readOnly');
     const TEST = document.getElementById('textarea');
-    console.log(TEST.attributes);
-    console.log(TEST.getAttribute("textcontent"));
     document.getElementById('textarea').value = "";
-    
-    
+    setEditRating(false);
     
   };
 
@@ -53,6 +61,7 @@ export const FeedbackForm =  ({ onClose }) => {
     console.log(e.target.rating)
     const rating = 1;
     const text = valueText;
+    setEditRating(true);
 
     if ( text || rating) {
       await dispatch(addReview({ rating, text }));
@@ -70,11 +79,11 @@ export const FeedbackForm =  ({ onClose }) => {
       const text = valueText;
 
       if ( text || rating) {
-        console.log("start");
         await dispatch(editReview({ rating, text }));
         setValueText(text);
         setChangeReview(false);
         document.getElementById('textarea').setAttribute('readOnly', true);
+        setEditRating(true);
         
       } else {
         return;
@@ -101,26 +110,15 @@ export const FeedbackForm =  ({ onClose }) => {
       <form className="FeedbackForm__form">
 
         <label className="FeedbackForm__title">Rating</label>
-        <div className="FeedbackForm__stars">
-{/* RATING ---------------------------------- */}
-          {Rating ? 
-              <StarRating rating={Rating} />
-            : 
-            <div className="rating">
-              <input type="radio" id="star5" name="star5" value="5" />
-              <label htmlFor="star5" title="text"></label>
-              <input type="radio" id="star4" name="star4" value="4" />
-              <label htmlFor="star4" title="text"></label>
-              <input type="radio" id="star3" name="star3" value="3" />
-              <label htmlFor="star3" title="text"></label>
-              <input type="radio" id="star2" name="star2" value="2" />
-              <label htmlFor="star2" title="text"></label>
-              <input type="radio" id="star1" name="star1" value="1" />
-              <label htmlFor="star1" title="text"></label>
-            </div>
-            }
-          
+        
+{/* STAR RATING ---------------------------------- */}
+        <div className={editRating ? "FeedbackForm__StarRating-save" : "FeedbackForm__StarRating"}>
+          <StarRating 
+          rating={Rating} 
+          className="FeedbackForm__StarRating"/>
         </div>
+
+
         <div className="FeedbackForm__title-block">
           <label className="FeedbackForm__title">Review</label>
 
@@ -158,9 +156,6 @@ export const FeedbackForm =  ({ onClose }) => {
           required
         ></textarea>
 {/* TEXT -----------------------------------------------*/}
-
-
-
         {changeReview || !Review ? (
           <div className="FeedbackForm_btn-block">
             {Review ? (

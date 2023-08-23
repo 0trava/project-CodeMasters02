@@ -33,6 +33,7 @@ export const AppRoutes = () => {
 
   return (
     <Routes>
+
       <Route index element={chackMainLogin()} />
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />
       <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
@@ -88,6 +89,7 @@ export const AppRoutes = () => {
           }
         />
       </Route>
+      <Route path="/project-CodeMasters02" component={chackMainLogin()} />
       <Route path={ROUTES.NotFound} element={<NotFound />} />
     </Routes>
   );

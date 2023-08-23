@@ -4,7 +4,7 @@ import './MainPage.css';
 import heroLogo from '../../images/MainPage_duck_2x.png';
 import btnIcon from '../../images/log-in-01.svg';
 import { ROUTES } from 'utils/routes';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SimpleSlider from 'components/SimpleSlider/SimpleSlider';
 
 import { getReviews } from '../../redux/reviews/selectors';
@@ -24,7 +24,7 @@ export const MainPage = (e) => {
         <img className='mainPage__hero-logo' src={heroLogo} alt="logo"/>
         <h1 className='mainPage__hero-title'>G<span>oo</span>seTrack</h1>
         <div className='mainPage__hero-box'>
-            <a className='mainPage__hero-link' href={navigate(ROUTES.REGISTER)}>Sign up</a>
+            <Link className='mainPage__hero-link' to={ROUTES.REGISTER}>Sign up</Link>
             <button className="mainPage__hero-btn" type='button' onClick={() => {navigate(ROUTES.LOGIN)}}>
               Log in
               <span>

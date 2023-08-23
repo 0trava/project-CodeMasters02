@@ -1,7 +1,7 @@
 import React from 'react';
 import reviewImg from '../WORK-file/Review_1.png';
 import './Review.css';
-import StarRating from 'components/FeedbackForm/StarRating';
+import StarRating from 'components/FeedbackForm/StarRating/StarRating';
 
 export const Review = ({review}) => {
 
@@ -20,7 +20,7 @@ export const Review = ({review}) => {
         </div>
         <div>
           <h3 className="review__name">{owner.name}</h3>
-          <StarRating rating={rating} id={id}/>
+          {/* <StarRating rating={rating} id={id}/> */}
         </div>
       </div>
       <p className="review__comment">{text}</p>
