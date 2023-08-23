@@ -77,123 +77,133 @@
   line-height: 1.28;
 }
 
+/* RADIO BUTTONS  */
 .radio {
   position: relative;
-}
-
-.label_radio {
-  display: flex;
-  gap: 3px;
-  align-items: center;
-  color: var(--text-color);
-  font-family: Inter;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.16;
   cursor: pointer;
-
-  @media (min-width: 768px) {
-    font-size: 14px;
-  }
-}
-
-.label_radio input[type='radio'] {
-  position: relative;
-  z-index: 5;
-  /* width: 1px;
-  height: 1px; */
-  opacity: 0.2; 
-}
-
-.label_radio span {
   display: flex;
+}
+
+.radio label {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  /* position: relative; */
+  gap: 6px;
+}
+
+.radio span {
+  color: #343434;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; /* 128.571% */
+}
+
+/* .radio input {
+  transition: .4s ease-in-out;
+  width: 14px;
+  height: 14px;
+
+}
+
+.radio input:hover {
+  scale: 1.1;
+  cursor: pointer;
+  box-shadow: none;
 }
 
 
-.input_radio_low::before,
-.input_radio_medium::before,
-.input_radio_high::before {
-  content: '';
-  left: 1px;
-  right: 1px;
-  position: absolute;
+
+.radio .input_medium[type='radio'] {
+  accent-color: #F3B249;
+  outline:none;
+}
+
+.radio .input_high[type='radio'] {
+  accent-color: #EA3D65;
+  outline:none;
+}
+
+.radio .input_low[type='radio'] {
+  accent-color: #72C2F8;
+  outline:none;
+
+} */
+
+
+.radio input[type="radio"] {
+  /* display: none; */
+  position: relative;
+  opacity: 0;
+}
+
+.radio_circle {
   width: 10px;
   height: 10px;
-  border: 1px solid #72C2F8;
+  border-radius: 50%;
+  /* border: 2px solid #aaa; */
   background-color: #72C2F8;
-  display: inline-block;
-  margin-right: 6px;
-  border-radius: 100%;
+  position: absolute;
+  margin-right: 10px;
+  top: 4px;
+  left: 0;
   pointer-events: none;
-  z-index: 2;
-
-
-  @media (min-width: 768px) {
-    width: 10px;
-    height: 10px;
-  }
 }
 
-.input_radio_medium::before {
-  border: 1px solid #F3B249;
+
+.radio:nth-of-type(2) .radio_circle {
   background-color: #F3B249;
 }
 
-.input_radio_high::before {
-  border: 1px solid #EA3D65;
+.radio:nth-of-type(3) .radio_circle {
   background-color: #EA3D65;
 }
 
-
-/* Стилі для активної - не працюють вірно */
-.input_radio_low::after,
-.input_radio_medium::after,
-.input_radio_high::after  {
-  content: '';
-  position: absolute;
-  left: -2.5px;
-  right: 0px;
-  transform: translateX(11%);
+.radio_circle::before {
+  content: "";
+  display: block;
   width: 14px;
   height: 14px;
-  background-color: #ffffff;
-  /* border: 1px solid #72C2F8; */
-  border-radius: 100%;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 1;
+  border-radius: 50%;
+  /* background-color: white; */
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 0.5s ease-in-out;
 }
 
-.input_radio_low::after {
+.radio input[type="radio"]:checked + .radio_circle::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.radio:nth-of-type(1) input[type="radio"]:checked + .radio_circle::before {
   border: 1px solid #72C2F8;
+  /* background-color: #72C2F8; */
 }
 
-.input_radio_medium::after {
+.radio:nth-of-type(2) input[type="radio"]:checked + .radio_circle::before {
+
   border: 1px solid #F3B249;
 }
 
-.input_radio_high::after {
+.radio:nth-of-type(3) input[type="radio"]:checked + .radio_circle::before {
   border: 1px solid #EA3D65;
 }
 
-.input_radio_low:checked {
-  content: '';
-  position: absolute;
-  left: -2.5px;
-  right: 0px;
-  transform: translateX(11%);
-  width: 14px;
-  height: 14px;
-  background-color: #ffffff;
-  border: 1px solid #72C2F8;
-  /* border: 1px solid #72C2F8; */
-  border-radius: 100%;
-  opacity: 1;
-  pointer-events: none;
-  z-index: 1;
+
+/* .radio:hover .radio_circle {
+  border-color: #555;
 }
+
+.radio:hover input[type="radio"]:checked + .radio_circle::before {
+  background-color: #555;
+} */
+/* ------------------------------ */
+
 
 .title_container {
   margin-bottom: 18px;

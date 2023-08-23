@@ -7,17 +7,27 @@ import { ToggleTheme } from './ThemeToggler/ToggleTheme';
 import { FeedbackBtn } from 'components/Header/FeedbackBtn/FeedbackBtn';
 import { UserInfo } from './UserInfo/UserInfo';
 import { FeedbackModal } from './FeedbackModal/FeedbackModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ModalSideBar } from 'components/Modal/ModalSideBar';
-// import { selectTasks } from '../../redux/tasks/selectors';
-// import { useSelector } from 'react-redux';
+import { selectTasks } from '../../redux/tasks/selectors';
+import { useSelector } from 'react-redux';
 
 export const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [showSideBar, setShowSideBar] = useState(false);
+  const [showGooseImage, setShowGooseImage] = useState(false);
 
-  // let showGooseImage = useSelector(selectTasks);
-     let showGooseImage = true;
+  let getTask = useSelector(selectTasks);
+
+ // Перевірка наявності tasks
+ useEffect(() => {
+  if (getTask[0]) {
+    setShowGooseImage(true);
+  } else {
+    setShowGooseImage(false);
+  }
+}, [showGooseImage, getTask]);
+
 
   // Modal for Review
   const openModal = () => {

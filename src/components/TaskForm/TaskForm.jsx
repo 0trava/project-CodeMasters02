@@ -131,10 +131,12 @@ const dispatch = useDispatch();
                   type="radio"
                   name="priority"
                   value="low"
+                  className={css.input_low}
                   // checked={priority === "low"}
                   onChange={handleRadioChange}
                   // required
                 />
+                <div className={css.radio_circle}></div>
                 <span className={css.input_radio_low}>Low</span> 
               </label>
             </div>
@@ -145,9 +147,11 @@ const dispatch = useDispatch();
                   type="radio"
                   name="priority"
                   value="medium"
+                  className={css.input_medium}
                   // checked={priority === "medium"}
                   onChange={handleRadioChange}
                 />
+                <div className={css.radio_circle}></div>
                 <span className={css.input_radio_medium}>Medium</span>
               </label>
             </div>
@@ -158,13 +162,15 @@ const dispatch = useDispatch();
                   type="radio"
                   name="priority"
                   value="high"
+                  className={css.input_high}
                   // checked={priority === "high"}
                   onChange={handleRadioChange} 
-
                 />
+                <div className={css.radio_circle}></div>
                 <span className={css.input_radio_high} >High</span>
               </label>
             </div>
+            
           </div>
 
           <div className={css.button_container}>

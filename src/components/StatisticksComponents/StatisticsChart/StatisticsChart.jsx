@@ -53,6 +53,7 @@ export const StatisticsChart = ({ data }) => {
         }}
         barCategoryGap={170}
         barGap={14}
+        
       >
         <defs>
           <linearGradient id="dayGradient" x1="0" y1="0" x2="0" y2="1">
@@ -71,7 +72,7 @@ export const StatisticsChart = ({ data }) => {
           dataKey="name"
           fontSize={14}
           fontWeight={400}
-          stroke={'#343434'}
+          stroke={'var(--text-color)'}
           axisLine={false}
           tickLine={false}
         />
@@ -80,7 +81,7 @@ export const StatisticsChart = ({ data }) => {
           tickCount={6}
           fontSize={14}
           fontWeight={400}
-          stroke={'#343434'}
+          stroke={'var(--text-color)'}
           axisLine={false}
           tickLine={false}
           tickMargin={64}
@@ -107,18 +108,19 @@ export const StatisticsChart = ({ data }) => {
           <LabelList
             dataKey="dayPercentage"
             position="top"
-            fontSize={16}
+            fontSize={14}
             fontWeight={500}
-            fill="#343434"
+            stroke={'var(--text-color)'}
           />
         </Bar>
         <Bar dataKey="month" fill="url(#monthGradient)" barSize={27} radius={8}>
           <LabelList
             dataKey="monthPercentage"
             position="top"
-            fontSize={16}
-            fontWeight={500}
-            fill="#343434"
+            fontFamily='Inter'
+            fontSize={14}
+            fontWeight={400}
+            stroke={'var(--text-color)'}
           />
         </Bar>
       </BarChart>
