@@ -1,24 +1,16 @@
 import React from 'react';
 
-const StarRating = ({ rating, id }) => {
-    const test = (index) => {
-        if (Number(rating) === index + 1) {
-            return " ";
-        }
-    }
-
-
+const StarRating = ({ rating }) => {
   const radioInputs = Array.from({ length: 5 }, (_, index) => (
     <React.Fragment key={index}>
       <input
         type="radio"
-        id={`star${id}${index + 1}`}
-        name={`star${id}${index + 1}`}
+        id={`star${index + 1}`}
+        name={`star`}
         value={index + 1}
-        className="star"
-        defaultChecked={test(index + 1)}
+        checked={rating === index + 1}
       />
-      <label htmlFor={`star${id}${index + 1}`} title={`${index + 1} star`}></label>
+      <label htmlFor={`star${index + 1}`} title={`${index + 1} star`}></label>
     </React.Fragment>
   ));
 

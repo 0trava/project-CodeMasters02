@@ -53,11 +53,6 @@
   }
 }
   /* ---------------- */
-  
- .review__header .rating {
-  pointer-events: none;
- }
-
   .rating:not(:checked) > input {
     position: absolute;
     appearance: none;

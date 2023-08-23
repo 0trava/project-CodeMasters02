@@ -43,6 +43,7 @@ export const ToggleTheme = () => {
       document.documentElement.setAttribute('data-theme', "dark")
 
     }
+    
     dispatch();
   }
   return (

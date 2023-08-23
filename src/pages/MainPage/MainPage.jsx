@@ -24,7 +24,7 @@ export const MainPage = (e) => {
         <img className='mainPage__hero-logo' src={heroLogo} alt="logo"/>
         <h1 className='mainPage__hero-title'>G<span>oo</span>seTrack</h1>
         <div className='mainPage__hero-box'>
-            <a className='mainPage__hero-link' href={ROUTES.REGISTER}>Sign up</a>
+            <a className='mainPage__hero-link' href={navigate(ROUTES.REGISTER)}>Sign up</a>
             <button className="mainPage__hero-btn" type='button' onClick={() => {navigate(ROUTES.LOGIN)}}>
               Log in
               <span>
