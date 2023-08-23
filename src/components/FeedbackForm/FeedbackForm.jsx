@@ -16,15 +16,22 @@ export const FeedbackForm =  ({ onClose }) => {
   const [changeReview, setChangeReview] = useState(false);
   const [valueText, setValueText] = useState("");
   const [editRating, setEditRating] = useState(false);
+  const [selectedRating, setSelectedRating] = useState(rating);
+
   let Review = text;
   let Rating = rating;
 
+  // Перевірка наявності рейтингу на старті
   useEffect(() => {
-    console.log(editRating);
     if (Rating) {
       setEditRating(true);
     }
   }, [Rating]);
+
+  // Зберігаємо данні рейтинга
+  const handleChangeRating = (value) => {
+    setSelectedRating(value);
+  };
   
 
 
@@ -48,18 +55,16 @@ export const FeedbackForm =  ({ onClose }) => {
     setValueText("");
     setChangeReview(false);
     document.getElementById('textarea').removeAttribute('readOnly');
-    const TEST = document.getElementById('textarea');
     document.getElementById('textarea').value = "";
     setEditRating(false);
+    Rating= "";
     
   };
 
   // COMMAND - add Review
   const changeAddReview = async (e) => {
     e.preventDefault();
-    // !!!!!! RATING TEST
-    console.log(e.target.rating)
-    const rating = 1;
+    const rating = selectedRating;
     const text = valueText;
     setEditRating(true);
 
@@ -74,8 +79,7 @@ export const FeedbackForm =  ({ onClose }) => {
    // COMMAND - change (edit) Review
   const cahngeEditReview = async (e) => {
       e.preventDefault();
-      // !!!!!! RATING TEST
-      const rating = 5;
+      const rating = selectedRating;
       const text = valueText;
 
       if ( text || rating) {
@@ -115,7 +119,8 @@ export const FeedbackForm =  ({ onClose }) => {
         <div className={editRating ? "FeedbackForm__StarRating-save" : "FeedbackForm__StarRating"}>
           <StarRating 
           rating={Rating} 
-          className="FeedbackForm__StarRating"/>
+          className="FeedbackForm__StarRating"
+          handleChangeRating={handleChangeRating}/>
         </div>
 
 

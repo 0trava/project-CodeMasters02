@@ -52,7 +52,13 @@
     margin-left: 70px;    
   }
 }
-  /* ---------------- */
+  /* ------STAR RATING ---------- */
+ .review_starrating {
+  pointer-events: none;
+ }
+
+
+
   .rating:not(:checked) > input {
     position: absolute;
     appearance: none;

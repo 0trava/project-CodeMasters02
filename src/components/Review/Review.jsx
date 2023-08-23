@@ -1,12 +1,12 @@
 import React from 'react';
 import reviewImg from '../WORK-file/Review_1.png';
 import './Review.css';
-import StarRating from 'components/FeedbackForm/StarRating/StarRating';
+import {ReviewStarRating} from './StarRating/ReviewStarRating'
 
 export const Review = ({review}) => {
 
   // eslint-disable-next-line
-  const {rating, owner, text, avatar, id } = review;
+  const {rating, owner, text, avatar } = review;
 
   return (
     <div>
@@ -18,9 +18,9 @@ export const Review = ({review}) => {
             <p>{owner.name[0]}</p>
           )}
         </div>
-        <div>
+        <div className='review_starrating'>
           <h3 className="review__name">{owner.name}</h3>
-          {/* <StarRating rating={rating} id={id}/> */}
+          <ReviewStarRating rating={rating} _id={owner._id}/>
         </div>
       </div>
       <p className="review__comment">{text}</p>
