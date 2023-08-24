@@ -63,7 +63,8 @@ code {
   --calendar-btn-hover: #3E85F3;
   --review-btn: #21222C;
   --revie-bt-hover: #EFEFEF;
-
+ 
+  --icon-pensil-bacground: #bbdffa32;
   --text-color: #ffffff;
   --text-color-2: rgba(250, 250, 250, 0.30);
   --text-input: #ffffff;
@@ -87,6 +88,7 @@ code {
   --calendar-btn-hover: #CAE8FF;
   --review-btn: #E5EDFA;
   --revie-bt-hover: #CAE8FF;
+  --icon-pensil-bacground: #E3F3FF;
 
 
   --text-color: #343434;
