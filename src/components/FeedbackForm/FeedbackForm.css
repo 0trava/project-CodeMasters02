@@ -169,16 +169,14 @@ margin-bottom: 24px;
   padding: 5px;
   border-radius: 50px;
   border: none;
-  background-color: #E3F3FF;
+  background-color: var(--icon-pensil-bacground);
   cursor: pointer;
   fill: transparent;
   stroke: #3E85F3;
 }
 
 .btn_icon_pencil:hover,
-.btn_icon_pencil:focus,
-.iconPencil:hover,
-.iconPencil:focus {
+.btn_icon_pencil:focus {
 background-color: #3E85F3;
 fill: transparent;
 stroke: #ffffff;
@@ -196,9 +194,7 @@ stroke: #ffffff;
 }
 
 .btn_icon_trash:hover,
-.btn_icon_trash:focus,
-.icon_trash:hover,
-.icon_trash:focus {
+.btn_icon_trash:focus {
 background-color: #ea3d65dd;
 fill: #ffffff;
 }
