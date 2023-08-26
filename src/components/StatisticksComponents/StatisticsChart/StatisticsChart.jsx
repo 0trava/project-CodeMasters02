@@ -109,7 +109,10 @@ export const StatisticsChart = ({ data }) => {
             dataKey="dayPercentage"
             position="top"
             fontSize={14}
-            fontWeight={500}
+            fontWeight={400}
+            fontFamily={"Inter"}
+            textDecoration={"none"}
+            
             stroke={'var(--text-color)'}
           />
         </Bar>

@@ -1,6 +1,6 @@
 # project-CodeMasters02
 
-We are students of Group number 2 of GоIT academy 🔥 🚀. We named **"Code Masters"
+We are students of Group number 2 of GоIT academy 🔥 🚀. We named **"Code Masters"!!!!
 
 
 If you like our work, don't forget to put a ⭐
