@@ -12,8 +12,9 @@ If you like our work, don't forget to put a ⭐
 ### THIS PROJECT WAS CREATED BY:
 
 - :man_student:[**Team Lead:** Lytvyn Svetlana](https://github.com/0trava)
-- :man_student:[**Team Lead:**  Olena Harkusha](https://github.com/OlenaHarkusha)
-- :man_student:[**Scrum master** & **Full stack developer**: Olha Lushina](https://github.com/OlhaLushina)
+
+- :man_student:[**Team Lead:**  - Olha Lushina](https://github.com/OlhaLushina)
+- :man_student:[**Scrum master** & **Full stack developer**: Olena Harkusha](https://github.com/OlenaHarkusha)
 
 - :man_student:[**Full stack developer**: Anastasiia Ablieieva](https://github.com/Anastasiia-Ablieieva)
 - :man_student:[**Full stack developer**: Anatolii Koniev](https://github.com/Demag0g1)
