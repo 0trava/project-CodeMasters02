@@ -4,10 +4,12 @@ We are students of group named "Code Masters" of GоIT academy, group 68, team 5
 
 GooseTrack is an all-in-one productivity tool that helps you stay on top of your tasks, events, and deadlines. Say goodbye to scattered to-do lists and hello to streamlined productivity with GooseTrack.
 
+Our backend  <a href="https://github.com/OlhaLushina/project-CodeMasters02-backend">LINK</a>
+
 Made by design  <a href="https://www.figma.com/file/kXtsjq7Tts3YzolUVqgNsp/Goose-Track?node-id=0%3A1&t=1A4UeIYiOYEgfGkN-1">LINK</a>
 
 If you like our work, don't forget to put a ⭐
-THIS PROJECT WAS CREATED BY:
+### THIS PROJECT WAS CREATED BY:
 
 - :man_student:[**Team Lead:** Lytvyn Svetlana](https://github.com/0trava)
 - :man_student:[**Team Lead:**  Olena Harkusha](https://github.com/OlenaHarkusha)
